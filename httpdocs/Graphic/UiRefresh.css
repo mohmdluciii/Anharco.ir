@@ -27,13 +27,13 @@ body {
 }
 
 .topContainer .topBarContainer .logoContainer {
-    width: 108px;
-    height: 108px;
+    width: 90px;
+    height: 90px;
 }
 
 .topContainer .topBarContainer .logoContainer img {
-    width: 108px;
-    height: 108px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
