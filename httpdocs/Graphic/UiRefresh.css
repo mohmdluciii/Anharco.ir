@@ -244,6 +244,7 @@ html[lang="ar"] .topSlideContainer .bottomText,
 .boxWhatWeDo {
     background: #fff !important;
     min-height: 0 !important;
+    text-align: center !important;
 }
 
 .boxWhatWeDo .picBoxMainPage {
@@ -952,6 +953,10 @@ html[lang="ar"] [class*=" fa-"]:before {
     background: #0B2D71 !important;
     background-image: none !important;
     overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .adsContainer::before,
@@ -1008,7 +1013,7 @@ html[lang="ar"] [class*=" fa-"]:before {
     z-index: 1;
     left: auto !important;
     right: auto !important;
-    width: auto !important;
+    width: 100% !important;
     max-width: 92%;
     display: block !important;
     visibility: visible !important;

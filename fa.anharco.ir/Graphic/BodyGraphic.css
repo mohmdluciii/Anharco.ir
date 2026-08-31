@@ -1332,7 +1332,7 @@ display :none;
 	color:#2c3c63;
 	display :inline-block ;
 	font-weight :900;
-	margin :0;
+	margin :0 auto;
 }
 
 .boxWhatWeDo .boxTitleTexSmall
@@ -1360,7 +1360,7 @@ display :none;
 	color:#000;
 	display :inline-block ;
 	font-weight :500;
-	margin :0;
+	margin :0 auto;
 }
 
 
@@ -4602,7 +4602,7 @@ display :none;
 	color:#000;
 	display :inline-block ;
 	font-weight :500;
-	margin :0;
+	margin :0 auto;
 }
 
 
@@ -7723,7 +7723,7 @@ z-index :10000000000000000000000000000000000;
 	color:#000;
 	display :inline-block ;
 	font-weight :500;
-	margin :0;
+	margin :0 auto;
 }
 
 
@@ -10838,7 +10838,7 @@ z-index :10000000000000000000000000000000000;
 	color:#000;
 	display :inline-block ;
 	font-weight :500;
-	margin :0;
+	margin :0 auto;
 }
 
 
@@ -13910,7 +13910,7 @@ z-index :10000000000000000000000000000000000;
 	color:#000;
 	display :inline-block ;
 	font-weight :500;
-	margin :0;
+	margin :0 auto;
 }
 
 
