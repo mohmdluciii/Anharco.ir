@@ -7,6 +7,33 @@ Imports System.Web
 Imports System.Xml
 
 Public Module PanelUserStore
+    ' --- Password hashing ---
+    Private Function HashPassword(ByVal plain As String) As String
+        If String.IsNullOrEmpty(plain) Then Return plain
+        Try
+            Using sha As System.Security.Cryptography.SHA256 = System.Security.Cryptography.SHA256.Create()
+                Dim bytes() As Byte = System.Text.Encoding.UTF8.GetBytes("anhar_salt_" & plain & "_2026")
+                Dim hash() As Byte = sha.ComputeHash(bytes)
+                Dim sb As New StringBuilder()
+                For Each b As Byte In hash
+                    sb.Append(b.ToString("x2"))
+                Next
+                Return "sha256:" & sb.ToString()
+            End Using
+        Catch
+            Return plain
+        End Try
+    End Function
+
+    Private Function VerifyPassword(ByVal stored As String, ByVal plain As String) As Boolean
+        If String.IsNullOrEmpty(stored) Then Return False
+        If stored.StartsWith("sha256:") Then
+            Return String.Equals(stored, HashPassword(plain), StringComparison.Ordinal)
+        End If
+        ' Legacy plain-text comparison (backward compat)
+        Return String.Equals(stored, plain, StringComparison.Ordinal)
+    End Function
+
     Public Function XmlPath() As String
         Dim ctx As HttpContext = HttpContext.Current
         Dim data As String = ctx.Server.MapPath("~/App_Data")
@@ -88,8 +115,8 @@ Public Module PanelUserStore
         Dim n As XmlElement = doc.CreateElement("admin")
         SetAttr(n, "id", NextId(doc, "admin"))
         SetAttr(n, "username", username)
-        SetAttr(n, "password", password)
-        SetAttr(n, "code", code)
+        SetAttr(n, "password", HashPassword(password))
+        SetAttr(n, "code", HashPassword(code))
         SetAttr(n, "name", name)
         SetAttr(n, "lname", lname)
         SetAttr(n, "semat", semat)
@@ -106,7 +133,7 @@ Public Module PanelUserStore
         Dim n As XmlElement = doc.CreateElement("person")
         SetAttr(n, "id", NextId(doc, "person"))
         SetAttr(n, "username", username)
-        SetAttr(n, "password", password)
+        SetAttr(n, "password", HashPassword(password))
         SetAttr(n, "name", name)
         SetAttr(n, "semat", semat)
         SetAttr(n, "phone", phone)
@@ -125,7 +152,7 @@ Public Module PanelUserStore
         Dim n As XmlNode
         For Each n In LoadDoc().SelectNodes("/users/admin")
             If String.Equals(Attr(n, "username"), username, StringComparison.OrdinalIgnoreCase) Then
-                If Attr(n, "password") = password AndAlso Attr(n, "code") = code Then
+                If VerifyPassword(Attr(n, "password"), password) AndAlso VerifyPassword(Attr(n, "code"), code) Then
                     Return True
                 End If
             End If
@@ -137,7 +164,7 @@ Public Module PanelUserStore
         Dim n As XmlNode
         For Each n In LoadDoc().SelectNodes("/users/person")
             If String.Equals(Attr(n, "username"), username, StringComparison.OrdinalIgnoreCase) Then
-                If Attr(n, "password") = password Then
+                If VerifyPassword(Attr(n, "password"), password) Then
                     Return True
                 End If
             End If
@@ -153,9 +180,9 @@ Public Module PanelUserStore
         Else
             SetAttr(n, "username", username)
             If Not String.IsNullOrEmpty(password) Then
-                SetAttr(n, "password", password)
+                SetAttr(n, "password", HashPassword(password))
             End If
-            SetAttr(n, "code", code)
+            SetAttr(n, "code", HashPassword(code))
             SetAttr(n, "name", name)
             SetAttr(n, "lname", lname)
             SetAttr(n, "semat", semat)
@@ -177,7 +204,7 @@ Public Module PanelUserStore
         Else
             SetAttr(n, "username", username)
             If Not String.IsNullOrEmpty(password) Then
-                SetAttr(n, "password", password)
+                SetAttr(n, "password", HashPassword(password))
             End If
             SetAttr(n, "name", name)
             SetAttr(n, "semat", semat)

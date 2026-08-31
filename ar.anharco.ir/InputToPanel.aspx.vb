@@ -70,24 +70,49 @@ Partial Class InputToPanelLocal
     End Sub
 
     Protected Sub btn_go_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_go.Click
+        ' Brute-force protection
+        Dim clientIP As String = "unknown"
+        Try
+            clientIP = HttpContext.Current.Request.UserHostAddress
+        Catch
+        End Try
+
+        If Not BruteForceGuard.IsAllowed(clientIP) Then
+            Dim waitSec As Integer = BruteForceGuard.WaitSeconds(clientIP)
+            Dim waitMin As Integer = CInt(Math.Ceiling(waitSec / 60.0))
+            lblErr.Text = "تعداد تلاش‌های ناموفق بیش از حد مجاز است. لطفاً " & waitMin.ToString() & " دقیقه صبر کنید."
+            ApplyMode()
+            Return
+        End If
+
         Dim uid As String = txtUID.Text.Trim()
         Dim pwd As String = txtPWD.Text.Trim()
         Dim code As String = txtcode.Text.Trim()
 
+        Dim loginOk As Boolean = False
         If IsManagerMode() Then
             If (uid = LocalUser AndAlso pwd = LocalPass AndAlso code = LocalCode) OrElse PanelUserStore.ValidateAdmin(uid, pwd, code) Then
-                LocalPanelSupport.BindAdminSession(uid)
-                Response.Redirect("empty.aspx", True)
-                Return
+                loginOk = True
             End If
         Else
             If (uid = LocalPersonUser AndAlso pwd = LocalPersonPass) OrElse PanelUserStore.ValidatePerson(uid, pwd) Then
-                LocalPanelSupport.BindPersonSession(uid)
-                Response.Redirect("KartablePerson.aspx", True)
-                Return
+                loginOk = True
             End If
         End If
 
+        If loginOk Then
+            BruteForceGuard.ClearFailures(clientIP)
+            If IsManagerMode() Then
+                LocalPanelSupport.BindAdminSession(uid)
+                Response.Redirect("empty.aspx", True)
+            Else
+                LocalPanelSupport.BindPersonSession(uid)
+                Response.Redirect("KartablePerson.aspx", True)
+            End If
+            Return
+        End If
+
+        BruteForceGuard.RecordFailure(clientIP)
         lblErr.Text = "نام کاربری یا رمز اشتباه است"
         ApplyMode()
     End Sub

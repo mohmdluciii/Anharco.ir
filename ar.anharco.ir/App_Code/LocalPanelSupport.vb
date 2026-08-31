@@ -118,6 +118,7 @@ Public Module LocalPanelSupport
         End If
         Dim ck As New HttpCookie(AuthCookieName, role)
         ck.HttpOnly = True
+        ck.Secure = HttpContext.Current.Request.IsSecureConnection
         ck.Path = "/"
         ck.Expires = DateTime.Now.AddDays(1)
         ctx.Response.Cookies.Set(ck)
