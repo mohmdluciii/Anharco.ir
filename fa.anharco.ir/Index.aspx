@@ -6,7 +6,7 @@
 <head runat="server">
     <title><%=Session("site_title")%></title>
       <link href="graphic/BodyGraphic.css?v=bidiFix2" rel="stylesheet" />
-    <link href="graphic/UiRefresh.css?v=langFix2" rel="stylesheet" />
+    <link href="graphic/UiRefresh.css?v=centerFix2" rel="stylesheet" />
     <link href="JS/swiper-bundle.min.css" rel="stylesheet" />
     <link rel="shortcut icon" href="<%=Session("site_favicon")%>" />
     <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
@@ -319,7 +319,7 @@
           </div>
           <div class ="boxWhatWeDo">
             <div class ="boxTitleTex">
-                <p>شرکت انهار</p>
+                <p align="center">شرکت انهار</p>
             </div>    
             <div class ="boxTitleTexBig">
                 <p>معرفی اهم پروژه ها </p>
