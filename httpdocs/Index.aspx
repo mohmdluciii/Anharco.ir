@@ -6,7 +6,7 @@
 <head runat="server">
     <title><%=Session("site_title")%></title>
       <link href="graphic/BodyGraphic.css?v=bidiFix2" rel="stylesheet" />
-    <link href="graphic/UiRefresh.css?v=centerFix2" rel="stylesheet" />
+    <link href="graphic/UiRefresh.css?v=logo108" rel="stylesheet" />
     <link href="JS/swiper-bundle.min.css" rel="stylesheet" />
     <link rel="shortcut icon" href="<%=Session("site_favicon")%>" />
     <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
