@@ -117,9 +117,9 @@ Public Module TranslationHelper
         Dim siteDir As String = ""
         Select Case lang.ToLowerInvariant()
             Case "fa"
-                siteDir = "Fa"
+                siteDir = "fa.anharco.ir"
             Case "ar"
-                siteDir = "Ar"
+                siteDir = "ar.anharco.ir"
             Case "en"
                 siteDir = "httpdocs"
             Case Else

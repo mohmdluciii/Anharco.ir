@@ -6,8 +6,8 @@ Start-Sleep -Seconds 1
 
 $sites = @(
     @{ Path = Join-Path $root "httpdocs"; Port = 8080 },
-    @{ Path = Join-Path $root "Fa"; Port = 8081 },
-    @{ Path = Join-Path $root "Ar"; Port = 8082 }
+    @{ Path = Join-Path $root "fa.anharco.ir"; Port = 8081 },
+    @{ Path = Join-Path $root "ar.anharco.ir"; Port = 8082 }
 )
 
 foreach ($site in $sites) {

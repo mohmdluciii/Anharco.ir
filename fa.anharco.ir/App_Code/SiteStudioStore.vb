@@ -49,10 +49,10 @@ Public Module SiteStudioStore
         End Try
         Dim root As String = ctx.Server.MapPath("~/").TrimEnd("\"c)
         Dim name As String = Path.GetFileName(root)
-        If String.Equals(name, "Fa", StringComparison.OrdinalIgnoreCase) Then
+        If String.Equals(name, "fa.anharco.ir", StringComparison.OrdinalIgnoreCase) OrElse String.Equals(name, "Fa", StringComparison.OrdinalIgnoreCase) Then
             Return "fa"
         End If
-        If String.Equals(name, "Ar", StringComparison.OrdinalIgnoreCase) Then
+        If String.Equals(name, "ar.anharco.ir", StringComparison.OrdinalIgnoreCase) OrElse String.Equals(name, "Ar", StringComparison.OrdinalIgnoreCase) Then
             Return "ar"
         End If
         If name IsNot Nothing Then
@@ -127,9 +127,9 @@ Public Module SiteStudioStore
         lang = NormalizeLang(lang)
         Dim folder As String = "httpdocs"
         If lang = "fa" Then
-            folder = "Fa"
+            folder = "fa.anharco.ir"
         ElseIf lang = "ar" Then
-            folder = "Ar"
+            folder = "ar.anharco.ir"
         End If
         Dim candidate As String = Path.Combine(parent, folder)
         If Directory.Exists(candidate) Then
