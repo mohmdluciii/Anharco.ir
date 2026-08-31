@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<visits>
+  <total>62</total>
+  <unique>59</unique>
+  <days>
+    <day id="2026-08-26" hits="5" unique="5" />
+    <day id="2026-08-29" hits="48" unique="45" />
+    <day id="2026-08-31" hits="9" unique="9" en-hits="6" />
+  </days>
+  <langs>
+    <lang id="en" hits="62" />
+  </langs>
+</visits>

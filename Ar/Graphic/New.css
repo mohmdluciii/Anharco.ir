@@ -1,0 +1,9126 @@
+﻿@import url('../persian-font.css');
+
+@media screen and (min-width: 1px) and (max-width: 469px)
+{
+     /*menu Section*/
+	#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a,
+#cssmenu #menu-button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+#cssmenu #menu-button {
+  display: none;
+}
+#cssmenu {
+  width: auto;
+  font-family:yekan,arial;
+  background: nono;
+}
+#cssmenu > ul {
+  background: url('images/bg.png');
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.05);
+  
+}
+#cssmenu.align-right > ul > li {
+  float: right;
+}
+#cssmenu > ul > li {
+  float: left;
+  display: inline-block;
+
+  
+}
+#cssmenu.align-center > ul {
+  float: none;
+  text-align: center;
+}
+#cssmenu.align-center > ul > li {
+  float: none;
+}
+#cssmenu.align-center ul ul {
+  text-align: left;
+  
+}
+#cssmenu > ul > li > a 
+{
+	
+  padding:   18px    25px 21px  45px;
+  border-right: 1px solid rgba(80, 80, 80, 0.12);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  
+  
+}
+#cssmenu > ul > li:hover > a,
+#cssmenu > ul > li > a:hover,
+#cssmenu > ul > li.active > a {
+  color: #D9D9D9;
+  background: #fff;
+  background: rgba(0, 0, 0, 0.1);
+}
+#cssmenu > ul > li.has-sub > a {
+  padding-right: 10px;
+}
+#cssmenu > ul > li.has-sub > a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 0px solid transparent;
+  border-top-color: #ffffff;
+  right: 17px;
+  top: 22px;
+}
+#cssmenu > ul > li.has-sub.active > a::after,
+#cssmenu > ul > li.has-sub:hover > a {
+  border-top-color: #ffffff;
+}
+#cssmenu ul ul {
+  position: absolute;
+  left: -9999px;
+  top: 60px;
+  padding-top: 6px;
+  font-size: 13px;
+  opacity: 0;
+  -webkit-transition: top 0.2s ease, opacity 0.2s ease-in;
+  -moz-transition: top 0.2s ease, opacity 0.2s ease-in;
+  -ms-transition: top 0.2s ease, opacity 0.2s ease-in;
+  -o-transition: top 0.2s ease, opacity 0.2s ease-in;
+  transition: top 0.2s ease, opacity 0.2s ease-in;
+}
+#cssmenu.align-right ul ul {
+  text-align: right;
+}
+#cssmenu > ul > li > ul::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-bottom-color: #282828;
+  top: -4px;
+  left: 20px;
+}
+#cssmenu.align-right > ul > li > ul::after {
+  left: auto;
+  right: 20px;
+}
+#cssmenu ul ul ul::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-right-color: #ffffff;
+  top: 11px;
+  left: -4px;
+}
+#cssmenu.align-right ul ul ul::after {
+  border-right-color: transparent;
+  border-left-color: #ffffff;
+  left: auto;
+  right: -4px;
+}
+#cssmenu > ul > li > ul {
+  top: 120px;
+}
+#cssmenu > ul > li:hover > ul {
+  top: 52px;
+  left: 0;
+  opacity: 1;
+}
+#cssmenu.align-right > ul > li:hover > ul {
+  left: auto;
+  right: 0;
+}
+#cssmenu ul ul ul {
+  padding-top: 0;
+  padding-left: 6px;
+}
+#cssmenu.align-right ul ul ul {
+  padding-right: 6px;
+}
+#cssmenu ul ul > li:hover > ul {
+  left: 180px;
+  top: 0;
+  opacity: 1;
+}
+#cssmenu.align-right ul ul > li:hover > ul {
+  left: auto;
+  right: 100%;
+  opacity: 1;
+}
+#cssmenu ul ul li a {
+  text-decoration: none;
+  font-weight: 400;
+  font-size :13pt;
+  font-family :yekan,arial;
+  padding: 11px  35px;
+  width: 180px;
+  color: #fff;
+  text-align :center ;
+  background: #5F5CDD;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.1), -1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+#cssmenu ul ul li:hover > a,
+#cssmenu ul ul li.active > a {
+  color: #fff;
+}
+#cssmenu ul ul li:first-child > a {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+#cssmenu ul ul li:last-child > a {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+#cssmenu > ul > li > ul::after {
+  position: absolute;
+  display: block;
+}
+#cssmenu ul ul li.has-sub > a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-left-color: #777777;
+  right: 17px;
+  top: 14px;
+}
+#cssmenu.align-right ul ul li.has-sub > a::after {
+  border-left-color: transparent;
+  border-right-color: #777777;
+  right: auto;
+  left: 17px;
+}
+#cssmenu ul ul li.has-sub.active > a::after,
+#cssmenu ul ul li.has-sub:hover > a::after {
+  border-left-color: #333333;
+}
+#cssmenu.align-right ul ul li.has-sub.active > a::after,
+#cssmenu.align-right ul ul li.has-sub:hover > a::after {
+  border-right-color: #333333;
+  border-left-color: transparent;
+}
+
+/*menu Section*/
+    html,body
+    {
+        margin :0;
+        padding :0;
+    }
+
+    .Menu_MainPageBox
+    {
+        position :relative ;
+        top:0px;
+        left:0px;
+        width :100%;
+        min-height:100px;
+        background :#FFFFFF;
+        display :inline-block ;
+        text-align :center ;
+        margin :0;
+        padding :0;
+        border-bottom :1px solid #C4C4C4;  
+        direction :rtl;
+    }
+    
+    .Menu_Container
+    {
+        position :relative ;
+        top:0px;
+        float :left ;
+        width :100%;
+        min-height:100px;
+        background :#FFFFFF;
+        display :inline-block ;
+        text-align :center ;
+        margin :0;
+        padding :0;
+        direction :rtl;
+    }
+    
+    .Logo_Container
+    {
+         position :relative ;
+        top:0px;
+        float:none;
+        margin-left :auto ;
+        margin-right :auto ;
+        width :100%;
+        min-height:100px;
+        background :#FFFFFF;
+        display :inline-block ;
+        text-align :center ;
+        margin :0;
+        padding :0;
+        background-image :url(../images/LogoSpad.png);
+        background-repeat :no-repeat ;
+        background-position:center  center ;    
+        
+
+    }
+    .bannerContainer
+	{
+		position :relative ;
+		top:0px;
+		left:0px;
+		width:100%;
+		min-height:250px;
+		background :none;
+		display :inline-block ;
+		border-bottom :1px solid #C1ECE3;
+	}
+	
+	.about_MainPage
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height :600px;
+	    display :inline-block ;
+	    text-align :right  ;
+	}
+	
+	.about_Container
+	{
+	    position:relative ;
+	    top:0px;
+	    float:left  ;
+	    width :98%;
+	    min-height :600px;
+	    display :inline-block ;
+	    border-right :1px solid #E5E5E5;
+	    border-left :1px solid #E5E5E5;
+	}
+	
+	.about_Container .box_Content
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :100%;
+	    padding :0;
+	    margin :0;
+	    border-left :0px solid #E5E5E5;
+	     min-height :250px;
+	}
+	
+	.about_Container .titleBox
+	{
+	    position :relative ;
+	    margin-top :0%;
+	    float:right ;
+	    width :100%;
+	    min-height :50px;
+	    line-height :50px;
+	    font-size :16pt;
+	    font-family :yekan,arial;
+	    text-align :right ;
+	    color:#000;
+	}
+	
+	
+	.about_Container .TextBox
+	{
+	    position :relative ;
+	    float:right ;
+	    width :90%;
+	    min-height :100px;
+	    line-height :100px;
+	    font-size :10pt;
+	    font-family :yekan,arial;
+	    text-align :right ;
+	    color:#000;
+	}
+	
+	.about_Container .TextBox p
+	{
+	  
+	    float:right ;
+	    width :100%;
+	    font-size :10pt;
+	    font-family :yekan,arial;
+	    text-align :justify  ;
+	    color:#000;
+	    line-height :30px;
+	    direction :rtl;
+	}
+	
+	.about_Container .ButtonBox
+	{
+	    position :relative ;
+	    float:right ;
+	    width :100%;
+	    min-height :80px;
+	    line-height :80px;
+	    text-align :right ;
+	    color:#000;
+	}
+	
+	.about_Container .ButtonBox p
+	{
+	  
+	    float:right ;
+	    width :100%;
+	    font-size :10pt;
+	    font-family :yekan,arial;
+	    text-align :justify  ;
+	    color:#000;
+	    direction :rtl;
+	    height :50px;
+	}
+	
+	.about_Container .ButtonBox p input
+	{
+	    border:0;
+	    cursor:pointer ;
+	    border-right :4px solid #5F5CDF;
+	    background :#09B295;
+	    text-align :center ;
+	    color:#fff;
+	    font-family :yekan,arial;
+	    font-size :11pt;
+	    padding :10px 25px 10px 25px;
+	}
+	
+	.about_Container .ButtonBox p input:hover
+	{
+	    background :#454545;
+	}
+	
+	.about_Container .imageBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :left ;
+	    margin :0;
+	    padding :0;
+	    width :80%;
+	    
+	}
+	
+	.about_Container .imageBox .img1
+	{
+	    position:absolute   ;
+	    top:0px;
+	    float :left ;
+	    left :-100px;
+	    width:45%;
+	    border-top-right-radius:5px;
+	    border-bottom-right-radius:5px;
+	    box-shadow:5px 5px 15px #999;
+	    z-index :2;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	
+	.about_Container .imageBox .img1_view
+	{
+	    left :0px;
+	}
+	
+	.about_Container .imageBox .img2
+	{
+	    position:absolute  ;
+	    top:60px;
+	    float :left ;
+	    left :-100px;
+	    width:35%;	    
+	    border-top-right-radius:5px;
+	    border-bottom-right-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :3;
+	    -webkit-transition:left 1.6s; /* For Safari 3.1 to 6.0 */
+        transition:left 1.6s;
+	}
+	.about_Container .imageBox .img2_view
+	{
+	    left :0px;
+	}
+	.about_Container .imageBox .img3
+	{
+	    position:absolute  ;
+	    top:65px;
+	    float :left ;
+	    left :-190px;
+	    width:45%;
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :1;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img3_view
+	{
+	    left :70px;
+	}
+	.about_Container .imageBox .img4
+	{
+	    position:absolute  ;
+	    top:120px;
+	    float :left ;
+	    left :-310px;
+	    width:45%;
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :2;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img4_view
+	{
+	    left :150px;
+	}
+	.about_Container .imageBox .img5
+	{
+	    position:absolute  ;
+	    top:130px;
+	    float :left ;
+	    left :-50px;
+	    width:35%;
+	    height:56px;
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :3;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img5_view
+	{
+	    left :30px;
+	}
+	.about_Container .imageBox .img6
+	{
+	    position:absolute  ;
+	    top:160px;
+	    float :left ;
+	    left :-110px;
+	    width:50%;
+	   
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :2;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img6_view
+	{
+	    left :100px;
+	}
+	
+	.Services_MainBox
+	{
+	    position :relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height :770px;
+	    display :inline-block ;
+	    background :#262626;
+	    text-align :left ;
+	}
+	.Services_Container
+	{
+	    position :relative ;
+	    top:0px;
+	    float :left ;
+	    width :98%;
+	    display :inline-block ;
+	    min-height :770px;
+	}
+	
+	.Services_Container .rightBoxContainer
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right;
+	    right:0px;
+	    width :100%;
+	    margin :0;
+	    padding :0;
+	    min-height :600px;
+
+	}
+	
+	
+	
+	
+	
+	.Services_Container .rightBoxContainer .contentBox
+	{
+	    position:relative ;
+	    float :none ;
+	    margin-left :auto ;
+	    margin-right :auto ;
+	    top:10px;
+	    width :100%;
+	    min-height:500px;
+        
+
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float:none ;
+	    margin-left :auto ;
+	    margin-right :auto ;
+	    right :-500px;
+	    min-height:225px;
+	    width :98%;
+	    background :#161616;
+	    margin-left :10px;
+	    display :inline-block ;
+	    text-align :center ;
+	    margin-top :5px;
+	    -webkit-transition:background 1s,right 1.5s; /* For Safari 3.1 to 6.0 */
+        transition:background 1s,right 1.5s;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox_view
+	{
+	    right :5px;
+	}
+	
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox:hover
+	{
+	    background :#050521;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox
+	{
+	    position:relative ;
+	    display:inline-block ;
+	    width :90%;
+	    min-height:200px;
+	}
+	
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .topBox
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:77px;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .topBox span
+	{
+	    position :absolute ;
+	    top:23px;
+	    left:18px;
+	    font-family :Calibri ;
+	    color:#fff;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .topBox img
+	{
+	    position :absolute ;
+	    top:23px;
+	    left:40px;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .titleBox
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:50px;
+	    line-height :50px;
+	    font-family :yekan,arial;
+	    font-size :14pt;
+	    color:#fff;
+	    text-align :right ;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .AmountTextBox
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:54px;
+	    line-height :20px;
+	    font-family :yekan,arial;
+	    font-size :9pt;
+	    color:#9D9D9D;
+	    text-align :right ;
+	    margin-top :10px;
+	}
+	.Services_Container .LeftBoxContainer
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right;
+	    width :98%;
+	    margin :0;
+	    padding :0;
+	    min-height :500px;
+  
+	}
+	
+	.Services_Container .LeftBoxContainer .contentBox
+	{
+	    position:relative ;
+	    float :right ;
+	    top:0px;
+	    width :100%;
+	    min-height:500px;
+
+	}
+	.Services_Container .LeftBoxContainer .contentBox .titleBox
+	{
+	    position:relative ;
+	    float :right ;
+	    top:0px;
+	    width :100%;
+	    min-height:40px;
+	    padding-right :5px;
+	    padding-top :5px;
+	    font-size :18pt;
+	    font-family :yekan,arial;
+	    color:#fff;
+	    text-align :right;
+	    direction :rtl;
+
+
+	}
+	
+	
+	.Services_Container .LeftBoxContainer .contentBox .MenuBox
+	{
+	    position:relative ;
+	    float :right ;
+	    top:0px;
+	    width :100%;
+	    min-height:330px;
+	}
+	
+	.Myul
+	{
+		position :relative ;
+		top:0px;
+		right:0px;
+		float :right  ;
+		width:100%;
+		margin :0;
+		display :block ;
+		padding :0px 0px 0px 0px;
+		list-style-type: none;
+		text-align :right ;
+		 direction :rtl;
+	}
+	
+	.Myul li.section1
+	{
+	    width :100%;
+	    margin-bottom :50px;
+	    cursor:pointer ;
+	}
+	#myAccount1
+	{
+	    font-family :yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    text-align :right ;
+	    text-decoration :none;
+	    cursor:pointer ;
+	    direction :rtl;
+        background :#5F5CDF;
+        width:100%;
+
+	}
+	
+	#myAccount1 span
+	{
+	    background :#262626;
+	}
+	#myAccountBox1 li
+	{
+	    float :right ;
+	    font-family:yekan,arial;
+	    font-size :9pt;
+	    text-align :justify  ;
+	    color:#A8A8A8;
+	    direction :rtl;
+	    line-height :25px;
+	    width :100%;
+	     padding :10px 10px 10px 10px;
+	    margin-right :0px;
+	    list-style :none;
+	    background :#262626;
+	    
+	}
+	#myAccountBox1  div
+	{
+	    width :95%;
+	    text-align :justify  ;
+	}
+	
+	/*part*/
+	
+	.Myul li.section2
+	{
+	    width :100%;
+	   margin-bottom :50px;
+	    cursor:pointer ;
+	}
+	
+	#myAccount2
+	{
+	    font-family :yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    text-align :right ;
+	    text-decoration :none;
+	    cursor:pointer ;
+	    direction :rtl;
+	    width:100%;
+
+	}
+	
+	#myAccount2 span
+	{
+	    background :#262626;
+	}
+	#myAccountBox2 li
+	{
+	    float :right ;
+	    font-family:yekan,arial;
+	    font-size :9pt;
+	    text-align :justify  ;
+	    color:#A8A8A8;
+	    direction :rtl;
+	    line-height :25px;
+	    width :100%;
+	    padding :10px 10px 10px 10px;
+	    margin-right :0px;
+	    list-style :none;
+	    background :#262626;
+	    
+	}
+	
+	#myAccountBox2  div
+	{
+	    width :95%;
+	    text-align :justify  ;
+	}
+	
+	/*part*/
+	
+	.Myul li.section3
+	{
+	    width :100%;
+	   
+	    cursor:pointer ;
+	    margin-bottom :50px;
+	}
+	
+	#myAccount3
+	{
+	    font-family :yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    text-align :right ;
+	    text-decoration :none;
+	    cursor:pointer ;
+	    direction :rtl;
+	    width:100%;
+        
+	}
+	
+	#myAccount3 span
+	{
+	    background :#262626;
+	}
+	#myAccountBox3 li
+	{
+	    float :right ;
+	    font-family:yekan,arial;
+	    font-size :9pt;
+	    text-align :justify  ;
+	    color:#A8A8A8;
+	    direction :rtl;
+	    line-height :25px;
+	    width :100%;
+	    padding :10px 10px 10px 10px;
+	    margin-right :0px;
+	    list-style :none;
+	    background :#262626;
+	    
+	}
+	
+	#myAccountBox3  div
+	{
+	    width :95%;
+	    text-align :justify  ;
+	}
+	
+	.PictureBoxMain
+	{
+	    position:relative ;
+	    top:0px;
+	    left :0px;
+	    width :100%;
+	    min-height :940px;
+	    background :#fff;
+	    display :inline-block ;
+	    text-align :center ;
+	}
+	.pictureBoxContainer
+	{
+	    position :relative ;
+	    width :98%;
+	    display:inline-block ;
+	    min-height :940px;
+	    
+	}
+	
+	.pictureBoxContainer .lageBox
+	{
+	    position :relative ;
+	    top:40px;
+	    float :right ;
+	    width :98%;
+	    margin :0;
+	    padding :0;
+	    border:1px solid #E6E6E6;
+	    min-height :200px;
+	     -webkit-transition:top 1.5s; /* For Safari 3.1 to 6.0 */
+        transition:top 1.5s;
+	}
+	.pictureBoxContainer .lageBox_view
+	{
+	    top:0px;
+	}
+	.pictureBoxContainer .lageBox .maskBox
+	{
+	    position :absolute ;
+	    top:0px;
+	    left :0px;
+	    width :0%;
+	    height :0%;
+	    display :block  ;
+	    background :rgb(0,0,0);
+	    background :rgba(0,0,0,0.3);
+	    z-index :1000;
+	     -webkit-transition:background 0.5s,width 0.1s,height 0.1s; /* For Safari 3.1 to 6.0 */
+        transition:background 0.5s,width 0.1s,height 0.1s;
+        overflow :hidden ;
+	}
+	
+	.pictureBoxContainer .lageBox:hover .maskBox
+	{
+	     width :100%;
+	    height :100%;
+	    display:block ;
+	    background :rgba(0,0,0,0.5);
+	}
+	
+	.pictureBoxContainer .lageBox .maskBox .AlertBox
+	{
+	    position:absolute ;
+	    float :none ;
+	    bottom :-180px;
+	    min-height:50px;
+	    width :80%;
+	    background :#6598FD;
+	    padding-top:10px;
+	    padding-bottom :10px;
+	    text-align :center ;
+	    font-family :Yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    margin-left :10% ;
+	    margin-right :10% ;
+	    border-right :4px solid #5F5CDD;
+	    -webkit-transition:bottom 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:bottom 1.8s;
+	}
+	
+	.pictureBoxContainer .lageBox:hover .maskBox .AlertBox
+	{
+	    bottom :0px;
+	}
+	
+
+.pictureBoxContainer .smallBox .maskBox
+	{
+	    position :absolute ;
+	    top:0px;
+	    left :0px;
+	    width :0%;
+	    height :0%;
+	    display :block  ;
+	    background :rgb(0,0,0);
+	    background :rgba(0,0,0,0.3);
+	    z-index :1000;
+	     -webkit-transition:background 0.5s,width 0.1s,height 0.1s; /* For Safari 3.1 to 6.0 */
+        transition:background 0.5s,width 0.1s,height 0.1s;
+        overflow :hidden ;
+	}
+	
+	.pictureBoxContainer .smallBox:hover .maskBox
+	{
+	     width :100%;
+	    height :100%;
+	    display:block ;
+	    background :rgba(0,0,0,0.5);
+	}
+	
+	.pictureBoxContainer .smallBox .maskBox .AlertBox
+	{
+	    position:absolute ;
+	    float :none ;
+	    bottom :-180px;
+	    min-height:40px;
+	    width :80%;
+	    background :#6598FD;
+	    padding-top:10px;
+	    padding-bottom :10px;
+	    text-align :center ;
+	    font-family :Yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    margin-left :10% ;
+	    margin-right :10% ;
+	    border-right :4px solid #5F5CDD;
+	    -webkit-transition:bottom 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:bottom 1.8s;
+	}
+	
+	.pictureBoxContainer .smallBox:hover .maskBox .AlertBox
+	{
+	    bottom :0px;
+	}
+	.pictureBoxContainer .lageBox p
+	{
+	    text-align :justify ;
+	    direction :rtl;
+	    line-height:20px;
+	    font-family :yekan,arial;
+	    font-size :9pt;
+	    color:#000;
+	    width :90%;
+	    display :inline-block ;
+	    min-height :120px;
+	    margin-top :25%;
+	}
+	
+	.pictureBoxContainer .smallBox
+	{
+	    position :relative ;
+	    top:40px;
+	    float :right ;
+	    width :98%;
+	    margin :0;
+	    padding :0;
+	    border:1px solid #E6E6E6;
+	    min-height :200px;
+	     -webkit-transition:top 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:top 1.8s;
+	}
+	
+	.pictureBoxContainer .smallBox_view
+	{
+	    top:0px;
+	}
+	
+	.pictureBoxContainer .lageBox input
+	{
+	    position :relative;
+	    float:left ;
+	    top:0px;
+	    margin-top :40%;
+	    width :50%;
+	    min-width :188px;
+	    border :0;
+	    border-right :4px solid #5F5CDF;
+	    background :#09B295;
+	    cursor :pointer ;
+	    text-align :center ;
+	    font-family :yekan,arial;
+	    font-size :10pt;
+	    color:#fff;
+	    min-height :45px;
+	}
+	
+	.pictureBoxContainer .lageBox input:hover
+	{
+	    background :#161616;
+	}
+	
+	.OffMainPage
+	{
+	    position :relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height :540px;
+	    display :inline-block ;
+	    background :#050521;
+	    text-align :center ;
+	}
+	
+	.OffContainer
+	{
+	    position:relative ;
+	    float:left ;
+	    width :90%;
+	    min-height :540px;
+	    display :inline-block ;
+	}
+	
+	.OffContainer .rightBox
+	{
+	    position :relative ;
+	    top:0px;
+	    right :-100px;
+	    float :right ;
+	    width :98%;
+	    margin :0;
+	    padding :0;
+	    min-height :540px;
+	    -webkit-transition:right 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:right 1.8s;
+	}
+	
+	.OffContainer .rightBox_view
+	{
+	    right :0px;
+	}
+	
+	.OffContainer .rightBox .blankBox
+	{
+	    position:relative ;
+	    top:0px;
+	    width :100%;
+	    min-height:50px;
+	    float :right ;    
+	}
+	
+	.OffContainer .rightBox .titleBox
+	{
+	    position:relative ;
+	    top:0px;
+	    width :100%;
+	    float :right ;    
+	    text-align :right ;
+	    min-height :60px;
+	    line-height :60px;
+	    font-size :14pt;
+	    color:#fff;
+	    font-family:yekan,arial;
+	    direction :rtl;
+	}
+	.OffContainer .rightBox .ContentBox
+	{
+	    position:relative ;
+	    top:0px;
+	    width :100%;
+	    float :right ;    
+	    text-align :justify  ;
+	    min-height :120px;
+	    font-size :10pt;
+	    color:#B4B4B4;
+	    font-family:yekan,arial;
+	    direction :rtl;
+	}
+	
+	.OffContainer .rightBox .buttonBox
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    min-height:110px;
+	    line-height :110px;
+	    width :100%;
+	    text-align :right  ;
+	    margin-top :20px;
+	}
+	
+	.OffContainer .rightBox .buttonBox input
+	{
+	    border-width:0px;
+	    cursor:pointer ;
+	    min-height:45px;
+	    background :#09B295;
+	    text-align :center;
+	    color:#fff;
+	    border-right :4px solid #5F5CDF;
+	    font-family :yekan,arial;
+	    font-size:10pt;
+	    width :20%;
+	    min-width :180px;
+	}
+	
+	.OffContainer .rightBox .SocialBox
+	{
+	    position:relative ;
+	    top:0px;
+	    float:right ;
+	    font-size :9pt;
+	    font-family :yekan,arial;
+	    color:#fff;
+	    text-align :right ;
+	}
+	
+	.OffContainer .rightBox .SocialBox a
+	{
+	    position:relative ;
+	    float:right ;
+	    font-size :9pt;
+	    font-family :yekan,arial;
+	    color:#fff;
+	    min-width :50px;
+	}
+	
+	.OffContainer .rightBox .SocialBox a i
+	{
+	    font-size :16pt;
+	    color:#484758;
+	}
+	
+	.OffContainer .rightBox .SocialBox a i:hover
+	{
+	    color:#fff;
+	}
+	
+	
+	.OffContainer .rightBox .buttonBox input:hover
+	{
+	    background: #050521;
+	}
+	
+	
+	
+	.OffContainer .leftBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :98%;
+	    margin :0;
+	    padding :0;
+	    min-height :540px;
+	}
+	.OffContainer .leftBox section
+	{
+	    width:100%;
+	    position:relative ;
+	    float:left ;
+	}
+	
+	.OffContainer .leftBox section div
+	{
+	    position:relative ;
+	    float :left ;
+	    width :100%;
+	    min-height :540px;
+	}
+	
+	.OffContainer .leftBox section div img
+	{
+	    width :100%;
+	}
+	
+	.SponsorMainPage
+	{
+	    position :relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:700px;
+	    display :inline-block ;
+	    text-align :center ;
+	}
+	
+	.SponsorContainer
+	{
+	    position :relative ;
+	    width :98%;
+	    min-height:600px;
+	    display :inline-block ;
+	}
+	
+	.SponsorContainer .topBox
+	{
+	    position :relative ;
+	    float :right ;
+	    width :98%;
+	    min-height:165px;
+	    border:1px solid #E5E5E5;
+	    padding :0;
+	    margin :0;
+	    display :none;
+	    
+	}
+	
+	.SponsorContainer .BottomBox
+	{
+	    position :relative ;
+	    float :right ;
+	    width :98%;
+	    
+	    border:1px solid #E5E5E5;
+	    padding :0;
+	    margin :0;
+	    
+	}
+	
+	.SponsorContainer .BottomBox .innerBox
+	{
+	    position:relative ;
+	    display:inline-block ;
+	    width :90%;
+	    min-height:200px;
+	}
+	
+	.SponsorContainer .BottomBox .innerBox .titleBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :100%;
+	    min-height:60px;
+	    line-height :60px;
+	    font-family :Yekan,arial;
+	    font-size :22pt;
+	    color:#000;
+	    text-align :right ;
+	    direction :rtl;
+	}
+	
+	.SponsorContainer .BottomBox .innerBox .ContentBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :100%;
+	    min-height:180px;
+	    line-height :30px;
+	    font-family :Yekan,arial;
+	    font-size :10pt;
+	    color:#000;
+	    text-align :right ;
+	    direction :rtl;
+	}
+	
+	
+	.SponsorContainer .BottomBox .SmallBox_right
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    width :49%;
+	    padding :0;
+	    margin :0;
+	    border-left:1px solid #E5E5E5; 
+	    border-bottom :1px solid #E5E5E5; 
+	    min-height:120px;
+	}
+	
+	.SponsorContainer .BottomBox .SmallBox_left
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    width :50%;
+	    padding :0;
+	    margin :0;
+	    border-left:0px solid #E5E5E5; 
+	    border-bottom :1px solid #E5E5E5; 
+	    min-height:120px;
+	}
+	
+	.SponsorContainer .BottomBox .NumberBox
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    width :100%;
+	    padding :0;
+	    margin :0;
+	    border-left:1px solid #E5E5E5; 
+	    border-bottom :0px solid #E5E5E5; 
+	    min-height:200px;
+	}
+	
+	.SponsorContainer .BottomBox .NumberBox .NumberBoxContent
+	{
+	    position:relative ;
+	    display :inline-block ;
+        height:220px;	    
+	    width :90%;
+	    margin-top :5%;
+	}
+	
+	#clip{
+  /*
+  Ensure background is added first
+  */  
+  background: linear-gradient(to bottom, #eee, rgba(255,65,65,0.2), #5F5CDF),url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZlcnNpb249JzEuMScgd2lkdGg9JzQwMCcgaGVpZ2h0PSc0MDAnPgoJPGRlZnMgaWQ9J2RlZnM0Jz4KCQk8ZmlsdGVyIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0nc1JHQicgaWQ9J2ZpbHRlcjMxMTUnPgoJCQk8ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgbnVtT2N0YXZlcz0nMScgYmFzZUZyZXF1ZW5jeT0nMC45JyBpZD0nZmVUdXJidWxlbmNlMzExNycgLz4KCQkJPGZlQ29sb3JNYXRyaXggcmVzdWx0PSdyZXN1bHQ1JyB2YWx1ZXM9JzEgMCAwIDAgMCAwIDEgMCAwIDAgMCAwIDEgMCAwIDAgMCAwIDYgLTMuNzUgJyBpZD0nZmVDb2xvck1hdHJpeDMxMTknIC8+CgkJCTxmZUNvbXBvc2l0ZSBpbjI9J3Jlc3VsdDUnIG9wZXJhdG9yPSdpbicgaW49J1NvdXJjZUdyYXBoaWMnIHJlc3VsdD0ncmVzdWx0NicgaWQ9J2ZlQ29tcG9zaXRlMzEyMScgLz4KCQkJPGZlTW9ycGhvbG9neSBpbj0ncmVzdWx0Nicgb3BlcmF0b3I9J2RpbGF0ZScgcmFkaXVzPScxMCcgcmVzdWx0PSdyZXN1bHQzJyBpZD0nZmVNb3JwaG9sb2d5MzEyMycgLz4KCQk8L2ZpbHRlcj4KCTwvZGVmcz4KCTxyZWN0IHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnIHg9JzAnIHk9JzAnIGlkPSdyZWN0Mjk4NScgZmlsbD0nI2VlZWVlZScvPiAgICAgCgk8cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyB4PScwJyB5PScwJyBpZD0ncmVjdDI5ODUnIHN0eWxlPSdmaWxsOiNlMDg3Mjg7ZmlsdGVyOnVybCgjZmlsdGVyMzExNSknIC8+Cjwvc3ZnPg==);
+  
+   background-attachment: inherit ;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-family:arial;
+  font-size: 34vw;
+  font-weight: 900;
+  text-align: center;
+  
+}
+
+.SponsorContainer .BottomBox .NumberBox  p
+{
+    font-family :yekan,arial;
+    font-size :12pt;
+    text-align :center ;
+    width :100%;
+    direction:rtl;
+    margin :0;
+    padding :0;
+    color:#000;
+}
+
+.FooterMainPage
+{
+    position:relative ;
+    top:0px;
+    left:0px;
+    width :100%;
+    min-height :610px;
+    display :inline-block ;
+    text-align :center ;
+    background :#262626;
+}
+
+.FooterContainer
+{
+    position :relative ;
+    top:0px;
+    width :98%;
+    display :inline-block ;
+    min-height :610px;
+}
+
+.FooterContainer .rightBox
+{
+    position:relative ;
+    top:0px;
+    float :right ;
+    width :100%;
+    margin :0;
+    padding :0
+}
+
+.FooterContainer .rightBox .logoBox
+{
+    position :relative ;
+    top:0px;
+    
+    float :none ;
+    margin-left :auto ;
+    margin-right :auto ;
+    width :95%;
+    min-height :100px;
+    background-image :url(../images/LogoFooter.png);
+    background-repeat :no-repeat ;
+    background-position : right bottom ;
+}
+
+.FooterContainer .rightBox .ContentTextBox
+{
+    position :relative ;
+    top:0px;
+    width :0px;
+    float :none ;
+    margin-left :auto ;
+    margin-right :auto ;
+    right :0px;
+    width :95%;
+    font-size :10pt;
+    font-family :Yekan,arial;
+    color:#B3B3B3;
+    direction :rtl;
+    text-align :justify ;
+    line-height :30px;
+    margin-bottom :20px;
+}
+
+.FooterContainer .rightBox .phoneBox
+{
+    position :relative ;
+    top:0px;
+    float :none ;
+    margin-left :auto ;
+    margin-right :auto ;
+    width :98%;
+    min-height :40px;
+    line-height :40px;
+    text-align :right ;
+    direction :rtl;
+
+}
+
+.FooterContainer .rightBox .phoneBox a
+{
+    position:relative ;
+    float :none ;
+    margin-left :auto ;
+    margin-right :auto ;
+    padding-top :5px;
+    padding-bottom :5px;
+    font-size :13pt;
+    font-family:byekan,arial;
+    color:#fff;
+
+}
+
+.FooterContainer .rightBox .phoneBox a i
+{
+    font-size :24px;
+    color:#959595;
+    margin-top :5px;
+    margin-left :10px;
+}
+
+
+.FooterContainer .leftBox
+{
+    position:relative ;
+    top:0px;
+    float :right ;
+    width :100%;
+    margin :0;
+    padding :0
+}
+
+.FooterContainer .leftBox .whiteBox
+{
+    position:relative ;
+    top:0px;
+    float :right ;
+    min-height:0px;
+    width:100%;
+    display :none;
+}
+
+.FooterContainer .leftBox iframe
+{
+    position :relative ;
+    top:0px;
+    float:right ;
+    right:0px;
+    width :100%;
+    min-height :770px;
+}
+
+.ContactUsFormMainPage
+{
+    position:relative ;
+    top:0px;
+    left:0px;
+    width :100%;
+    display:inline-block ;
+    text-align :center ;
+    min-height:470px;
+    background :#262626;
+}
+
+.ContactUsFormMainPage .contentBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    width :100%;
+    min-height:35px;
+    line-height:35px;
+    margin-top :10px;
+    border-bottom :1px solid #6F6F6F;
+}
+
+.ContactUsFormMainPage .contentBox .CaptionBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    min-height:35px;
+    line-height :35px;
+    font-family :Yekan,arial;
+    font-size :10pt;
+    color:#fff;
+    width :40px;
+    
+}
+
+.ContactUsFormMainPage .contentBox .ContentTextBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    min-height:35px;
+    line-height :35px;
+    font-family :Yekan,arial;
+    font-size :10pt;
+    color:#fff;
+    width :200px;
+}
+
+.ContactUsFormMainPage .contentBox .ContentTextBox input
+{
+    position :relative ;
+    float :right ;
+    width :100%;
+    min-height:55px;
+    border:0;
+    font-size :9pt;
+    font-family :yekan,arial;
+    padding-right :5px;
+    color:#B4B4B4;
+    background :none;
+    text-align :right ;
+    direction :rtl;
+}
+
+.ContactUsFormMainPage .contentBox .ContentTextBox Textarea
+{
+    position :relative ;
+    float :right ;
+    width :100%;
+    min-height:100px;
+    border:0;
+    font-size :9pt;
+    font-family :yekan,arial;
+    padding-right :5px;
+    color:#B4B4B4;
+    background :none;
+    text-align :right ;
+    resize:none;
+    direction :rtl;
+}
+
+.ContactUsFormMainPage .contentBox .cls_Button
+{
+    position :relative ;
+    float:left ;
+    width :30%;
+    min-width :160px;
+    min-height :45px;
+    background :#09B295;
+    color:#fff;
+    text-align :center ;
+    font-size :12pt;
+    font-family :yekan,arial;
+     border:0;
+    border-right :4px solid #5F5CDD;
+    cursor :pointer ;
+    margin-top :20px;
+   
+}
+
+.ContactUsFormMainPage .contentBox .cls_Button:hover
+{
+    background :#161616;
+}   
+
+   .InnerPage_TitlePage_MainPage
+{
+    position :relative ;
+    top:0px;
+    left :0px;
+    width :100%;
+    min-height:80px;
+}
+
+.InnerPage_TitlePage_MainPage .barBox
+{
+    position :relative ;
+    float:right ;
+    width :300px;
+    top:25px;
+    background-image: linear-gradient(to right, rgba(95,92,223,0), rgba(95,92,223,1));
+    padding-right :10%;
+    text-align :right  ;
+    font-family :yekan,arial;
+    font-size :12pt;
+    color:#fff;
+}
+
+.InnerPage_TitlePage_MainPage .IconBox
+{
+    position:relative  ;
+    float :right ;
+    top:18px;
+    left:150px;
+    width :110px;
+    height:42px;
+    border:1px solid #13A899;
+    background :#2A448F;
+}
+
+.Content_Page
+{
+    position:relative ;
+    top:0px;
+    left :0px;
+    width :100%;
+    min-height :500px;
+    display :inline-block ;
+    text-align :center ;
+}
+
+
+.Content_Page .content_Container
+{
+    position:relative ;
+    top:0px;
+    width :80%;
+    min-height :500px;
+    display :inline-block ;
+}
+
+.topbar_Mainpage
+{
+    position :relative ;
+    top:0px;
+    left:0px;
+    width :100%;
+    min-height :60px;
+    background :#262626;
+    display :inline-block ;
+    text-align :center ;
+}
+
+.topbar_Mainpage .topbar_Container
+{
+    position:relative ;
+    top:0px;
+    width :90%;
+    display :inline-block ;
+} 
+
+.topbar_Mainpage .topbar_Container .button
+{
+    position:relative ;
+    top:10px;
+    float :left ;
+    padding :5px 5px 5px 5px;
+    cursor :pointer ;
+    font-family :yekan,arial;
+    color:#fff;
+    font-size :10pt;
+    text-align :center  ;
+    width :80px;
+    text-decoration :none;
+
+}
+
+.topbar_Mainpage .topbar_Container .button i
+{
+    position:absolute ;
+    top:12px;
+    left:10px;
+    color:#0AAA8E;
+    font-size :14pt;
+}
+
+.topbar_Mainpage .topbar_Container .button:hover i
+{
+    color:#8F8EB6;
+}
+
+.topbar_Mainpage .topbar_Container .button:hover
+{
+    border:1px solid #09B295;
+}
+
+.topbar_Mainpage .topbar_Container .buttonHamkar
+{
+    position:relative ;
+    top:10px;
+    float :left ;
+    padding :5px 5px 5px 5px;
+    font-family :yekan,arial;
+    color:#fff;
+    font-size :10pt;
+    text-align :center  ;
+    width :60px;
+    text-decoration :none;
+    margin-right :10px;
+    margin-right :5px;
+    direction :rtl;
+}
+#myAccount1_Arrow
+	{
+	    color:#5F5CDF;
+	    font-size :18pt;
+	    margin-left :10px;
+	    background :none;
+	}
+
+#myAccount2_Arrow
+	{
+	    color:#FF4141;
+	    font-size :18pt;
+	    margin-left :10px;
+	    background :none;
+	}
+
+
+#myAccount3_Arrow
+	{
+	    color:#8F8EB6;
+	    font-size :18pt;
+	    margin-left :10px;
+	    background :none;
+	}
+}
+
+@media screen and (min-width: 470px) and (max-width: 785px)
+{
+    /*menu Section*/
+	#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a,
+#cssmenu #menu-button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+#cssmenu #menu-button {
+  display: none;
+}
+#cssmenu {
+  width: auto;
+  font-family:yekan,arial;
+  background: nono;
+}
+#cssmenu > ul {
+  background: url('images/bg.png');
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.05);
+  
+}
+#cssmenu.align-right > ul > li {
+  float: right;
+}
+#cssmenu > ul > li {
+  float: left;
+  display: inline-block;
+
+  
+}
+#cssmenu.align-center > ul {
+  float: none;
+  text-align: center;
+}
+#cssmenu.align-center > ul > li {
+  float: none;
+}
+#cssmenu.align-center ul ul {
+  text-align: left;
+  
+}
+#cssmenu > ul > li > a 
+{
+	
+  padding:   18px    25px 21px  45px;
+  border-right: 1px solid rgba(80, 80, 80, 0.12);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  
+  
+}
+#cssmenu > ul > li:hover > a,
+#cssmenu > ul > li > a:hover,
+#cssmenu > ul > li.active > a {
+  color: #D9D9D9;
+  background: #fff;
+  background: rgba(0, 0, 0, 0.1);
+}
+#cssmenu > ul > li.has-sub > a {
+  padding-right: 10px;
+}
+#cssmenu > ul > li.has-sub > a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 0px solid transparent;
+  border-top-color: #ffffff;
+  right: 17px;
+  top: 22px;
+}
+#cssmenu > ul > li.has-sub.active > a::after,
+#cssmenu > ul > li.has-sub:hover > a {
+  border-top-color: #ffffff;
+}
+#cssmenu ul ul {
+  position: absolute;
+  left: -9999px;
+  top: 60px;
+  padding-top: 6px;
+  font-size: 13px;
+  opacity: 0;
+  -webkit-transition: top 0.2s ease, opacity 0.2s ease-in;
+  -moz-transition: top 0.2s ease, opacity 0.2s ease-in;
+  -ms-transition: top 0.2s ease, opacity 0.2s ease-in;
+  -o-transition: top 0.2s ease, opacity 0.2s ease-in;
+  transition: top 0.2s ease, opacity 0.2s ease-in;
+}
+#cssmenu.align-right ul ul {
+  text-align: right;
+}
+#cssmenu > ul > li > ul::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-bottom-color: #282828;
+  top: -4px;
+  left: 20px;
+}
+#cssmenu.align-right > ul > li > ul::after {
+  left: auto;
+  right: 20px;
+}
+#cssmenu ul ul ul::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-right-color: #ffffff;
+  top: 11px;
+  left: -4px;
+}
+#cssmenu.align-right ul ul ul::after {
+  border-right-color: transparent;
+  border-left-color: #ffffff;
+  left: auto;
+  right: -4px;
+}
+#cssmenu > ul > li > ul {
+  top: 120px;
+}
+#cssmenu > ul > li:hover > ul {
+  top: 52px;
+  left: 0;
+  opacity: 1;
+}
+#cssmenu.align-right > ul > li:hover > ul {
+  left: auto;
+  right: 0;
+}
+#cssmenu ul ul ul {
+  padding-top: 0;
+  padding-left: 6px;
+}
+#cssmenu.align-right ul ul ul {
+  padding-right: 6px;
+}
+#cssmenu ul ul > li:hover > ul {
+  left: 180px;
+  top: 0;
+  opacity: 1;
+}
+#cssmenu.align-right ul ul > li:hover > ul {
+  left: auto;
+  right: 100%;
+  opacity: 1;
+}
+#cssmenu ul ul li a {
+  text-decoration: none;
+  font-weight: 400;
+  font-size :13pt;
+  font-family :yekan,arial;
+  padding: 11px  35px;
+  width: 180px;
+  color: #fff;
+  text-align :center ;
+  background: #5F5CDD;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.1), -1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+#cssmenu ul ul li:hover > a,
+#cssmenu ul ul li.active > a {
+  color: #fff;
+}
+#cssmenu ul ul li:first-child > a {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+#cssmenu ul ul li:last-child > a {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+#cssmenu > ul > li > ul::after {
+  position: absolute;
+  display: block;
+}
+#cssmenu ul ul li.has-sub > a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-left-color: #777777;
+  right: 17px;
+  top: 14px;
+}
+#cssmenu.align-right ul ul li.has-sub > a::after {
+  border-left-color: transparent;
+  border-right-color: #777777;
+  right: auto;
+  left: 17px;
+}
+#cssmenu ul ul li.has-sub.active > a::after,
+#cssmenu ul ul li.has-sub:hover > a::after {
+  border-left-color: #333333;
+}
+#cssmenu.align-right ul ul li.has-sub.active > a::after,
+#cssmenu.align-right ul ul li.has-sub:hover > a::after {
+  border-right-color: #333333;
+  border-left-color: transparent;
+}
+
+/*menu Section*/
+    html,body
+    {
+        margin :0;
+        padding :0;
+    }
+
+    .Menu_MainPageBox
+    {
+        position :relative ;
+        top:0px;
+        left:0px;
+        width :100%;
+        min-height:100px;
+        background :#FFFFFF;
+        display :inline-block ;
+        text-align :center ;
+        margin :0;
+        padding :0;
+        border-bottom :1px solid #C4C4C4;  
+        direction :rtl;
+    }
+    
+    .Menu_Container
+    {
+        position :relative ;
+        top:0px;
+        float :left ;
+        width :100%;
+        min-height:100px;
+        background :#FFFFFF;
+        display :inline-block ;
+        text-align :center ;
+        margin :0;
+        padding :0;
+        direction :rtl;
+    }
+    
+    .Logo_Container
+    {
+         position :relative ;
+        top:0px;
+        float:none;
+        margin-left :auto ;
+        margin-right :auto ;
+        width :100%;
+        min-height:100px;
+        background :#FFFFFF;
+        display :inline-block ;
+        text-align :center ;
+        margin :0;
+        padding :0;
+        background-image :url(../images/LogoSpad.png);
+        background-repeat :no-repeat ;
+        background-position:center  center ;    
+        
+
+    }
+    .bannerContainer
+	{
+		position :relative ;
+		top:0px;
+		left:0px;
+		width:100%;
+		min-height:350px;
+		background :none;
+		display :inline-block ;
+		border-bottom :1px solid #C1ECE3;
+	}
+	
+	.about_MainPage
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height :600px;
+	    display :inline-block ;
+	    text-align :right  ;
+	}
+	
+	.about_Container
+	{
+	    position:relative ;
+	    top:0px;
+	    float:left  ;
+	    width :98%;
+	    min-height :700px;
+	    display :inline-block ;
+	    border-right :1px solid #E5E5E5;
+	    border-left :1px solid #E5E5E5;
+	}
+	
+	.about_Container .box_Content
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :100%;
+	    padding :0;
+	    margin :0;
+	    border-left :0px solid #E5E5E5;
+	     min-height :250px;
+	}
+	
+	.about_Container .titleBox
+	{
+	    position :relative ;
+	    margin-top :0%;
+	    float:right ;
+	    width :100%;
+	    min-height :50px;
+	    line-height :50px;
+	    font-size :16pt;
+	    font-family :yekan,arial;
+	    text-align :right ;
+	    color:#000;
+	}
+	
+	
+	.about_Container .TextBox
+	{
+	    position :relative ;
+	    float:right ;
+	    width :90%;
+	    min-height :100px;
+	    line-height :100px;
+	    font-size :10pt;
+	    font-family :yekan,arial;
+	    text-align :right ;
+	    color:#000;
+	}
+	
+	.about_Container .TextBox p
+	{
+	  
+	    float:right ;
+	    width :100%;
+	    font-size :10pt;
+	    font-family :yekan,arial;
+	    text-align :justify  ;
+	    color:#000;
+	    line-height :30px;
+	    direction :rtl;
+	}
+	
+	.about_Container .ButtonBox
+	{
+	    position :relative ;
+	    float:right ;
+	    width :100%;
+	    min-height :80px;
+	    line-height :80px;
+	    text-align :right ;
+	    color:#000;
+	}
+	
+	.about_Container .ButtonBox p
+	{
+	  
+	    float:right ;
+	    width :100%;
+	    font-size :10pt;
+	    font-family :yekan,arial;
+	    text-align :justify  ;
+	    color:#000;
+	    direction :rtl;
+	    height :50px;
+	}
+	
+	.about_Container .ButtonBox p input
+	{
+	    border:0;
+	    cursor:pointer ;
+	    border-right :4px solid #5F5CDF;
+	    background :#09B295;
+	    text-align :center ;
+	    color:#fff;
+	    font-family :yekan,arial;
+	    font-size :11pt;
+	    padding :10px 25px 10px 25px;
+	}
+	
+	.about_Container .ButtonBox p input:hover
+	{
+	    background :#454545;
+	}
+	
+	.about_Container .imageBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :left ;
+	    margin :0;
+	    padding :0;
+	    width :80%;
+	    
+	}
+	
+	.about_Container .imageBox .img1
+	{
+	    position:absolute   ;
+	    top:0px;
+	    float :left ;
+	    left :-100px;
+	    width:45%;
+	    border-top-right-radius:5px;
+	    border-bottom-right-radius:5px;
+	    box-shadow:5px 5px 15px #999;
+	    z-index :2;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	
+	.about_Container .imageBox .img1_view
+	{
+	    left :0px;
+	}
+	
+	.about_Container .imageBox .img2
+	{
+	    position:absolute  ;
+	    top:100px;
+	    float :left ;
+	    left :-100px;
+	    width:35%;	    
+	    border-top-right-radius:5px;
+	    border-bottom-right-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :3;
+	    -webkit-transition:left 1.6s; /* For Safari 3.1 to 6.0 */
+        transition:left 1.6s;
+	}
+	.about_Container .imageBox .img2_view
+	{
+	    left :0px;
+	}
+	.about_Container .imageBox .img3
+	{
+	    position:absolute  ;
+	    top:70px;
+	    float :left ;
+	    left :-190px;
+	    width:45%;
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :1;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img3_view
+	{
+	    left :170px;
+	}
+	.about_Container .imageBox .img4
+	{
+	    position:absolute  ;
+	    top:180px;
+	    float :left ;
+	    left :-310px;
+	    width:45%;
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :2;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img4_view
+	{
+	    left :300px;
+	}
+	.about_Container .imageBox .img5
+	{
+	    position:absolute  ;
+	    top:200px;
+	    float :left ;
+	    left :-50px;
+	    width:35%;
+	    height:56px;
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :3;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img5_view
+	{
+	    left :30px;
+	}
+	.about_Container .imageBox .img6
+	{
+	    position:absolute  ;
+	    top:220px;
+	    float :left ;
+	    left :-110px;
+	    width:50%;
+	   
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :2;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img6_view
+	{
+	    left :130px;
+	}
+	
+	.Services_MainBox
+	{
+	    position :relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height :770px;
+	    display :inline-block ;
+	    background :#262626;
+	    text-align :left ;
+	}
+	.Services_Container
+	{
+	    position :relative ;
+	    top:0px;
+	    float :left ;
+	    width :98%;
+	    display :inline-block ;
+	    min-height :770px;
+	}
+	
+	.Services_Container .rightBoxContainer
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right;
+	    right:0px;
+	    width :100%;
+	    margin :0;
+	    padding :0;
+	    min-height :600px;
+
+	}
+	
+	
+	
+	
+	
+	.Services_Container .rightBoxContainer .contentBox
+	{
+	    position:relative ;
+	    float :none ;
+	    margin-left :auto ;
+	    margin-right :auto ;
+	    top:120px;
+	    width :100%;
+	    min-height:500px;
+        
+
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float:right ;
+	    right :-500px;
+	    min-height:225px;
+	    width :48%;
+	    background :#161616;
+	    margin-left :10px;
+	    display :inline-block ;
+	    text-align :center ;
+	    margin-top :5px;
+	    -webkit-transition:background 1s,right 1.5s; /* For Safari 3.1 to 6.0 */
+        transition:background 1s,right 1.5s;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox_view
+	{
+	    right :0px;
+	}
+	
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox:hover
+	{
+	    background :#050521;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox
+	{
+	    position:relative ;
+	    display:inline-block ;
+	    width :90%;
+	    min-height:200px;
+	}
+	
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .topBox
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:77px;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .topBox span
+	{
+	    position :absolute ;
+	    top:23px;
+	    left:18px;
+	    font-family :Calibri ;
+	    color:#fff;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .topBox img
+	{
+	    position :absolute ;
+	    top:23px;
+	    left:40px;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .titleBox
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:50px;
+	    line-height :50px;
+	    font-family :yekan,arial;
+	    font-size :14pt;
+	    color:#fff;
+	    text-align :right ;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .AmountTextBox
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:54px;
+	    line-height :20px;
+	    font-family :yekan,arial;
+	    font-size :9pt;
+	    color:#9D9D9D;
+	    text-align :right ;
+	    margin-top :10px;
+	}
+	.Services_Container .LeftBoxContainer
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right;
+	    width :98%;
+	    margin :0;
+	    padding :0;
+	    min-height :500px;
+  
+	}
+	
+	.Services_Container .LeftBoxContainer .contentBox
+	{
+	    position:relative ;
+	    float :right ;
+	    top:0px;
+	    width :100%;
+	    min-height:500px;
+
+	}
+	.Services_Container .LeftBoxContainer .contentBox .titleBox
+	{
+	    position:relative ;
+	    float :right ;
+	    top:0px;
+	    width :100%;
+	    min-height:40px;
+	    padding-right :5px;
+	    padding-top :5px;
+	    font-size :18pt;
+	    font-family :yekan,arial;
+	    color:#fff;
+	    text-align :right;
+	    direction :rtl;
+
+
+	}
+	
+	
+	.Services_Container .LeftBoxContainer .contentBox .MenuBox
+	{
+	    position:relative ;
+	    float :right ;
+	    top:0px;
+	    width :100%;
+	    min-height:330px;
+	}
+	
+	.Myul
+	{
+		position :relative ;
+		top:0px;
+		right:0px;
+		float :right  ;
+		width:100%;
+		margin :0;
+		display :block ;
+		padding :0px 0px 0px 0px;
+		list-style-type: none;
+		text-align :right ;
+		 direction :rtl;
+	}
+	
+	.Myul li.section1
+	{
+	    width :100%;
+	    margin-bottom :50px;
+	    cursor:pointer ;
+	}
+	#myAccount1
+	{
+	    font-family :yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    text-align :right ;
+	    text-decoration :none;
+	    cursor:pointer ;
+	    direction :rtl;
+        background :#5F5CDF;
+        width:100%;
+
+	}
+	
+	#myAccount1 span
+	{
+	    background :#262626;
+	}
+	#myAccountBox1 li
+	{
+	    float :right ;
+	    font-family:yekan,arial;
+	    font-size :9pt;
+	    text-align :justify  ;
+	    color:#A8A8A8;
+	    direction :rtl;
+	    line-height :25px;
+	    width :100%;
+	     padding :10px 10px 10px 10px;
+	    margin-right :0px;
+	    list-style :none;
+	    background :#262626;
+	    
+	}
+	#myAccountBox1  div
+	{
+	    width :60%;
+	    text-align :justify  ;
+	}
+	
+	/*part*/
+	
+	.Myul li.section2
+	{
+	    width :100%;
+	   margin-bottom :50px;
+	    cursor:pointer ;
+	}
+	
+	#myAccount2
+	{
+	    font-family :yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    text-align :right ;
+	    text-decoration :none;
+	    cursor:pointer ;
+	    direction :rtl;
+	    width:100%;
+
+	}
+	
+	#myAccount2 span
+	{
+	    background :#262626;
+	}
+	#myAccountBox2 li
+	{
+	    float :right ;
+	    font-family:yekan,arial;
+	    font-size :9pt;
+	    text-align :justify  ;
+	    color:#A8A8A8;
+	    direction :rtl;
+	    line-height :25px;
+	    width :100%;
+	    padding :10px 10px 10px 10px;
+	    margin-right :0px;
+	    list-style :none;
+	    background :#262626;
+	    
+	}
+	
+	#myAccountBox2  div
+	{
+	    width :60%;
+	    text-align :justify  ;
+	}
+	
+	/*part*/
+	
+	.Myul li.section3
+	{
+	    width :100%;
+	   
+	    cursor:pointer ;
+	    margin-bottom :50px;
+	}
+	
+	#myAccount3
+	{
+	    font-family :yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    text-align :right ;
+	    text-decoration :none;
+	    cursor:pointer ;
+	    direction :rtl;
+	    width:100%;
+        
+	}
+	
+	#myAccount3 span
+	{
+	    background :#262626;
+	}
+	#myAccountBox3 li
+	{
+	    float :right ;
+	    font-family:yekan,arial;
+	    font-size :9pt;
+	    text-align :justify  ;
+	    color:#A8A8A8;
+	    direction :rtl;
+	    line-height :25px;
+	    width :100%;
+	    padding :10px 10px 10px 10px;
+	    margin-right :0px;
+	    list-style :none;
+	    background :#262626;
+	    
+	}
+	
+	#myAccountBox3  div
+	{
+	    width :60%;
+	    text-align :justify  ;
+	}
+	
+	.PictureBoxMain
+	{
+	    position:relative ;
+	    top:0px;
+	    left :0px;
+	    width :100%;
+	    min-height :940px;
+	    background :#fff;
+	    display :inline-block ;
+	    text-align :center ;
+	}
+	.pictureBoxContainer
+	{
+	    position :relative ;
+	    width :98%;
+	    display:inline-block ;
+	    min-height :940px;
+	    
+	}
+	
+	.pictureBoxContainer .lageBox
+	{
+	    position :relative ;
+	    top:40px;
+	    float :right ;
+	    width :49%;
+	    margin :0;
+	    padding :0;
+	    border:1px solid #E6E6E6;
+	    min-height :400px;
+	     -webkit-transition:top 1.5s; /* For Safari 3.1 to 6.0 */
+        transition:top 1.5s;
+	}
+	.pictureBoxContainer .lageBox_view
+	{
+	    top:0px;
+	}
+	.pictureBoxContainer .lageBox .maskBox
+	{
+	    position :absolute ;
+	    top:0px;
+	    left :0px;
+	    width :0%;
+	    height :0%;
+	    display :block  ;
+	    background :rgb(0,0,0);
+	    background :rgba(0,0,0,0.3);
+	    z-index :1000;
+	     -webkit-transition:background 0.5s,width 0.1s,height 0.1s; /* For Safari 3.1 to 6.0 */
+        transition:background 0.5s,width 0.1s,height 0.1s;
+        overflow :hidden ;
+	}
+	
+	.pictureBoxContainer .lageBox:hover .maskBox
+	{
+	     width :100%;
+	    height :100%;
+	    display:block ;
+	    background :rgba(0,0,0,0.5);
+	}
+	
+	.pictureBoxContainer .lageBox .maskBox .AlertBox
+	{
+	    position:absolute ;
+	    float :none ;
+	    bottom :-180px;
+	    min-height:50px;
+	    width :80%;
+	    background :#6598FD;
+	    padding-top:10px;
+	    padding-bottom :10px;
+	    text-align :center ;
+	    font-family :Yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    margin-left :10% ;
+	    margin-right :10% ;
+	    border-right :4px solid #5F5CDD;
+	    -webkit-transition:bottom 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:bottom 1.8s;
+	}
+	
+	.pictureBoxContainer .lageBox:hover .maskBox .AlertBox
+	{
+	    bottom :0px;
+	}
+	
+
+.pictureBoxContainer .smallBox .maskBox
+	{
+	    position :absolute ;
+	    top:0px;
+	    left :0px;
+	    width :0%;
+	    height :0%;
+	    display :block  ;
+	    background :rgb(0,0,0);
+	    background :rgba(0,0,0,0.3);
+	    z-index :1000;
+	     -webkit-transition:background 0.5s,width 0.1s,height 0.1s; /* For Safari 3.1 to 6.0 */
+        transition:background 0.5s,width 0.1s,height 0.1s;
+        overflow :hidden ;
+	}
+	
+	.pictureBoxContainer .smallBox:hover .maskBox
+	{
+	     width :100%;
+	    height :100%;
+	    display:block ;
+	    background :rgba(0,0,0,0.5);
+	}
+	
+	.pictureBoxContainer .smallBox .maskBox .AlertBox
+	{
+	    position:absolute ;
+	    float :none ;
+	    bottom :-180px;
+	    min-height:40px;
+	    width :80%;
+	    background :#6598FD;
+	    padding-top:10px;
+	    padding-bottom :10px;
+	    text-align :center ;
+	    font-family :Yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    margin-left :10% ;
+	    margin-right :10% ;
+	    border-right :4px solid #5F5CDD;
+	    -webkit-transition:bottom 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:bottom 1.8s;
+	}
+	
+	.pictureBoxContainer .smallBox:hover .maskBox .AlertBox
+	{
+	    bottom :0px;
+	}
+	.pictureBoxContainer .lageBox p
+	{
+	    text-align :justify ;
+	    direction :rtl;
+	    line-height:20px;
+	    font-family :yekan,arial;
+	    font-size :9pt;
+	    color:#000;
+	    width :90%;
+	    display :inline-block ;
+	    min-height :120px;
+	    margin-top :25%;
+	}
+	
+	.pictureBoxContainer .smallBox
+	{
+	    position :relative ;
+	    top:40px;
+	    float :right ;
+	    width :49%;
+	    margin :0;
+	    padding :0;
+	    border:1px solid #E6E6E6;
+	    min-height :200px;
+	     -webkit-transition:top 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:top 1.8s;
+	}
+	
+	.pictureBoxContainer .smallBox_view
+	{
+	    top:0px;
+	}
+	
+	.pictureBoxContainer .lageBox input
+	{
+	    position :relative;
+	    float:left ;
+	    top:0px;
+	    margin-top :70%;
+	    width :50%;
+	    min-width :188px;
+	    border :0;
+	    border-right :4px solid #5F5CDF;
+	    background :#09B295;
+	    cursor :pointer ;
+	    text-align :center ;
+	    font-family :yekan,arial;
+	    font-size :10pt;
+	    color:#fff;
+	    min-height :45px;
+	}
+	
+	.pictureBoxContainer .lageBox input:hover
+	{
+	    background :#161616;
+	}
+	
+	.OffMainPage
+	{
+	    position :relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height :540px;
+	    display :inline-block ;
+	    background :#050521;
+	    text-align :center ;
+	}
+	
+	.OffContainer
+	{
+	    position:relative ;
+	    float:left ;
+	    width :90%;
+	    min-height :540px;
+	    display :inline-block ;
+	}
+	
+	.OffContainer .rightBox
+	{
+	    position :relative ;
+	    top:0px;
+	    right :-100px;
+	    float :right ;
+	    width :98%;
+	    margin :0;
+	    padding :0;
+	    min-height :540px;
+	    -webkit-transition:right 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:right 1.8s;
+	}
+	
+	.OffContainer .rightBox_view
+	{
+	    right :0px;
+	}
+	
+	.OffContainer .rightBox .blankBox
+	{
+	    position:relative ;
+	    top:0px;
+	    width :100%;
+	    min-height:50px;
+	    float :right ;    
+	}
+	
+	.OffContainer .rightBox .titleBox
+	{
+	    position:relative ;
+	    top:0px;
+	    width :100%;
+	    float :right ;    
+	    text-align :right ;
+	    min-height :60px;
+	    line-height :60px;
+	    font-size :14pt;
+	    color:#fff;
+	    font-family:yekan,arial;
+	    direction :rtl;
+	}
+	.OffContainer .rightBox .ContentBox
+	{
+	    position:relative ;
+	    top:0px;
+	    width :100%;
+	    float :right ;    
+	    text-align :justify  ;
+	    min-height :120px;
+	    font-size :10pt;
+	    color:#B4B4B4;
+	    font-family:yekan,arial;
+	    direction :rtl;
+	}
+	
+	.OffContainer .rightBox .buttonBox
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    min-height:110px;
+	    line-height :110px;
+	    width :100%;
+	    text-align :right  ;
+	    margin-top :20px;
+	}
+	
+	.OffContainer .rightBox .buttonBox input
+	{
+	    border-width:0px;
+	    cursor:pointer ;
+	    min-height:45px;
+	    background :#09B295;
+	    text-align :center;
+	    color:#fff;
+	    border-right :4px solid #5F5CDF;
+	    font-family :yekan,arial;
+	    font-size:10pt;
+	    width :20%;
+	    min-width :180px;
+	}
+	
+	.OffContainer .rightBox .SocialBox
+	{
+	    position:relative ;
+	    top:0px;
+	    float:right ;
+	    font-size :9pt;
+	    font-family :yekan,arial;
+	    color:#fff;
+	    text-align :right ;
+	}
+	
+	.OffContainer .rightBox .SocialBox a
+	{
+	    position:relative ;
+	    float:right ;
+	    font-size :9pt;
+	    font-family :yekan,arial;
+	    color:#fff;
+	    min-width :50px;
+	}
+	
+	.OffContainer .rightBox .SocialBox a i
+	{
+	    font-size :16pt;
+	    color:#484758;
+	}
+	
+	.OffContainer .rightBox .SocialBox a i:hover
+	{
+	    color:#fff;
+	}
+	
+	
+	.OffContainer .rightBox .buttonBox input:hover
+	{
+	    background: #050521;
+	}
+	
+	
+	
+	.OffContainer .leftBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :98%;
+	    margin :0;
+	    padding :0;
+	    min-height :540px;
+	}
+	.OffContainer .leftBox section
+	{
+	    width:100%;
+	    position:relative ;
+	    float:left ;
+	}
+	
+	.OffContainer .leftBox section div
+	{
+	    position:relative ;
+	    float :left ;
+	    width :100%;
+	    min-height :540px;
+	}
+	
+	.OffContainer .leftBox section div img
+	{
+	    width :100%;
+	}
+	
+	.SponsorMainPage
+	{
+	    position :relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:700px;
+	    display :inline-block ;
+	    text-align :center ;
+	}
+	
+	.SponsorContainer
+	{
+	    position :relative ;
+	    width :98%;
+	    min-height:600px;
+	    display :inline-block ;
+	}
+	
+	.SponsorContainer .topBox
+	{
+	    position :relative ;
+	    float :right ;
+	    width :48%;
+	    min-height:165px;
+	    border:1px solid #E5E5E5;
+	    padding :0;
+	    margin :0;
+	    display :none;
+	    
+	}
+	
+	.SponsorContainer .BottomBox
+	{
+	    position :relative ;
+	    float :right ;
+	    width :49%;
+	    
+	    border:1px solid #E5E5E5;
+	    padding :0;
+	    margin :0;
+	    
+	}
+	
+	.SponsorContainer .BottomBox .innerBox
+	{
+	    position:relative ;
+	    display:inline-block ;
+	    width :90%;
+	    min-height:300px;
+	}
+	
+	.SponsorContainer .BottomBox .innerBox .titleBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :100%;
+	    min-height:120px;
+	    line-height :120px;
+	    font-family :Yekan,arial;
+	    font-size :22pt;
+	    color:#000;
+	    text-align :right ;
+	    direction :rtl;
+	}
+	
+	.SponsorContainer .BottomBox .innerBox .ContentBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :100%;
+	    min-height:245px;
+	    line-height :30px;
+	    font-family :Yekan,arial;
+	    font-size :10pt;
+	    color:#000;
+	    text-align :right ;
+	    direction :rtl;
+	}
+	
+	
+	.SponsorContainer .BottomBox .SmallBox_right
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    width :49%;
+	    padding :0;
+	    margin :0;
+	    border-left:1px solid #E5E5E5; 
+	    border-bottom :1px solid #E5E5E5; 
+	    min-height:120px;
+	}
+	
+	.SponsorContainer .BottomBox .SmallBox_left
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    width :50%;
+	    padding :0;
+	    margin :0;
+	    border-left:0px solid #E5E5E5; 
+	    border-bottom :1px solid #E5E5E5; 
+	    min-height:120px;
+	}
+	
+	.SponsorContainer .BottomBox .NumberBox
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    width :100%;
+	    padding :0;
+	    margin :0;
+	    border-left:1px solid #E5E5E5; 
+	    border-bottom :0px solid #E5E5E5; 
+	    min-height:200px;
+	}
+	
+	.SponsorContainer .BottomBox .NumberBox .NumberBoxContent
+	{
+	    position:relative ;
+	    display :inline-block ;
+        height:220px;	    
+	    width :90%;
+	    margin-top :5%;
+	}
+	
+	#clip{
+  /*
+  Ensure background is added first
+  */  
+  background: linear-gradient(to bottom, #eee, rgba(255,65,65,0.2), #5F5CDF),url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZlcnNpb249JzEuMScgd2lkdGg9JzQwMCcgaGVpZ2h0PSc0MDAnPgoJPGRlZnMgaWQ9J2RlZnM0Jz4KCQk8ZmlsdGVyIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0nc1JHQicgaWQ9J2ZpbHRlcjMxMTUnPgoJCQk8ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgbnVtT2N0YXZlcz0nMScgYmFzZUZyZXF1ZW5jeT0nMC45JyBpZD0nZmVUdXJidWxlbmNlMzExNycgLz4KCQkJPGZlQ29sb3JNYXRyaXggcmVzdWx0PSdyZXN1bHQ1JyB2YWx1ZXM9JzEgMCAwIDAgMCAwIDEgMCAwIDAgMCAwIDEgMCAwIDAgMCAwIDYgLTMuNzUgJyBpZD0nZmVDb2xvck1hdHJpeDMxMTknIC8+CgkJCTxmZUNvbXBvc2l0ZSBpbjI9J3Jlc3VsdDUnIG9wZXJhdG9yPSdpbicgaW49J1NvdXJjZUdyYXBoaWMnIHJlc3VsdD0ncmVzdWx0NicgaWQ9J2ZlQ29tcG9zaXRlMzEyMScgLz4KCQkJPGZlTW9ycGhvbG9neSBpbj0ncmVzdWx0Nicgb3BlcmF0b3I9J2RpbGF0ZScgcmFkaXVzPScxMCcgcmVzdWx0PSdyZXN1bHQzJyBpZD0nZmVNb3JwaG9sb2d5MzEyMycgLz4KCQk8L2ZpbHRlcj4KCTwvZGVmcz4KCTxyZWN0IHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnIHg9JzAnIHk9JzAnIGlkPSdyZWN0Mjk4NScgZmlsbD0nI2VlZWVlZScvPiAgICAgCgk8cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyB4PScwJyB5PScwJyBpZD0ncmVjdDI5ODUnIHN0eWxlPSdmaWxsOiNlMDg3Mjg7ZmlsdGVyOnVybCgjZmlsdGVyMzExNSknIC8+Cjwvc3ZnPg==);
+  
+  background-attachment: inherit ;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-family:arial;
+  font-size: 18vw;
+  font-weight: 900;
+  text-align: center;
+  
+}
+
+.SponsorContainer .BottomBox .NumberBox  p
+{
+    font-family :yekan,arial;
+    font-size :12pt;
+    text-align :center ;
+    width :100%;
+    direction:rtl;
+    margin :0;
+    padding :0;
+    color:#000;
+}
+
+.FooterMainPage
+{
+    position:relative ;
+    top:0px;
+    left:0px;
+    width :100%;
+    min-height :610px;
+    display :inline-block ;
+    text-align :center ;
+    background :#262626;
+}
+
+.FooterContainer
+{
+    position :relative ;
+    top:0px;
+    width :90%;
+    display :inline-block ;
+    min-height :610px;
+}
+
+.FooterContainer .rightBox
+{
+    position:relative ;
+    top:0px;
+    float :right ;
+    width :100%;
+    margin :0;
+    padding :0
+}
+
+.FooterContainer .rightBox .logoBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    right :0px;
+    width :100%;
+    min-height :190px;
+    background-image :url(../images/LogoFooter.png);
+    background-repeat :no-repeat ;
+    background-position : right bottom ;
+}
+
+.FooterContainer .rightBox .ContentTextBox
+{
+    position :relative ;
+    top:0px;
+    width :0px;
+    float :right ;
+    right :0px;
+    width :70%;
+    font-size :10pt;
+    font-family :Yekan,arial;
+    color:#B3B3B3;
+    direction :rtl;
+    text-align :justify ;
+    line-height :30px;
+    margin-bottom :20px;
+}
+
+.FooterContainer .rightBox .phoneBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    right :0px;
+    width :100%;
+    min-height :40px;
+    line-height :40px;
+    text-align :right ;
+}
+
+.FooterContainer .rightBox .phoneBox a
+{
+    position:relative ;
+    float :right ;
+    display:inline-block ;
+    padding-top :5px;
+    padding-bottom :5px;
+    font-size :13pt;
+    font-family:byekan,arial;
+    color:#fff;
+}
+
+.FooterContainer .rightBox .phoneBox a i
+{
+    font-size :24px;
+    color:#959595;
+    margin-top :5px;
+    margin-left :10px;
+}
+
+
+.FooterContainer .leftBox
+{
+    position:relative ;
+    top:0px;
+    float :right ;
+    width :100%;
+    margin :0;
+    padding :0
+}
+
+.FooterContainer .leftBox .whiteBox
+{
+    position:relative ;
+    top:0px;
+    float :right ;
+    min-height:0px;
+    width:100%;
+}
+
+.FooterContainer .leftBox iframe
+{
+    position :relative ;
+    top:0px;
+    float:right ;
+    right:0px;
+    width :100%;
+    min-height :470px;
+}
+
+.ContactUsFormMainPage
+{
+    position:relative ;
+    top:0px;
+    left:0px;
+    width :100%;
+    display:inline-block ;
+    text-align :center ;
+    min-height:470px;
+    background :#262626;
+}
+
+.ContactUsFormMainPage .contentBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    width :100%;
+    min-height:55px;
+    line-height:55px;
+    margin-top :10px;
+    border-bottom :1px solid #6F6F6F;
+}
+
+.ContactUsFormMainPage .contentBox .CaptionBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    min-height:55px;
+    line-height :55px;
+    font-family :Yekan,arial;
+    font-size :10pt;
+    color:#fff;
+    width :40px;
+    
+}
+
+.ContactUsFormMainPage .contentBox .ContentTextBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    min-height:55px;
+    line-height :55px;
+    font-family :Yekan,arial;
+    font-size :10pt;
+    color:#fff;
+    width :90%;
+}
+
+.ContactUsFormMainPage .contentBox .ContentTextBox input
+{
+    position :relative ;
+    float :right ;
+    width :100%;
+    min-height:55px;
+    border:0;
+    font-size :9pt;
+    font-family :yekan,arial;
+    padding-right :5px;
+    color:#B4B4B4;
+    background :none;
+    text-align :right ;
+    direction :rtl;
+}
+
+.ContactUsFormMainPage .contentBox .ContentTextBox Textarea
+{
+    position :relative ;
+    float :right ;
+    width :100%;
+    min-height:100px;
+    border:0;
+    font-size :9pt;
+    font-family :yekan,arial;
+    padding-right :5px;
+    color:#B4B4B4;
+    background :none;
+    text-align :right ;
+    resize:none;
+    direction :rtl;
+}
+
+.ContactUsFormMainPage .contentBox .cls_Button
+{
+    position :relative ;
+    float:left ;
+    width :30%;
+    min-width :160px;
+    min-height :45px;
+    background :#09B295;
+    color:#fff;
+    text-align :center ;
+    font-size :12pt;
+    font-family :yekan,arial;
+     border:0;
+    border-right :4px solid #5F5CDD;
+    cursor :pointer ;
+    margin-top :20px;
+   
+}
+
+.ContactUsFormMainPage .contentBox .cls_Button:hover
+{
+    background :#161616;
+}   
+
+.InnerPage_TitlePage_MainPage
+{
+    position :relative ;
+    top:0px;
+    left :0px;
+    width :100%;
+    min-height:80px;
+}
+
+.InnerPage_TitlePage_MainPage .barBox
+{
+    position :relative ;
+    float:right ;
+    width :300px;
+    top:25px;
+    background-image: linear-gradient(to right, rgba(95,92,223,0), rgba(95,92,223,1));
+    padding-right :10%;
+    text-align :right  ;
+    font-family :yekan,arial;
+    font-size :12pt;
+    color:#fff;
+}
+
+.InnerPage_TitlePage_MainPage .IconBox
+{
+    position:relative  ;
+    float :right ;
+    top:18px;
+    left:150px;
+    width :110px;
+    height:42px;
+    border:1px solid #13A899;
+    background :#2A448F;
+}
+
+.Content_Page
+{
+    position:relative ;
+    top:0px;
+    left :0px;
+    width :100%;
+    min-height :500px;
+    display :inline-block ;
+    text-align :center ;
+}
+
+
+.Content_Page .content_Container
+{
+    position:relative ;
+    top:0px;
+    width :80%;
+    min-height :500px;
+    display :inline-block ;
+}
+
+.topbar_Mainpage
+{
+    position :relative ;
+    top:0px;
+    left:0px;
+    width :100%;
+    min-height :60px;
+    background :#262626;
+    display :inline-block ;
+    text-align :center ;
+}
+
+.topbar_Mainpage .topbar_Container
+{
+    position:relative ;
+    top:0px;
+    width :90%;
+    display :inline-block ;
+} 
+
+.topbar_Mainpage .topbar_Container .button
+{
+    position:relative ;
+    top:10px;
+    float :left ;
+    padding :5px 5px 5px 5px;
+    cursor :pointer ;
+    font-family :yekan,arial;
+    color:#fff;
+    font-size :10pt;
+    text-align :center  ;
+    width :80px;
+    text-decoration :none;
+
+}
+
+.topbar_Mainpage .topbar_Container .button i
+{
+    position:absolute ;
+    top:12px;
+    left:10px;
+    color:#0AAA8E;
+    font-size :14pt;
+}
+
+.topbar_Mainpage .topbar_Container .button:hover i
+{
+    color:#8F8EB6;
+}
+
+.topbar_Mainpage .topbar_Container .button:hover
+{
+    border:1px solid #09B295;
+}
+
+.topbar_Mainpage .topbar_Container .buttonHamkar
+{
+    position:relative ;
+    top:10px;
+    float :left ;
+    padding :5px 5px 5px 5px;
+    font-family :yekan,arial;
+    color:#fff;
+    font-size :10pt;
+    text-align :center  ;
+    width :80px;
+    text-decoration :none;
+    margin-right :10px;
+    margin-right :5px;
+    direction :rtl;
+}
+#myAccount1_Arrow
+	{
+	    color:#5F5CDF;
+	    font-size :18pt;
+	    margin-left :10px;
+	    background :none;
+	}
+
+#myAccount2_Arrow
+	{
+	    color:#FF4141;
+	    font-size :18pt;
+	    margin-left :10px;
+	    background :none;
+	}
+
+
+#myAccount3_Arrow
+	{
+	    color:#8F8EB6;
+	    font-size :18pt;
+	    margin-left :10px;
+	    background :none;
+	}
+}
+
+@media screen and (min-width: 786px) and (max-width: 1025px) 
+{
+ /*menu Section*/
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a,
+#cssmenu #menu-button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  z-index:1000;
+  
+  
+  
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+#cssmenu #menu-button {
+  display: none;
+  margin :0;
+}
+#cssmenu {
+  
+  font-family:yekan,arial;
+  background: nono;
+  margin :0;
+}
+#cssmenu > ul {
+  background: url('images/bg.png');
+ margin :0;
+  
+}
+#cssmenu.align-right > ul > li {
+  float: right;
+   margin :0;
+}
+#cssmenu > ul > li {
+  float: left;
+  margin :0;
+  padding :0;
+  margin-left :auto ;
+  margin-right :auto ;
+  display: inline-block;
+  min-height:100px;
+  line-height:100px;
+  width :16%;
+  border-right :1px solid #C4C4C4;
+
+}
+#cssmenu.align-center > ul {
+  float: none;
+  text-align: center;
+  
+}
+#cssmenu.align-center > ul > li {
+  float: none;
+  
+}
+#cssmenu.align-center ul ul {
+  text-align: left;
+  
+}
+#cssmenu > ul > li > a 
+{
+	
+  line-height:100px;
+  border-right: 0px solid rgba(155, 158, 162, 0.12);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  font-family :Yekan,arial;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  
+
+  
+}
+#cssmenu > ul > li:hover > a,
+#cssmenu > ul > li > a:hover,
+#cssmenu > ul > li.active > a {
+  color: #000;
+  background: #F9F9F9;
+
+}
+#cssmenu > ul > li.has-sub > a {
+  padding-right: 0px;
+  
+}
+#cssmenu > ul > li.has-sub > a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: 0px;
+  top: 22px;
+}
+#cssmenu > ul > li.has-sub.active > a::after,
+#cssmenu > ul > li.has-sub:hover > a {
+
+}
+#cssmenu ul ul {
+  position: absolute;
+  left: -9999px;
+  top: 60px;
+  padding-top: 6px;
+  font-size: 13px;
+  opacity: 0;
+  -webkit-transition: top 0.2s ease, opacity 0.2s ease-in;
+  -moz-transition: top 0.2s ease, opacity 0.2s ease-in;
+  -ms-transition: top 0.2s ease, opacity 0.2s ease-in;
+  -o-transition: top 0.2s ease, opacity 0.2s ease-in;
+  transition: top 0.2s ease, opacity 0.2s ease-in;
+  
+}
+#cssmenu.align-right ul ul {
+  text-align: right;
+}
+#cssmenu > ul > li > ul::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-bottom-color: #91ABBA;
+  top: -4px;
+  left: 40px;
+}
+#cssmenu.align-right > ul > li > ul::after {
+  left: auto;
+  right: 20px;
+}
+#cssmenu ul ul ul::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-right-color: #91ABBA;
+  top: 11px;
+  left: -4px;
+}
+#cssmenu.align-right ul ul ul::after {
+  border-right-color: transparent;
+  border-left-color: #ffffff;
+  left: auto;
+  right: -4px;
+}
+#cssmenu > ul > li > ul {
+  top: 120px;
+}
+#cssmenu > ul > li:hover > ul {
+  top: 100px;
+  right: 0;
+  opacity: 1;
+  padding :0;
+  
+}
+#cssmenu.align-right > ul > li:hover > ul {
+  left: auto;
+  right: 0;
+}
+#cssmenu ul ul ul {
+  padding-top: 0;
+  padding-left: 6px;
+}
+#cssmenu.align-right ul ul ul {
+  padding-right: 6px;
+}
+#cssmenu ul ul > li:hover > ul {
+  left: 200px;
+  top: 0;
+  opacity: 1;
+}
+#cssmenu.align-right ul ul > li:hover > ul {
+  left: auto;
+  right: 100%;
+  opacity: 1;
+}
+#cssmenu ul ul li a {
+  text-decoration: none;
+  font-weight: 400;
+  font-size :10pt;
+  line-height :67px;
+  width: 250px;
+  color: #99A0A0;
+  text-align :center  ;
+  background: #262627;
+  height :67px;
+  border-bottom :1px solid #474748;
+  
+}
+#cssmenu ul ul li:hover > a,
+#cssmenu ul ul li.active > a {
+  color: #fff;
+}
+#cssmenu ul ul li:first-child > a {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+#cssmenu ul ul li:last-child > a {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+#cssmenu > ul > li > ul::after {
+  position: absolute;
+  display: block;
+}
+#cssmenu ul ul li.has-sub > a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-left-color: #91ABBA;
+  right: 17px;
+  top: 0px;
+}
+#cssmenu.align-right ul ul li.has-sub > a::after {
+  border-left-color: transparent;
+  border-right-color: #91ABBA;
+  right: auto;
+  left: 17px;
+}
+#cssmenu ul ul li.has-sub.active > a::after,
+#cssmenu ul ul li.has-sub:hover > a::after {
+  border-left-color: #91ABBA;
+}
+#cssmenu.align-right ul ul li.has-sub.active > a::after,
+#cssmenu.align-right ul ul li.has-sub:hover > a::after {
+  border-right-color: #91ABBA;
+  border-left-color: transparent;
+}
+
+/*menu Section*/
+    html,body
+    {
+        margin :0;
+        padding :0;
+    }
+
+    .Menu_MainPageBox
+    {
+        position :relative ;
+        top:0px;
+        left:0px;
+        width :100%;
+        min-height:100px;
+        background :#FFFFFF;
+        display :inline-block ;
+        text-align :center ;
+        margin :0;
+        padding :0;
+        border-bottom :1px solid #C4C4C4;  
+        direction :rtl;
+    }
+    
+    .Menu_Container
+    {
+        position :relative ;
+        top:0px;
+        float :left ;
+        width :80%;
+        min-height:100px;
+        background :#FFFFFF;
+        display :inline-block ;
+        text-align :center ;
+        margin :0;
+        padding :0;
+        direction :rtl;
+    }
+    
+    .Logo_Container
+    {
+         position :relative ;
+        top:0px;
+        float :right ;
+        width :20%;
+        min-height:100px;
+        background :#FFFFFF;
+        display :inline-block ;
+        text-align :center ;
+        margin :0;
+        padding :0;
+        background-image :url(../images/LogoSpad.png);
+        background-repeat :no-repeat ;
+        background-position:center  center ;    
+        background-size:100%;
+
+    }
+    .bannerContainer
+	{
+		position :relative ;
+		top:0px;
+		left:0px;
+		width:100%;
+		min-height:550px;
+		background :none;
+		display :inline-block ;
+		border-bottom :1px solid #C1ECE3;
+	}
+	
+	.about_MainPage
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height :600px;
+	    display :inline-block ;
+	    text-align :right  ;
+	}
+	
+	.about_Container
+	{
+	    position:relative ;
+	    top:0px;
+	    float:left  ;
+	    width :100%;
+	    min-height :600px;
+	    display :inline-block ;
+	    border-right :1px solid #E5E5E5;
+	    border-left :1px solid #E5E5E5;
+	}
+	
+	.about_Container .box_Content
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :50%;
+	    padding :0;
+	    margin :0;
+	    border-left :0px solid #E5E5E5;
+	     min-height :250px;
+	}
+	
+	.about_Container .titleBox
+	{
+	    position :relative ;
+	    margin-top :0%;
+	    float:right ;
+	    width :100%;
+	    min-height :100px;
+	    line-height :100px;
+	    font-size :20pt;
+	    font-family :yekan,arial;
+	    text-align :right ;
+	    color:#000;
+	}
+	
+	
+	.about_Container .TextBox
+	{
+	    position :relative ;
+	    float:right ;
+	    width :90%;
+	    min-height :100px;
+	    line-height :100px;
+	    font-size :10pt;
+	    font-family :yekan,arial;
+	    text-align :right ;
+	    color:#000;
+	}
+	
+	.about_Container .TextBox p
+	{
+	  
+	    float:right ;
+	    width :100%;
+	    font-size :10pt;
+	    font-family :yekan,arial;
+	    text-align :justify  ;
+	    color:#000;
+	    line-height :30px;
+	    direction :rtl;
+	}
+	
+	.about_Container .ButtonBox
+	{
+	    position :relative ;
+	    float:right ;
+	    width :100%;
+	    min-height :80px;
+	    line-height :80px;
+	    text-align :right ;
+	    color:#000;
+	}
+	
+	.about_Container .ButtonBox p
+	{
+	  
+	    float:right ;
+	    width :100%;
+	    font-size :10pt;
+	    font-family :yekan,arial;
+	    text-align :justify  ;
+	    color:#000;
+	    direction :rtl;
+	    height :50px;
+	}
+	
+	.about_Container .ButtonBox p input
+	{
+	    border:0;
+	    cursor:pointer ;
+	    border-right :4px solid #5F5CDF;
+	    background :#09B295;
+	    text-align :center ;
+	    color:#fff;
+	    font-family :yekan,arial;
+	    font-size :11pt;
+	    padding :10px 25px 10px 25px;
+	}
+	
+	.about_Container .ButtonBox p input:hover
+	{
+	    background :#454545;
+	}
+	
+	.about_Container .imageBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :left ;
+	    margin :0;
+	    padding :0;
+	    width :47%;
+	    
+	}
+	
+	.about_Container .imageBox .img1
+	{
+	    position:absolute   ;
+	    top:0px;
+	    float :left ;
+	    left :-100px;
+	    width:45%;
+	    border-top-right-radius:5px;
+	    border-bottom-right-radius:5px;
+	    box-shadow:5px 5px 15px #999;
+	    z-index :2;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	
+	.about_Container .imageBox .img1_view
+	{
+	    left :0px;
+	}
+	
+	.about_Container .imageBox .img2
+	{
+	    position:absolute  ;
+	    top:100px;
+	    float :left ;
+	    left :-100px;
+	    width:35%;	    
+	    border-top-right-radius:5px;
+	    border-bottom-right-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :3;
+	    -webkit-transition:left 1.6s; /* For Safari 3.1 to 6.0 */
+        transition:left 1.6s;
+	}
+	.about_Container .imageBox .img2_view
+	{
+	    left :0px;
+	}
+	.about_Container .imageBox .img3
+	{
+	    position:absolute  ;
+	    top:100px;
+	    float :left ;
+	    left :-190px;
+	    width:45%;
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :1;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img3_view
+	{
+	    left :90px;
+	}
+	.about_Container .imageBox .img4
+	{
+	    position:absolute  ;
+	    top:180px;
+	    float :left ;
+	    left :-310px;
+	    width:45%;
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :2;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img4_view
+	{
+	    left :210px;
+	}
+	.about_Container .imageBox .img5
+	{
+	    position:absolute  ;
+	    top:240px;
+	    float :left ;
+	    left :-50px;
+	    width:35%;
+	    height:56px;
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :3;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img5_view
+	{
+	    left :50px;
+	}
+	.about_Container .imageBox .img6
+	{
+	    position:absolute  ;
+	    top:280px;
+	    float :left ;
+	    left :-110px;
+	    width:50%;
+	  
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :2;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img6_view
+	{
+	    left :110px;
+	}
+	
+	.Services_MainBox
+	{
+	    position :relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height :770px;
+	    display :inline-block ;
+	    background :#262626;
+	    text-align :left ;
+	}
+	.Services_Container
+	{
+	    position :relative ;
+	    top:0px;
+	    float :left ;
+	    width :98%;
+	    display :inline-block ;
+	    min-height :770px;
+	}
+	
+	.Services_Container .rightBoxContainer
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right;
+	    right:0px;
+	    width :50%;
+	    margin :0;
+	    padding :0;
+	    min-height :770px;
+
+	}
+	
+	
+	
+	
+	
+	.Services_Container .rightBoxContainer .contentBox
+	{
+	    position:relative ;
+	    float :right ;
+	    top:120px;
+	    width :100%;
+	    min-height:500px;
+
+
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float:right ;
+	    right :-500px;
+	    min-height:225px;
+	    width :45%;
+	    background :#161616;
+	    margin-left :10px;
+	    display :inline-block ;
+	    text-align :center ;
+	    margin-top :5px;
+	    -webkit-transition:background 1s,right 1.5s; /* For Safari 3.1 to 6.0 */
+        transition:background 1s,right 1.5s;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox_view
+	{
+	    right :0px;
+	}
+	
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox:hover
+	{
+	    background :#050521;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox
+	{
+	    position:relative ;
+	    display:inline-block ;
+	    width :90%;
+	    min-height:200px;
+	}
+	
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .topBox
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:77px;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .topBox span
+	{
+	    position :absolute ;
+	    top:23px;
+	    left:18px;
+	    font-family :Calibri ;
+	    color:#fff;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .topBox img
+	{
+	    position :absolute ;
+	    top:23px;
+	    left:40px;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .titleBox
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:50px;
+	    line-height :50px;
+	    font-family :yekan,arial;
+	    font-size :14pt;
+	    color:#fff;
+	    text-align :right ;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .AmountTextBox
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:54px;
+	    line-height :20px;
+	    font-family :yekan,arial;
+	    font-size :9pt;
+	    color:#9D9D9D;
+	    text-align :right ;
+	    margin-top :10px;
+	}
+	.Services_Container .LeftBoxContainer
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right;
+	    width :50%;
+	    margin :0;
+	    padding :0;
+	    min-height :770px;
+  
+	}
+	
+	.Services_Container .LeftBoxContainer .contentBox
+	{
+	    position:relative ;
+	    float :right ;
+	    top:120px;
+	    width :100%;
+	    min-height:500px;
+
+	}
+	.Services_Container .LeftBoxContainer .contentBox .titleBox
+	{
+	    position:relative ;
+	    float :right ;
+	    top:0px;
+	    width :100%;
+	    min-height:140px;
+	    padding-right :5px;
+	    padding-top :5px;
+	    font-size :18pt;
+	    font-family :yekan,arial;
+	    color:#fff;
+	    text-align :right;
+	    direction :rtl;
+
+
+	}
+	
+	
+	.Services_Container .LeftBoxContainer .contentBox .MenuBox
+	{
+	    position:relative ;
+	    float :right ;
+	    top:0px;
+	    width :100%;
+	    min-height:330px;
+	}
+	
+	.Myul
+	{
+		position :relative ;
+		top:0px;
+		right:0px;
+		float :right  ;
+		width:100%;
+		margin :0;
+		display :block ;
+		padding :0px 0px 0px 0px;
+		list-style-type: none;
+		text-align :right ;
+		 direction :rtl;
+	}
+	
+	.Myul li.section1
+	{
+	    width :100%;
+	    margin-bottom :50px;
+	    cursor:pointer ;
+	}
+	#myAccount1
+	{
+	    font-family :yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    text-align :right ;
+	    text-decoration :none;
+	    cursor:pointer ;
+	    direction :rtl;
+        background :#5F5CDF;
+        width:100%;
+
+	}
+	
+	#myAccount1 span
+	{
+	    background :#262626;
+	}
+	#myAccountBox1 li
+	{
+	    float :right ;
+	    font-family:yekan,arial;
+	    font-size :9pt;
+	    text-align :justify  ;
+	    color:#A8A8A8;
+	    direction :rtl;
+	    line-height :25px;
+	    width :100%;
+	     padding :10px 10px 10px 10px;
+	    margin-right :0px;
+	    list-style :none;
+	    background :#262626;
+	    
+	}
+	#myAccountBox1  div
+	{
+	    width :60%;
+	    text-align :justify  ;
+	}
+	
+	/*part*/
+	
+	.Myul li.section2
+	{
+	    width :100%;
+	   margin-bottom :50px;
+	    cursor:pointer ;
+	}
+	
+	#myAccount2
+	{
+	    font-family :yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    text-align :right ;
+	    text-decoration :none;
+	    cursor:pointer ;
+	    direction :rtl;
+	    width:100%;
+
+	}
+	
+	#myAccount2 span
+	{
+	    background :#262626;
+	}
+	#myAccountBox2 li
+	{
+	    float :right ;
+	    font-family:yekan,arial;
+	    font-size :9pt;
+	    text-align :justify  ;
+	    color:#A8A8A8;
+	    direction :rtl;
+	    line-height :25px;
+	    width :100%;
+	    padding :10px 10px 10px 10px;
+	    margin-right :0px;
+	    list-style :none;
+	    background :#262626;
+	    
+	}
+	
+	#myAccountBox2  div
+	{
+	    width :60%;
+	    text-align :justify  ;
+	}
+	
+	/*part*/
+	
+	.Myul li.section3
+	{
+	    width :100%;
+	   
+	    cursor:pointer ;
+	    margin-bottom :50px;
+	}
+	
+	#myAccount3
+	{
+	    font-family :yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    text-align :right ;
+	    text-decoration :none;
+	    cursor:pointer ;
+	    direction :rtl;
+	    width:100%;
+        
+	}
+	
+	#myAccount3 span
+	{
+	    background :#262626;
+	}
+	#myAccountBox3 li
+	{
+	    float :right ;
+	    font-family:yekan,arial;
+	    font-size :9pt;
+	    text-align :justify  ;
+	    color:#A8A8A8;
+	    direction :rtl;
+	    line-height :25px;
+	    width :100%;
+	    padding :10px 10px 10px 10px;
+	    margin-right :0px;
+	    list-style :none;
+	    background :#262626;
+	    
+	}
+	
+	#myAccountBox3  div
+	{
+	    width :60%;
+	    text-align :justify  ;
+	}
+	
+	.PictureBoxMain
+	{
+	    position:relative ;
+	    top:0px;
+	    left :0px;
+	    width :100%;
+	    min-height :940px;
+	    background :#fff;
+	    display :inline-block ;
+	    text-align :center ;
+	}
+	.pictureBoxContainer
+	{
+	    position :relative ;
+	    width :90%;
+	    display:inline-block ;
+	    min-height :940px;
+	}
+	
+	.pictureBoxContainer .lageBox
+	{
+	    position :relative ;
+	    top:40px;
+	    float :right ;
+	    width :33%;
+	    margin :0;
+	    padding :0;
+	    border:1px solid #E6E6E6;
+	    min-height :290px;
+	     -webkit-transition:top 1.5s; /* For Safari 3.1 to 6.0 */
+        transition:top 1.5s;
+	}
+	.pictureBoxContainer .lageBox_view
+	{
+	    top:0px;
+	}
+	.pictureBoxContainer .lageBox .maskBox
+	{
+	    position :absolute ;
+	    top:0px;
+	    left :0px;
+	    width :0%;
+	    height :0%;
+	    display :block  ;
+	    background :rgb(0,0,0);
+	    background :rgba(0,0,0,0.3);
+	    z-index :1000;
+	     -webkit-transition:background 0.5s,width 0.1s,height 0.1s; /* For Safari 3.1 to 6.0 */
+        transition:background 0.5s,width 0.1s,height 0.1s;
+        overflow :hidden ;
+	}
+	
+	.pictureBoxContainer .lageBox:hover .maskBox
+	{
+	     width :100%;
+	    height :100%;
+	    display:block ;
+	    background :rgba(0,0,0,0.5);
+	}
+	
+	.pictureBoxContainer .lageBox .maskBox .AlertBox
+	{
+	    position:absolute ;
+	    float :none ;
+	    bottom :-180px;
+	    min-height:50px;
+	    width :80%;
+	    background :#6598FD;
+	    padding-top:10px;
+	    padding-bottom :10px;
+	    text-align :center ;
+	    font-family :Yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    margin-left :10% ;
+	    margin-right :10% ;
+	    border-right :4px solid #5F5CDD;
+	    -webkit-transition:bottom 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:bottom 1.8s;
+	}
+	
+	.pictureBoxContainer .lageBox:hover .maskBox .AlertBox
+	{
+	    bottom :0px;
+	}
+	
+
+.pictureBoxContainer .smallBox .maskBox
+	{
+	    position :absolute ;
+	    top:0px;
+	    left :0px;
+	    width :0%;
+	    height :0%;
+	    display :block  ;
+	    background :rgb(0,0,0);
+	    background :rgba(0,0,0,0.3);
+	    z-index :1000;
+	     -webkit-transition:background 0.5s,width 0.1s,height 0.1s; /* For Safari 3.1 to 6.0 */
+        transition:background 0.5s,width 0.1s,height 0.1s;
+        overflow :hidden ;
+	}
+	
+	.pictureBoxContainer .smallBox:hover .maskBox
+	{
+	     width :100%;
+	    height :100%;
+	    display:block ;
+	    background :rgba(0,0,0,0.5);
+	}
+	
+	.pictureBoxContainer .smallBox .maskBox .AlertBox
+	{
+	    position:absolute ;
+	    float :none ;
+	    bottom :-180px;
+	    min-height:40px;
+	    width :80%;
+	    background :#6598FD;
+	    padding-top:10px;
+	    padding-bottom :10px;
+	    text-align :center ;
+	    font-family :Yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    margin-left :10% ;
+	    margin-right :10% ;
+	    border-right :4px solid #5F5CDD;
+	    -webkit-transition:bottom 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:bottom 1.8s;
+	}
+	
+	.pictureBoxContainer .smallBox:hover .maskBox .AlertBox
+	{
+	    bottom :0px;
+	}
+	.pictureBoxContainer .lageBox p
+	{
+	    text-align :justify ;
+	    direction :rtl;
+	    line-height:20px;
+	    font-family :yekan,arial;
+	    font-size :9pt;
+	    color:#000;
+	    width :90%;
+	    display :inline-block ;
+	    min-height :120px;
+	    margin-top :25%;
+	}
+	
+	.pictureBoxContainer .smallBox
+	{
+	    position :relative ;
+	    top:40px;
+	    float :right ;
+	    width :33%;
+	    margin :0;
+	    padding :0;
+	    border:1px solid #E6E6E6;
+	    min-height :200px;
+	     -webkit-transition:top 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:top 1.8s;
+	}
+	
+	.pictureBoxContainer .smallBox_view
+	{
+	    top:0px;
+	}
+	
+	.pictureBoxContainer .lageBox input
+	{
+	    position :relative;
+	    float:left ;
+	    top:0px;
+	    margin-top :70%;
+	    width :50%;
+	    min-width :188px;
+	    border :0;
+	    border-right :4px solid #5F5CDF;
+	    background :#09B295;
+	    cursor :pointer ;
+	    text-align :center ;
+	    font-family :yekan,arial;
+	    font-size :10pt;
+	    color:#fff;
+	    min-height :45px;
+	}
+	
+	.pictureBoxContainer .lageBox input:hover
+	{
+	    background :#161616;
+	}
+	
+	.OffMainPage
+	{
+	    position :relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height :540px;
+	    display :inline-block ;
+	    background :#050521;
+	    text-align :center ;
+	}
+	
+	.OffContainer
+	{
+	    position:relative ;
+	    float:left ;
+	    width :90%;
+	    min-height :540px;
+	    display :inline-block ;
+	}
+	
+	.OffContainer .rightBox
+	{
+	    position :relative ;
+	    top:0px;
+	    right :-100px;
+	    float :right ;
+	    width :40%;
+	    margin :0;
+	    padding :0;
+	    min-height :540px;
+	    -webkit-transition:right 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:right 1.8s;
+	}
+	
+	.OffContainer .rightBox_view
+	{
+	    right :0px;
+	}
+	
+	.OffContainer .rightBox .blankBox
+	{
+	    position:relative ;
+	    top:0px;
+	    width :100%;
+	    min-height:50px;
+	    float :right ;    
+	}
+	
+	.OffContainer .rightBox .titleBox
+	{
+	    position:relative ;
+	    top:0px;
+	    width :100%;
+	    float :right ;    
+	    text-align :right ;
+	    min-height :60px;
+	    line-height :60px;
+	    font-size :14pt;
+	    color:#fff;
+	    font-family:yekan,arial;
+	    direction :rtl;
+	}
+	.OffContainer .rightBox .ContentBox
+	{
+	    position:relative ;
+	    top:0px;
+	    width :100%;
+	    float :right ;    
+	    text-align :justify  ;
+	    min-height :120px;
+	    font-size :10pt;
+	    color:#B4B4B4;
+	    font-family:yekan,arial;
+	    direction :rtl;
+	}
+	
+	.OffContainer .rightBox .buttonBox
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    min-height:110px;
+	    line-height :110px;
+	    width :100%;
+	    text-align :right  ;
+	    margin-top :20px;
+	}
+	
+	.OffContainer .rightBox .buttonBox input
+	{
+	    border-width:0px;
+	    cursor:pointer ;
+	    min-height:45px;
+	    background :#09B295;
+	    text-align :center;
+	    color:#fff;
+	    border-right :4px solid #5F5CDF;
+	    font-family :yekan,arial;
+	    font-size:10pt;
+	    width :20%;
+	    min-width :180px;
+	}
+	
+	.OffContainer .rightBox .SocialBox
+	{
+	    position:relative ;
+	    top:0px;
+	    float:right ;
+	    font-size :9pt;
+	    font-family :yekan,arial;
+	    color:#fff;
+	    text-align :right ;
+	}
+	
+	.OffContainer .rightBox .SocialBox a
+	{
+	    position:relative ;
+	    float:right ;
+	    font-size :9pt;
+	    font-family :yekan,arial;
+	    color:#fff;
+	    min-width :50px;
+	}
+	
+	.OffContainer .rightBox .SocialBox a i
+	{
+	    font-size :16pt;
+	    color:#484758;
+	}
+	
+	.OffContainer .rightBox .SocialBox a i:hover
+	{
+	    color:#fff;
+	}
+	
+	
+	.OffContainer .rightBox .buttonBox input:hover
+	{
+	    background: #050521;
+	}
+	
+	
+	
+	.OffContainer .leftBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :60%;
+	    margin :0;
+	    padding :0;
+	    min-height :540px;
+	}
+	.OffContainer .leftBox section
+	{
+	    width:90%;
+	    position:relative ;
+	    float:left ;
+	}
+	
+	.OffContainer .leftBox section div
+	{
+	    position:relative ;
+	    float :left ;
+	    width :100%;
+	    min-height :540px;
+	}
+	
+	.OffContainer .leftBox section div img
+	{
+	    width :100%;
+	}
+	
+	.SponsorMainPage
+	{
+	    position :relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:700px;
+	    display :inline-block ;
+	    text-align :center ;
+	}
+	
+	.SponsorContainer
+	{
+	    position :relative ;
+	    width :90%;
+	    min-height:600px;
+	    display :inline-block ;
+	}
+	
+	.SponsorContainer .topBox
+	{
+	    position :relative ;
+	    float :right ;
+	    width :33%;
+	    min-height:165px;
+	    border:1px solid #E5E5E5;
+	    padding :0;
+	    margin :0;
+	    
+	}
+	
+	.SponsorContainer .BottomBox
+	{
+	    position :relative ;
+	    float :right ;
+	    width :33%;
+	    min-height:430px;
+	    border:1px solid #E5E5E5;
+	    padding :0;
+	    margin :0;
+	}
+	
+	.SponsorContainer .BottomBox .innerBox
+	{
+	    position:relative ;
+	    display:inline-block ;
+	    width :90%;
+	    min-height:300px;
+	}
+	
+	.SponsorContainer .BottomBox .innerBox .titleBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :100%;
+	    min-height:120px;
+	    line-height :120px;
+	    font-family :Yekan,arial;
+	    font-size :22pt;
+	    color:#000;
+	    text-align :right ;
+	    direction :rtl;
+	}
+	
+	.SponsorContainer .BottomBox .innerBox .ContentBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :100%;
+	    min-height:240px;
+	    line-height :30px;
+	    font-family :Yekan,arial;
+	    font-size :10pt;
+	    color:#000;
+	    text-align :right ;
+	    direction :rtl;
+	}
+	
+	
+	.SponsorContainer .BottomBox .SmallBox_right
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    width :49%;
+	    padding :0;
+	    margin :0;
+	    border-left:1px solid #E5E5E5; 
+	    border-bottom :1px solid #E5E5E5; 
+	    min-height:120px;
+	}
+	
+	.SponsorContainer .BottomBox .SmallBox_left
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    width :50%;
+	    padding :0;
+	    margin :0;
+	    border-left:0px solid #E5E5E5; 
+	    border-bottom :1px solid #E5E5E5; 
+	    min-height:120px;
+	}
+	
+	.SponsorContainer .BottomBox .NumberBox
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    width :100%;
+	    padding :0;
+	    margin :0;
+	    border-left:1px solid #E5E5E5; 
+	    border-bottom :0px solid #E5E5E5; 
+	    min-height:300px;
+	}
+	
+	.SponsorContainer .BottomBox .NumberBox .NumberBoxContent
+	{
+	    position:relative ;
+	    display :inline-block ;
+        height:220px;	    
+	    width :90%;
+	    margin-top :5%;
+	}
+	
+	#clip{
+  /*
+  Ensure background is added first
+  */  
+  background: linear-gradient(to bottom, #eee, rgba(255,65,65,0.2), #5F5CDF),url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZlcnNpb249JzEuMScgd2lkdGg9JzQwMCcgaGVpZ2h0PSc0MDAnPgoJPGRlZnMgaWQ9J2RlZnM0Jz4KCQk8ZmlsdGVyIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0nc1JHQicgaWQ9J2ZpbHRlcjMxMTUnPgoJCQk8ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgbnVtT2N0YXZlcz0nMScgYmFzZUZyZXF1ZW5jeT0nMC45JyBpZD0nZmVUdXJidWxlbmNlMzExNycgLz4KCQkJPGZlQ29sb3JNYXRyaXggcmVzdWx0PSdyZXN1bHQ1JyB2YWx1ZXM9JzEgMCAwIDAgMCAwIDEgMCAwIDAgMCAwIDEgMCAwIDAgMCAwIDYgLTMuNzUgJyBpZD0nZmVDb2xvck1hdHJpeDMxMTknIC8+CgkJCTxmZUNvbXBvc2l0ZSBpbjI9J3Jlc3VsdDUnIG9wZXJhdG9yPSdpbicgaW49J1NvdXJjZUdyYXBoaWMnIHJlc3VsdD0ncmVzdWx0NicgaWQ9J2ZlQ29tcG9zaXRlMzEyMScgLz4KCQkJPGZlTW9ycGhvbG9neSBpbj0ncmVzdWx0Nicgb3BlcmF0b3I9J2RpbGF0ZScgcmFkaXVzPScxMCcgcmVzdWx0PSdyZXN1bHQzJyBpZD0nZmVNb3JwaG9sb2d5MzEyMycgLz4KCQk8L2ZpbHRlcj4KCTwvZGVmcz4KCTxyZWN0IHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnIHg9JzAnIHk9JzAnIGlkPSdyZWN0Mjk4NScgZmlsbD0nI2VlZWVlZScvPiAgICAgCgk8cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyB4PScwJyB5PScwJyBpZD0ncmVjdDI5ODUnIHN0eWxlPSdmaWxsOiNlMDg3Mjg7ZmlsdGVyOnVybCgjZmlsdGVyMzExNSknIC8+Cjwvc3ZnPg==);
+  
+  background-attachment: inherit ;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-family:arial;
+  font-size: 12vw;
+  font-weight: 900;
+  text-align: center;
+  
+}
+
+.SponsorContainer .BottomBox .NumberBox  p
+{
+    font-family :yekan,arial;
+    font-size :12pt;
+    text-align :center ;
+    width :100%;
+    direction:rtl;
+    margin :0;
+    padding :0;
+    color:#000;
+}
+
+.FooterMainPage
+{
+    position:relative ;
+    top:0px;
+    left:0px;
+    width :100%;
+    min-height :610px;
+    display :inline-block ;
+    text-align :center ;
+    background :#262626;
+}
+
+.FooterContainer
+{
+    position :relative ;
+    top:0px;
+    width :90%;
+    display :inline-block ;
+    min-height :610px;
+}
+
+.FooterContainer .rightBox
+{
+    position:relative ;
+    top:0px;
+    float :right ;
+    width :50%;
+    margin :0;
+    padding :0
+}
+
+.FooterContainer .rightBox .logoBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    right :0px;
+    width :100%;
+    min-height :190px;
+    background-image :url(../images/LogoFooter.png);
+    background-repeat :no-repeat ;
+    background-position : right bottom ;
+}
+
+.FooterContainer .rightBox .ContentTextBox
+{
+    position :relative ;
+    top:0px;
+    width :0px;
+    float :right ;
+    right :0px;
+    width :70%;
+    font-size :10pt;
+    font-family :Yekan,arial;
+    color:#B3B3B3;
+    direction :rtl;
+    text-align :justify ;
+    line-height :30px;
+    margin-bottom :20px;
+}
+
+.FooterContainer .rightBox .phoneBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    right :0px;
+    width :100%;
+    min-height :40px;
+    line-height :40px;
+    text-align :right ;
+}
+
+.FooterContainer .rightBox .phoneBox a
+{
+    position:relative ;
+    float :right ;
+    display:inline-block ;
+    padding-top :5px;
+    padding-bottom :5px;
+    font-size :13pt;
+    font-family:byekan,arial;
+    color:#fff;
+}
+
+.FooterContainer .rightBox .phoneBox a i
+{
+    font-size :24px;
+    color:#959595;
+    margin-top :5px;
+    margin-left :10px;
+}
+
+
+.FooterContainer .leftBox
+{
+    position:relative ;
+    top:0px;
+    float :right ;
+    width :50%;
+    margin :0;
+    padding :0
+}
+
+.FooterContainer .leftBox .whiteBox
+{
+    position:relative ;
+    top:0px;
+    float :right ;
+    min-height:20px;
+    width:100%;
+}
+
+.FooterContainer .leftBox iframe
+{
+    position :relative ;
+    top:0px;
+    float:right ;
+    right:0px;
+    width :100%;
+    min-height :470px;
+}
+
+.ContactUsFormMainPage
+{
+    position:relative ;
+    top:0px;
+    left:0px;
+    width :100%;
+    display:inline-block ;
+    text-align :center ;
+    min-height:470px;
+    background :#262626;
+}
+
+.ContactUsFormMainPage .contentBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    width :100%;
+    min-height:55px;
+    line-height:55px;
+    margin-top :10px;
+    border-bottom :1px solid #6F6F6F;
+}
+
+.ContactUsFormMainPage .contentBox .CaptionBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    min-height:55px;
+    line-height :55px;
+    font-family :Yekan,arial;
+    font-size :10pt;
+    color:#fff;
+    width :40px;
+    
+}
+
+.ContactUsFormMainPage .contentBox .ContentTextBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    min-height:55px;
+    line-height :55px;
+    font-family :Yekan,arial;
+    font-size :10pt;
+    color:#fff;
+    width :90%;
+}
+
+.ContactUsFormMainPage .contentBox .ContentTextBox input
+{
+    position :relative ;
+    float :right ;
+    width :100%;
+    min-height:55px;
+    border:0;
+    font-size :9pt;
+    font-family :yekan,arial;
+    padding-right :5px;
+    color:#B4B4B4;
+    background :none;
+    text-align :right ;
+    direction :rtl;
+}
+
+.ContactUsFormMainPage .contentBox .ContentTextBox Textarea
+{
+    position :relative ;
+    float :right ;
+    width :100%;
+    min-height:100px;
+    border:0;
+    font-size :9pt;
+    font-family :yekan,arial;
+    padding-right :5px;
+    color:#B4B4B4;
+    background :none;
+    text-align :right ;
+    resize:none;
+    direction :rtl;
+}
+
+.ContactUsFormMainPage .contentBox .cls_Button
+{
+    position :relative ;
+    float:left ;
+    width :30%;
+    min-width :160px;
+    min-height :45px;
+    background :#09B295;
+    color:#fff;
+    text-align :center ;
+    font-size :12pt;
+    font-family :yekan,arial;
+     border:0;
+    border-right :4px solid #5F5CDD;
+    cursor :pointer ;
+    margin-top :20px;
+   
+}
+
+.ContactUsFormMainPage .contentBox .cls_Button:hover
+{
+    background :#161616;
+}     
+
+.InnerPage_TitlePage_MainPage
+{
+    position :relative ;
+    top:0px;
+    left :0px;
+    width :100%;
+    min-height:80px;
+}
+
+.InnerPage_TitlePage_MainPage .barBox
+{
+    position :relative ;
+    float:right ;
+    width :300px;
+    top:25px;
+    background-image: linear-gradient(to right, rgba(95,92,223,0), rgba(95,92,223,1));
+    padding-right :10%;
+    text-align :right  ;
+    font-family :yekan,arial;
+    font-size :12pt;
+    color:#fff;
+}
+
+.InnerPage_TitlePage_MainPage .IconBox
+{
+    position:relative  ;
+    float :right ;
+    top:18px;
+    left:150px;
+    width :110px;
+    height:42px;
+    border:1px solid #13A899;
+    background :#2A448F;
+}
+
+.Content_Page
+{
+    position:relative ;
+    top:0px;
+    left :0px;
+    width :100%;
+    min-height :500px;
+    display :inline-block ;
+    text-align :center ;
+}
+
+
+.Content_Page .content_Container
+{
+    position:relative ;
+    top:0px;
+    width :80%;
+    min-height :500px;
+    display :inline-block ;
+}
+
+.topbar_Mainpage
+{
+    position :relative ;
+    top:0px;
+    left:0px;
+    width :100%;
+    min-height :60px;
+    background :#262626;
+    display :inline-block ;
+    text-align :center ;
+}
+
+.topbar_Mainpage .topbar_Container
+{
+    position:relative ;
+    top:0px;
+    width :90%;
+    display :inline-block ;
+} 
+
+.topbar_Mainpage .topbar_Container .button
+{
+    position:relative ;
+    top:10px;
+    float :left ;
+    padding :5px 5px 5px 5px;
+    cursor :pointer ;
+    font-family :yekan,arial;
+    color:#fff;
+    font-size :10pt;
+    text-align :center  ;
+    width :80px;
+    text-decoration :none;
+
+}
+
+.topbar_Mainpage .topbar_Container .button i
+{
+    position:absolute ;
+    top:12px;
+    left:10px;
+    color:#0AAA8E;
+    font-size :14pt;
+}
+
+.topbar_Mainpage .topbar_Container .button:hover i
+{
+    color:#8F8EB6;
+}
+
+.topbar_Mainpage .topbar_Container .button:hover
+{
+    border:1px solid #09B295;
+}
+
+.topbar_Mainpage .topbar_Container .buttonHamkar
+{
+    position:relative ;
+    top:10px;
+    float :left ;
+    padding :5px 5px 5px 5px;
+    font-family :yekan,arial;
+    color:#fff;
+    font-size :10pt;
+    text-align :center  ;
+    width :80px;
+    text-decoration :none;
+    margin-right :10px;
+    margin-right :5px;
+    direction :rtl;
+}
+ #myAccount1_Arrow
+	{
+	    color:#5F5CDF;
+	    font-size :18pt;
+	    margin-left :10px;
+	    background :none;
+	}
+
+#myAccount2_Arrow
+	{
+	    color:#FF4141;
+	    font-size :18pt;
+	    margin-left :10px;
+	    background :none;
+	}
+
+
+#myAccount3_Arrow
+	{
+	    color:#8F8EB6;
+	    font-size :18pt;
+	    margin-left :10px;
+	    background :none;
+	}
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1280px)
+{
+/*menu Section*/
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a,
+#cssmenu #menu-button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  z-index:1000;
+  
+  
+  
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+#cssmenu #menu-button {
+  display: none;
+  margin :0;
+}
+#cssmenu {
+  
+  font-family:yekan,arial;
+  background: nono;
+  margin :0;
+}
+#cssmenu > ul {
+  background: url('images/bg.png');
+ margin :0;
+  
+}
+#cssmenu.align-right > ul > li {
+  float: right;
+   margin :0;
+}
+#cssmenu > ul > li {
+  float: left;
+  margin :0;
+  padding :0;
+  margin-left :auto ;
+  margin-right :auto ;
+  display: inline-block;
+  min-height:100px;
+  line-height:100px;
+  width :16%;
+  border-right :1px solid #C4C4C4;
+
+}
+#cssmenu.align-center > ul {
+  float: none;
+  text-align: center;
+  
+}
+#cssmenu.align-center > ul > li {
+  float: none;
+  
+}
+#cssmenu.align-center ul ul {
+  text-align: left;
+  
+}
+#cssmenu > ul > li > a 
+{
+	
+  line-height:100px;
+  border-right: 0px solid rgba(155, 158, 162, 0.12);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  font-family :Yekan,arial;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  
+
+  
+}
+#cssmenu > ul > li:hover > a,
+#cssmenu > ul > li > a:hover,
+#cssmenu > ul > li.active > a {
+  color: #000;
+  background: #F9F9F9;
+
+}
+#cssmenu > ul > li.has-sub > a {
+  padding-right: 0px;
+  
+}
+#cssmenu > ul > li.has-sub > a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: 0px;
+  top: 22px;
+}
+#cssmenu > ul > li.has-sub.active > a::after,
+#cssmenu > ul > li.has-sub:hover > a {
+
+}
+#cssmenu ul ul {
+  position: absolute;
+  left: -9999px;
+  top: 60px;
+  padding-top: 6px;
+  font-size: 13px;
+  opacity: 0;
+  -webkit-transition: top 0.2s ease, opacity 0.2s ease-in;
+  -moz-transition: top 0.2s ease, opacity 0.2s ease-in;
+  -ms-transition: top 0.2s ease, opacity 0.2s ease-in;
+  -o-transition: top 0.2s ease, opacity 0.2s ease-in;
+  transition: top 0.2s ease, opacity 0.2s ease-in;
+  
+}
+#cssmenu.align-right ul ul {
+  text-align: right;
+}
+#cssmenu > ul > li > ul::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-bottom-color: #91ABBA;
+  top: -4px;
+  left: 40px;
+}
+#cssmenu.align-right > ul > li > ul::after {
+  left: auto;
+  right: 20px;
+}
+#cssmenu ul ul ul::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-right-color: #91ABBA;
+  top: 11px;
+  left: -4px;
+}
+#cssmenu.align-right ul ul ul::after {
+  border-right-color: transparent;
+  border-left-color: #ffffff;
+  left: auto;
+  right: -4px;
+}
+#cssmenu > ul > li > ul {
+  top: 120px;
+}
+#cssmenu > ul > li:hover > ul {
+  top: 100px;
+  right: 0;
+  opacity: 1;
+  padding :0;
+  
+}
+#cssmenu.align-right > ul > li:hover > ul {
+  left: auto;
+  right: 0;
+}
+#cssmenu ul ul ul {
+  padding-top: 0;
+  padding-left: 6px;
+}
+#cssmenu.align-right ul ul ul {
+  padding-right: 6px;
+}
+#cssmenu ul ul > li:hover > ul {
+  left: 200px;
+  top: 0;
+  opacity: 1;
+}
+#cssmenu.align-right ul ul > li:hover > ul {
+  left: auto;
+  right: 100%;
+  opacity: 1;
+}
+#cssmenu ul ul li a {
+  text-decoration: none;
+  font-weight: 400;
+  font-size :10pt;
+  line-height :67px;
+  width: 250px;
+  color: #99A0A0;
+  text-align :center  ;
+  background: #262627;
+  height :67px;
+  border-bottom :1px solid #474748;
+  
+}
+#cssmenu ul ul li:hover > a,
+#cssmenu ul ul li.active > a {
+  color: #fff;
+}
+#cssmenu ul ul li:first-child > a {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+#cssmenu ul ul li:last-child > a {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+#cssmenu > ul > li > ul::after {
+  position: absolute;
+  display: block;
+}
+#cssmenu ul ul li.has-sub > a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-left-color: #91ABBA;
+  right: 17px;
+  top: 0px;
+}
+#cssmenu.align-right ul ul li.has-sub > a::after {
+  border-left-color: transparent;
+  border-right-color: #91ABBA;
+  right: auto;
+  left: 17px;
+}
+#cssmenu ul ul li.has-sub.active > a::after,
+#cssmenu ul ul li.has-sub:hover > a::after {
+  border-left-color: #91ABBA;
+}
+#cssmenu.align-right ul ul li.has-sub.active > a::after,
+#cssmenu.align-right ul ul li.has-sub:hover > a::after {
+  border-right-color: #91ABBA;
+  border-left-color: transparent;
+}
+
+/*menu Section*/
+    html,body
+    {
+        margin :0;
+        padding :0;
+    }
+
+    .Menu_MainPageBox
+    {
+        position :relative ;
+        top:0px;
+        left:0px;
+        width :100%;
+        min-height:100px;
+        background :#FFFFFF;
+        display :inline-block ;
+        text-align :center ;
+        margin :0;
+        padding :0;
+        border-bottom :1px solid #C4C4C4;  
+        direction :rtl;
+    }
+    
+    .Menu_Container
+    {
+        position :relative ;
+        top:0px;
+        float :left ;
+        width :80%;
+        min-height:100px;
+        background :#FFFFFF;
+        display :inline-block ;
+        text-align :center ;
+        margin :0;
+        padding :0;
+        direction :rtl;
+    }
+    
+    .Logo_Container
+    {
+         position :relative ;
+        top:0px;
+        float :right ;
+        width :20%;
+        min-height:100px;
+        background :#FFFFFF;
+        display :inline-block ;
+        text-align :center ;
+        margin :0;
+        padding :0;
+        background-image :url(../images/LogoSpad.png);
+        background-repeat :no-repeat ;
+        background-position:center  center ;    
+
+    }
+    .bannerContainer
+	{
+		position :relative ;
+		top:0px;
+		left:0px;
+		width:100%;
+		min-height:600px;
+		background :none;
+		display :inline-block ;
+		border-bottom :1px solid #C1ECE3;
+	}
+	
+	.about_MainPage
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height :700px;
+	    display :inline-block ;
+	    text-align :right  ;
+	}
+	
+	.about_Container
+	{
+	    position:relative ;
+	    top:0px;
+	    float:left  ;
+	    width :90%;
+	    min-height :700px;
+	    display :inline-block ;
+	    border-right :1px solid #E5E5E5;
+	    border-left :1px solid #E5E5E5;
+	}
+	
+	.about_Container .box_Content
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :49%;
+	    padding :0;
+	    margin :0;
+	    border-left :1px solid #E5E5E5;
+	     min-height :700px;
+	}
+	
+	.about_Container .titleBox
+	{
+	    position :relative ;
+	    margin-top :20%;
+	    float:right ;
+	    width :100%;
+	    min-height :120px;
+	    line-height :120px;
+	    font-size :20pt;
+	    font-family :yekan,arial;
+	    text-align :right ;
+	    color:#000;
+	}
+	
+	
+	.about_Container .TextBox
+	{
+	    position :relative ;
+	    float:right ;
+	    width :90%;
+	    min-height :200px;
+	    line-height :200px;
+	    font-size :10pt;
+	    font-family :yekan,arial;
+	    text-align :right ;
+	    color:#000;
+	}
+	
+	.about_Container .TextBox p
+	{
+	  
+	    float:right ;
+	    width :100%;
+	    font-size :10pt;
+	    font-family :yekan,arial;
+	    text-align :justify  ;
+	    color:#000;
+	    line-height :30px;
+	    direction :rtl;
+	}
+	
+	.about_Container .ButtonBox
+	{
+	    position :relative ;
+	    float:right ;
+	    width :100%;
+	    min-height :132px;
+	    line-height :132px;
+	    text-align :right ;
+	    color:#000;
+	}
+	
+	.about_Container .ButtonBox p
+	{
+	  
+	    float:right ;
+	    width :100%;
+	    font-size :10pt;
+	    font-family :yekan,arial;
+	    text-align :justify  ;
+	    color:#000;
+	    direction :rtl;
+	    height :50px;
+	}
+	
+	.about_Container .ButtonBox p input
+	{
+	    border:0;
+	    cursor:pointer ;
+	    border-right :4px solid #5F5CDF;
+	    background :#09B295;
+	    text-align :center ;
+	    color:#fff;
+	    font-family :yekan,arial;
+	    font-size :11pt;
+	    padding :10px 25px 10px 25px;
+	}
+	
+	.about_Container .ButtonBox p input:hover
+	{
+	    background :#454545;
+	}
+	
+	.about_Container .imageBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :left ;
+	    margin :0;
+	    padding :0;
+	    width :50%;
+	    
+	}
+	
+	.about_Container .imageBox .img1
+	{
+	    position:absolute   ;
+	    top:0px;
+	    float :left ;
+	    left :-100px;
+	    width:312px;
+	    height:170px;
+	    border-top-right-radius:5px;
+	    border-bottom-right-radius:5px;
+	    box-shadow:5px 5px 15px #999;
+	    z-index :2;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	
+	.about_Container .imageBox .img1_view
+	{
+	    left :0px;
+	}
+	
+	.about_Container .imageBox .img2
+	{
+	    position:absolute  ;
+	    top:140px;
+	    float :left ;
+	    left :-100px;
+	    width:170px;
+	    height:157px;
+	    border-top-right-radius:5px;
+	    border-bottom-right-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :3;
+	    -webkit-transition:left 1.6s; /* For Safari 3.1 to 6.0 */
+        transition:left 1.6s;
+	}
+	.about_Container .imageBox .img2_view
+	{
+	    left :0px;
+	}
+	.about_Container .imageBox .img3
+	{
+	    position:absolute  ;
+	    top:100px;
+	    float :left ;
+	    left :-190px;
+	    width:336px;
+	    height:210px;
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :1;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img3_view
+	{
+	    left :190px;
+	}
+	.about_Container .imageBox .img4
+	{
+	    position:absolute  ;
+	    top:220px;
+	    float :left ;
+	    left :-310px;
+	    width:340px;
+	    height:210px;
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :2;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img4_view
+	{
+	    left :310px;
+	}
+	.about_Container .imageBox .img5
+	{
+	    position:absolute  ;
+	    top:330px;
+	    float :left ;
+	    left :-50px;
+	    width:233px;
+	    height:156px;
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :3;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img5_view
+	{
+	    left :50px;
+	}
+	.about_Container .imageBox .img6
+	{
+	    position:absolute  ;
+	    top:380px;
+	    float :left ;
+	    left :-110px;
+	    width:340px;
+	    height:210px;
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :2;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img6_view
+	{
+	    left :110px;
+	}
+	
+	.Services_MainBox
+	{
+	    position :relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height :770px;
+	    display :inline-block ;
+	    background :#262626;
+	    text-align :left ;
+	}
+	.Services_Container
+	{
+	    position :relative ;
+	    top:0px;
+	    float :left ;
+	    width :98%;
+	    display :inline-block ;
+	    min-height :770px;
+	}
+	
+	.Services_Container .rightBoxContainer
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right;
+	    right:0px;
+	    width :40%;
+	    margin :0;
+	    padding :0;
+	    min-height :770px;
+
+	}
+	
+	
+	
+	
+	
+	.Services_Container .rightBoxContainer .contentBox
+	{
+	    position:relative ;
+	    float :right ;
+	    top:120px;
+	    width :100%;
+	    min-height:500px;
+
+
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float:right ;
+	    right :-500px;
+	    min-height:225px;
+	    width :45%;
+	    background :#161616;
+	    margin-left :10px;
+	    display :inline-block ;
+	    text-align :center ;
+	    margin-top :5px;
+	    -webkit-transition:background 1s,right 1.5s; /* For Safari 3.1 to 6.0 */
+        transition:background 1s,right 1.5s;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox_view
+	{
+	    right :0px;
+	}
+	
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox:hover
+	{
+	    background :#050521;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox
+	{
+	    position:relative ;
+	    display:inline-block ;
+	    width :90%;
+	    min-height:200px;
+	}
+	
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .topBox
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:77px;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .topBox span
+	{
+	    position :absolute ;
+	    top:23px;
+	    left:18px;
+	    font-family :Calibri ;
+	    color:#fff;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .topBox img
+	{
+	    position :absolute ;
+	    top:23px;
+	    left:40px;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .titleBox
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:50px;
+	    line-height :50px;
+	    font-family :yekan,arial;
+	    font-size :14pt;
+	    color:#fff;
+	    text-align :right ;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .AmountTextBox
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:54px;
+	    line-height :20px;
+	    font-family :yekan,arial;
+	    font-size :9pt;
+	    color:#9D9D9D;
+	    text-align :right ;
+	    margin-top :10px;
+	}
+	.Services_Container .LeftBoxContainer
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right;
+	    width :60%;
+	    margin :0;
+	    padding :0;
+	    min-height :770px;
+  
+	}
+	
+	.Services_Container .LeftBoxContainer .contentBox
+	{
+	    position:relative ;
+	    float :right ;
+	    top:120px;
+	    width :100%;
+	    min-height:500px;
+
+	}
+	.Services_Container .LeftBoxContainer .contentBox .titleBox
+	{
+	    position:relative ;
+	    float :right ;
+	    top:0px;
+	    width :100%;
+	    min-height:140px;
+	    padding-right :5px;
+	    padding-top :5px;
+	    font-size :18pt;
+	    font-family :yekan,arial;
+	    color:#fff;
+	    text-align :right;
+	    direction :rtl;
+
+
+	}
+	
+	
+	.Services_Container .LeftBoxContainer .contentBox .MenuBox
+	{
+	    position:relative ;
+	    float :right ;
+	    top:0px;
+	    width :100%;
+	    min-height:330px;
+	}
+	
+	.Myul
+	{
+		position :relative ;
+		top:0px;
+		right:0px;
+		float :right  ;
+		width:100%;
+		margin :0;
+		display :block ;
+		padding :0px 0px 0px 0px;
+		list-style-type: none;
+		text-align :right ;
+		 direction :rtl;
+	}
+	
+	.Myul li.section1
+	{
+	    width :100%;
+	    margin-bottom :50px;
+	    cursor:pointer ;
+	}
+	#myAccount1
+	{
+	    font-family :yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    text-align :right ;
+	    text-decoration :none;
+	    cursor:pointer ;
+	    direction :rtl;
+        background :#5F5CDF;
+        width:100%;
+
+	}
+	
+	#myAccount1 span
+	{
+	    background :#262626;
+	}
+	#myAccountBox1 li
+	{
+	    float :right ;
+	    font-family:yekan,arial;
+	    font-size :9pt;
+	    text-align :justify  ;
+	    color:#A8A8A8;
+	    direction :rtl;
+	    line-height :25px;
+	    width :100%;
+	     padding :10px 10px 10px 10px;
+	    margin-right :0px;
+	    list-style :none;
+	    background :#262626;
+	    
+	}
+	#myAccountBox1  div
+	{
+	    width :60%;
+	    text-align :justify  ;
+	}
+	
+	/*part*/
+	
+	.Myul li.section2
+	{
+	    width :100%;
+	   margin-bottom :50px;
+	    cursor:pointer ;
+	}
+	
+	#myAccount2
+	{
+	    font-family :yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    text-align :right ;
+	    text-decoration :none;
+	    cursor:pointer ;
+	    direction :rtl;
+	    width:100%;
+
+	}
+	
+	#myAccount2 span
+	{
+	    background :#262626;
+	}
+	#myAccountBox2 li
+	{
+	    float :right ;
+	    font-family:yekan,arial;
+	    font-size :9pt;
+	    text-align :justify  ;
+	    color:#A8A8A8;
+	    direction :rtl;
+	    line-height :25px;
+	    width :100%;
+	    padding :10px 10px 10px 10px;
+	    margin-right :0px;
+	    list-style :none;
+	    background :#262626;
+	    
+	}
+	
+	#myAccountBox2  div
+	{
+	    width :60%;
+	    text-align :justify  ;
+	}
+	
+	/*part*/
+	
+	.Myul li.section3
+	{
+	    width :100%;
+	   
+	    cursor:pointer ;
+	    margin-bottom :50px;
+	}
+	
+	#myAccount3
+	{
+	    font-family :yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    text-align :right ;
+	    text-decoration :none;
+	    cursor:pointer ;
+	    direction :rtl;
+	    width:100%;
+        
+	}
+	
+	#myAccount3 span
+	{
+	    background :#262626;
+	}
+	#myAccountBox3 li
+	{
+	    float :right ;
+	    font-family:yekan,arial;
+	    font-size :9pt;
+	    text-align :justify  ;
+	    color:#A8A8A8;
+	    direction :rtl;
+	    line-height :25px;
+	    width :100%;
+	    padding :10px 10px 10px 10px;
+	    margin-right :0px;
+	    list-style :none;
+	    background :#262626;
+	    
+	}
+	
+	#myAccountBox3  div
+	{
+	    width :60%;
+	    text-align :justify  ;
+	}
+	
+	.PictureBoxMain
+	{
+	    position:relative ;
+	    top:0px;
+	    left :0px;
+	    width :100%;
+	    min-height :940px;
+	    background :#fff;
+	    display :inline-block ;
+	    text-align :center ;
+	}
+	.pictureBoxContainer
+	{
+	    position :relative ;
+	    width :90%;
+	    display:inline-block ;
+	    min-height :940px;
+	}
+	
+	.pictureBoxContainer .lageBox
+	{
+	    position :relative ;
+	    top:40px;
+	    float :right ;
+	    width :33%;
+	    margin :0;
+	    padding :0;
+	    border:1px solid #E6E6E6;
+	    min-height :290px;
+	     -webkit-transition:top 1.5s; /* For Safari 3.1 to 6.0 */
+        transition:top 1.5s;
+	}
+	.pictureBoxContainer .lageBox_view
+	{
+	    top:0px;
+	}
+	.pictureBoxContainer .lageBox .maskBox
+	{
+	    position :absolute ;
+	    top:0px;
+	    left :0px;
+	    width :0%;
+	    height :0%;
+	    display :block  ;
+	    background :rgb(0,0,0);
+	    background :rgba(0,0,0,0.3);
+	    z-index :1000;
+	     -webkit-transition:background 0.5s,width 0.1s,height 0.1s; /* For Safari 3.1 to 6.0 */
+        transition:background 0.5s,width 0.1s,height 0.1s;
+        overflow :hidden ;
+	}
+	
+	.pictureBoxContainer .lageBox:hover .maskBox
+	{
+	     width :100%;
+	    height :100%;
+	    display:block ;
+	    background :rgba(0,0,0,0.5);
+	}
+	
+	.pictureBoxContainer .lageBox .maskBox .AlertBox
+	{
+	    position:absolute ;
+	    float :none ;
+	    bottom :-180px;
+	    min-height:50px;
+	    width :80%;
+	    background :#6598FD;
+	    padding-top:10px;
+	    padding-bottom :10px;
+	    text-align :center ;
+	    font-family :Yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    margin-left :10% ;
+	    margin-right :10% ;
+	    border-right :4px solid #5F5CDD;
+	    -webkit-transition:bottom 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:bottom 1.8s;
+	}
+	
+	.pictureBoxContainer .lageBox:hover .maskBox .AlertBox
+	{
+	    bottom :0px;
+	}
+	
+
+.pictureBoxContainer .smallBox .maskBox
+	{
+	    position :absolute ;
+	    top:0px;
+	    left :0px;
+	    width :0%;
+	    height :0%;
+	    display :block  ;
+	    background :rgb(0,0,0);
+	    background :rgba(0,0,0,0.3);
+	    z-index :1000;
+	     -webkit-transition:background 0.5s,width 0.1s,height 0.1s; /* For Safari 3.1 to 6.0 */
+        transition:background 0.5s,width 0.1s,height 0.1s;
+        overflow :hidden ;
+	}
+	
+	.pictureBoxContainer .smallBox:hover .maskBox
+	{
+	     width :100%;
+	    height :100%;
+	    display:block ;
+	    background :rgba(0,0,0,0.5);
+	}
+	
+	.pictureBoxContainer .smallBox .maskBox .AlertBox
+	{
+	    position:absolute ;
+	    float :none ;
+	    bottom :-180px;
+	    min-height:40px;
+	    width :80%;
+	    background :#6598FD;
+	    padding-top:10px;
+	    padding-bottom :10px;
+	    text-align :center ;
+	    font-family :Yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    margin-left :10% ;
+	    margin-right :10% ;
+	    border-right :4px solid #5F5CDD;
+	    -webkit-transition:bottom 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:bottom 1.8s;
+	}
+	
+	.pictureBoxContainer .smallBox:hover .maskBox .AlertBox
+	{
+	    bottom :0px;
+	}
+	.pictureBoxContainer .lageBox p
+	{
+	    text-align :justify ;
+	    direction :rtl;
+	    line-height:20px;
+	    font-family :yekan,arial;
+	    font-size :9pt;
+	    color:#000;
+	    width :90%;
+	    display :inline-block ;
+	    min-height :120px;
+	    margin-top :25%;
+	}
+	
+	.pictureBoxContainer .smallBox
+	{
+	    position :relative ;
+	    top:40px;
+	    float :right ;
+	    width :33%;
+	    margin :0;
+	    padding :0;
+	    border:1px solid #E6E6E6;
+	    min-height :200px;
+	     -webkit-transition:top 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:top 1.8s;
+	}
+	
+	.pictureBoxContainer .smallBox_view
+	{
+	    top:0px;
+	}
+	
+	.pictureBoxContainer .lageBox input
+	{
+	    position :relative;
+	    float:left ;
+	    top:0px;
+	    margin-top :40%;
+	    width :60%;
+	    min-width :218px;
+	    border :0;
+	    border-right :4px solid #5F5CDF;
+	    background :#09B295;
+	    cursor :pointer ;
+	    text-align :center ;
+	    font-family :yekan,arial;
+	    font-size :10pt;
+	    color:#fff;
+	    min-height :45px;
+	}
+	
+	.pictureBoxContainer .lageBox input:hover
+	{
+	    background :#161616;
+	}
+	
+	.OffMainPage
+	{
+	    position :relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height :540px;
+	    display :inline-block ;
+	    background :#050521;
+	    text-align :center ;
+	}
+	
+	.OffContainer
+	{
+	    position:relative ;
+	    float:left ;
+	    width :90%;
+	    min-height :540px;
+	    display :inline-block ;
+	}
+	
+	.OffContainer .rightBox
+	{
+	    position :relative ;
+	    top:0px;
+	    right :-100px;
+	    float :right ;
+	    width :40%;
+	    margin :0;
+	    padding :0;
+	    min-height :540px;
+	    -webkit-transition:right 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:right 1.8s;
+	}
+	
+	.OffContainer .rightBox_view
+	{
+	    right :0px;
+	}
+	
+	.OffContainer .rightBox .blankBox
+	{
+	    position:relative ;
+	    top:0px;
+	    width :100%;
+	    min-height:100px;
+	    float :right ;    
+	}
+	
+	.OffContainer .rightBox .titleBox
+	{
+	    position:relative ;
+	    top:0px;
+	    width :100%;
+	    float :right ;    
+	    text-align :right ;
+	    min-height :60px;
+	    line-height :60px;
+	    font-size :14pt;
+	    color:#fff;
+	    font-family:yekan,arial;
+	    direction :rtl;
+	}
+	.OffContainer .rightBox .ContentBox
+	{
+	    position:relative ;
+	    top:0px;
+	    width :100%;
+	    float :right ;    
+	    text-align :justify  ;
+	    min-height :120px;
+	    font-size :10pt;
+	    color:#B4B4B4;
+	    font-family:yekan,arial;
+	    direction :rtl;
+	}
+	
+	.OffContainer .rightBox .buttonBox
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    min-height:110px;
+	    line-height :110px;
+	    width :100%;
+	    text-align :right  ;
+	}
+	
+	.OffContainer .rightBox .buttonBox input
+	{
+	    border-width:0px;
+	    cursor:pointer ;
+	    min-height:45px;
+	    background :#09B295;
+	    text-align :center;
+	    color:#fff;
+	    border-right :4px solid #5F5CDF;
+	    font-family :yekan,arial;
+	    font-size:10pt;
+	    width :20%;
+	    min-width :220px;
+	}
+	
+	.OffContainer .rightBox .SocialBox
+	{
+	    position:relative ;
+	    top:0px;
+	    float:right ;
+	    font-size :9pt;
+	    font-family :yekan,arial;
+	    color:#fff;
+	    text-align :right ;
+	}
+	
+	.OffContainer .rightBox .SocialBox a
+	{
+	    position:relative ;
+	    float:right ;
+	    font-size :9pt;
+	    font-family :yekan,arial;
+	    color:#fff;
+	    min-width :50px;
+	}
+	
+	.OffContainer .rightBox .SocialBox a i
+	{
+	    font-size :16pt;
+	    color:#484758;
+	}
+	
+	.OffContainer .rightBox .SocialBox a i:hover
+	{
+	    color:#fff;
+	}
+	
+	
+	.OffContainer .rightBox .buttonBox input:hover
+	{
+	    background: #050521;
+	}
+	
+	
+	
+	.OffContainer .leftBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :60%;
+	    margin :0;
+	    padding :0;
+	    min-height :540px;
+	}
+	.OffContainer .leftBox section
+	{
+	    width:90%;
+	    position:relative ;
+	    float:left ;
+	}
+	
+	.OffContainer .leftBox section div
+	{
+	    position:relative ;
+	    float :left ;
+	    width :100%;
+	    min-height :540px;
+	}
+	
+	.OffContainer .leftBox section div img
+	{
+	    width :100%;
+	}
+	
+	.SponsorMainPage
+	{
+	    position :relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:700px;
+	    display :inline-block ;
+	    text-align :center ;
+	}
+	
+	.SponsorContainer
+	{
+	    position :relative ;
+	    width :90%;
+	    min-height:700px;
+	    display :inline-block ;
+	}
+	
+	.SponsorContainer .topBox
+	{
+	    position :relative ;
+	    float :right ;
+	    width :33%;
+	    min-height:165px;
+	    border:1px solid #E5E5E5;
+	    padding :0;
+	    margin :0;
+	}
+	
+	.SponsorContainer .BottomBox
+	{
+	    position :relative ;
+	    float :right ;
+	    width :33%;
+	    min-height:530px;
+	    border:1px solid #E5E5E5;
+	    padding :0;
+	    margin :0;
+	}
+	
+	.SponsorContainer .BottomBox .innerBox
+	{
+	    position:relative ;
+	    display:inline-block ;
+	    width :90%;
+	    min-height:400px;
+	}
+	
+	.SponsorContainer .BottomBox .innerBox .titleBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :100%;
+	    min-height:120px;
+	    line-height :120px;
+	    font-family :Yekan,arial;
+	    font-size :22pt;
+	    color:#000;
+	    text-align :right ;
+	    direction :rtl;
+	}
+	
+	.SponsorContainer .BottomBox .innerBox .ContentBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :100%;
+	    min-height:340px;
+	    line-height :30px;
+	    font-family :Yekan,arial;
+	    font-size :10pt;
+	    color:#000;
+	    text-align :right ;
+	    direction :rtl;
+	}
+	
+	
+	.SponsorContainer .BottomBox .SmallBox_right
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    width :49%;
+	    padding :0;
+	    margin :0;
+	    border-left:1px solid #E5E5E5; 
+	    border-bottom :1px solid #E5E5E5; 
+	    min-height:160px;
+	}
+	
+	.SponsorContainer .BottomBox .SmallBox_left
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    width :50%;
+	    padding :0;
+	    margin :0;
+	    border-left:0px solid #E5E5E5; 
+	    border-bottom :1px solid #E5E5E5; 
+	    min-height:160px;
+	}
+	
+	.SponsorContainer .BottomBox .NumberBox
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    width :100%;
+	    padding :0;
+	    margin :0;
+	    border-left:1px solid #E5E5E5; 
+	    border-bottom :1px solid #E5E5E5; 
+	    min-height:370px;
+	}
+	
+	.SponsorContainer .BottomBox .NumberBox .NumberBoxContent
+	{
+	    position:relative ;
+	    display :inline-block ;
+        height:220px;	    
+	    width :90%;
+	    margin-top :5%;
+	}
+	
+	#clip{
+  /*
+  Ensure background is added first
+  */  
+  background: linear-gradient(to bottom, #eee, rgba(255,65,65,0.2), #5F5CDF),url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZlcnNpb249JzEuMScgd2lkdGg9JzQwMCcgaGVpZ2h0PSc0MDAnPgoJPGRlZnMgaWQ9J2RlZnM0Jz4KCQk8ZmlsdGVyIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0nc1JHQicgaWQ9J2ZpbHRlcjMxMTUnPgoJCQk8ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgbnVtT2N0YXZlcz0nMScgYmFzZUZyZXF1ZW5jeT0nMC45JyBpZD0nZmVUdXJidWxlbmNlMzExNycgLz4KCQkJPGZlQ29sb3JNYXRyaXggcmVzdWx0PSdyZXN1bHQ1JyB2YWx1ZXM9JzEgMCAwIDAgMCAwIDEgMCAwIDAgMCAwIDEgMCAwIDAgMCAwIDYgLTMuNzUgJyBpZD0nZmVDb2xvck1hdHJpeDMxMTknIC8+CgkJCTxmZUNvbXBvc2l0ZSBpbjI9J3Jlc3VsdDUnIG9wZXJhdG9yPSdpbicgaW49J1NvdXJjZUdyYXBoaWMnIHJlc3VsdD0ncmVzdWx0NicgaWQ9J2ZlQ29tcG9zaXRlMzEyMScgLz4KCQkJPGZlTW9ycGhvbG9neSBpbj0ncmVzdWx0Nicgb3BlcmF0b3I9J2RpbGF0ZScgcmFkaXVzPScxMCcgcmVzdWx0PSdyZXN1bHQzJyBpZD0nZmVNb3JwaG9sb2d5MzEyMycgLz4KCQk8L2ZpbHRlcj4KCTwvZGVmcz4KCTxyZWN0IHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnIHg9JzAnIHk9JzAnIGlkPSdyZWN0Mjk4NScgZmlsbD0nI2VlZWVlZScvPiAgICAgCgk8cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyB4PScwJyB5PScwJyBpZD0ncmVjdDI5ODUnIHN0eWxlPSdmaWxsOiNlMDg3Mjg7ZmlsdGVyOnVybCgjZmlsdGVyMzExNSknIC8+Cjwvc3ZnPg==);
+  
+   background-attachment: inherit ;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-family:arial;
+  font-size: 12vw;
+  font-weight: 900;
+  text-align: center;
+  
+}
+
+.SponsorContainer .BottomBox .NumberBox  p
+{
+    font-family :yekan,arial;
+    font-size :12pt;
+    text-align :center ;
+    width :100%;
+    direction:rtl;
+    margin :0;
+    padding :0;
+    color:#000;
+}
+
+.FooterMainPage
+{
+    position:relative ;
+    top:0px;
+    left:0px;
+    width :100%;
+    min-height :610px;
+    display :inline-block ;
+    text-align :center ;
+    background :#262626;
+}
+
+.FooterContainer
+{
+    position :relative ;
+    top:0px;
+    width :90%;
+    display :inline-block ;
+    min-height :610px;
+}
+
+.FooterContainer .rightBox
+{
+    position:relative ;
+    top:0px;
+    float :right ;
+    width :50%;
+    margin :0;
+    padding :0
+}
+
+.FooterContainer .rightBox .logoBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    right :0px;
+    width :100%;
+    min-height :190px;
+    background-image :url(../images/LogoFooter.png);
+    background-repeat :no-repeat ;
+    background-position : right bottom ;
+}
+
+.FooterContainer .rightBox .ContentTextBox
+{
+    position :relative ;
+    top:0px;
+    width :0px;
+    float :right ;
+    right :0px;
+    width :70%;
+    font-size :10pt;
+    font-family :Yekan,arial;
+    color:#B3B3B3;
+    direction :rtl;
+    text-align :justify ;
+    line-height :30px;
+    margin-bottom :20px;
+}
+
+.FooterContainer .rightBox .phoneBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    right :0px;
+    width :100%;
+    min-height :40px;
+    line-height :40px;
+    text-align :right ;
+}
+
+.FooterContainer .rightBox .phoneBox a
+{
+    position:relative ;
+    float :right ;
+    display:inline-block ;
+    padding-top :5px;
+    padding-bottom :5px;
+    font-size :13pt;
+    font-family:byekan,arial;
+    color:#fff;
+}
+
+.FooterContainer .rightBox .phoneBox a i
+{
+    font-size :24px;
+    color:#959595;
+    margin-top :5px;
+    margin-left :10px;
+}
+
+
+.FooterContainer .leftBox
+{
+    position:relative ;
+    top:0px;
+    float :right ;
+    width :50%;
+    margin :0;
+    padding :0
+}
+
+.FooterContainer .leftBox .whiteBox
+{
+    position:relative ;
+    top:0px;
+    float :right ;
+    min-height:20px;
+    width:100%;
+}
+
+.FooterContainer .leftBox iframe
+{
+    position :relative ;
+    top:0px;
+    float:right ;
+    right:0px;
+    width :100%;
+    min-height :470px;
+}
+
+.ContactUsFormMainPage
+{
+    position:relative ;
+    top:0px;
+    left:0px;
+    width :100%;
+    display:inline-block ;
+    text-align :center ;
+    min-height:470px;
+    background :#262626;
+}
+
+.ContactUsFormMainPage .contentBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    width :100%;
+    min-height:55px;
+    line-height:55px;
+    margin-top :10px;
+    border-bottom :1px solid #6F6F6F;
+}
+
+.ContactUsFormMainPage .contentBox .CaptionBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    min-height:55px;
+    line-height :55px;
+    font-family :Yekan,arial;
+    font-size :10pt;
+    color:#fff;
+    width :40px;
+    
+}
+
+.ContactUsFormMainPage .contentBox .ContentTextBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    min-height:55px;
+    line-height :55px;
+    font-family :Yekan,arial;
+    font-size :10pt;
+    color:#fff;
+    width :90%;
+}
+
+.ContactUsFormMainPage .contentBox .ContentTextBox input
+{
+    position :relative ;
+    float :right ;
+    width :100%;
+    min-height:55px;
+    border:0;
+    font-size :9pt;
+    font-family :yekan,arial;
+    padding-right :5px;
+    color:#B4B4B4;
+    background :none;
+    text-align :right ;
+    direction :rtl;
+}
+
+.ContactUsFormMainPage .contentBox .ContentTextBox Textarea
+{
+    position :relative ;
+    float :right ;
+    width :100%;
+    min-height:100px;
+    border:0;
+    font-size :9pt;
+    font-family :yekan,arial;
+    padding-right :5px;
+    color:#B4B4B4;
+    background :none;
+    text-align :right ;
+    resize:none;
+    direction :rtl;
+}
+
+.ContactUsFormMainPage .contentBox .cls_Button
+{
+    position :relative ;
+    float:left ;
+    width :30%;
+    min-width :160px;
+    min-height :45px;
+    background :#09B295;
+    color:#fff;
+    text-align :center ;
+    font-size :12pt;
+    font-family :yekan,arial;
+     border:0;
+    border-right :4px solid #5F5CDD;
+    cursor :pointer ;
+    margin-top :20px;
+   
+}
+
+.ContactUsFormMainPage .contentBox .cls_Button:hover
+{
+    background :#161616;
+}    
+.topbar_Mainpage
+{
+    position :relative ;
+    top:0px;
+    left:0px;
+    width :100%;
+    min-height :60px;
+    background :#262626;
+    display :inline-block ;
+    text-align :center ;
+}
+
+.topbar_Mainpage .topbar_Container
+{
+    position:relative ;
+    top:0px;
+    width :90%;
+    display :inline-block ;
+} 
+
+.topbar_Mainpage .topbar_Container .button
+{
+    position:relative ;
+    top:10px;
+    float :left ;
+    padding :5px 5px 5px 5px;
+    cursor :pointer ;
+    font-family :yekan,arial;
+    color:#fff;
+    font-size :10pt;
+    text-align :center  ;
+    width :80px;
+    text-decoration :none;
+
+}
+
+.topbar_Mainpage .topbar_Container .button i
+{
+    position:absolute ;
+    top:12px;
+    left:10px;
+    color:#0AAA8E;
+    font-size :14pt;
+}
+
+.topbar_Mainpage .topbar_Container .button:hover i
+{
+    color:#8F8EB6;
+}
+
+.topbar_Mainpage .topbar_Container .button:hover
+{
+    border:1px solid #09B295;
+}
+
+.topbar_Mainpage .topbar_Container .buttonHamkar
+{
+    position:relative ;
+    top:10px;
+    float :left ;
+    padding :5px 5px 5px 5px;
+    font-family :yekan,arial;
+    color:#fff;
+    font-size :10pt;
+    text-align :center  ;
+    width :80px;
+    text-decoration :none;
+    margin-right :10px;
+    margin-right :5px;
+    direction :rtl;
+}   
+}
+
+
+@media screen and (min-width: 1281px) and (max-width: 5000px)
+{
+/*menu Section*/
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a,
+#cssmenu #menu-button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  z-index:1000;
+  
+  
+  
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+#cssmenu #menu-button {
+  display: none;
+  margin :0;
+}
+#cssmenu {
+  
+  font-family:yekan,arial;
+  background: nono;
+  margin :0;
+}
+#cssmenu > ul {
+  background: url('images/bg.png');
+ margin :0;
+  
+}
+#cssmenu.align-right > ul > li {
+  float: right;
+   margin :0;
+}
+#cssmenu > ul > li {
+  float: left;
+  margin :0;
+  padding :0;
+  margin-left :auto ;
+  margin-right :auto ;
+  display: inline-block;
+  min-height:100px;
+  line-height:100px;
+  width :16%;
+  border-right :1px solid #C4C4C4;
+
+}
+#cssmenu.align-center > ul {
+  float: none;
+  text-align: center;
+  
+}
+#cssmenu.align-center > ul > li {
+  float: none;
+  
+}
+#cssmenu.align-center ul ul {
+  text-align: left;
+  
+}
+#cssmenu > ul > li > a 
+{
+	
+  line-height:100px;
+  border-right: 0px solid rgba(155, 158, 162, 0.12);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  font-family :Yekan,arial;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  
+
+  
+}
+#cssmenu > ul > li:hover > a,
+#cssmenu > ul > li > a:hover,
+#cssmenu > ul > li.active > a {
+  color: #000;
+  background: #F9F9F9;
+
+}
+#cssmenu > ul > li.has-sub > a {
+  padding-right: 0px;
+  
+}
+#cssmenu > ul > li.has-sub > a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: 0px;
+  top: 22px;
+}
+#cssmenu > ul > li.has-sub.active > a::after,
+#cssmenu > ul > li.has-sub:hover > a {
+
+}
+#cssmenu ul ul {
+  position: absolute;
+  left: -9999px;
+  top: 60px;
+  padding-top: 6px;
+  font-size: 13px;
+  opacity: 0;
+  -webkit-transition: top 0.2s ease, opacity 0.2s ease-in;
+  -moz-transition: top 0.2s ease, opacity 0.2s ease-in;
+  -ms-transition: top 0.2s ease, opacity 0.2s ease-in;
+  -o-transition: top 0.2s ease, opacity 0.2s ease-in;
+  transition: top 0.2s ease, opacity 0.2s ease-in;
+  
+}
+#cssmenu.align-right ul ul {
+  text-align: right;
+}
+#cssmenu > ul > li > ul::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-bottom-color: #91ABBA;
+  top: -4px;
+  left: 40px;
+}
+#cssmenu.align-right > ul > li > ul::after {
+  left: auto;
+  right: 20px;
+}
+#cssmenu ul ul ul::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-right-color: #91ABBA;
+  top: 11px;
+  left: -4px;
+}
+#cssmenu.align-right ul ul ul::after {
+  border-right-color: transparent;
+  border-left-color: #ffffff;
+  left: auto;
+  right: -4px;
+}
+#cssmenu > ul > li > ul {
+  top: 120px;
+}
+#cssmenu > ul > li:hover > ul {
+  top: 100px;
+  right: 0;
+  opacity: 1;
+  padding :0;
+  
+}
+#cssmenu.align-right > ul > li:hover > ul {
+  left: auto;
+  right: 0;
+}
+#cssmenu ul ul ul {
+  padding-top: 0;
+  padding-left: 6px;
+}
+#cssmenu.align-right ul ul ul {
+  padding-right: 6px;
+}
+#cssmenu ul ul > li:hover > ul {
+  left: 200px;
+  top: 0;
+  opacity: 1;
+}
+#cssmenu.align-right ul ul > li:hover > ul {
+  left: auto;
+  right: 100%;
+  opacity: 1;
+}
+#cssmenu ul ul li a {
+  text-decoration: none;
+  font-weight: 400;
+  font-size :10pt;
+  line-height :67px;
+  width: 250px;
+  color: #99A0A0;
+  text-align :center  ;
+  background: #262627;
+  height :67px;
+  border-bottom :1px solid #474748;
+  
+}
+#cssmenu ul ul li:hover > a,
+#cssmenu ul ul li.active > a {
+  color: #fff;
+}
+#cssmenu ul ul li:first-child > a {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+#cssmenu ul ul li:last-child > a {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+#cssmenu > ul > li > ul::after {
+  position: absolute;
+  display: block;
+}
+#cssmenu ul ul li.has-sub > a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-left-color: #91ABBA;
+  right: 17px;
+  top: 0px;
+}
+#cssmenu.align-right ul ul li.has-sub > a::after {
+  border-left-color: transparent;
+  border-right-color: #91ABBA;
+  right: auto;
+  left: 17px;
+}
+#cssmenu ul ul li.has-sub.active > a::after,
+#cssmenu ul ul li.has-sub:hover > a::after {
+  border-left-color: #91ABBA;
+}
+#cssmenu.align-right ul ul li.has-sub.active > a::after,
+#cssmenu.align-right ul ul li.has-sub:hover > a::after {
+  border-right-color: #91ABBA;
+  border-left-color: transparent;
+}
+
+
+
+
+/*menu Section*/
+    html,body
+    {
+        margin :0;
+        padding :0;
+    }
+
+.TopContanerBox
+{
+    position :relative ;
+    top:0px;
+    left :0px;
+    width :100%;
+    padding :0;
+    margin :0;
+    min-height :600px;
+    overflow :hidden ;
+}
+
+    .Menu_MainPageBox
+    {
+        position :relative ;
+        top:0px;
+        left:0px;
+        width :100%;
+        min-height:100px;
+        background :#FFFFFF;
+        display :inline-block ;
+        text-align :center ;
+        margin :0;
+        padding :0;
+        border-bottom :1px solid #C4C4C4;  
+        direction :rtl;
+    }
+    
+    .Menu_Container
+    {
+        position :relative ;
+        top:0px;
+        float :left ;
+        width :80%;
+        min-height:100px;
+        background :#FFFFFF;
+        display :inline-block ;
+        text-align :center ;
+        margin :0;
+        padding :0;
+        direction :rtl;
+    }
+    
+    .Logo_Container
+    {
+         position :relative ;
+        top:0px;
+        float :right ;
+        width :20%;
+        min-height:100px;
+        background :#FFFFFF;
+        display :inline-block ;
+        text-align :center ;
+        margin :0;
+        padding :0;
+        background-image :url(../images/LogoSpad.png);
+        background-repeat :no-repeat ;
+        background-position:center  center ;    
+
+    }
+    .bannerContainer
+	{
+		position :relative ;
+		top:0px;
+		left:0px;
+		width:100%;
+		min-height:600px;
+		background :none;
+		display :inline-block ;
+		border-bottom :1px solid #C1ECE3;
+	}
+	
+	.about_MainPage
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height :700px;
+	    display :inline-block ;
+	    text-align :right  ;
+	    
+	}
+	
+	.about_Container
+	{
+	    position:relative ;
+	    top:0px;
+	    float:left  ;
+	    width :90%;
+	    min-height :700px;
+	    display :inline-block ;
+	    border-right :1px solid #E5E5E5;
+	    border-left :1px solid #E5E5E5;
+	}
+	
+	.about_Container .box_Content
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :49%;
+	    padding :0;
+	    margin :0;
+	    border-left :1px solid #E5E5E5;
+	     min-height :700px;
+	}
+	
+	.about_Container .titleBox
+	{
+	    position :relative ;
+	    margin-top :20%;
+	    float:right ;
+	    width :100%;
+	    min-height :120px;
+	    line-height :120px;
+	    font-size :20pt;
+	    font-family :yekan,arial;
+	    text-align :right ;
+	    color:#000;
+	}
+	
+	
+	.about_Container .TextBox
+	{
+	    position :relative ;
+	    float:right ;
+	    width :80%;
+	    min-height :200px;
+	    line-height :200px;
+	    font-size :10pt;
+	    font-family :yekan,arial;
+	    text-align :right ;
+	    color:#000;
+	}
+	
+	.about_Container .TextBox p
+	{
+	  
+	    float:right ;
+	    width :100%;
+	    font-size :10pt;
+	    font-family :yekan,arial;
+	    text-align :justify  ;
+	    color:#000;
+	    line-height :30px;
+	    direction :rtl;
+	}
+	
+	.about_Container .ButtonBox
+	{
+	    position :relative ;
+	    float:right ;
+	    width :100%;
+	    min-height :132px;
+	    line-height :132px;
+	    text-align :right ;
+	    color:#000;
+	}
+	
+	.about_Container .ButtonBox p
+	{
+	  
+	    float:right ;
+	    width :100%;
+	    font-size :10pt;
+	    font-family :yekan,arial;
+	    text-align :justify  ;
+	    color:#000;
+	    direction :rtl;
+	    height :50px;
+	}
+	
+	.about_Container .ButtonBox p input
+	{
+	    border:0;
+	    cursor:pointer ;
+	    border-right :4px solid #5F5CDF;
+	    background :#09B295;
+	    text-align :center ;
+	    color:#fff;
+	    font-family :yekan,arial;
+	    font-size :11pt;
+	    padding :10px 25px 10px 25px;
+	}
+	
+	.about_Container .ButtonBox p input:hover
+	{
+	    background :#454545;
+	}
+	
+	.about_Container .imageBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :left ;
+	    margin :0;
+	    padding :0;
+	    width :50%;
+	    
+	}
+	
+	.about_Container .imageBox .img1
+	{
+	    position:absolute   ;
+	    top:0px;
+	    float :left ;
+	    left :-100px;
+	    width:312px;
+	    height:170px;
+	    border-top-right-radius:5px;
+	    border-bottom-right-radius:5px;
+	    box-shadow:5px 5px 15px #999;
+	    z-index :2;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	
+	.about_Container .imageBox .img1_view
+	{
+	    left :0px;
+	}
+	
+	.about_Container .imageBox .img2
+	{
+	    position:absolute  ;
+	    top:140px;
+	    float :left ;
+	    left :-100px;
+	    width:170px;
+	    height:157px;
+	    border-top-right-radius:5px;
+	    border-bottom-right-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :3;
+	    -webkit-transition:left 1.6s; /* For Safari 3.1 to 6.0 */
+        transition:left 1.6s;
+	}
+	.about_Container .imageBox .img2_view
+	{
+	    left :0px;
+	}
+	.about_Container .imageBox .img3
+	{
+	    position:absolute  ;
+	    top:100px;
+	    float :left ;
+	    left :-190px;
+	    width:336px;
+	    height:210px;
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :1;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img3_view
+	{
+	    left :190px;
+	}
+	.about_Container .imageBox .img4
+	{
+	    position:absolute  ;
+	    top:220px;
+	    float :left ;
+	    left :-310px;
+	    width:340px;
+	    height:210px;
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :2;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img4_view
+	{
+	    left :310px;
+	}
+	.about_Container .imageBox .img5
+	{
+	    position:absolute  ;
+	    top:330px;
+	    float :left ;
+	    left :-50px;
+	    width:233px;
+	    height:156px;
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :3;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img5_view
+	{
+	    left :50px;
+	}
+	.about_Container .imageBox .img6
+	{
+	    position:absolute  ;
+	    top:380px;
+	    float :left ;
+	    left :-110px;
+	    width:340px;
+	    height:210px;
+	    border-radius:5px;
+	    box-shadow:5px 5px 15px #555;
+	    z-index :2;
+	    -webkit-transition:left 1s; /* For Safari 3.1 to 6.0 */
+        transition:left 1s;
+	}
+	.about_Container .imageBox .img6_view
+	{
+	    left :110px;
+	}
+	
+	.Services_MainBox
+	{
+	    position :relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height :770px;
+	    display :inline-block ;
+	    background :#262626;
+	    text-align :left ;
+	    /*-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		background: url(../images/background-Off.jpg)  80% 0 no-repeat fixed;
+		
+		overflow :hidden ;*/
+	    
+	
+	}
+	.Services_Container
+	{
+	    position :relative ;
+	    top:0px;
+	    float :left ;
+	    width :90%;
+	    display :inline-block ;
+	    min-height :770px;
+	  
+	    
+	}
+	
+	.Services_Container .rightBoxContainer
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right;
+	    right:0px;
+	    width :40%;
+	    margin :0;
+	    padding :0;
+	    min-height :770px;
+
+	}
+	
+	
+	
+	
+	
+	.Services_Container .rightBoxContainer .contentBox
+	{
+	    position:relative ;
+	    float :right ;
+	    top:120px;
+	    width :95%;
+	    min-height:500px;
+	   
+
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float:right ;
+	    right :-500px;
+	    min-height:225px;
+	    width :45%;
+	    background :#161616;
+	    margin-left :10px;
+	    display :inline-block ;
+	    text-align :center ;
+	    margin-top :5px;
+	    -webkit-transition:background 1s,right 1.5s; /* For Safari 3.1 to 6.0 */
+        transition:background 1s,right 1.5s;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox_view
+	{
+	    right :0px;
+	}
+	
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox:hover
+	{
+	    background :#050521;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox
+	{
+	    position:relative ;
+	    display:inline-block ;
+	    width :90%;
+	    min-height:200px;
+	}
+	
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .topBox
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:77px;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .topBox span
+	{
+	    position :absolute ;
+	    top:23px;
+	    left:18px;
+	    font-family :Calibri ;
+	    color:#fff;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .topBox img
+	{
+	    position :absolute ;
+	    top:23px;
+	    left:40px;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .titleBox
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:50px;
+	    line-height :50px;
+	    font-family :yekan,arial;
+	    font-size :14pt;
+	    color:#fff;
+	    text-align :right ;
+	}
+	
+	.Services_Container .rightBoxContainer .contentBox .ServiceBox .innerBox .AmountTextBox
+	{
+	    position:relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:54px;
+	    line-height :20px;
+	    font-family :yekan,arial;
+	    font-size :9pt;
+	    color:#9D9D9D;
+	    text-align :right ;
+	    margin-top :10px;
+	}
+	.Services_Container .LeftBoxContainer
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right;
+	    width :60%;
+	    margin :0;
+	    padding :0;
+	    min-height :770px;
+        
+	}
+	
+	.Services_Container .LeftBoxContainer .contentBox
+	{
+	    position:relative ;
+	    float :right ;
+	    top:120px;
+	    width :100%;
+	    min-height:500px;
+
+	}
+	.Services_Container .LeftBoxContainer .contentBox .titleBox
+	{
+	    position:relative ;
+	    float :right ;
+	    top:0px;
+	    width :100%;
+	    min-height:140px;
+	    padding-right :5px;
+	    padding-top :5px;
+	    font-size :18pt;
+	    font-family :yekan,arial;
+	    color:#fff;
+	    text-align :right;
+	    direction :rtl;
+
+
+	}
+	
+	
+	.Services_Container .LeftBoxContainer .contentBox .MenuBox
+	{
+	    position:relative ;
+	    float :right ;
+	    top:0px;
+	    width :100%;
+	    min-height:330px;
+	}
+	
+	.Myul
+	{
+		position :relative ;
+		top:0px;
+		right:0px;
+		float :right  ;
+		width:100%;
+		margin :0;
+		display :block ;
+		padding :0px 0px 0px 0px;
+		list-style-type: none;
+		text-align :right ;
+		 direction :rtl;
+	}
+	
+	.Myul li.section1
+	{
+	    width :100%;
+	    margin-bottom :50px;
+	    cursor:pointer ;
+	}
+	#myAccount1
+	{
+	    font-family :yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    text-align :right ;
+	    text-decoration :none;
+	    cursor:pointer ;
+	    direction :rtl;
+        background :#5F5CDF;
+        width:100%;
+
+	}
+	
+	#myAccount1 span
+	{
+	    background :#262626;
+	}
+	#myAccountBox1 li
+	{
+	    float :right ;
+	    font-family:yekan,arial;
+	    font-size :9pt;
+	    text-align :justify  ;
+	    color:#A8A8A8;
+	    direction :rtl;
+	    line-height :25px;
+	    width :100%;
+	     padding :10px 10px 10px 10px;
+	    margin-right :0px;
+	    list-style :none;
+	    background :#262626;
+	    
+	}
+	#myAccountBox1  div
+	{
+	    width :60%;
+	    text-align :justify  ;
+	}
+	
+	#myAccount1_Arrow
+	{
+	    color:#5F5CDF;
+	    font-size :18pt;
+	    margin-left :10px;
+	    background :none;
+	}
+	
+	/*part*/
+	
+	.Myul li.section2
+	{
+	    width :100%;
+	   margin-bottom :50px;
+	    cursor:pointer ;
+	}
+	
+	#myAccount2
+	{
+	    font-family :yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    text-align :right ;
+	    text-decoration :none;
+	    cursor:pointer ;
+	    direction :rtl;
+	    width:100%;
+
+	}
+	
+	#myAccount2 span
+	{
+	    background :#262626;
+	}
+	#myAccountBox2 li
+	{
+	    float :right ;
+	    font-family:yekan,arial;
+	    font-size :9pt;
+	    text-align :justify  ;
+	    color:#A8A8A8;
+	    direction :rtl;
+	    line-height :25px;
+	    width :100%;
+	    padding :10px 10px 10px 10px;
+	    margin-right :0px;
+	    list-style :none;
+	    background :#262626;
+	    
+	}
+	
+	#myAccountBox2  div
+	{
+	    width :60%;
+	    text-align :justify  ;
+	}
+	#myAccount2_Arrow
+	{
+	    color:#FF4141;
+	    font-size :18pt;
+	    margin-left :10px;
+	    background :none;
+	}
+	/*part*/
+	
+	.Myul li.section3
+	{
+	    width :100%;
+	   
+	    cursor:pointer ;
+	    margin-bottom :50px;
+	}
+	
+	#myAccount3
+	{
+	    font-family :yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    text-align :right ;
+	    text-decoration :none;
+	    cursor:pointer ;
+	    direction :rtl;
+	    width:100%;
+        
+	}
+	
+	#myAccount3 span
+	{
+	    background :#262626;
+	}
+	#myAccountBox3 li
+	{
+	    float :right ;
+	    font-family:yekan,arial;
+	    font-size :9pt;
+	    text-align :justify  ;
+	    color:#A8A8A8;
+	    direction :rtl;
+	    line-height :25px;
+	    width :100%;
+	    padding :10px 10px 10px 10px;
+	    margin-right :0px;
+	    list-style :none;
+	    background :#262626;
+	    
+	}
+	
+	#myAccountBox3  div
+	{
+	    width :60%;
+	    text-align :justify  ;
+	}
+	#myAccount3_Arrow
+	{
+	    color:#8F8EB6;
+	    font-size :18pt;
+	    margin-left :10px;
+	    background :none;
+	}
+	.PictureBoxMain
+	{
+	    position:relative ;
+	    top:0px;
+	    left :0px;
+	    width :100%;
+	    min-height :940px;
+	    background :#fff;
+	    display :inline-block ;
+	    text-align :center ;
+	   
+	}
+	.pictureBoxContainer
+	{
+	    position :relative ;
+	    width :80%;
+	    display:inline-block ;
+	    min-height :940px;
+	}
+	
+	.pictureBoxContainer .lageBox
+	{
+	    position :relative ;
+	    top:40px;
+	    float :right ;
+	    width :33%;
+	    margin :0;
+	    padding :0;
+	    border:1px solid #E6E6E6;
+	    min-height :290px;
+	     -webkit-transition:top 1.5s; /* For Safari 3.1 to 6.0 */
+        transition:top 1.5s;
+	}
+	
+	.pictureBoxContainer .lageBox_view
+	{
+	    top:0px;
+	}
+	
+	.pictureBoxContainer .lageBox .maskBox
+	{
+	    position :absolute ;
+	    top:0px;
+	    left :0px;
+	    width :0%;
+	    height :0%;
+	    display :block  ;
+	    background :rgb(0,0,0);
+	    background :rgba(0,0,0,0.3);
+	    z-index :1000;
+	     -webkit-transition:background 0.5s,width 0.1s,height 0.1s; /* For Safari 3.1 to 6.0 */
+        transition:background 0.5s,width 0.1s,height 0.1s;
+        overflow :hidden ;
+	}
+	
+	.pictureBoxContainer .lageBox:hover .maskBox
+	{
+	     width :100%;
+	    height :100%;
+	    display:block ;
+	    background :rgba(0,0,0,0.5);
+	}
+	
+	.pictureBoxContainer .lageBox .maskBox .AlertBox
+	{
+	    position:absolute ;
+	    float :none ;
+	    bottom :-180px;
+	    min-height:50px;
+	    width :80%;
+	    background :#6598FD;
+	    padding-top:10px;
+	    padding-bottom :10px;
+	    text-align :center ;
+	    font-family :Yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    margin-left :10% ;
+	    margin-right :10% ;
+	    border-right :4px solid #5F5CDD;
+	    -webkit-transition:bottom 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:bottom 1.8s;
+	}
+	
+	.pictureBoxContainer .lageBox:hover .maskBox .AlertBox
+	{
+	    bottom :0px;
+	}
+	
+	.pictureBoxContainer .lageBox p
+	{
+	    text-align :justify ;
+	    direction :rtl;
+	    line-height:20px;
+	    font-family :yekan,arial;
+	    font-size :9pt;
+	    color:#000;
+	    width :80%;
+	    display :inline-block ;
+	    min-height :120px;
+	    margin-top :25%;
+	}
+	
+	.pictureBoxContainer .smallBox
+	{
+	    position :relative ;
+	    top:40px;
+	    float :right ;
+	    width :33%;
+	    margin :0;
+	    padding :0;
+	    border:1px solid #E6E6E6;
+	    min-height :200px;
+	     -webkit-transition:top 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:top 1.8s;
+	}
+	
+	.pictureBoxContainer .smallBox_view
+	{
+	    top:0px;
+	}
+	
+	.pictureBoxContainer .smallBox .maskBox
+	{
+	    position :absolute ;
+	    top:0px;
+	    left :0px;
+	    width :0%;
+	    height :0%;
+	    display :block  ;
+	    background :rgb(0,0,0);
+	    background :rgba(0,0,0,0.3);
+	    z-index :1000;
+	     -webkit-transition:background 0.5s,width 0.1s,height 0.1s; /* For Safari 3.1 to 6.0 */
+        transition:background 0.5s,width 0.1s,height 0.1s;
+        overflow :hidden ;
+	}
+	
+	.pictureBoxContainer .smallBox:hover .maskBox
+	{
+	     width :100%;
+	    height :100%;
+	    display:block ;
+	    background :rgba(0,0,0,0.5);
+	}
+	
+	.pictureBoxContainer .smallBox .maskBox .AlertBox
+	{
+	    position:absolute ;
+	    float :none ;
+	    bottom :-180px;
+	    min-height:40px;
+	    width :80%;
+	    background :#6598FD;
+	    padding-top:10px;
+	    padding-bottom :10px;
+	    text-align :center ;
+	    font-family :Yekan,arial;
+	    font-size :12pt;
+	    color:#fff;
+	    margin-left :10% ;
+	    margin-right :10% ;
+	    border-right :4px solid #5F5CDD;
+	    -webkit-transition:bottom 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:bottom 1.8s;
+	}
+	
+	.pictureBoxContainer .smallBox:hover .maskBox .AlertBox
+	{
+	    bottom :0px;
+	}
+	
+	
+	.pictureBoxContainer .lageBox input
+	{
+	    position :relative;
+	    float:left ;
+	    top:0px;
+	    margin-top :40%;
+	    width :60%;
+	    min-width :218px;
+	    border :0;
+	    border-right :4px solid #5F5CDF;
+	    background :#09B295;
+	    cursor :pointer ;
+	    text-align :center ;
+	    font-family :yekan,arial;
+	    font-size :10pt;
+	    color:#fff;
+	    min-height :45px;
+	}
+	
+	.pictureBoxContainer .lageBox input:hover
+	{
+	    background :#161616;
+	}
+	
+	.OffMainPage
+	{
+	    position :relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height :540px;
+	    display :inline-block ;
+	    background :#050521;
+	    text-align :center ;
+	}
+	
+	.OffContainer
+	{
+	    position:relative ;
+	    float:left ;
+	    width :90%;
+	    min-height :540px;
+	    display :inline-block ;
+	}
+	
+	.OffContainer .rightBox
+	{
+	    position :relative ;
+	    top:0px;
+	    right :-100px;
+	    float :right ;
+	    width :40%;
+	    margin :0;
+	    padding :0;
+	    min-height :540px;
+	    -webkit-transition:right 1.8s; /* For Safari 3.1 to 6.0 */
+        transition:right 1.8s;
+	}
+	
+	.OffContainer .rightBox_view
+	{
+	    right :0px;
+	}
+	
+	.OffContainer .rightBox .blankBox
+	{
+	    position:relative ;
+	    top:0px;
+	    width :100%;
+	    min-height:100px;
+	    float :right ;    
+	}
+	
+	.OffContainer .rightBox .titleBox
+	{
+	    position:relative ;
+	    top:0px;
+	    width :100%;
+	    float :right ;    
+	    text-align :right ;
+	    min-height :60px;
+	    line-height :60px;
+	    font-size :14pt;
+	    color:#fff;
+	    font-family:yekan,arial;
+	    direction :rtl;
+	}
+	.OffContainer .rightBox .ContentBox
+	{
+	    position:relative ;
+	    top:0px;
+	    width :100%;
+	    float :right ;    
+	    text-align :justify  ;
+	    min-height :120px;
+	    font-size :10pt;
+	    color:#B4B4B4;
+	    font-family:yekan,arial;
+	    direction :rtl;
+	}
+	
+	.OffContainer .rightBox .buttonBox
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    min-height:110px;
+	    line-height :110px;
+	    width :100%;
+	    text-align :right  ;
+	}
+	
+	.OffContainer .rightBox .buttonBox input
+	{
+	    border-width:0px;
+	    cursor:pointer ;
+	    min-height:45px;
+	    background :#09B295;
+	    text-align :center;
+	    color:#fff;
+	    border-right :4px solid #5F5CDF;
+	    font-family :yekan,arial;
+	    font-size:10pt;
+	    width :20%;
+	    min-width :220px;
+	}
+	
+	.OffContainer .rightBox .SocialBox
+	{
+	    position:relative ;
+	    top:0px;
+	    float:right ;
+	    font-size :9pt;
+	    font-family :yekan,arial;
+	    color:#fff;
+	    text-align :right ;
+	}
+	
+	.OffContainer .rightBox .SocialBox a
+	{
+	    position:relative ;
+	    float:right ;
+	    font-size :9pt;
+	    font-family :yekan,arial;
+	    color:#fff;
+	    min-width :50px;
+	}
+	
+	.OffContainer .rightBox .SocialBox a i
+	{
+	    font-size :16pt;
+	    color:#484758;
+	}
+	
+	.OffContainer .rightBox .SocialBox a i:hover
+	{
+	    color:#fff;
+	}
+	
+	
+	.OffContainer .rightBox .buttonBox input:hover
+	{
+	    background: #050521;
+	}
+	
+	
+	
+	.OffContainer .leftBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :60%;
+	    margin :0;
+	    padding :0;
+	    min-height :540px;
+	}
+	.OffContainer .leftBox section
+	{
+	    width:90%;
+	    position:relative ;
+	    float:left ;
+	}
+	
+	.OffContainer .leftBox section div
+	{
+	    position:relative ;
+	    float :left ;
+	    width :100%;
+	    min-height :540px;
+	}
+	
+	.OffContainer .leftBox section div img
+	{
+	    width :100%;
+	}
+	
+	.SponsorMainPage
+	{
+	    position :relative ;
+	    top:0px;
+	    left:0px;
+	    width :100%;
+	    min-height:700px;
+	    display :inline-block ;
+	    text-align :center ;
+	}
+	
+	.SponsorContainer
+	{
+	    position :relative ;
+	    width :80%;
+	    min-height:700px;
+	    display :inline-block ;
+	}
+	
+	.SponsorContainer .topBox
+	{
+	    position :relative ;
+	    float :right ;
+	    width :33%;
+	    min-height:165px;
+	    border:1px solid #E5E5E5;
+	    padding :0;
+	    margin :0;
+	}
+	
+	.SponsorContainer .BottomBox
+	{
+	    position :relative ;
+	    float :right ;
+	    width :33%;
+	    min-height:530px;
+	    border:1px solid #E5E5E5;
+	    padding :0;
+	    margin :0;
+	}
+	
+	.SponsorContainer .BottomBox .innerBox
+	{
+	    position:relative ;
+	    display:inline-block ;
+	    width :80%;
+	    min-height:400px;
+	}
+	
+	.SponsorContainer .BottomBox .innerBox .titleBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :100%;
+	    min-height:120px;
+	    line-height :120px;
+	    font-family :Yekan,arial;
+	    font-size :22pt;
+	    color:#000;
+	    text-align :right ;
+	    direction :rtl;
+	}
+	
+	.SponsorContainer .BottomBox .innerBox .ContentBox
+	{
+	    position :relative ;
+	    top:0px;
+	    float :right ;
+	    width :100%;
+	    min-height:340px;
+	    line-height :30px;
+	    font-family :Yekan,arial;
+	    font-size :10pt;
+	    color:#000;
+	    text-align :right ;
+	    direction :rtl;
+	}
+	
+	
+	.SponsorContainer .BottomBox .SmallBox_right
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    width :49%;
+	    padding :0;
+	    margin :0;
+	    border-left:1px solid #E5E5E5; 
+	    border-bottom :1px solid #E5E5E5; 
+	    min-height:160px;
+	}
+	
+	.SponsorContainer .BottomBox .SmallBox_left
+	{
+	    position:relative ;
+	    top:0px;
+	    float :right ;
+	    width :50%;
+	    padding :0;
+	    margin :0;
+	    border-left:0px solid #E5E5E5; 
+	    border-bottom :1px solid #E5E5E5; 
+	    min-height:160px;
+	}
+	
+	.SponsorContainer .BottomBox .NumberBox .NumberBoxContent
+	{
+	    position:relative ;
+	    display :inline-block ;
+        height:220px;	    
+	    width :80%;
+	    margin-top :5%;
+	}
+	
+	#clip{
+  /*
+  Ensure background is added first
+  */  
+  background: linear-gradient(to bottom, #eee, rgba(255,65,65,0.2), #5F5CDF),url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZlcnNpb249JzEuMScgd2lkdGg9JzQwMCcgaGVpZ2h0PSc0MDAnPgoJPGRlZnMgaWQ9J2RlZnM0Jz4KCQk8ZmlsdGVyIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0nc1JHQicgaWQ9J2ZpbHRlcjMxMTUnPgoJCQk8ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgbnVtT2N0YXZlcz0nMScgYmFzZUZyZXF1ZW5jeT0nMC45JyBpZD0nZmVUdXJidWxlbmNlMzExNycgLz4KCQkJPGZlQ29sb3JNYXRyaXggcmVzdWx0PSdyZXN1bHQ1JyB2YWx1ZXM9JzEgMCAwIDAgMCAwIDEgMCAwIDAgMCAwIDEgMCAwIDAgMCAwIDYgLTMuNzUgJyBpZD0nZmVDb2xvck1hdHJpeDMxMTknIC8+CgkJCTxmZUNvbXBvc2l0ZSBpbjI9J3Jlc3VsdDUnIG9wZXJhdG9yPSdpbicgaW49J1NvdXJjZUdyYXBoaWMnIHJlc3VsdD0ncmVzdWx0NicgaWQ9J2ZlQ29tcG9zaXRlMzEyMScgLz4KCQkJPGZlTW9ycGhvbG9neSBpbj0ncmVzdWx0Nicgb3BlcmF0b3I9J2RpbGF0ZScgcmFkaXVzPScxMCcgcmVzdWx0PSdyZXN1bHQzJyBpZD0nZmVNb3JwaG9sb2d5MzEyMycgLz4KCQk8L2ZpbHRlcj4KCTwvZGVmcz4KCTxyZWN0IHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnIHg9JzAnIHk9JzAnIGlkPSdyZWN0Mjk4NScgZmlsbD0nI2VlZWVlZScvPiAgICAgCgk8cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyB4PScwJyB5PScwJyBpZD0ncmVjdDI5ODUnIHN0eWxlPSdmaWxsOiNlMDg3Mjg7ZmlsdGVyOnVybCgjZmlsdGVyMzExNSknIC8+Cjwvc3ZnPg==);
+  
+   background-attachment: inherit ;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-family:arial;
+  font-size: 12vw;
+  font-weight: 900;
+  text-align: center;
+  
+}
+
+.SponsorContainer .BottomBox .NumberBox  p
+{
+    font-family :yekan,arial;
+    font-size :12pt;
+    text-align :center ;
+    width :100%;
+    direction:rtl;
+    margin :0;
+    padding :0;
+    color:#000;
+}
+
+.FooterMainPage
+{
+    position:relative ;
+    top:0px;
+    left:0px;
+    width :100%;
+    min-height :610px;
+    display :inline-block ;
+    text-align :center ;
+    background :#262626;
+}
+
+.FooterContainer
+{
+    position :relative ;
+    top:0px;
+    width :80%;
+    display :inline-block ;
+    min-height :610px;
+}
+
+.FooterContainer .rightBox
+{
+    position:relative ;
+    top:0px;
+    float :right ;
+    width :50%;
+    margin :0;
+    padding :0
+}
+
+.FooterContainer .rightBox .logoBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    right :0px;
+    width :100%;
+    min-height :190px;
+    background-image :url(../images/LogoFooter.png);
+    background-repeat :no-repeat ;
+    background-position : right bottom ;
+}
+
+.FooterContainer .rightBox .ContentTextBox
+{
+    position :relative ;
+    top:0px;
+    width :0px;
+    float :right ;
+    right :0px;
+    width :70%;
+    font-size :10pt;
+    font-family :Yekan,arial;
+    color:#B3B3B3;
+    direction :rtl;
+    text-align :justify ;
+    line-height :30px;
+    margin-bottom :20px;
+}
+
+.FooterContainer .rightBox .phoneBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    right :0px;
+    width :100%;
+    min-height :40px;
+    line-height :40px;
+    text-align :right ;
+}
+
+.FooterContainer .rightBox .phoneBox a
+{
+    position:relative ;
+    float :right ;
+    display:inline-block ;
+    padding-top :5px;
+    padding-bottom :5px;
+    font-size :13pt;
+    font-family:byekan,arial;
+    color:#fff;
+}
+
+.FooterContainer .rightBox .phoneBox a i
+{
+    font-size :24px;
+    color:#959595;
+    margin-top :5px;
+    margin-left :10px;
+}
+
+
+.FooterContainer .leftBox
+{
+    position:relative ;
+    top:0px;
+    float :right ;
+    width :50%;
+    margin :0;
+    padding :0
+}
+
+.FooterContainer .leftBox .whiteBox
+{
+    position:relative ;
+    top:0px;
+    float :right ;
+    min-height:20px;
+    width:100%;
+}
+
+.FooterContainer .leftBox iframe
+{
+    position :relative ;
+    top:0px;
+    float:right ;
+    right:0px;
+    width :100%;
+    min-height :470px;
+}
+
+.ContactUsFormMainPage
+{
+    position:relative ;
+    top:0px;
+    left:0px;
+    width :100%;
+    display:inline-block ;
+    text-align :center ;
+    min-height:470px;
+    background :#262626;
+}
+
+.ContactUsFormMainPage .contentBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    width :100%;
+    min-height:55px;
+    line-height:55px;
+    margin-top :10px;
+    border-bottom :1px solid #6F6F6F;
+}
+
+.ContactUsFormMainPage .contentBox .CaptionBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    min-height:55px;
+    line-height :55px;
+    font-family :Yekan,arial;
+    font-size :10pt;
+    color:#fff;
+    width :40px;
+    
+}
+
+.ContactUsFormMainPage .contentBox .ContentTextBox
+{
+    position :relative ;
+    top:0px;
+    float :right ;
+    min-height:55px;
+    line-height :55px;
+    font-family :Yekan,arial;
+    font-size :10pt;
+    color:#fff;
+    width :90%;
+}
+
+.ContactUsFormMainPage .contentBox .ContentTextBox input
+{
+    position :relative ;
+    float :right ;
+    width :100%;
+    min-height:55px;
+    border:0;
+    font-size :9pt;
+    font-family :yekan,arial;
+    padding-right :5px;
+    color:#B4B4B4;
+    background :none;
+    text-align :right ;
+    direction :rtl;
+}
+
+.ContactUsFormMainPage .contentBox .ContentTextBox Textarea
+{
+    position :relative ;
+    float :right ;
+    width :100%;
+    min-height:100px;
+    border:0;
+    font-size :9pt;
+    font-family :yekan,arial;
+    padding-right :5px;
+    color:#B4B4B4;
+    background :none;
+    text-align :right ;
+    resize:none;
+    direction :rtl;
+}
+
+.ContactUsFormMainPage .contentBox .cls_Button
+{
+    position :relative ;
+    float:left ;
+    width :30%;
+    min-width :160px;
+    min-height :45px;
+    background :#09B295;
+    color:#fff;
+    text-align :center ;
+    font-size :12pt;
+    font-family :yekan,arial;
+     border:0;
+    border-right :4px solid #5F5CDD;
+    cursor :pointer ;
+    margin-top :20px;
+   
+}
+
+.ContactUsFormMainPage .contentBox .cls_Button:hover
+{
+    background :#161616;
+}
+
+.InnerPage_TitlePage_MainPage
+{
+    position :relative ;
+    top:0px;
+    left :0px;
+    width :100%;
+    min-height:80px;
+}
+
+.InnerPage_TitlePage_MainPage .barBox
+{
+    position :relative ;
+    float:right ;
+    width :300px;
+    top:25px;
+    background-image: linear-gradient(to right, rgba(95,92,223,0), rgba(95,92,223,1));
+    padding-right :10%;
+    text-align :right  ;
+    font-family :yekan,arial;
+    font-size :12pt;
+    color:#fff;
+}
+
+.InnerPage_TitlePage_MainPage .IconBox
+{
+    position:relative  ;
+    float :right ;
+    top:18px;
+    left:150px;
+    width :110px;
+    height:42px;
+    border:1px solid #13A899;
+    background :#2A448F;
+}
+
+.Content_Page
+{
+    position:relative ;
+    top:0px;
+    left :0px;
+    width :100%;
+    min-height :500px;
+    display :inline-block ;
+    text-align :center ;
+}
+
+
+.Content_Page .content_Container
+{
+    position:relative ;
+    top:0px;
+    width :80%;
+    min-height :500px;
+    display :inline-block ;
+}
+
+.topbar_Mainpage
+{
+    position :relative ;
+    top:0px;
+    left:0px;
+    width :100%;
+    min-height :60px;
+    background :#262626;
+    display :inline-block ;
+    text-align :center ;
+}
+
+.topbar_Mainpage .topbar_Container
+{
+    position:relative ;
+    top:0px;
+    width :90%;
+    display :inline-block ;
+} 
+
+.topbar_Mainpage .topbar_Container .button
+{
+    position:relative ;
+    top:10px;
+    float :left ;
+    padding :5px 5px 5px 5px;
+    cursor :pointer ;
+    font-family :yekan,arial;
+    color:#fff;
+    font-size :10pt;
+    text-align :center  ;
+    width :80px;
+    text-decoration :none;
+
+}
+
+.topbar_Mainpage .topbar_Container .button i
+{
+    position:absolute ;
+    top:12px;
+    left:10px;
+    color:#0AAA8E;
+    font-size :14pt;
+}
+
+.topbar_Mainpage .topbar_Container .button:hover i
+{
+    color:#8F8EB6;
+}
+
+.topbar_Mainpage .topbar_Container .button:hover
+{
+    border:1px solid #09B295;
+}
+
+.topbar_Mainpage .topbar_Container .buttonHamkar
+{
+    position:relative ;
+    top:10px;
+    float :left ;
+    padding :5px 5px 5px 5px;
+    font-family :yekan,arial;
+    color:#fff;
+    font-size :10pt;
+    text-align :center  ;
+    width :80px;
+    text-decoration :none;
+    margin-right :10px;
+    margin-right :5px;
+    direction :rtl;
+}
+
+}
+
+
+/* end section */
+input:focus{
+        outline:none;
+        }
+        button:focus{
+        outline:none;
+        }
+         button:click{
+        outline:none;
+        }
+		textarea:click{
+        outline:none;
+        }
+         textarea:focus{
+        outline:none;
+        }
+          select:focus{
+        outline:none;
+        }
+        select:click{
+        outline:none;
+        }
+        a:focus{
+        outline:none;
+        }
+         a:click{
+        outline:none;
+        }
+        
+        
+        .scrollToTop
+        {
+            cursor: pointer;
+            position: fixed;
+            bottom: 10px;
+            right: 20px;
+            background :rgb(9,178,149);
+            background :rgba(9,178,149,0.8);
+            width :60px;
+            height :60px;
+            text-align :center ;
+            border-radius:180px;
+            background-image :url(../images/backTopButton.png);
+            background-repeat :no-repeat ;
+            background-position :0px 0px;
+            z-index :1000;
+            -webkit-transition:background-position 1s,background-color 1s; /* For Safari 3.1 to 6.0 */
+            transition:background-position 1s,background-color 1s;
+
+        }
+        .scrollToTop:hover
+        {
+        	background-position :0px  -50px;
+        	background-color:#5F5CDF;
+        }
+        
+      
+        
+        
+         a.tooltips {
+  position: relative;
+  display: inline;
+  color :#ffffff;
+  font-family :yekan,arial;
+  font-size :10pt;
+  text-decoration:none;
+  
+}
+a.tooltips span {
+  position: absolute;
+  width:140px;
+  color: #ffffff;
+  background: #26ACDF;
+  height: 200px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 0px;
+  font-family:yekan,arial;
+  font-size :12pt;	
+  font-weight :400;	
+	top:-40px;
+  
+}
+a.tooltips span:after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  margin-left: -8px;
+  width: 0; height: 0;
+ 
+  border-top: 8px solid #5083BC ;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  
+}
+a:hover.tooltips span {
+  visibility: visible;
+ 
+   opacity:0.95;
+  bottom: 0px;
+  left: 50%;
+  margin-left: -76px;
+  z-index: 999;
+ 
+  
+}
+
+  a.tooltips {
+  position: relative;
+  display: inline;
+  
+}
+a.tooltips span {
+  position: absolute;
+  width:140px;
+  color: #ffffff;
+  background: #26ACDF;
+  height: 34px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 20px;
+  font-family:yekan,arial;
+  font-size :10pt;	
+  font-weight :400;	
+ 
+  
+}
+a.tooltips span:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+ 
+  border-top: 8px solid #26ACDF ;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  
+}
+a:hover.tooltips span {
+  visibility: visible;
+ 
+   opacity:0.95;
+  bottom: 75px;
+  left: 50%;
+  margin-left: -76px;
+  z-index: 999;
+ 
+  
+}

@@ -1,0 +1,4 @@
+<users>
+  <admin id="1" username="admin" password="Security@1974" code="1974" name="Administrator" lname="" semat="مدیر سامانه" super="1" />
+  <person id="1" username="person" password="1234" name="کاربر پرسنل" semat="کارشناس" phone="" email="" fax="" photo="" />
+</users>

@@ -1,0 +1,105 @@
+<site>
+  <logo>images/Anhar-Logo.png</logo>
+  <favicon>images/Anhar-Logo.png</favicon>
+  <logotype>images/LogoType-AnharCo.jpg</logotype>
+  <footer_logo>images/anharCoFooter.png</footer_logo>
+  <gallery1_image>FirstPage_PicAbout/MainPagePic1.jpg</gallery1_image>
+  <gallery2_image>FirstPage_PicAbout/MainPagePic2.jpg</gallery2_image>
+  <gallery3_image>FirstPage_PicAbout/MainPagePic3.jpg</gallery3_image>
+  <gallery4_image>FirstPage_PicAbout/MainPagePic4.jpg</gallery4_image>
+  <gallery5_image>FirstPage_PicAbout/MainPagePic5.jpg</gallery5_image>
+  <gallery6_image>FirstPage_PicAbout/MainPagePic6.jpg</gallery6_image>
+  <gallery7_image>FirstPage_PicAbout/MainPagePic7.jpg</gallery7_image>
+  <gallery8_image>FirstPage_PicAbout/MainPagePic8.jpg</gallery8_image>
+  <title>وب‌سایت شرکت انهار</title>
+  <slider1_name>خطوط لوله نفت و گاز</slider1_name>
+  <slider1_text>احداث و اجرای خطوط انتقال نفت و گاز.</slider1_text>
+  <slider1_button>بیشتر</slider1_button>
+  <slider1_link>pipelines.aspx</slider1_link>
+  <slider2_name>تأسیسات تقویت فشار گاز</slider2_name>
+  <slider2_text>طراحی و اجرای ایستگاه‌های تقویت فشار گاز.</slider2_text>
+  <slider2_button>بیشتر</slider2_button>
+  <slider2_link>GasBoosterStation.aspx</slider2_link>
+  <slider3_name>ابنیه و ساختمان</slider3_name>
+  <slider3_text>پروژه‌های عمرانی، ساختمان و سازه‌های بتنی.</slider3_text>
+  <slider3_button>بیشتر</slider3_button>
+  <slider3_link>building.aspx</slider3_link>
+  <slider4_name>تأسیسات و تجهیزات</slider4_name>
+  <slider4_text>تأمین و نصب تأسیسات و تجهیزات صنعتی.</slider4_text>
+  <slider4_button>بیشتر</slider4_button>
+  <slider4_link>FacilitiesEquipment.aspx</slider4_link>
+  <footer_title>شرکت انهار</footer_title>
+  <footer_about>شرکت ساختمانی انهار در سال 1353 با استعانت از خداوند منان در شهرستان گلپایگان توسط چهار نفر از معتمدان این شهر تأسیس گردید که از همان ابتدای تأسیس با حضور در عرصه ساخت مراکز آموزشی، گام‌های مؤثری در راستای تحقق مسئولیت اجتماعی برداشته است.</footer_about>
+  <footer_copy>© ۱۴۰۵ شرکت انهار. کلیه حقوق محفوظ است.</footer_copy>
+  <copy_MessageCEO_h1>پیام رئیس هیات مدیره</copy_MessageCEO_h1>
+  <copy_MessageCEO_h1_align>center</copy_MessageCEO_h1_align>
+  <copy_History_p3>چشم انداز این شرکت افزایش توانمندی و تبدیل شدن به یک شرکت معتبر در صدور خدمات مهندسی، خرید و اجرا در صنعت نفت، گاز، پتروشیمی و آب طی 5 سال آینده و در این راستا طیف گسترده ای از خدمات زیر را ارائه می دهد.</copy_History_p3>
+  <copy_History_p3_align>rtl</copy_History_p3_align>
+  <copy_History_p8>شرکت انهار به عنوان یک شرکت اجرایی و مهندسی، در زمینه های نفت، گاز و پتروشیمی، آب، ساختمان و ابنیه و راه و باند،  پروژه های بسیاری را در اقصی نقاط کشور در زمینه طراحی، اجرا، تأمین کالا و نصب و راه اندازی ایستگاه های تقویت فشار گاز، یاردهای تعمیراتی بین خطوط و خطوط لوله انتقال نفت و گاز به اتمام رسانده است و مورد وثوق و اعتماد بسیاری از کارفرمایان فعال در این حوزه ها می باشد.</copy_History_p8>
+  <copy_History_p8_align>rtl</copy_History_p8_align>
+  <hero_leadership_fit>49.25|57.75|100</hero_leadership_fit>
+  <copy_Pillars_p1>افزایش توانمندی و تبدیل شدن به یک شرکت معتبر در صدور خدمات مهندسی، خرید و اجرا در صنعت نفت، گاز، پتروشیمی و آب طی 5 سال آینده</copy_Pillars_p1>
+  <copy_Pillars_p1_align>rtl</copy_Pillars_p1_align>
+  <copy_Pillars_p2>نقشی تحسین برانگیزو قابل احترام در ارزش آفرینی و توسعه پایدار</copy_Pillars_p2>
+  <copy_Pillars_p2_align>rtl</copy_Pillars_p2_align>
+  <copy_Acknowledgments_p1>شرکت انهار به پاس بیش از نیم قرن فعالیت خود در حوزه اجرای پروژه های عمرانی و به واسطه حسن سابقه خوب در این زمینه به ویژه در حوزه نفت و گاز، تعداد بسیاری تقدیرنامه از سازمان ها و ارگان های ذیربط دریافت نموده است.</copy_Acknowledgments_p1>
+  <copy_Acknowledgments_p1_align>rtl</copy_Acknowledgments_p1_align>
+  <hero_Pillars_fit>49|49|100</hero_Pillars_fit>
+  <hero_Pillars>SiteStudio/hero_Pillars.webp</hero_Pillars>
+  <copy_GasBoosterStation_p1>تأسیسات تقویت فشار گاز در جهت تأمین فشار مورد نیاز برای انتقال گاز از نقطه ای به نقطه دیگر طراحی می شوند. با توجه به گستردگی خطوط لوله انتقال گاز در کشور ایران، نیاز به احداث ایستگاه های تقویت فشار گاز به طور ویژه ای در سطح کشور افزایش یافته است و در همین راستا شرکت انهار در سال های فعالیت خود تاکنون، چندین ایستگاه تقویت فشار گاز را با موفقیت اجرا نموده است.</copy_GasBoosterStation_p1>
+  <copy_GasBoosterStation_p1_align>rtl</copy_GasBoosterStation_p1_align>
+  <copy_leadership_1_role>رئیس هیئت‌ مدیره</copy_leadership_1_role>
+  <copy_leadership_1_role_align>rtl</copy_leadership_1_role_align>
+  <copy_leadership_2_role>مدیر عامل و عضو هیئت‌ مدیره</copy_leadership_2_role>
+  <copy_leadership_2_role_align>rtl</copy_leadership_2_role_align>
+  <copy_leadership_3_role>مدیر مالی و نایب‌ رئیس هیئت‌ مدیره</copy_leadership_3_role>
+  <copy_leadership_3_role_align>rtl</copy_leadership_3_role_align>
+  <copy_leadership_4_role>عضو هیئت‌ مدیره</copy_leadership_4_role>
+  <copy_leadership_4_role_align>rtl</copy_leadership_4_role_align>
+  <copy_leadership_5_role>مدیر برنامه ریزی و کنترل پروژه و عضو هیئت‌ مدیره</copy_leadership_5_role>
+  <copy_leadership_5_role_align>rtl</copy_leadership_5_role_align>
+  <copy_leadership_6_role>مدیر بازرگانی و عضو هیئت‌ مدیره</copy_leadership_6_role>
+  <copy_leadership_6_role_align>rtl</copy_leadership_6_role_align>
+  <copy_Certificates_p1>شرکت انهار در راستای تحقق اهداف راهبردی خود و ارتقای سطح کیفی خدمات، موفق به اخذ گواهینامه‌های معتبر ذیل گردیده است:
+•	گواهینامه صلاحیت پیمانکاری به روش «طرح و ساخت (EPC) پایه‌ی ۱ در رشته‌ی نفت و گاز
+•	گواهینامه‌های صلاحیت پیمانکاری در رشته‌های: نفت و گاز، ساختمان و ابنیه، تأسیسات و تجهیزات، آب، راه و ترابری، و صنعت - صادره از سازمان برنامه و بودجه کشور
+•	گواهینامه صلاحیت ایمنی پیمانکاران از وزارت تعاون، کار و رفاه اجتماعی
+این مجموعه همچنین موفق به دریافت گواهینامه‌های سیستم مدیریت یکپارچه (IMS) از شرکت بین‌المللیDQS   شده است. علاوه‌براین، به منظور ارتقای کیفیت عملیات اجرایی در پروژه‌های خطوط لوله، گواهینامه‌ی مدیریت جوش ISO 3834-2:2021  را نیز اخذ نموده است.
+</copy_Certificates_p1>
+  <copy_Certificates_p1_align>rtl</copy_Certificates_p1_align>
+  <cert2_title>گواهینامه مدیریت جوش ISO 3834-2:2021</cert2_title>
+  <cert2_text>SGS Iran — کیفیت جوشکاری خطوط لوله</cert2_text>
+  <cert2_title_align>rtl</cert2_title_align>
+  <cert2_text_align>rtl</cert2_text_align>
+  <cert2_image>SiteStudio/cert2_image.webp</cert2_image>
+  <cert2_image_fit>50|50|100</cert2_image_fit>
+  <cert9_title>سیستم مدیریت HSE از SGS</cert9_title>
+  <cert9_text>SGS Iran — سیستم مدیریت HSE</cert9_text>
+  <cert9_title_align>rtl</cert9_title_align>
+  <cert9_text_align>rtl</cert9_text_align>
+  <cert9_image>SiteStudio/cert9_image.webp</cert9_image>
+  <cert9_image_fit>50|50|94</cert9_image_fit>
+  <cert8_title>ISO 29001 سیستم مدیریت کیفیت نفت و گاز</cert8_title>
+  <cert8_text>AVA BRSM — پروژه‌های نفت، گاز و پتروشیمی</cert8_text>
+  <cert8_title_align>rtl</cert8_title_align>
+  <cert8_text_align>rtl</cert8_text_align>
+  <cert8_image>SiteStudio/cert8_image.webp</cert8_image>
+  <cert8_image_fit>50|50|100</cert8_image_fit>
+  <cert7_title>ISO 45001:2018 ایمنی و بهداشت شغلی</cert7_title>
+  <cert7_text>SGS — سیستم مدیریت ایمنی و بهداشت شغلی</cert7_text>
+  <cert7_title_align>rtl</cert7_title_align>
+  <cert7_text_align>rtl</cert7_text_align>
+  <cert7_image>SiteStudio/cert7_image.webp</cert7_image>
+  <cert7_image_fit>50|50|100</cert7_image_fit>
+  <cert6_title>ISO 9001:2015 سیستم مدیریت کیفیت</cert6_title>
+  <cert6_text>SGS — طراحی، تأمین، اجرا و مدیریت پروژه</cert6_text>
+  <cert6_title_align>rtl</cert6_title_align>
+  <cert6_text_align>rtl</cert6_text_align>
+  <cert6_image>SiteStudio/cert6_image.webp</cert6_image>
+  <cert6_image_fit>50|50|100</cert6_image_fit>
+  <proj_gas1_image>SiteStudio/proj_gas1_image.jpg</proj_gas1_image>
+  <proj_gas1_image_fit>50|50|112</proj_gas1_image_fit>
+  <hero_MessageCEO_fit>50|50|94</hero_MessageCEO_fit>
+  <proj_gas1_title>ایستگاه تقویت فشار گاز هما - شرکت ملی گاز ایران</proj_gas1_title>
+  <proj_gas1_title_align>rtl</proj_gas1_title_align>
+</site>

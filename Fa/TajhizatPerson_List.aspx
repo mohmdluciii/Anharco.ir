@@ -1,0 +1,362 @@
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="TajhizatPerson_List.aspx.vb" Inherits="W_ISM.TajhizatPerson_List" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"   >
+<head id="Head1" runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="graphic/design.css" rel="stylesheet" />
+    <script type ="text/javascript" src="jquery.js"></script>
+      <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
+      <script type="text/javascript" src="Scroll.js"></script>
+      <script type="text/javascript">
+      $(function() {
+        $('#myAccountBox').hide();
+        $('#myAccount').click(function(){
+          $('#myAccountBox')
+            .toggle('slow',function(){     
+              $(this).closest('#myAccount')
+                .toggleClass('rolledup',$(this).is(':hidden'));
+            });
+        });
+      });
+      
+      
+       $(function() {
+        $('#myAccountBox1').hide();
+        $('#myAccount1').click(function(){
+          $('#myAccountBox1')
+            .toggle('slow',function(){
+              $(this).closest('#myAccount1')
+                .toggleClass('rolledup',$(this).is(':hidden'));
+            });
+        });
+      });
+      
+       $(function() {
+        $('#myAccountBox2').hide();
+        $('#myAccount2').click(function(){
+          $('#myAccountBox2')
+            .toggle('slow',function(){
+              $(this).closest('#myAccount2')
+                .toggleClass('rolledup',$(this).is(':hidden'));
+            });
+        });
+      });
+      
+      $(function() {
+        $('#myAccountBox3').hide();
+        $('#myAccount3').click(function(){
+          $('#myAccountBox3')
+            .toggle('slow',function(){
+              $(this).closest('#myAccount3')
+                .toggleClass('rolledup',$(this).is(':hidden'));
+            });
+        });
+      });
+      
+      
+       $(function() {
+        $('#myAccountBox4').hide();
+        $('#myAccount4').click(function(){
+          $('#myAccountBox4')
+            .toggle('slow',function(){
+              $(this).closest('#myAccount4')
+                .toggleClass('rolledup',$(this).is(':hidden'));
+            });
+        });
+      });
+      
+       $(function() {
+        $('#myAccountBox5').hide();
+        $('#myAccount5').click(function(){
+          $('#myAccountBox5')
+            .toggle('slow',function(){
+              $(this).closest('#myAccount5')
+                .toggleClass('rolledup',$(this).is(':hidden'));
+            });
+        });
+      });
+      
+      
+       $(function() {
+        $('#myAccountBox6').hide();
+        $('#myAccount6').click(function(){
+          $('#myAccountBox6')
+            .toggle('slow',function(){
+              $(this).closest('#myAccount6')
+                .toggleClass('rolledup',$(this).is(':hidden'));
+            });
+        });
+      });
+      
+      $(function() {
+        $('#myAccountBox7').hide();
+        $('#myAccount7').click(function(){
+          $('#myAccountBox7')
+            .toggle('slow',function(){
+              $(this).closest('#myAccount7')
+                .toggleClass('rolledup',$(this).is(':hidden'));
+            });
+        });
+      });
+      
+       $(function() {
+        $('#myAccountBox8').hide();
+        $('#myAccount8').click(function(){
+          $('#myAccountBox8')
+            .toggle('slow',function(){
+              $(this).closest('#myAccount8')
+                .toggleClass('rolledup',$(this).is(':hidden'));
+            });
+        });
+      });
+      $(function() {
+          $('#myAccountBox9').hide();
+          $('#myAccount9').click(function() {
+              $('#myAccountBox9')
+            .toggle('slow', function() {
+                $(this).closest('#myAccount9')
+                .toggleClass('rolledup', $(this).is(':hidden'));
+            });
+          });
+      });
+      $(function() {
+          $('#myAccountBox10').hide();
+          $('#myAccount10').click(function() {
+              $('#myAccountBox10')
+            .toggle('slow', function() {
+                $(this).closest('#myAccount10')
+                .toggleClass('rolledup', $(this).is(':hidden'));
+            });
+          });
+      });
+    </script>
+   <script type ="text/javascript" >
+        $(function (){
+            
+            $('.menuMobile_Left').click(function(){
+                $('.memberPanel_leftBox_top').toggle('fast',function(){
+              $(this).closest('#memberPanel_LeftBox')
+                .toggleClass('rolledup',$(this).is(':hidden'));
+                $('.memberPanel_LeftBox').toggleClass('rightzIndexMenu');
+            });
+            
+             $('.memberPanel_leftBox_menuBox').toggle('fast',function(){
+              $(this).closest('#memberPanel_LeftBox')
+                .toggleClass('rolledup',$(this).is(':hidden'));
+            });
+            
+            
+            }   
+            );
+        });
+        
+        
+        
+        
+    </script>
+      
+    <style type="text/css" >
+    canvas{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+   
+    </style>
+    
+    <%--loading click--%>
+   <script type="text/javascript" src="JS/1.6.2/jquery.min.js"></script>
+	    
+	    <script language="javascript" type="text/javascript">
+	        function StartProgressBar() {
+	            var myExtender = $find('m');
+	            myExtender.show();
+	            return true;
+	        }
+    </script>
+	    <style type ="text/css" >
+    .ModalBackground
+    {
+	    background-color:black;
+
+	    filter:alpha(opacity=50);
+	    -moz-opacity:0.5;
+	    -khtml-opacity: 0.5;
+	    opacity: 0.5;
+    }
+
+    </style>
+      <script type="text/javascript" src="JS/js/jquery.min.js"></script> 
+    <%--loading click--%>
+    <link href="MenuNew/css/sm-core-css.css" rel="stylesheet" type="text/css" />
+    <link href="MenuNew/css/sm-blue/sm-blue.css" rel="stylesheet" type="text/css" />
+    <link href="MenuNew/Mega.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    window.addEventListener('keydown', function(e) { if (e.keyIdentifier == 'U+000A' || e.keyIdentifier == 'Enter' || e.keyCode == 13) { if (e.target.nodeName == 'INPUT' && e.target.type == 'text') { e.preventDefault(); return false; } } }, true);
+</script>   
+<script type="text/javascript">
+    window.addEventListener('keydown', function(e) { if (e.keyIdentifier == 'U+000A' || e.keyIdentifier == 'Enter' || e.keyCode == 13) { if (e.target.nodeName == 'INPUT' && e.target.type == 'text') { e.preventDefault(); return false; } } }, true);
+</script>    
+</head>
+<body style ="margin :0">
+    <form id="form1" runat="server">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+</asp:ToolkitScriptManager>
+    <div class="memberPanel_TopBox" id="test">
+        <div onclick="location.href='empty.aspx'" class="memberPanel_Logo" style="background-image :url(<%=Session("LogoPanel")%>);"></div>
+       
+        <div class="memberPanel_Logout" >
+            <div class="memberPanel_ContanerLogin"><a href="InputToPanel_Manager.aspx?e=1" style="border-right :1px solid #fff;"><i class="fa fa-power-off memberPanel_LogOut_Icon"></i></a></div>
+           
+            
+        </div>
+    </div>
+
+    <p class="buttonBar_menu"><a href="#" id="barMobileMenu" style="position:relative;top:0px;right:0px;float:right;width:35px;height:35px;display:block ;background:#6498FE;"><i class ="fa fa-bars" style="font-size :20pt;color:#fff;margin-left:25%;margin-right :25%;margin-top:10%;margin-bottom :10%;"></i></a></p><div class="memberPanel_rightBox">
+        <div class="titleForm"><a href="#">صفحه اصلی</a><i class="fa fa-chevron-left arrow"></i><a href="#">پرسنل</a><i class="fa fa-chevron-left arrow"></i><a>لیست</a></div>
+        
+        <div class="formBox">
+            
+            <div class="containerForm" style="width:98%">
+                
+                <div class="InterBoxFormLeft">
+                    
+                    
+                    
+                    
+                    <ul>
+                        <li>
+                            <a class ="LinkIcon" href="#"  onclick="window.history.back();" ><i class="fa  fa-reply"></i></a>
+                            <ul>
+                                <li><a  class="bubbleLink2" >بازگشت</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    
+                    <ul>
+                        <li>
+                            <a class ="LinkIcon" href="#" onclick="helpContainer.style.display='block';"><i class="fa  fa-question-circle "></i></a>
+                            <ul>
+                                <li><a  class="bubbleLink3" >راهنما</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                </div>
+                <div class="InterBoxFormRight" >
+               <div class="SaveBoxContainer" id="saveContainer">
+                    <div class ="SaveBox" id="saveDialog">
+                        <p><i class='fa fa-floppy-o'></i> &nbsp;&nbsp;اطلاعات با<span style="color:#6498FE"> موفقیت </span>در سامانه ثبت گردید</p>
+                        <input type="button" value="تایید" onclick="closeDialog()" /> 
+                    </div>
+                </div>
+                    <div class="headForm_List" >
+                       <a class="ExcelIcon" href="showExcel.aspx?page=TajhizatPerson_List" target="_blank" title ="خروجی اکسل"><i class="fa fa-file-excel-o"></i></a>
+                        <a class="ExcelIcon" href="Print.aspx?page=TajhizatPerson_List" target="_blank" title ="نسخه قابل چاپ"><i class="fa fa-print"></i></a>
+                    </div>
+                    
+                    <div class="bodyFormEdit">
+                        <p style="position :relative ;top:0px;left:0px;width :100%;float:right ;direction:rtl;font-size:10pt;font-family:yekan,arial;text-align :right;padding-right :20px;margin-top :10px"><a style ="width :50px;display:inline-block ">تجهیز</a> &nbsp;<asp:Label ID="lblTajhizat" runat="server" style="font-size:10pt;font-family:Yekan;direction:rtl;" ></asp:Label></p>
+                        <p style="position :relative ;top:0px;left:0px;width :100%;float:right ;direction:rtl;font-size:10pt;font-family:yekan,arial;text-align :right;padding-right :20px;margin :0;margin-top :10px"><a style ="width :90px;display:inline-block ">منطقه</a> &nbsp;<asp:DropDownList class="Combo_InList" runat ="server" dir="rtl" ID="cmb_costcenter" width="200" AutoPostBack="True"></asp:DropDownList></p>
+                        <p style="position :relative ;top:0px;left:0px;width :100%;float:right ;direction:rtl;font-size:10pt;font-family:yekan,arial;text-align :right;padding-right :20px;margin :0;margin-top :10px"><a style ="width :90px;display:inline-block ">نام خانوادگی </a> &nbsp;<asp:TextBox class="TextBox_InList" ID="txtLNaame" AutoComplete="off" runat ="server" Width ="80" Font-Names ="tahoma" Font-Size ="8pt" ></asp:TextBox>&nbsp;<asp:Button class="Button_InList" ID="btnSearch" runat ="server" Text ="جستجو" Font-Names ="tahoma" Font-Size ="8pt" /></p>
+                        <p style="position :relative ;top:0px;left:0px;width :100%;float:right ;direction:rtl;font-size:10pt;font-family:yekan,arial;text-align :right;padding-right :20px;margin :0;margin-top :10px"><asp:Button ID="btnSaveForm" OnClientClick="StartProgressBar();" style="padding:5px 10px 5px 10px;width:160px;"  runat ="server" Text ="افزودن پرسنل به تجهیزات" /></p>
+                        <asp:Label ID="lblList" runat ="server"  ></asp:Label>
+                    </div>
+                </div>
+            </div>    
+            <div class="containerForm_Left">
+            <iframe src="Calender.aspx" style ="position:relative ;top:0px;left:0px;width :100%;min-height:250px" frameborder ="0" scrolling ="no" ></iframe>
+                
+            </div>
+        </div>
+        
+    </div>
+    
+   
+    <div class="memberPanel_LeftBox">
+        
+        <div class="memberPanel_leftBox_top">
+            <div class="boxRight_MemberName">
+                <i class="fa fa-user-circle" ></i>
+            </div>
+            <div class="boxLeft_MemberName">
+                <asp:Label ID="lblUser" runat ="server"></asp:Label>
+            </div> 
+        </div>
+        <div class="memberPanel_leftBox_menuBox">
+            <ul class="Myul">
+             <%=Session("menu_admin")%>
+               
+            </ul>
+        </div>
+        
+    </div>
+     <div class="menuMobile_Left"><i class="fa fa-bars"></i></div>
+    <script type="text/javascript" src="JS/jquery-scrolltofixed.js"></script>
+        <script type="text/javascript">
+            $('#test').scrollToFixed();
+
+        </script>
+
+      <%--loading click--%>
+        <asp:ModalPopupExtender BackgroundCssClass="ModalBackground" ID="m"  Y="200" runat="server"  PopupControlID ="Panel1" TargetControlID ="hiddenField">
+        </asp:ModalPopupExtender>    
+        <asp:Panel ID="panel1" Direction= "RightToLeft"  runat="server"   style="z-index:1000">
+        <center ><img src="images/loading.gif" style ="z-index :1000" align="middle"    /></center>
+        </asp:Panel> 
+        <asp:HiddenField ID="hiddenField" runat ="server" />
+        <%--loading click--%>
+ 
+    </form>
+   
+</body>
+</html>
+
+<script type ="text/javascript" >
+    function GraphicalBorder(oname)
+    {
+        var myContainer=document.getElementById (oname) ;
+        myContainer.classList.add("effectContainerDiv_active");
+        
+    }
+    
+     function GraphicalBorderRemove(oname)
+    {
+        var myContainer=document.getElementById (oname) ;
+        myContainer.classList.remove("effectContainerDiv_active");
+        
+    }
+</script>
+
+<script  type ="text/javascript" >
+    document.getElementById("Logo_Organ").onchange = function () {
+    document.getElementById("uploadFile").value = this.value;
+};
+</script>
+<script type="text/javascript" >
+    function closeDialog()
+    {
+        document.getElementById("saveContainer").style.display ="none";  
+    }
+</script>
+
+    <link rel='stylesheet' type='text/css' href='ResponsiveTable/css/style.css' />
+<link rel='stylesheet' type='text/css' href='ResponsiveTable/basictable.css' />
+<script type='text/javascript' src='ResponsiveTable/jquery.basictable.min.js'></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#myTable').basictable();
+    });
+  </script>
+      <script >
+          $(function() { $('#myAccount8').click(); });
+</script>
+ <script type ="text/javascript" src="MyScript/MenuMobilePanel.js" ></script><%=Session("scriptSave")%>
+
+

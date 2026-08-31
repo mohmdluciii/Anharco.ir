@@ -1,0 +1,59 @@
+<site>
+  <logo>images/Anhar-Logo.png</logo>
+  <favicon>images/Anhar-Logo.png</favicon>
+  <footer_logo>SiteStudio/footer_logo.png</footer_logo>
+  <gallery1_image>FirstPage_PicAbout/MainPagePic1.jpg</gallery1_image>
+  <gallery2_image>FirstPage_PicAbout/MainPagePic2.jpg</gallery2_image>
+  <gallery3_image>FirstPage_PicAbout/MainPagePic3.jpg</gallery3_image>
+  <gallery4_image>FirstPage_PicAbout/MainPagePic4.jpg</gallery4_image>
+  <gallery5_image>FirstPage_PicAbout/MainPagePic5.jpg</gallery5_image>
+  <gallery6_image>FirstPage_PicAbout/MainPagePic6.jpg</gallery6_image>
+  <gallery7_image>FirstPage_PicAbout/MainPagePic7.jpg</gallery7_image>
+  <gallery8_image>FirstPage_PicAbout/MainPagePic8.jpg</gallery8_image>
+  <title>ANHAR Company Website</title>
+  <slider1_name>Oil and gas pipelines</slider1_name>
+  <slider1_text>Construction and laying of oil and gas transmission pipelines.</slider1_text>
+  <slider1_button>More</slider1_button>
+  <slider1_link>pipelines.aspx</slider1_link>
+  <slider2_name>Gas pressure boosting facilities</slider2_name>
+  <slider2_text>Design and construction of gas pressure boosting stations.</slider2_text>
+  <slider2_button>More</slider2_button>
+  <slider2_link>GasBoosterStation.aspx</slider2_link>
+  <slider3_name>Construction and building</slider3_name>
+  <slider3_text>Civil, building and concrete structure projects.</slider3_text>
+  <slider3_button>More</slider3_button>
+  <slider3_link>building.aspx</slider3_link>
+  <slider4_name>Facilities and equipment</slider4_name>
+  <slider4_text>Supply and installation of facilities and field equipment.</slider4_text>
+  <slider4_button>More</slider4_button>
+  <slider4_link>FacilitiesEquipment.aspx</slider4_link>
+  <footer_title>Anhar Co.</footer_title>
+  <footer_about>ANHAR Construction Co. was established in Golpayegan County in 1974 relying on the help of the Great God by four trustees of this city. Since the beginning of its establishment, this company has taken effective steps towards the realization of social responsibility by being present in the field of building educational centers</footer_about>
+  <footer_copy>© 2026 Anhar Corporation. All rights reserved.</footer_copy>
+  <hero_leadership_fit>49.25|57.75|100</hero_leadership_fit>
+  <hero_Pillars_fit>49|49|100</hero_Pillars_fit>
+  <hero_Pillars>SiteStudio/hero_Pillars.webp</hero_Pillars>
+  <copy_Certificates_p1>In pursuit of its strategic objectives and to enhance service quality, Anhar Company has successfully obtained the following prestigious certifications:
+•	Contractor Competency Certificate (Grade 1) in the Oil &amp; Gas sector, based on the Engineering, Procurement, and Construction (EPC) delivery method.
+•	Contractor Competency Certificates in the following fields: Oil &amp; Gas; Buildings &amp; Structures; Installations &amp; Equipment; Water; Roads &amp; Transportation; and Industry—issued by the Plan and Budget Organization.
+•	Contractor Safety Competency Certificate issued by the Ministry of Cooperatives, Labor, and Social Welfare.
+The company has also secured Integrated Management System (IMS) certifications from the international firm DQS. Furthermore, to enhance the quality of execution in pipeline projects, it has obtained the ISO 3834-2:2021 Welding Management certification.</copy_Certificates_p1>
+  <copy_Certificates_p1_align>ltr</copy_Certificates_p1_align>
+  <copy_Certificates_h1>Certificates and Standards</copy_Certificates_h1>
+  <copy_Certificates_h1_align>center</copy_Certificates_h1_align>
+  <cert2_image>SiteStudio/cert2_image.webp</cert2_image>
+  <cert2_image_fit>50|50|100</cert2_image_fit>
+  <cert9_image>SiteStudio/cert9_image.webp</cert9_image>
+  <cert9_image_fit>50|50|94</cert9_image_fit>
+  <cert8_image>SiteStudio/cert8_image.webp</cert8_image>
+  <cert8_image_fit>50|50|100</cert8_image_fit>
+  <cert7_image>SiteStudio/cert7_image.webp</cert7_image>
+  <cert7_image_fit>50|50|100</cert7_image_fit>
+  <cert6_image>SiteStudio/cert6_image.webp</cert6_image>
+  <cert6_image_fit>50|50|100</cert6_image_fit>
+  <proj_gas1_image>SiteStudio/proj_gas1_image.jpg</proj_gas1_image>
+  <proj_gas1_image_fit>50|50|112</proj_gas1_image_fit>
+  <proj_gas1_title>Homa Gas Pressure Boosting Station - National Iranian Gas Company</proj_gas1_title>
+  <proj_gas1_title_align>ltr</proj_gas1_title_align>
+  <hero_MessageCEO_fit>50|50|94</hero_MessageCEO_fit>
+</site>

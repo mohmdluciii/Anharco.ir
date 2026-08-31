@@ -1,0 +1,249 @@
+/* Anhar admin login - modern overlay */
+html, body.loginModern {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh !important;
+    overflow-x: hidden !important;
+    font-family: Tahoma, "Segoe UI", Arial, sans-serif;
+}
+body.loginModern {
+    background: #071428 !important;
+    direction: rtl !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+body.loginModern form {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.loginCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+.loginGlow {
+    position: fixed;
+    width: 42vw;
+    height: 42vw;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: .35;
+    z-index: 0;
+    pointer-events: none;
+    animation: loginFloat 14s ease-in-out infinite;
+}
+.loginGlow.a { background: #0b4da2; top: -12%; right: -8%; }
+.loginGlow.b { background: #00a3c4; bottom: -18%; left: -10%; animation-delay: -6s; }
+@keyframes loginFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-4%, 6%) scale(1.12); }
+}
+body.loginModern .topBarBox,
+body.loginModern .topBarBox1 {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+body.loginModern .middleContainerLogin,
+body.Login_Person_Body.loginModern .middleContainerLogin,
+body.Login_Person_Body.Manager_Style.loginModern .middleContainerLogin,
+body.loginModern .middleContainerLogin,
+.loginModern .middleContainerLogin {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 2 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 32px 16px !important;
+    box-sizing: border-box !important;
+    background: none !important;
+    overflow: auto !important;
+    float: none !important;
+    text-align: center !important;
+    margin: 0 !important;
+}
+body.loginModern .middleBoxLogin,
+body.Login_Person_Body.loginModern .middleBoxLogin,
+body.Login_Person_Body.Manager_Style.loginModern .middleBoxLogin {
+    width: 100% !important;
+    max-width: 520px;
+    background: none !important;
+    box-shadow: none !important;
+    float: none !important;
+    margin: 0 auto !important;
+    height: auto !important;
+    position: static !important;
+    display: block !important;
+}
+body.loginModern .logincenterBox,
+body.Login_Person_Body.loginModern .logincenterBox,
+body.Login_Person_Body.Manager_Style.loginModern .logincenterBox {
+    position: static !important;
+    top: auto !important;
+    margin-top: 0 !important;
+}
+body.loginModern .logincenterBox {
+    height: auto !important;
+    min-height: 0 !important;
+    width: 100% !important;
+    background: rgba(10, 28, 64, 0.72) !important;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 28px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.35);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    padding: 28px 28px 18px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    animation: loginCardIn .7s ease;
+}
+@keyframes loginCardIn {
+    from { opacity: 0; transform: translateY(18px) scale(.98); }
+    to { opacity: 1; transform: none; }
+}
+.loginBrand {
+    text-align: center;
+    margin: 0 0 18px;
+    color: #fff;
+}
+.loginBrand img,
+.loginBrand .loginLogo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #fff;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 10px;
+    box-shadow: 0 10px 24px rgba(0,0,0,.25);
+}
+.loginBrand h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+.loginBrand p {
+    margin: 6px 0 0;
+    font-size: 12px;
+    color: rgba(255,255,255,.72);
+}
+body.loginModern .logincenterBox .rightBox {
+    width: 100% !important;
+    float: none !important;
+    height: auto !important;
+    display: flex;
+    gap: 8px;
+    margin: 0 0 16px;
+    background: rgba(255,255,255,.06);
+    border-radius: 999px;
+    padding: 4px;
+    box-sizing: border-box;
+}
+body.loginModern .logincenterBox .rightBox .buttonStyle {
+    position: static !important;
+    float: none !important;
+    width: 50% !important;
+    height: 42px !important;
+    margin: 0 !important;
+    top: auto !important;
+    border: 0 !important;
+    border-radius: 999px !important;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    color: #fff;
+    background: transparent !important;
+}
+body.loginModern .logincenterBox .rightBox .buttonStyle.onMode {
+    background: linear-gradient(135deg, #1a73e8, #12b0c9) !important;
+    box-shadow: 0 8px 18px rgba(18,176,201,.28);
+}
+body.loginModern .logincenterBox .leftBox {
+    width: 100% !important;
+    float: none !important;
+    text-align: right;
+}
+body.loginModern .logincenterBox .leftBox .p_caption {
+    width: 100% !important;
+    color: rgba(255,255,255,.86) !important;
+    text-align: right !important;
+    font-size: 12px !important;
+    margin: 10px 0 4px;
+    height: auto !important;
+}
+body.loginModern .logincenterBox .leftBox .p_TextBox {
+    width: 100% !important;
+    text-align: right;
+}
+body.loginModern .logincenterBox .leftBox .p_TextBox .input_Text,
+body.loginModern .textFont {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    height: 44px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
+    background: rgba(255,255,255,.94) !important;
+    color: #10203a !important;
+    padding: 0 12px !important;
+    font-size: 14px !important;
+}
+body.loginModern #txtSign {
+    width: 140px !important;
+    display: inline-block;
+}
+body.loginModern #capCode {
+    background: #fff;
+    border-radius: 10px;
+    vertical-align: middle;
+}
+body.loginModern .btnLognStyle,
+body.loginModern #btn_go {
+    width: 100% !important;
+    height: 48px !important;
+    border: 0 !important;
+    border-radius: 14px !important;
+    background: linear-gradient(135deg, #0b2d71, #1a73e8 55%, #12b0c9) !important;
+    color: #fff !important;
+    font-size: 16px !important;
+    font-family: Tahoma, Arial, sans-serif;
+    cursor: pointer;
+    box-shadow: 0 14px 28px rgba(11,45,113,.35);
+    margin-top: 12px !important;
+}
+body.loginModern .btnLognStyle:hover,
+body.loginModern #btn_go:hover {
+    filter: brightness(1.06);
+}
+body.loginModern .p_bottom_Text,
+body.loginModern .bottom_Box {
+    display: none;
+}
+body.loginModern #lblErr {
+    color: #ffb4b4 !important;
+}
+.loginFoot {
+    text-align: center;
+    color: rgba(255,255,255,.55);
+    font-size: 11px;
+    margin-top: 14px;
+}

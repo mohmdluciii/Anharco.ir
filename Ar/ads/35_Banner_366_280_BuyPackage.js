@@ -1,0 +1,1 @@
+var str="<div style='display:block;padding:0'><a href='http://rahkarema.com/Bouns/?code=" + acode + "&site=" + s + "' target='_blank'><img alt='' src='http://rahkarema.com/Upload/iwkdwc45yitwkd45opnmm02a_20181128151613_image002.jpg' ></a></div>";document.write (str) ;

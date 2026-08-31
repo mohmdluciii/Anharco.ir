@@ -1,0 +1,50 @@
+<site>
+  <logo>images/Anhar-Logo.png</logo>
+  <favicon>images/Anhar-Logo.png</favicon>
+  <logotype>images/LogoType-AnharCo.jpg</logotype>
+  <footer_logo>images/anharCoFooter.png</footer_logo>
+  <gallery1_image>FirstPage_PicAbout/MainPagePic1.jpg</gallery1_image>
+  <gallery2_image>FirstPage_PicAbout/MainPagePic2.jpg</gallery2_image>
+  <gallery3_image>FirstPage_PicAbout/MainPagePic3.jpg</gallery3_image>
+  <gallery4_image>FirstPage_PicAbout/MainPagePic4.jpg</gallery4_image>
+  <gallery5_image>FirstPage_PicAbout/MainPagePic5.jpg</gallery5_image>
+  <gallery6_image>FirstPage_PicAbout/MainPagePic6.jpg</gallery6_image>
+  <gallery7_image>FirstPage_PicAbout/MainPagePic7.jpg</gallery7_image>
+  <gallery8_image>FirstPage_PicAbout/MainPagePic8.jpg</gallery8_image>
+  <title>شركة أنهار الإنشائية</title>
+  <slider1_name>شبكة خطوط أنابيب النفط والغاز</slider1_name>
+  <slider1_text>إنشاء ومد خطوط نقل النفط والغاز.</slider1_text>
+  <slider1_button>المزيد</slider1_button>
+  <slider1_link>pipelines.aspx</slider1_link>
+  <slider2_name>محطات تعزيز ضغط الغاز</slider2_name>
+  <slider2_text>تصميم وإنشاء محطات تعزيز ضغط الغاز.</slider2_text>
+  <slider2_button>المزيد</slider2_button>
+  <slider2_link>GasBoosterStation.aspx</slider2_link>
+  <slider3_name>البناء والإعمار</slider3_name>
+  <slider3_text>مشاريع مدنية ومباني ومنشآت خرسانية.</slider3_text>
+  <slider3_button>المزيد</slider3_button>
+  <slider3_link>building.aspx</slider3_link>
+  <slider4_name>الأجهزة والمنشآت</slider4_name>
+  <slider4_text>توريد وتركيب المنشآت والمعدات الصناعية.</slider4_text>
+  <slider4_button>المزيد</slider4_button>
+  <slider4_link>FacilitiesEquipment.aspx</slider4_link>
+  <footer_title>شركة أنهار الإنشائية</footer_title>
+  <footer_about>تم تأسیس شركة أنهار الإنشائية (ذ.م.م.) في مدینة کلبایکان في عام 1974 بعون الله سبحانه وتعالی وبفضل جهود أربعة أمناء من المحسنین والمعتمدین في هذه المدینة.</footer_about>
+  <footer_copy>© 2026 Anhar Corporation. All rights reserved.</footer_copy>
+  <hero_leadership_fit>49.25|57.75|100</hero_leadership_fit>
+  <hero_Pillars_fit>49|49|100</hero_Pillars_fit>
+  <hero_Pillars>SiteStudio/hero_Pillars.webp</hero_Pillars>
+  <cert2_image>SiteStudio/cert2_image.webp</cert2_image>
+  <cert2_image_fit>50|50|100</cert2_image_fit>
+  <cert9_image>SiteStudio/cert9_image.webp</cert9_image>
+  <cert9_image_fit>50|50|94</cert9_image_fit>
+  <cert8_image>SiteStudio/cert8_image.webp</cert8_image>
+  <cert8_image_fit>50|50|100</cert8_image_fit>
+  <cert7_image>SiteStudio/cert7_image.webp</cert7_image>
+  <cert7_image_fit>50|50|100</cert7_image_fit>
+  <cert6_image>SiteStudio/cert6_image.webp</cert6_image>
+  <cert6_image_fit>50|50|100</cert6_image_fit>
+  <proj_gas1_image>SiteStudio/proj_gas1_image.jpg</proj_gas1_image>
+  <proj_gas1_image_fit>50|50|112</proj_gas1_image_fit>
+  <hero_MessageCEO_fit>50|50|94</hero_MessageCEO_fit>
+<proj_gas1_title>محطة هوما لتعزيز ضغط الغاز - الشركة الوطنية الإيرانية للغاز</proj_gas1_title></site>

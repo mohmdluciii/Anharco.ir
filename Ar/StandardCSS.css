@@ -1,0 +1,57 @@
+
+@import url('../persian-font.css');
+Input{font-size:11pt;font-family:yekan;background-color:#fff;border:1px solid #000;border-radius:0px;padding-right :5px;padding-top :5px;padding-bottom :5px;padding-left :5px
+
+}
+textarea{font-size:11pt;font-family:yekan;background-color:#fff;border:1px solid #000;border-radius:0px;resize:none}
+select{font-size:11pt;font-family:yekan;border-radius:0px}
+table{font-size:11pt;font-family:yekan;border-radius:0px}
+p{font-size:8pt;font-family:tahoma}
+div{font-size:8pt;font-family:tahoma;border-radius:4px}
+span{font-size:8pt;font-family:tahoma;}
+a{font-size:8pt;font-family:tahoma;text-decoration:none}
+asp:dropdown{font-size:9pt;font-family:tahoma;background-color:#EDF3FC;border:1px groove #5386B9;border-radius:4px}
+img{border:0}
+/*end Page */
+    input:focus{
+        outline:none;
+        }
+        button:focus{
+        outline:none;
+        }
+         button:click{
+        outline:none;
+        }
+		textarea:click{
+        outline:none;
+        }
+         textarea:focus{
+        outline:none;
+        }
+          select:focus{
+        outline:none;
+        }
+        select:click{
+        outline:none;
+        }
+        a:focus{
+        outline:none;
+        }
+         a:click{
+        outline:none;
+        }
+        a {
+		outline: 0;
+		}
+        a:hover, a:active, a:focus {
+		outline: 0;
+		}
+		input::-moz-focus-inner { 
+		border: 0; 
+		}
+		a, a:active, a:focus {
+		outline: none;
+		}
+		a {
+		outline:none !important;
+		}     

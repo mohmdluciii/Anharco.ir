@@ -1,0 +1,931 @@
+@media screen and (min-width: 1px) and (max-width: 470px) 
+{
+.timeline-container {
+  border-right: 2px solid #ccc;
+  margin: 20px auto;
+  width: 100%;
+  font-family:yekan,arial;
+  
+}
+.timeline-toggle {
+  background: #000;
+ 
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #ccc;
+  cursor: pointer;
+  float: right;
+  font-size: 12px;
+  margin-right: 0;
+  padding: 3px 5px;
+  white-space: nowrap;
+}
+.timeline-wrapper {
+  clear: right;
+  float: right;
+  margin: 0 0 12px;
+  width: 900px;
+  
+}
+.timeline-wrapper h2 {
+  background: url(../images/timeline_century_tick.gif) right center no-repeat;
+  font-family: yekan, "Times New Roman", Times, serif;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 400;
+  margin: 0 0 10px;
+  padding: 4px 4px 4px 20px;
+  
+}
+.timeline-wrapper h2 span {
+    background: #0092BE;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #ffffff;
+  
+  height:30px;
+font-family :bYekan,arial;
+padding :3px 5px 3px 5px;
+font-size :14pt;
+  
+}
+.timeline-series {
+  clear: right;
+  float: right;
+  margin: 0 0px 0 0;
+  padding: 0px 0px 0px 0;
+  position: relative;
+  width: 880px;
+  
+}
+.timeline-series dt {
+  background: url(../images/timeline_decade_tick.gif) right center  no-repeat;
+  clear: left;
+  font-size: 0.8em;
+  list-style-type: none;
+  line-height: 1.2em;
+  margin: 0  0 12px 0;
+  padding:  0 12px 0 0px;
+  white-space: nowrap;
+  
+}
+.timeline-series dt a {
+  color: #999;
+  cursor: pointer;
+}
+.timeline-series dt a .closed {
+  color: #999;
+  font-size: 0.6em;
+  margin-right: 0;
+}
+.timeline-series dt a .open {
+  color: #7DBADF;
+}
+.timeline-series dt a:hover {
+  color: #7DBADF;
+}
+.timeline-series dd {
+  padding-right: 24px;
+  width: 100%;
+}
+.timeline-series dd h3 {
+  color: #FFF;
+  clear: both;
+  float: right;
+  font-size: 0.5em;
+  margin: 0;
+  white-space: nowrap;
+}
+.timeline-event-content {
+  display: none;
+}
+.timeline-event-content p {
+  clear: right;
+  float: right;
+  line-height: 1.5em;
+  margin: 6px 0 10px;
+  width: 500px;
+  font-size: 0.8em;
+  
+}
+.timeline-event-content h4 {
+  clear: right;
+  float: right;
+  font-size: 0.5em;
+  font-weight: 400;
+  margin: 10px 0 0;
+  padding: 0 0 0 20px;
+}
+.timeline-event-content blockquote {
+  border-right: 2px solid #ccc;
+  clear: right;
+  float: right;
+  font-size: 0.8em;
+  margin-right: 0;
+  padding: 0 30px;
+  width: 400px;
+}
+.timeline-event-content blockquote .attribution {
+  font-size: 0.7em;
+  text-align: right;
+}
+.timeline-event-content .media {
+  float: right;
+  padding: 0 0 12px;
+  width: 300px;
+}
+.timeline-event-content .media img {
+  border: 2px solid #000;
+  margin: 0;
+}
+.timeline-event-content .media p {
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+}
+.timeline-event-content .media a:link,
+.timeline-event-content .media a:visited {
+  color: #ab221b;
+}
+.timeline-event-content .media a:hover {
+  color: #7DBADF;
+}
+
+}
+
+@media screen and (min-width: 471px) and (max-width: 785px) 
+{
+	.timeline-container {
+  border-right: 2px solid #ccc;
+  margin: 20px auto;
+  width: 100%;
+  font-family:yekan,arial;
+  
+}
+.timeline-toggle {
+  background: #000;
+ 
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #ccc;
+  cursor: pointer;
+  float: right;
+  font-size: 12px;
+  margin-right: 0;
+  padding: 3px 5px;
+  white-space: nowrap;
+}
+.timeline-wrapper {
+  clear: right;
+  float: right;
+  margin: 0 0 12px;
+  width: 900px;
+  
+}
+.timeline-wrapper h2 {
+  background: url(../images/timeline_century_tick.gif) right center no-repeat;
+  font-family: yekan, "Times New Roman", Times, serif;
+  cursor: pointer;
+  font-size: 2em;
+  font-weight: 400;
+  margin: 0 0 10px;
+  padding: 4px 4px 4px 20px;
+  
+}
+.timeline-wrapper h2 span {
+   background: #0092BE;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #ffffff;
+  
+  height:30px;
+font-family :bYekan,arial;
+padding :3px 5px 3px 5px;
+font-size :14pt;
+  
+  
+}
+.timeline-series {
+  clear: right;
+  float: right;
+  margin: 0 0px 0 0;
+  padding: 0px 0px 0px 0;
+  position: relative;
+  width: 880px;
+  
+}
+.timeline-series dt {
+  background: url(../images/timeline_decade_tick.gif) right center  no-repeat;
+  clear: left;
+  font-size: 1.2em;
+  list-style-type: none;
+  line-height: 1.2em;
+  margin: 0  0 12px 0;
+  padding:  0 12px 0 0px;
+  white-space: nowrap;
+  
+}
+.timeline-series dt a {
+  color: #999;
+  cursor: pointer;
+}
+.timeline-series dt a .closed {
+  color: #999;
+  font-size: 1em;
+  margin-right: 0;
+}
+.timeline-series dt a .open {
+  color: #7DBADF;
+}
+.timeline-series dt a:hover {
+  color: #7DBADF;
+}
+.timeline-series dd {
+  padding-right: 24px;
+  width: 100%;
+}
+.timeline-series dd h3 {
+  color: #FFF;
+  clear: both;
+  float: right;
+  font-size: 1.5em;
+  margin: 0;
+  white-space: nowrap;
+}
+.timeline-event-content {
+  display: none;
+}
+.timeline-event-content p {
+  clear: right;
+  float: right;
+  line-height: 1.5em;
+  margin: 6px 0 10px;
+  width: 500px;
+}
+.timeline-event-content h4 {
+  clear: right;
+  float: right;
+  font-size: 1.4em;
+  font-weight: 400;
+  margin: 10px 0 0;
+  padding: 0 0 0 20px;
+}
+.timeline-event-content blockquote {
+  border-right: 2px solid #ccc;
+  clear: right;
+  float: right;
+  font-size: 1.8em;
+  margin-right: 0;
+  padding: 0 30px;
+  width: 400px;
+}
+.timeline-event-content blockquote .attribution {
+  font-size: 0.7em;
+  text-align: right;
+}
+.timeline-event-content .media {
+  float: right;
+  padding: 0 0 12px;
+  width: 300px;
+}
+.timeline-event-content .media img {
+  border: 2px solid #000;
+  margin: 0;
+}
+.timeline-event-content .media p {
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+}
+.timeline-event-content .media a:link,
+.timeline-event-content .media a:visited {
+  color: #ab221b;
+}
+.timeline-event-content .media a:hover {
+  color: #7DBADF;
+}
+
+}
+@media screen and (min-width: 786px) and (max-width: 1025px) 
+{
+	.timeline-container {
+  border-right: 2px solid #ccc;
+  margin: 20px auto;
+  width: 100%;
+  font-family:yekan,arial;
+  
+}
+.timeline-toggle {
+  background: #000;
+
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #ccc;
+  cursor: pointer;
+  float: right;
+  font-size: 12px;
+  margin-right: 0;
+  padding: 3px 5px;
+  white-space: nowrap;
+}
+.timeline-wrapper {
+  clear: right;
+  float: right;
+  margin: 0 0 12px;
+  width: 900px;
+  
+}
+.timeline-wrapper h2 {
+  background: url(../images/timeline_century_tick.gif) right center no-repeat;
+  font-family: yekan, "Times New Roman", Times, serif;
+  cursor: pointer;
+  font-size: 2em;
+  font-weight: 400;
+  margin: 0 0 10px;
+  padding: 4px 4px 4px 20px;
+  
+}
+.timeline-wrapper h2 span {
+    background: #0092BE;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #ffffff;
+  
+  height:30px;
+font-family :bYekan,arial;
+padding :3px 5px 3px 5px;
+font-size :14pt;
+  
+  
+}
+.timeline-series {
+  clear: right;
+  float: right;
+  margin: 0 0px 0 0;
+  padding: 0px 0px 0px 0;
+  position: relative;
+  width: 880px;
+  
+}
+.timeline-series dt {
+  background: url(../images/timeline_decade_tick.gif) right center  no-repeat;
+  clear: left;
+  font-size: 1.2em;
+  list-style-type: none;
+  line-height: 1.2em;
+  margin: 0  0 12px 0;
+  padding:  0 12px 0 0px;
+  white-space: nowrap;
+  
+}
+.timeline-series dt a {
+  color: #999;
+  cursor: pointer;
+}
+.timeline-series dt a .closed {
+  color: #999;
+  font-size: 1em;
+  margin-right: 0;
+}
+.timeline-series dt a .open {
+  color: #7DBADF;
+}
+.timeline-series dt a:hover {
+  color: #7DBADF;
+}
+.timeline-series dd {
+  padding-right: 24px;
+  width: 100%;
+}
+.timeline-series dd h3 {
+  color: #FFF;
+  clear: both;
+  float: right;
+  font-size: 1.5em;
+  margin: 0;
+  white-space: nowrap;
+}
+.timeline-event-content {
+  display: none;
+}
+.timeline-event-content p {
+  clear: right;
+  float: right;
+  line-height: 1.5em;
+  margin: 6px 0 10px;
+  width: 500px;
+}
+.timeline-event-content h4 {
+  clear: right;
+  float: right;
+  font-size: 1.4em;
+  font-weight: 400;
+  margin: 10px 0 0;
+  padding: 0 0 0 20px;
+}
+.timeline-event-content blockquote {
+  border-right: 2px solid #ccc;
+  clear: right;
+  float: right;
+  font-size: 1.8em;
+  margin-right: 0;
+  padding: 0 30px;
+  width: 400px;
+}
+.timeline-event-content blockquote .attribution {
+  font-size: 0.7em;
+  text-align: right;
+}
+.timeline-event-content .media {
+  float: right;
+  padding: 0 0 12px;
+  width: 300px;
+}
+.timeline-event-content .media img {
+  border: 2px solid #000;
+  margin: 0;
+}
+.timeline-event-content .media p {
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+}
+.timeline-event-content .media a:link,
+.timeline-event-content .media a:visited {
+  color: #ab221b;
+}
+.timeline-event-content .media a:hover {
+  color: #7DBADF;
+}
+
+}
+@media screen and (min-width: 1025px) and (max-width: 1280px) 
+{
+	.timeline-container {
+  border-right: 2px solid #ccc;
+  margin: 20px auto;
+  width: 100%;
+  font-family:yekan,arial;
+  
+}
+.timeline-toggle {
+  background: #000;
+  border-color: red;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #ccc;
+  cursor: pointer;
+  float: right;
+  font-size: 12px;
+  margin-right: 0;
+  padding: 3px 5px;
+  white-space: nowrap;
+}
+.timeline-wrapper {
+  clear: right;
+  float: right;
+  margin: 0 0 12px;
+  width: 900px;
+  
+}
+.timeline-wrapper h2 {
+  background: url(../images/timeline_century_tick.gif) right center no-repeat;
+  font-family: yekan, "Times New Roman", Times, serif;
+  cursor: pointer;
+  font-size: 2em;
+  font-weight: 400;
+  margin: 0 0 10px;
+  padding: 4px 4px 4px 20px;
+  
+  
+}
+.timeline-wrapper h2 span {
+  background: #0092BE;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #ffffff;
+  
+  height:30px;
+font-family :bYekan,arial;
+padding :3px 5px 3px 5px;
+font-size :14pt;
+  
+  
+}
+.timeline-series {
+  clear: right;
+  float: right;
+  margin: 0 0px 0 0;
+  padding: 0px 0px 0px 0;
+  position: relative;
+  width: 880px;
+  
+}
+.timeline-series dt {
+  background: url(../images/timeline_decade_tick.gif) right center  no-repeat;
+  clear: left;
+  font-size: 1.2em;
+  list-style-type: none;
+  line-height: 1.2em;
+  margin: 0  0 12px 0;
+  padding:  0 12px 0 0px;
+  white-space: nowrap;
+  
+}
+.timeline-series dt a {
+  color: #999;
+  cursor: pointer;
+}
+.timeline-series dt a .closed {
+  color: #999;
+  font-size: 1em;
+  margin-right: 0;
+}
+.timeline-series dt a .open {
+  color: #7DBADF;
+}
+.timeline-series dt a:hover {
+  color: #7DBADF;
+}
+.timeline-series dd {
+  padding-right: 24px;
+  width: 100%;
+}
+.timeline-series dd h3 {
+  color: #FFF;
+  clear: both;
+  float: right;
+  font-size: 1.5em;
+  margin: 0;
+  white-space: nowrap;
+}
+.timeline-event-content {
+  display: none;
+}
+.timeline-event-content p {
+  clear: right;
+  float: right;
+  line-height: 1.5em;
+  margin: 6px 0 10px;
+  width: 500px;
+}
+.timeline-event-content h4 {
+  clear: right;
+  float: right;
+  font-size: 1.4em;
+  font-weight: 400;
+  margin: 10px 0 0;
+  padding: 0 0 0 20px;
+}
+.timeline-event-content blockquote {
+  border-right: 2px solid #ccc;
+  clear: right;
+  float: right;
+  font-size: 1.8em;
+  margin-right: 0;
+  padding: 0 30px;
+  width: 400px;
+}
+.timeline-event-content blockquote .attribution {
+  font-size: 0.7em;
+  text-align: right;
+}
+.timeline-event-content .media {
+  float: right;
+  padding: 0 0 12px;
+  width: 300px;
+}
+.timeline-event-content .media img {
+  border: 2px solid #000;
+  margin: 0;
+}
+.timeline-event-content .media p {
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+}
+.timeline-event-content .media a:link,
+.timeline-event-content .media a:visited {
+  color: #ab221b;
+}
+.timeline-event-content .media a:hover {
+  color: #7DBADF;
+}
+
+}
+@media screen and (min-width: 1281px) and (max-width: 1360px)
+{
+  .timeline-container {
+  border-right: 2px solid #ccc;
+  margin: 20px auto;
+  width: 100%;
+  font-family:yekan,arial;
+  }
+.timeline-toggle {
+  background: #000;
+  border-color: red;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #ccc;
+  cursor: pointer;
+  float: right;
+  font-size: 10px;
+  margin-right: 0;
+  padding: 3px 5px;
+  white-space: nowrap;
+}
+.timeline-wrapper {
+  clear: right;
+  float: right;
+  margin: 0 0 12px;
+  width: 900px;
+  
+}
+.timeline-wrapper h2 {
+  background: url(../images/timeline_century_tick.gif) right center no-repeat;
+  font-family: yekan, "Times New Roman", Times, serif;
+  cursor: pointer;
+  font-size: 1.4em;
+  font-weight: 400;
+  margin: 0 0 10px;
+  padding: 4px 4px 4px 20px;
+  
+  
+}
+.timeline-wrapper h2 span {
+    background: #0092BE;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #ffffff;
+  
+  height:30px;
+font-family :bYekan,arial;
+padding :3px 5px 3px 5px;
+font-size :14pt;
+  
+  
+}
+.timeline-series {
+  clear: right;
+  float: right;
+  margin: 0 0px 0 0;
+  padding: 0px 0px 0px 0;
+  position: relative;
+  width: 880px;
+  
+}
+.timeline-series dt {
+  background: url(../images/timeline_decade_tick.gif) right center  no-repeat;
+  clear: left;
+  font-size: 1em;
+  list-style-type: none;
+  line-height: 1.2em;
+  margin: 0  0 12px 0;
+  padding:  0 12px 0 0px;
+  white-space: nowrap;
+  
+}
+.timeline-series dt a {
+  color: #999;
+  cursor: pointer;
+}
+.timeline-series dt a .closed {
+  color: #999;
+  font-size: 1em;
+  margin-right: 0;
+}
+.timeline-series dt a .open {
+  color: #7DBADF;
+}
+.timeline-series dt a:hover {
+  color: #7DBADF;
+}
+.timeline-series dd {
+  padding-right: 24px;
+  width: 100%;
+}
+.timeline-series dd h3 {
+  color: #FFF;
+  clear: both;
+  float: right;
+  font-size: 1.0em;
+  margin: 0;
+  white-space: nowrap;
+}
+.timeline-event-content {
+  display: none;
+}
+.timeline-event-content p {
+  clear: right;
+  float: right;
+  line-height: 1.5em;
+  margin: 6px 0 10px;
+  width: 500px;
+}
+.timeline-event-content h4 {
+  clear: right;
+  float: right;
+  font-size: 1.0em;
+  font-weight: 400;
+  margin: 10px 0 0;
+  padding: 0 0 0 20px;
+}
+.timeline-event-content blockquote {
+  border-right: 2px solid #ccc;
+  clear: right;
+  float: right;
+  font-size: 1.0em;
+  margin-right: 0;
+  padding: 0 30px;
+  width: 400px;
+}
+.timeline-event-content blockquote .attribution {
+  font-size: 0.7em;
+  text-align: right;
+}
+.timeline-event-content .media {
+  float: right;
+  padding: 0 0 12px;
+  width: 300px;
+}
+.timeline-event-content .media img {
+  border: 2px solid #000;
+  margin: 0;
+}
+.timeline-event-content .media p {
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+}
+.timeline-event-content .media a:link,
+.timeline-event-content .media a:visited {
+  color: #ab221b;
+}
+.timeline-event-content .media a:hover {
+  color: #7DBADF;
+}
+
+}
+@media screen and (min-width: 1361px) and (max-width: 5000px)
+{
+	.timeline-container {
+  border-right: 2px solid #ccc;
+  margin: 20px auto;
+  width: 100%;
+  font-family:yekan,arial;
+
+}
+.timeline-toggle {
+  background: #797979;
+  border-color: red;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  float: right;
+  font-size: 10px;
+  margin-right: 0;
+  padding: 3px 5px;
+  white-space: nowrap;
+}
+.timeline-wrapper {
+  clear: right;
+  float: right;
+  margin: 0 0 12px;
+}
+.timeline-wrapper h2 {
+  background: url(../images/timeline_century_tick.gif) right center no-repeat;
+  font-family: yekan, "Times New Roman", Times, serif;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 400;
+  margin: 0 0 10px;
+  padding: 4px 4px 4px 20px;
+  
+}
+.timeline-wrapper h2 span {
+    background: #0092BE;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #ffffff;
+  
+  height:30px;
+font-family :bYekan,arial;
+padding :3px 5px 3px 5px;
+font-size :14pt;
+  
+
+  
+}
+.timeline-series {
+  clear: right;
+  float: right;
+  margin: 0 0px 0 0;
+  padding: 0px 0px 0px 0;
+  position: relative;
+}
+.timeline-series dt {
+  background: url(../images/timeline_decade_tick.gif) right center  no-repeat;
+  clear: left;
+  font-size: 1.0em;
+  list-style-type: none;
+  line-height: 1.2em;
+  margin: 0  0 12px 0;
+  padding:  0 12px 0 0px;
+  white-space: nowrap;
+  
+}
+.timeline-series dt a {
+  color: #000;
+  cursor: pointer;
+}
+.timeline-series dt a .closed {
+  color: #000;
+  font-size: 1em;
+  margin-right: 0;
+}
+.timeline-series dt a .open {
+  color: #7DBADF;
+}
+.timeline-series dt a:hover {
+  color: #BEBEBE;
+}
+.timeline-series dd {
+  padding-right: 24px;
+  width: 100%;
+}
+.timeline-series dd h3 {
+  color: #FFF;
+  clear: both;
+  float: right;
+  font-size: 1.0em;
+  margin: 0;
+  white-space: nowrap;
+}
+.timeline-event-content {
+  display: none;
+}
+.timeline-event-content p {
+  clear: right;
+  float: right;
+  line-height: 1.5em;
+  margin: 6px 0 10px;
+  width: 500px;
+}
+.timeline-event-content h4 {
+  clear: right;
+  float: right;
+  font-size: 1.1em;
+  font-weight: 400;
+  margin: 10px 0 0;
+  padding: 0 0 0 20px;
+}
+.timeline-event-content blockquote {
+  border-right: 2px solid #ccc;
+  clear: right;
+  float: right;
+  font-size: 1.8em;
+  margin-right: 0;
+  padding: 0 30px;
+  width: 400px;
+}
+.timeline-event-content blockquote .attribution {
+  font-size: 0.7em;
+  text-align: right;
+}
+.timeline-event-content .media {
+  float: right;
+  padding: 0 0 12px;
+  width: 300px;
+}
+.timeline-event-content .media img {
+  border: 2px solid #000;
+  margin: 0;
+}
+.timeline-event-content .media p {
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+}
+.timeline-event-content .media a:link,
+.timeline-event-content .media a:visited {
+  color: #ab221b;
+}
+.timeline-event-content .media a:hover {
+  color: #7DBADF;
+}
+
+}
+
