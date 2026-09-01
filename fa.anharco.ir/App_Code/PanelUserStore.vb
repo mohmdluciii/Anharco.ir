@@ -51,22 +51,50 @@ Public Module PanelUserStore
         Else
             doc.LoadXml("<users></users>")
             Seed(doc)
-            SaveDoc(doc)
+            Try
+                SaveDoc(doc)
+            Catch
+            End Try
         End If
         If doc.DocumentElement Is Nothing Then
             doc.LoadXml("<users></users>")
             Seed(doc)
-            SaveDoc(doc)
+            Try
+                SaveDoc(doc)
+            Catch
+            End Try
         End If
         If doc.SelectNodes("/users/admin").Count = 0 AndAlso doc.SelectNodes("/users/person").Count = 0 Then
             Seed(doc)
-            SaveDoc(doc)
+            Try
+                SaveDoc(doc)
+            Catch
+            End Try
         End If
         Return doc
     End Function
 
     Public Sub SaveDoc(ByVal doc As XmlDocument)
-        doc.Save(XmlPath())
+        Dim p As String = XmlPath()
+        Dim tmp As String = p & ".tmp"
+        Try
+            Dim settings As New XmlWriterSettings()
+            settings.Encoding = New UTF8Encoding(True)
+            settings.Indent = True
+            Dim w As XmlWriter = XmlWriter.Create(tmp, settings)
+            doc.Save(w)
+            w.Close()
+            If File.Exists(p) Then File.Delete(p)
+            File.Move(tmp, p)
+        Catch
+            ' Fallback: write directly (may fail if truly read-only)
+            Try
+                doc.Save(p)
+            Catch
+                ' Cannot write at all — throw user-friendly message
+                Throw New InvalidOperationException("امکان ذخیره اطلاعات وجود ندارد. لطفاً به پشتیبانی هاست تیکت بزنید تا دسترسی نوشتن به فولدر App_Data را فعال کنند.")
+            End Try
+        End Try
     End Sub
 
     Private Sub Seed(ByVal doc As XmlDocument)

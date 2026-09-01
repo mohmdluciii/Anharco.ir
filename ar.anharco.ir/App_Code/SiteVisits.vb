@@ -218,8 +218,20 @@ Public Module SiteVisits
         Catch
         End Try
         SyncLock Gate
-            If File.Exists(localFile) Then File.Delete(localFile)
-            If sharedFile <> "" AndAlso File.Exists(sharedFile) Then File.Delete(sharedFile)
+            Try
+                If File.Exists(localFile) Then File.Delete(localFile)
+            Catch ex As UnauthorizedAccessException
+                ' Host denies write access — overwrite with empty XML instead
+                Try
+                    File.WriteAllText(localFile, "<?xml version=""1.0"" encoding=""utf-8""?><visits><total>0</total><unique>0</unique><days/><langs/></visits>")
+                Catch
+                End Try
+            Catch
+            End Try
+            Try
+                If sharedFile <> "" AndAlso File.Exists(sharedFile) Then File.Delete(sharedFile)
+            Catch
+            End Try
         End SyncLock
     End Sub
 
@@ -332,13 +344,30 @@ Public Module SiteVisits
             Dim settings As New XmlWriterSettings()
             settings.Encoding = New UTF8Encoding(True)
             settings.Indent = True
-            Dim w As XmlWriter = XmlWriter.Create(tmp, settings)
-            doc.Save(w)
-            w.Close()
-            If File.Exists(filePath) Then
-                File.Delete(filePath)
-            End If
-            File.Move(tmp, filePath)
+            Try
+                Dim w As XmlWriter = XmlWriter.Create(tmp, settings)
+                doc.Save(w)
+                w.Close()
+                If File.Exists(filePath) Then
+                    File.Delete(filePath)
+                End If
+                File.Move(tmp, filePath)
+            Catch ex As UnauthorizedAccessException
+                ' Host denies write — try direct save as fallback
+                Try
+                    doc.Save(filePath)
+                Catch
+                End Try
+                Try
+                    If File.Exists(tmp) Then File.Delete(tmp)
+                Catch
+                End Try
+            Catch
+                Try
+                    If File.Exists(tmp) Then File.Delete(tmp)
+                Catch
+                End Try
+            End Try
         End SyncLock
     End Sub
 
