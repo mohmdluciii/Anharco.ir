@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fa" dir="rtl">
 <head runat="server">
     <title><%=Session("site_title")%></title>
-      <link href="graphic/BodyGraphic.css?v=bidiFix2" rel="stylesheet" />
-    <link href="graphic/UiRefresh.css?v=logo90" rel="stylesheet" />
+      <link href="graphic/BodyGraphic.css?v=align1" rel="stylesheet" />
+    <link href="graphic/UiRefresh.css?v=align1" rel="stylesheet" />
     <link href="JS/swiper-bundle.min.css" rel="stylesheet" />
     <link rel="shortcut icon" href="<%=Session("site_favicon")%>" />
     <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
@@ -309,7 +309,7 @@
 
 
 
-          <div class ="adsContainer" onscroll="moveTextForScrolls();">
+          <div class ="adsContainer">
                 <div class ="titleTextAds">ارزش‌های محوری</div>
                 <div class ="TextAds" id="tAds1">دلبستگی</div>
                 <div class ="TextAds1" id="tAds2">منافع متوازن ذی‌نفعان</div>
@@ -975,11 +975,6 @@
 </script>
 
 <script type ="text/javascript" >
-    var amount_left=0;
-    function moveTextForScrolls() {
-        alert(tAds1.style.left);
-        var ads1 = document.getElementById("tAds1");
-        ads1.style.left = amount_left;
-        amount_left = amount_left + 10;
-    }
+    // Deprecated: values animation is handled by scroll_herbs.js (bindValuesScroll).
+    function moveTextForScrolls() { }
 </script>

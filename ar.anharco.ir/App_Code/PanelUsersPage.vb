@@ -45,8 +45,22 @@ Public Class PanelUsersPage
         End If
         dockHtml = StudioNav.DockHtml("", "", "")
         Wire()
+        Dim flash As String = Convert.ToString(Session("PanelMsg"))
+        If flash <> "" Then
+            Session("PanelMsg") = ""
+            If lblStatus IsNot Nothing Then
+                lblStatus.Text = HttpUtility.HtmlEncode(flash)
+            End If
+        End If
         If Convert.ToString(Request("del")) <> "" Then
-            PanelUserStore.Delete(kind, Convert.ToString(Request("del")))
+            Dim delMsg As String = ""
+            Try
+                PanelUserStore.Delete(kind, Convert.ToString(Request("del")))
+                delMsg = "کاربر با موفقیت حذف شد."
+            Catch ex As Exception
+                delMsg = "حذف انجام نشد: " & ex.Message & " (دسترسی نوشتن به فولدر App_Data روی هاست لازم است)"
+            End Try
+            Session("PanelMsg") = delMsg
             Response.Redirect("PanelUsers.aspx?kind=" & kind, True)
             Return
         End If
@@ -150,26 +164,32 @@ Public Class PanelUsersPage
             Return
         End If
         Dim id As String = hidId.Value
-        If kind = "admin" Then
-            Dim code As String = "1234"
-            If txtCode IsNot Nothing AndAlso txtCode.Text.Trim() <> "" Then
-                code = txtCode.Text.Trim()
+        Try
+            If kind = "admin" Then
+                Dim code As String = "1234"
+                If txtCode IsNot Nothing AndAlso txtCode.Text.Trim() <> "" Then
+                    code = txtCode.Text.Trim()
+                End If
+                Dim pass As String = txtPass.Text.Trim()
+                If String.IsNullOrEmpty(id) AndAlso pass = "" Then
+                    pass = "1234"
+                End If
+                Dim superAdmin As Boolean = (chkSuper IsNot Nothing AndAlso chkSuper.Checked)
+                id = PanelUserStore.SaveAdmin(id, txtUser.Text.Trim(), pass, code, txtName.Text.Trim(), txtLname.Text.Trim(), txtSemat.Text.Trim(), superAdmin)
+            Else
+                Dim photo As String = SavePersonPhoto()
+                Dim pass As String = txtPass.Text.Trim()
+                If String.IsNullOrEmpty(id) AndAlso pass = "" Then
+                    pass = "1234"
+                End If
+                id = PanelUserStore.SavePerson(id, txtUser.Text.Trim(), pass, txtName.Text.Trim(), txtSemat.Text.Trim(), txtPhone.Text.Trim(), txtEmail.Text.Trim(), txtFax.Text.Trim(), photo)
             End If
-            Dim pass As String = txtPass.Text.Trim()
-            If String.IsNullOrEmpty(id) AndAlso pass = "" Then
-                pass = "1234"
-            End If
-            Dim superAdmin As Boolean = (chkSuper IsNot Nothing AndAlso chkSuper.Checked)
-            id = PanelUserStore.SaveAdmin(id, txtUser.Text.Trim(), pass, code, txtName.Text.Trim(), txtLname.Text.Trim(), txtSemat.Text.Trim(), superAdmin)
-        Else
-            Dim photo As String = SavePersonPhoto()
-            Dim pass As String = txtPass.Text.Trim()
-            If String.IsNullOrEmpty(id) AndAlso pass = "" Then
-                pass = "1234"
-            End If
-            id = PanelUserStore.SavePerson(id, txtUser.Text.Trim(), pass, txtName.Text.Trim(), txtSemat.Text.Trim(), txtPhone.Text.Trim(), txtEmail.Text.Trim(), txtFax.Text.Trim(), photo)
-        End If
-        Response.Redirect("PanelUsers.aspx?kind=" & kind, True)
+            Session("PanelMsg") = "اطلاعات کاربر با موفقیت ذخیره شد."
+            Response.Redirect("PanelUsers.aspx?kind=" & kind, True)
+        Catch ex As Exception
+            lblStatus.Text = "ذخیره انجام نشد: " & HttpUtility.HtmlEncode(ex.Message)
+            listHtml = PanelUserStore.ListHtml(kind)
+        End Try
     End Sub
 
     Protected Sub btnNew_Click(ByVal sender As Object, ByVal e As EventArgs)

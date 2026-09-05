@@ -1268,11 +1268,6 @@ html[dir="rtl"] .titleBoxNews,
 html[dir="rtl"] .boxTextContentNews,
 html[dir="rtl"] .dateBox,
 html[dir="rtl"] .dateNews,
-html[dir="rtl"] .TextAds,
-html[dir="rtl"] .TextAds1,
-html[dir="rtl"] .TextAds2,
-html[dir="rtl"] .TextAds3,
-html[dir="rtl"] .TextAds4,
 html[dir="rtl"] .footerMainPage p,
 html[dir="rtl"] .boxFooter p,
 html[dir="rtl"] .boxFooterMenu ul li a,
@@ -1305,11 +1300,6 @@ html[lang="fa"] .titleBoxNews,
 html[lang="fa"] .boxTextContentNews,
 html[lang="fa"] .dateBox,
 html[lang="fa"] .dateNews,
-html[lang="fa"] .TextAds,
-html[lang="fa"] .TextAds1,
-html[lang="fa"] .TextAds2,
-html[lang="fa"] .TextAds3,
-html[lang="fa"] .TextAds4,
 html[lang="fa"] .footerMainPage p,
 html[lang="fa"] .boxFooter p,
 html[lang="fa"] .boxFooterMenu ul li a,
@@ -1341,11 +1331,6 @@ html[lang="ar"] .titleBoxNews,
 html[lang="ar"] .boxTextContentNews,
 html[lang="ar"] .dateBox,
 html[lang="ar"] .dateNews,
-html[lang="ar"] .TextAds,
-html[lang="ar"] .TextAds1,
-html[lang="ar"] .TextAds2,
-html[lang="ar"] .TextAds3,
-html[lang="ar"] .TextAds4,
 html[lang="ar"] .footerMainPage p,
 html[lang="ar"] .boxFooter p,
 html[lang="ar"] .boxFooterMenu ul li a,
@@ -1636,6 +1621,56 @@ html[lang="ar"] .MessageCEO_HeaderTextContainer h1.studioAlignCenter {
     margin: 12px 0 0 !important;
     padding: 18px 12px 28px !important;
     text-align: center !important;
+}
+
+/* ---- Homepage hard guards (all languages) ----
+   1) Values box: texts always centered under the header, slide animation stays.
+   2) Page must always scroll on the window - never lock into an inner frame. */
+.adsContainer .titleTextAds,
+.adsContainer .TextAds,
+.adsContainer .TextAds1,
+.adsContainer .TextAds2,
+.adsContainer .TextAds3,
+.adsContainer .TextAds4 {
+    text-align: center !important;
+}
+
+html {
+    overflow-y: scroll !important;
+}
+
+html,
+body {
+    overflow-x: hidden !important;
+    max-height: none !important;
+    height: auto !important;
+    position: static !important;
+    overflow-anchor: none;
+}
+
+.mainScreenLayer,
+.topContainer,
+#wrap_out,
+#wrap,
+.adsContainer,
+.adsValuesSticky,
+.boxWhatWeDo,
+.footerMainPage {
+    position: relative !important;
+    overflow: visible;
+    max-height: none !important;
+    height: auto;
+    -webkit-overflow-scrolling: auto;
+    overscroll-behavior: auto;
+}
+
+.topContainer {
+    overflow: hidden !important;
+}
+
+.adsContainer,
+.adsValuesSticky {
+    overflow: hidden !important;
 }
 
 html[dir="rtl"] .footerMainPage,

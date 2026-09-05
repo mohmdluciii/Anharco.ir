@@ -232,7 +232,19 @@ Public Class Safe_Empty
         If Request IsNot Nothing AndAlso Request.Form IsNot Nothing Then
             Dim eventTarget As String = Convert.ToString(Request.Form("__EVENTTARGET"))
             If eventTarget = "ResetVisits" Then
-                SiteVisits.ResetVisits()
+                Dim ok As Boolean = False
+                Dim msg As String = ""
+                Try
+                    SiteVisits.ResetVisits()
+                    ok = True
+                Catch ex As Exception
+                    msg = ex.Message
+                End Try
+                If ok Then
+                    Session("PanelMsg") = "آمار بازدید با موفقیت ریست شد."
+                Else
+                    Session("PanelMsg") = "ریست آمار انجام نشد: " & msg & " (دسترسی نوشتن به فولدر App_Data روی هاست لازم است)"
+                End If
                 Response.Redirect("Empty.aspx", False)
                 Context.ApplicationInstance.CompleteRequest()
                 Return

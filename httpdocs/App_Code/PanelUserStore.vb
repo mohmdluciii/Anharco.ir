@@ -210,7 +210,9 @@ Public Module PanelUserStore
             If Not String.IsNullOrEmpty(password) Then
                 SetAttr(n, "password", HashPassword(password))
             End If
-            SetAttr(n, "code", HashPassword(code))
+            If Not String.IsNullOrEmpty(code) Then
+                SetAttr(n, "code", HashPassword(code))
+            End If
             SetAttr(n, "name", name)
             SetAttr(n, "lname", lname)
             SetAttr(n, "semat", semat)
@@ -269,7 +271,11 @@ Public Module PanelUserStore
                 sb.Append("<td>").Append(HttpUtility.HtmlEncode(Attr(n, "lname"))).Append("</td>")
                 sb.Append("<td>").Append(HttpUtility.HtmlEncode(Attr(n, "semat"))).Append("</td>")
                 sb.Append("<td>").Append(HttpUtility.HtmlEncode(Attr(n, "username"))).Append("</td>")
-                sb.Append("<td>").Append(HttpUtility.HtmlEncode(Attr(n, "code"))).Append("</td>")
+                Dim codeShown As String = Attr(n, "code")
+                If codeShown.StartsWith("sha256:") Then
+                    codeShown = "••••••"
+                End If
+                sb.Append("<td>").Append(HttpUtility.HtmlEncode(codeShown)).Append("</td>")
                 If Attr(n, "super") = "1" Then
                     sb.Append("<td>بله</td>")
                 Else
