@@ -141,6 +141,124 @@ $(document).ready(function () {
         bindLanguageSwitch();
         bindMenuOverlay();
         bindValuesScroll();
+        bindScrollGuard();
+    }
+
+    /* ---- Scroll guard: self-heals a "frozen" page.
+       If stale cached CSS (or a bad rule) clamps html/body into position:fixed
+       or hands scrolling to an inner container, the window stops scrolling and
+       the page appears stuck in a frame. This guard detects both cases and
+       repairs them at runtime — even when the bad CSS comes from browser cache
+       that a version bump cannot reach. */
+    function bindScrollGuard() {
+        if (window.__anharScrollGuard) {
+            return;
+        }
+        window.__anharScrollGuard = true;
+
+        function docScrollable() {
+            return document.documentElement.scrollHeight > window.innerHeight + 4;
+        }
+
+        function windowLooksLocked() {
+            var de = document.documentElement;
+            var cs = window.getComputedStyle ? window.getComputedStyle(de) : null;
+            if (!cs) {
+                return false;
+            }
+            var bs = document.body && window.getComputedStyle ? window.getComputedStyle(document.body) : null;
+            if (cs.position === "fixed" || (bs && bs.position === "fixed")) {
+                return true;
+            }
+            if (docScrollable() && cs.overflowY === "hidden") {
+                return true;
+            }
+            var h = parseFloat(cs.height);
+            if (docScrollable() && cs.height !== "auto" && !isNaN(h) && h <= window.innerHeight + 2) {
+                return true;
+            }
+            return false;
+        }
+
+        function unlockWindow() {
+            var de = document.documentElement;
+            de.style.setProperty("position", "static", "important");
+            de.style.setProperty("overflow-y", "auto", "important");
+            de.style.setProperty("overflow-x", "hidden", "important");
+            de.style.setProperty("height", "auto", "important");
+            de.style.setProperty("max-height", "none", "important");
+            if (document.body) {
+                document.body.style.setProperty("position", "static", "important");
+                document.body.style.setProperty("overflow", "visible", "important");
+                document.body.style.setProperty("height", "auto", "important");
+                document.body.style.setProperty("max-height", "none", "important");
+            }
+        }
+
+        function stealBackInnerScroller() {
+            if (!document.body || !window.getComputedStyle) {
+                return;
+            }
+            if (docScrollable()) {
+                return;
+            }
+            var all = document.body.getElementsByTagName("*");
+            var scroller = null;
+            var maxH = 0;
+            var i, el, ecs, gap, key;
+            for (i = 0; i < all.length; i++) {
+                el = all[i];
+                ecs = window.getComputedStyle(el);
+                if (!ecs || (ecs.overflowY !== "auto" && ecs.overflowY !== "scroll")) {
+                    continue;
+                }
+                gap = el.scrollHeight - el.clientHeight;
+                if (gap > maxH) {
+                    maxH = gap;
+                    scroller = el;
+                }
+            }
+            if (scroller && maxH > 200) {
+                key = (scroller.className || "") + " " + (scroller.id || "");
+                if (!/certViewer|slick|menuBoxContainer|searchMainContainer|mobileMenu|cmb_select/i.test(key)) {
+                    scroller.style.setProperty("overflow", "visible", "important");
+                    scroller.style.setProperty("max-height", "none", "important");
+                    scroller.style.setProperty("height", "auto", "important");
+                    scroller.style.setProperty("position", "static", "important");
+                }
+            }
+        }
+
+        function repair() {
+            if (windowLooksLocked()) {
+                unlockWindow();
+            }
+        }
+
+        var t = false;
+        function onScroll() {
+            if (t) {
+                return;
+            }
+            t = true;
+            window.setTimeout(function () {
+                repair();
+                t = false;
+            }, 300);
+        }
+
+        window.addEventListener("scroll", onScroll, false);
+        window.addEventListener("resize", onScroll, false);
+        window.addEventListener("wheel", onScroll, false);
+        window.addEventListener("touchmove", onScroll, false);
+        window.setTimeout(function () {
+            repair();
+            stealBackInnerScroller();
+        }, 800);
+        window.setTimeout(function () {
+            repair();
+            stealBackInnerScroller();
+        }, 3000);
     }
 
     function bindMenuOverlay() {

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr">
 <head id="Head1" runat="server">
  <title>Terms of Use ANHAR Company</title>
-      <link href="graphic/BodyGraphic.css?v=align1" rel="stylesheet" />
+      <link href="graphic/BodyGraphic.css?v=align2" rel="stylesheet" />
     <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
     <meta runat ="server"  name="description" id="description" content="Anhar Construction Company was established in 1353 and implements EPC projects, gas pressure boosting stations, pipelines, buildings and structures, facilities and equipment for oil, gas, petrochemical projects and water transmission pipelines.">
     <meta runat ="server" name="keywords" id="keywords" content="Construction company, Anhar, EPC contracting, gas pressure boosting stations, pipelines, construction contracting, implementation of facilities and equipment for oil, gas, petrochemical projects, gas supply, refinery maintenance, replacement of line lining, CGS gas pressure reduction, lines Water transfer pipe, petrochemical construction, maintenance assistant, concrete skeleton, residential building, reservoir, dam reservoir, map design">
@@ -15,7 +15,7 @@
    
     <link rel= "stylesheet" type="text/css" href="scrollMainPage/style.css" media="screen"/>
     <script src="scrollMainPage/js/jquery-1.6.1.min.js"></script>
-    <script src="scrollMainPage/js/scroll_herbs.js?v=langFix1"></script>
+    <script src="scrollMainPage/js/scroll_herbs.js?v=langFix2"></script>
     <link rel="stylesheet" type="text/css" href="slick-1.8.0/slick/slick.css">
   <link rel="stylesheet" type="text/css" href="slick-1.8.0/slick/slick-theme.css">
 

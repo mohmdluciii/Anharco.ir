@@ -15,7 +15,7 @@
    
     <link rel= "stylesheet" type="text/css" href="scrollMainPage/style.css" media="screen"/>
     <script src="scrollMainPage/js/jquery-1.6.1.min.js"></script>
-    <script src="scrollMainPage/js/scroll_herbs.js?v=langFix1"></script>
+    <script src="scrollMainPage/js/scroll_herbs.js?v=langFix2"></script>
     <link rel="stylesheet" type="text/css" href="slick/slick.css">
   <link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
     <link href="JS/swiper-bundle.min.css" rel="stylesheet" />

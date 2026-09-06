@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ar" dir="rtl">
 <head id="Head1" runat="server">
     <title>تأسیسات تقویت فشار گاز</title>
-      <link href="graphic/BodyGraphic.css?v=align1" rel="stylesheet" />
+      <link href="graphic/BodyGraphic.css?v=align2" rel="stylesheet" />
     <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
     <meta runat ="server"  name="description" id="description" content="تأسست شركة أنهار للإنشاءات عام 1353هـ وتقوم بتنفيذ مشاريع EPC ومحطات تعزيز ضغط الغاز وخطوط الأنابيب والمباني والهياكل والمرافق والمعدات لمشاريع النفط والغاز والبتروكيماويات وخطوط أنابيب نقل المياه.">
     <meta runat ="server" name="keywords" id="keywords" content="شركة إنشاءات، أنهار، مقاولات EPC، محطات تعزيز ضغط الغاز، خطوط الأنابيب، مقاولات البناء، تنفيذ مرافق ومعدات مشاريع النفط والغاز والبتروكيماويات، إمداد الغاز، صيانة المصافي، استبدال بطانة الخطوط، تخفيض ضغط الغاز CGS، خطوط نقل المياه الأنابيب، البناء البتروكيماوي، مساعد الصيانة، الهيكل الخرساني، المبنى السكني، الخزان، خزان السد، تصميم الخريطة">
@@ -15,7 +15,7 @@
    
     <link rel= "stylesheet" type="text/css" href="scrollMainPage/style.css" media="screen"/>
     <script src="scrollMainPage/js/jquery-1.6.1.min.js"></script>
-    <script src="scrollMainPage/js/scroll_herbs.js?v=langFix1"></script>
+    <script src="scrollMainPage/js/scroll_herbs.js?v=langFix2"></script>
     <link rel="stylesheet" type="text/css" href="slick-1.8.0/slick/slick.css">
   <link rel="stylesheet" type="text/css" href="slick-1.8.0/slick/slick-theme.css">
 

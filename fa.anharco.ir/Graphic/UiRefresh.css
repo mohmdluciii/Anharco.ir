@@ -1635,43 +1635,11 @@ html[lang="ar"] .MessageCEO_HeaderTextContainer h1.studioAlignCenter {
     text-align: center !important;
 }
 
-html {
-    overflow-y: scroll !important;
-}
-
-html,
-body {
-    overflow-x: hidden !important;
-    max-height: none !important;
-    height: auto !important;
-    position: static !important;
-    overflow-anchor: none;
-}
-
-.mainScreenLayer,
-.topContainer,
-#wrap_out,
-#wrap,
-.adsContainer,
-.adsValuesSticky,
-.boxWhatWeDo,
-.footerMainPage {
-    position: relative !important;
-    overflow: visible;
-    max-height: none !important;
-    height: auto;
-    -webkit-overflow-scrolling: auto;
-    overscroll-behavior: auto;
-}
-
-.topContainer {
-    overflow: hidden !important;
-}
-
-.adsContainer,
-.adsValuesSticky {
-    overflow: hidden !important;
-}
+/* NOTE: blanket html/body + layout "hard guards" were removed here.
+   They could clamp the viewport into an inner-scroll configuration
+   (page appears frozen / moves inside a frame). Scroll protection is
+   now done at runtime by scrollMainPage/js/scroll_herbs.js, which
+   repairs a frozen configuration even if stale cached CSS re-adds it. */
 
 html[dir="rtl"] .footerMainPage,
 html[lang="fa"] .footerMainPage,
