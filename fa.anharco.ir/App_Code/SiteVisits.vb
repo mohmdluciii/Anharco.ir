@@ -32,6 +32,14 @@ Public Module SiteVisits
         Catch
         End Try
         Dim today As String = DateTime.Now.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)
+        If DataDir.IsMemoryOnly() Then
+            ' No writable directory on the host — count in memory (lasts until app restart)
+            Try
+                SaveHitMemory(today, lang, isNew)
+            Catch
+            End Try
+            Return
+        End If
         Try
             SaveHit(LocalPath(ctx), today, lang, isNew)
         Catch
@@ -60,6 +68,17 @@ Public Module SiteVisits
                 doc = LoadDoc(LocalPath(ctx))
             Catch
             End Try
+        End If
+        If doc Is Nothing AndAlso DataDir.IsMemoryOnly() Then
+            Dim txt As String = DataDir.MemGet("site-visits.xml")
+            If txt IsNot Nothing AndAlso txt <> "" Then
+                Try
+                    Dim memDoc As New XmlDocument()
+                    memDoc.LoadXml(txt)
+                    doc = memDoc
+                Catch
+                End Try
+            End If
         End If
         Dim total As Long = 0
         Dim uniqueAll As Long = 0
@@ -207,33 +226,34 @@ Public Module SiteVisits
     Public Sub ResetVisits()
         Dim ctx As HttpContext = HttpContext.Current
         If ctx Is Nothing Then Return
-        Dim localFile As String = Path.Combine(ctx.Server.MapPath("~/App_Data"), "site-visits.xml")
-        Dim sharedFile As String = ""
-        Try
-            Dim rootDir As String = ctx.Server.MapPath("~").TrimEnd("\"c, "/"c)
-            Dim parentDir As DirectoryInfo = Directory.GetParent(rootDir)
-            If parentDir IsNot Nothing Then
-                sharedFile = Path.Combine(Path.Combine(parentDir.FullName, "App_Data"), "site-visits.xml")
-            End If
-        Catch
-        End Try
+        Dim localFile As String = DataDir.GetDataFile("site-visits.xml")
+        Dim sharedFile As String = SharedPath(ctx)
         SyncLock Gate
+            ' Reset the in-memory copy too (memory mode + cache freshness)
             Try
-                If File.Exists(localFile) Then File.Delete(localFile)
+                DataDir.MemSet("site-visits.xml", NewVisitsDoc().OuterXml)
+            Catch
+            End Try
+            Try
+                If localFile <> "" AndAlso File.Exists(localFile) Then File.Delete(localFile)
             Catch ex As UnauthorizedAccessException
                 ' Host denies write access — overwrite with empty XML instead
                 Try
-                    File.WriteAllText(localFile, "<?xml version=""1.0"" encoding=""utf-8""?><visits><total>0</total><unique>0</unique><days/><langs/></visits>")
+                    File.WriteAllText(localFile, EmptyVisitsXml())
                 Catch
                 End Try
             Catch
             End Try
             Try
-                If sharedFile <> "" AndAlso File.Exists(sharedFile) Then File.Delete(sharedFile)
+                If sharedFile <> "" AndAlso File.Exists(sharedFile) AndAlso Not String.Equals(sharedFile, localFile, StringComparison.OrdinalIgnoreCase) Then File.Delete(sharedFile)
             Catch
             End Try
         End SyncLock
     End Sub
+
+    Private Function EmptyVisitsXml() As String
+        Return "<?xml version=""1.0"" encoding=""utf-8""?><visits><total>0</total><unique>0</unique><days/><langs/></visits>"
+    End Function
 
     Private Function LangHits(ByVal root As XmlElement, ByVal lang As String) As Long
         Dim n As XmlElement = CType(root.SelectSingleNode("langs/lang[@id='" & lang & "']"), XmlElement)
@@ -310,36 +330,7 @@ Public Module SiteVisits
                 Directory.CreateDirectory(folder)
             End If
             Dim doc As XmlDocument = LoadDoc(filePath)
-            Dim root As XmlElement = doc.DocumentElement
-            SetInner(doc, root, "total", (ToLong(Inner(root, "total")) + 1).ToString(CultureInfo.InvariantCulture))
-            If isNew Then
-                SetInner(doc, root, "unique", (ToLong(Inner(root, "unique")) + 1).ToString(CultureInfo.InvariantCulture))
-            End If
-            Dim days As XmlElement = EnsureChild(doc, root, "days")
-            Dim dayNode As XmlElement = CType(days.SelectSingleNode("day[@id='" & today & "']"), XmlElement)
-            If dayNode Is Nothing Then
-                dayNode = doc.CreateElement("day")
-                dayNode.SetAttribute("id", today)
-                dayNode.SetAttribute("hits", "0")
-                dayNode.SetAttribute("unique", "0")
-                days.AppendChild(dayNode)
-            End If
-            dayNode.SetAttribute("hits", (ToLong(dayNode.GetAttribute("hits")) + 1).ToString(CultureInfo.InvariantCulture))
-            If isNew Then
-                dayNode.SetAttribute("unique", (ToLong(dayNode.GetAttribute("unique")) + 1).ToString(CultureInfo.InvariantCulture))
-            End If
-            Dim langHitAttr As String = lang & "-hits"
-            dayNode.SetAttribute(langHitAttr, (ToLong(dayNode.GetAttribute(langHitAttr)) + 1).ToString(CultureInfo.InvariantCulture))
-            Dim langs As XmlElement = EnsureChild(doc, root, "langs")
-            Dim langNode As XmlElement = CType(langs.SelectSingleNode("lang[@id='" & lang & "']"), XmlElement)
-            If langNode Is Nothing Then
-                langNode = doc.CreateElement("lang")
-                langNode.SetAttribute("id", lang)
-                langNode.SetAttribute("hits", "0")
-                langs.AppendChild(langNode)
-            End If
-            langNode.SetAttribute("hits", (ToLong(langNode.GetAttribute("hits")) + 1).ToString(CultureInfo.InvariantCulture))
-            PruneDays(days, today)
+            ApplyHit(doc, today, lang, isNew)
             Dim tmp As String = filePath & ".tmp"
             Dim settings As New XmlWriterSettings()
             settings.Encoding = New UTF8Encoding(True)
@@ -370,6 +361,72 @@ Public Module SiteVisits
             End Try
         End SyncLock
     End Sub
+
+    ''' <summary>Applies one hit to a visits document (shared by file and memory paths).</summary>
+    Private Sub ApplyHit(ByVal doc As XmlDocument, ByVal today As String, ByVal lang As String, ByVal isNew As Boolean)
+        Dim root As XmlElement = doc.DocumentElement
+        SetInner(doc, root, "total", (ToLong(Inner(root, "total")) + 1).ToString(CultureInfo.InvariantCulture))
+        If isNew Then
+            SetInner(doc, root, "unique", (ToLong(Inner(root, "unique")) + 1).ToString(CultureInfo.InvariantCulture))
+        End If
+        Dim days As XmlElement = EnsureChild(doc, root, "days")
+        Dim dayNode As XmlElement = CType(days.SelectSingleNode("day[@id='" & today & "']"), XmlElement)
+        If dayNode Is Nothing Then
+            dayNode = doc.CreateElement("day")
+            dayNode.SetAttribute("id", today)
+            dayNode.SetAttribute("hits", "0")
+            dayNode.SetAttribute("unique", "0")
+            days.AppendChild(dayNode)
+        End If
+        dayNode.SetAttribute("hits", (ToLong(dayNode.GetAttribute("hits")) + 1).ToString(CultureInfo.InvariantCulture))
+        If isNew Then
+            dayNode.SetAttribute("unique", (ToLong(dayNode.GetAttribute("unique")) + 1).ToString(CultureInfo.InvariantCulture))
+        End If
+        Dim langHitAttr As String = lang & "-hits"
+        dayNode.SetAttribute(langHitAttr, (ToLong(dayNode.GetAttribute(langHitAttr)) + 1).ToString(CultureInfo.InvariantCulture))
+        Dim langs As XmlElement = EnsureChild(doc, root, "langs")
+        Dim langNode As XmlElement = CType(langs.SelectSingleNode("lang[@id='" & lang & "']"), XmlElement)
+        If langNode Is Nothing Then
+            langNode = doc.CreateElement("lang")
+            langNode.SetAttribute("id", lang)
+            langNode.SetAttribute("hits", "0")
+            langs.AppendChild(langNode)
+        End If
+        langNode.SetAttribute("hits", (ToLong(langNode.GetAttribute("hits")) + 1).ToString(CultureInfo.InvariantCulture))
+        PruneDays(days, today)
+    End Sub
+
+    Private Sub SaveHitMemory(ByVal today As String, ByVal lang As String, ByVal isNew As Boolean)
+        SyncLock Gate
+            Dim doc As XmlDocument = Nothing
+            Dim txt As String = DataDir.MemGet("site-visits.xml")
+            If txt IsNot Nothing AndAlso txt <> "" Then
+                Try
+                    Dim memDoc As New XmlDocument()
+                    memDoc.LoadXml(txt)
+                    doc = memDoc
+                Catch
+                End Try
+            End If
+            If doc Is Nothing Then
+                doc = NewVisitsDoc()
+            End If
+            ApplyHit(doc, today, lang, isNew)
+            DataDir.MemSet("site-visits.xml", doc.OuterXml)
+        End SyncLock
+    End Sub
+
+    Private Function NewVisitsDoc() As XmlDocument
+        Dim doc As New XmlDocument()
+        doc.AppendChild(doc.CreateXmlDeclaration("1.0", "utf-8", Nothing))
+        Dim root As XmlElement = doc.CreateElement("visits")
+        doc.AppendChild(root)
+        SetInner(doc, root, "total", "0")
+        SetInner(doc, root, "unique", "0")
+        EnsureChild(doc, root, "days")
+        EnsureChild(doc, root, "langs")
+        Return doc
+    End Function
 
     Private Sub PruneDays(ByVal days As XmlElement, ByVal today As String)
         Dim keepFrom As DateTime
@@ -454,8 +511,7 @@ Public Module SiteVisits
     End Function
 
     Private Function LocalPath(ByVal ctx As HttpContext) As String
-        Dim data As String = ctx.Server.MapPath("~/App_Data")
-        Return Path.Combine(data, "site-visits.xml")
+        Return DataDir.GetDataFile("site-visits.xml")
     End Function
 
     Private Function SharedPath(ByVal ctx As HttpContext) As String
@@ -465,7 +521,16 @@ Public Module SiteVisits
             If parent Is Nothing Then
                 Return ""
             End If
-            Return Path.Combine(Path.Combine(parent.FullName, "App_Data"), "site-visits.xml")
+            ' Same rule as DataDir: writable parent App_Data first, then parent SiteData
+            Dim parentAppData As String = Path.Combine(parent.FullName, "App_Data")
+            If DataDir.ProbeWritable(parentAppData) Then
+                Return Path.Combine(parentAppData, "site-visits.xml")
+            End If
+            Dim parentSiteData As String = Path.Combine(parent.FullName, DataDir.FallbackFolderName)
+            If DataDir.ProbeWritable(parentSiteData) Then
+                Return Path.Combine(parentSiteData, "site-visits.xml")
+            End If
+            Return ""
         Catch
             Return ""
         End Try

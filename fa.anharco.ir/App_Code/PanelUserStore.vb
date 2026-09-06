@@ -35,16 +35,15 @@ Public Module PanelUserStore
     End Function
 
     Public Function XmlPath() As String
-        Dim ctx As HttpContext = HttpContext.Current
-        Dim data As String = ctx.Server.MapPath("~/App_Data")
-        If Not Directory.Exists(data) Then
-            Directory.CreateDirectory(data)
-        End If
-        Return Path.Combine(data, "panel-users.xml")
+        Return DataDir.GetDataFile("panel-users.xml")
     End Function
 
     Public Function LoadDoc() As XmlDocument
         Dim p As String = XmlPath()
+        If p = "" Then
+            ' Memory mode: no writable directory on the host
+            Return LoadDocMemory()
+        End If
         Dim doc As New XmlDocument()
         If File.Exists(p) Then
             doc.Load(p)
@@ -74,8 +73,30 @@ Public Module PanelUserStore
         Return doc
     End Function
 
+    Private Function LoadDocMemory() As XmlDocument
+        Dim doc As New XmlDocument()
+        Dim txt As String = DataDir.MemGet("panel-users.xml")
+        If txt IsNot Nothing AndAlso txt <> "" Then
+            Try
+                doc.LoadXml(txt)
+                If doc.DocumentElement IsNot Nothing Then
+                    Return doc
+                End If
+            Catch
+            End Try
+        End If
+        doc.LoadXml("<users></users>")
+        Seed(doc)
+        DataDir.MemSet("panel-users.xml", doc.OuterXml)
+        Return doc
+    End Function
+
     Public Sub SaveDoc(ByVal doc As XmlDocument)
         Dim p As String = XmlPath()
+        If p = "" Then
+            DataDir.MemSet("panel-users.xml", doc.OuterXml)
+            Return
+        End If
         Dim tmp As String = p & ".tmp"
         Try
             Dim settings As New XmlWriterSettings()
@@ -92,7 +113,7 @@ Public Module PanelUserStore
                 doc.Save(p)
             Catch
                 ' Cannot write at all — throw user-friendly message
-                Throw New InvalidOperationException("امکان ذخیره اطلاعات وجود ندارد. لطفاً به پشتیبانی هاست تیکت بزنید تا دسترسی نوشتن به فولدر App_Data را فعال کنند.")
+                Throw New InvalidOperationException("امکان ذخیره اطلاعات وجود ندارد. برای بررسی وضعیت ذخیره‌سازی، در پنل صفحه DataStatus.aspx را باز کنید.")
             End Try
         End Try
     End Sub

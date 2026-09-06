@@ -58,7 +58,7 @@ Public Class PanelUsersPage
                 PanelUserStore.Delete(kind, Convert.ToString(Request("del")))
                 delMsg = "کاربر با موفقیت حذف شد."
             Catch ex As Exception
-                delMsg = "حذف انجام نشد: " & ex.Message & " (دسترسی نوشتن به فولدر App_Data روی هاست لازم است)"
+                delMsg = "حذف انجام نشد: " & ex.Message
             End Try
             Session("PanelMsg") = delMsg
             Response.Redirect("PanelUsers.aspx?kind=" & kind, True)

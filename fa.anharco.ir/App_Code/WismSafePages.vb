@@ -242,8 +242,11 @@ Public Class Safe_Empty
                 End Try
                 If ok Then
                     Session("PanelMsg") = "آمار بازدید با موفقیت ریست شد."
+                    If DataDir.ModeName() <> "App_Data" Then
+                        Session("PanelMsg") &= " (حالت ذخیره‌سازی: " & DataDir.ModeLabelFa() & ")"
+                    End If
                 Else
-                    Session("PanelMsg") = "ریست آمار انجام نشد: " & msg & " (دسترسی نوشتن به فولدر App_Data روی هاست لازم است)"
+                    Session("PanelMsg") = "ریست آمار انجام نشد: " & msg
                 End If
                 Response.Redirect("Empty.aspx", False)
                 Context.ApplicationInstance.CompleteRequest()

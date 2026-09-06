@@ -68,12 +68,7 @@ Public Module SiteStudioStore
     End Function
 
     Public Function CurrentSiteXmlPath() As String
-        Dim ctx As HttpContext = HttpContext.Current
-        Dim data As String = ctx.Server.MapPath("~/App_Data")
-        If Not Directory.Exists(data) Then
-            Directory.CreateDirectory(data)
-        End If
-        Return Path.Combine(data, "site-studio.xml")
+        Return DataDir.GetDataFile("site-studio.xml")
     End Function
 
     Public Function PreferWebpUrl(ByVal relativePath As String) As String
@@ -139,11 +134,7 @@ Public Module SiteStudioStore
     End Function
 
     Public Function XmlPath(ByVal lang As String) As String
-        Dim data As String = Path.Combine(SiteRoot(lang), "App_Data")
-        If Not Directory.Exists(data) Then
-            Directory.CreateDirectory(data)
-        End If
-        Return Path.Combine(data, "site-studio.xml")
+        Return DataDir.GetDataFileFor(SiteRoot(lang), "site-studio.xml")
     End Function
 
     Public Function FilesDir(ByVal lang As String) As String
@@ -156,6 +147,23 @@ Public Module SiteStudioStore
 
     Public Function LoadDoc(ByVal lang As String) As XmlDocument
         Dim p As String = XmlPath(lang)
+        If p = "" Then
+            ' Memory mode: no writable directory on the host
+            Dim txt As String = DataDir.MemGet("site-studio.xml")
+            If txt IsNot Nothing AndAlso txt <> "" Then
+                Try
+                    Dim memDoc As New XmlDocument()
+                    memDoc.LoadXml(txt)
+                    Return memDoc
+                Catch
+                End Try
+            End If
+            Dim seedDoc As New XmlDocument()
+            seedDoc.LoadXml("<site></site>")
+            Seed(seedDoc, lang)
+            DataDir.MemSet("site-studio.xml", seedDoc.OuterXml)
+            Return seedDoc
+        End If
         Dim doc As New XmlDocument()
         If File.Exists(p) Then
             doc.Load(p)
@@ -168,7 +176,12 @@ Public Module SiteStudioStore
     End Function
 
     Public Sub SaveDoc(ByVal lang As String, ByVal doc As XmlDocument)
-        doc.Save(XmlPath(lang))
+        Dim p As String = XmlPath(lang)
+        If p = "" Then
+            DataDir.MemSet("site-studio.xml", doc.OuterXml)
+            Return
+        End If
+        doc.Save(p)
     End Sub
 
     Public Function GetValue(ByVal lang As String, ByVal key As String) As String
@@ -395,7 +408,13 @@ Public Module SiteStudioStore
 
     Public Sub ApplyToCurrentSite(ByVal session As HttpSessionState)
         Dim lang As String = DetectLang()
-        ApplyDoc(session, LoadDocAt(CurrentSiteXmlPath(), lang))
+        Dim p As String = CurrentSiteXmlPath()
+        If p = "" Then
+            ' Memory mode: no writable directory on the host
+            ApplyDoc(session, LoadDoc(lang))
+            Return
+        End If
+        ApplyDoc(session, LoadDocAt(p, lang))
     End Sub
 
     Public Sub ApplyToSession(ByVal session As HttpSessionState, ByVal lang As String)

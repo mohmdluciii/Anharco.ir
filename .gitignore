@@ -40,3 +40,6 @@ node_modules/
 
 # Build artifacts
 **/PrecompiledWeb/
+
+# Runtime fallback data folder (auto-created when App_Data is not writable)
+**/SiteData/

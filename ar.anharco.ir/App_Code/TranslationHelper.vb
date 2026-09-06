@@ -125,11 +125,8 @@ Public Module TranslationHelper
             Case Else
                 Return ""
         End Select
-        Dim xmlPath As String = Path.Combine(Path.Combine(Path.Combine(root, siteDir), "App_Data"), "site-studio.xml")
-        If File.Exists(xmlPath) Then
-            Return xmlPath
-        End If
-        Return ""
+        ' Prefer the active fallback copy (SiteData) when it exists, else the App_Data copy
+        Return DataDir.PreferredExistingFile(Path.Combine(root, siteDir), "site-studio.xml")
     End Function
 
     ''' <summary>

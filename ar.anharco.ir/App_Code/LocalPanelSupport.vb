@@ -152,7 +152,7 @@ Public Module LocalPanelSupport
             "<li id=""myAccount2""><a href=""#""><i class=""fa fa-picture-o""></i>آلبوم گالری</a><ul id=""myAccountBox2""><li><a href=""Gallery_List.aspx"">لیست گالری</a></li><li><a href=""Gallery_frm.aspx"">ثبت گالری</a></li></ul></li>" & _
             "<li id=""myAccount5""><a href=""#""><i class=""fa fa-info-circle""></i>درباره ما</a><ul id=""myAccountBox5""><li><a href=""SiteStudio.aspx?g=about"">صفحات و عکس ها</a></li><li><a href=""SiteStudioEdit.aspx?part=hero_Certificates"">گواهینامه ها</a></li></ul></li>" & _
             "<li id=""myAccount8""><a href=""#""><i class=""fa fa-envelope""></i>تماس و پیام ها</a><ul id=""myAccountBox8""><li><a href=""SiteStudio.aspx?g=contact"">عکس صفحات تماس</a></li><li><a href=""ContactUs_List.aspx"">پیام های تماس</a></li></ul></li>" & _
-            "<li id=""myAccount6""><a href=""#""><i class=""fa fa-users""></i>کاربران پنل</a><ul id=""myAccountBox6""><li><a href=""PanelUsers.aspx?kind=admin"">مدیر سامانه</a></li><li><a href=""PanelUsers.aspx?kind=person"">پرسنل</a></li></ul></li>"
+            "<li id=""myAccount6""><a href=""#""><i class=""fa fa-users""></i>کاربران پنل</a><ul id=""myAccountBox6""><li><a href=""PanelUsers.aspx?kind=admin"">مدیر سامانه</a></li><li><a href=""PanelUsers.aspx?kind=person"">پرسنل</a></li><li><a href=""DataStatus.aspx"">وضعیت ذخیره‌سازی</a></li></ul></li>"
     End Function
 
     Public Function PersonMenuHtml() As String
