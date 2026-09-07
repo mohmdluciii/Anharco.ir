@@ -216,7 +216,7 @@
             </div>
             <div class ="MessageCEO_HeaderTextContainer"><h1 class="<%=SiteStudioStore.AlignClass("copy_History_h1")%>"><%=SiteStudioStore.Copy("copy_History_h1", "تاریخچه شرکت انهار")%></h1> </div>
             <div class ="MessageCEO_topTextContainer">
-                <p class="<%=SiteStudioStore.AlignClass("copy_History_p1")%>"><%=SiteStudioStore.Copy("copy_History_p1", "شرکت ساختمانی انهار در سال 1353 با استعانت از خداوند منان در شهرستان گلپایگان توسط چهار نفر از معتمدان این شهر تأسیس گردید که از همان ابتدای تأسیس با حضور در عرصه ساخت مراکز آموزشی، گام های مؤثری در راستای تحقق مسئولیت اجتماعی برداشته است.")%></p>
+                <p class="<%=SiteStudioStore.AlignClass("copy_History_p1")%>"><%=SiteStudioStore.Copy("copy_History_p1", "شرکت ساختمانی انهار در سال 1353 با استعانت از خداوند منان در شهرستان گلپایگان توسط چهار نفر از معتمدان این شهر تأسیس گردید " & Environment.NewLine & "که از همان ابتدای تأسیس با حضور در عرصه ساخت مراکز آموزشی، گام های مؤثری در راستای تحقق مسئولیت اجتماعی برداشته است.")%></p>
             </div>
             <div class ="MessageCEO_TopLogoType">
                 <img src="<%=SiteStudioStore.Asset("logotype")%>" alt="شرکت انهار" />

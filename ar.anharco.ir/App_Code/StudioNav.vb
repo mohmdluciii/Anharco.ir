@@ -34,7 +34,6 @@ Public Module StudioNav
         sb.Append(DockLink("PanelUsers.aspx?kind=person", "پرسنل", fileName.StartsWith("person_") OrElse (fileName = "panelusers.aspx" AndAlso Convert.ToString(HttpContext.Current.Request("kind")) = "person"), "fa-users"))
         sb.Append("</aside>")
         sb.Append("<a class=""studioDockFab"" href=""#studioDock"" title=""بخش ها""><i class=""fa fa-th-large""></i></a>")
-        sb.Append("<script type=""text/javascript"" src=""Graphic/PanelAvatar.js?v=av1""></script>")
         Return sb.ToString()
     End Function
 

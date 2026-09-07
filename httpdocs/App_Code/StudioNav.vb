@@ -11,6 +11,7 @@ Public Module StudioNav
             lang = SiteStudioStore.DetectLang()
         End If
         Dim sb As New StringBuilder()
+        sb.Append(LocalPanelSupport.TopBarHtml())
         sb.Append("<aside class=""studioDock"" id=""studioDock"">")
         sb.Append("<div class=""studioDockHead"">بخش های ویرایش</div>")
         Dim fileName As String = ""
@@ -29,12 +30,15 @@ Public Module StudioNav
             Dim onGroup As Boolean = (fileName = "sitestudio.aspx" AndAlso groupId = g(0))
             sb.Append(DockLink(href, g(1), onGroup, IconOf(g(0))))
         Next
-        sb.Append("<div class=""studioDockHead"">کاربران پنل</div>")
-        sb.Append(DockLink("PanelUsers.aspx?kind=admin", "مدیر سامانه", fileName.StartsWith("admin_") OrElse (fileName = "panelusers.aspx" AndAlso Convert.ToString(HttpContext.Current.Request("kind")) <> "person"), "fa-user-circle"))
-        sb.Append(DockLink("PanelUsers.aspx?kind=person", "پرسنل", fileName.StartsWith("person_") OrElse (fileName = "panelusers.aspx" AndAlso Convert.ToString(HttpContext.Current.Request("kind")) = "person"), "fa-users"))
+        If LocalPanelSupport.IsSupervisor() Then
+            sb.Append("<div class=""studioDockHead"">کاربران پنل</div>")
+            sb.Append(DockLink("PanelUsers.aspx?kind=admin", "مدیر سامانه", fileName.StartsWith("admin_") OrElse (fileName = "panelusers.aspx" AndAlso Convert.ToString(HttpContext.Current.Request("kind")) <> "person"), "fa-user-circle"))
+            sb.Append(DockLink("PanelUsers.aspx?kind=person", "پرسنل", fileName.StartsWith("person_") OrElse (fileName = "panelusers.aspx" AndAlso Convert.ToString(HttpContext.Current.Request("kind")) = "person"), "fa-users"))
+            sb.Append(DockLink("DataStatus.aspx", "وضعیت ذخیره", fileName = "datastatus.aspx", "fa-database"))
+        End If
         sb.Append("</aside>")
         sb.Append("<a class=""studioDockFab"" href=""#studioDock"" title=""بخش ها""><i class=""fa fa-th-large""></i></a>")
-        sb.Append("<script type=""text/javascript"" src=""Graphic/PanelAvatar.js?v=av1""></script>")
+        sb.Append("<script type=""text/javascript"" src=""Graphic/PanelAvatar.js?v=av2""></script>")
         Return sb.ToString()
     End Function
 

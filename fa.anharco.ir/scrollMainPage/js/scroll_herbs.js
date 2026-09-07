@@ -367,7 +367,7 @@ $(document).ready(function () {
                 if (rtl) {
                     dir = -dir;
                 }
-                var span = Math.max(items[n].offsetWidth * 1.15, box.clientWidth * 0.55);
+                var span = Math.max(items[n].offsetWidth, (window.innerWidth || box.clientWidth) * 0.92);
                 var x = shown[n] * dir * span;
                 items[n].style.setProperty("transform", "translateX(" + Math.round(x) + "px)", "important");
             }

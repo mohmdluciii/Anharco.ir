@@ -125,6 +125,9 @@ Public Module PanelUserStore
         If doc.SelectSingleNode("/users/person[@username='person']") Is Nothing Then
             AddPerson(doc, "person", "1234", "کاربر پرسنل", "کارشناس", "", "", "", "")
         End If
+        If doc.SelectSingleNode("/users/admin[@username='editor']") Is Nothing Then
+            AddAdmin(doc, "editor", "1234", "1234", "ویرایشگر", "محتوا", "ویرایشگر محتوا", False)
+        End If
     End Sub
 
     Private Function NextId(ByVal doc As XmlDocument, ByVal tag As String) As String
@@ -195,6 +198,38 @@ Public Module PanelUserStore
 
     Public Function FindById(ByVal kind As String, ByVal id As String) As XmlNode
         Return LoadDoc().SelectSingleNode("/users/" & kind & "[@id='" & XmlEscape(id) & "']")
+    End Function
+
+    Public Function FindByUsername(ByVal kind As String, ByVal username As String) As XmlNode
+        Dim n As XmlNode
+        For Each n In LoadDoc().SelectNodes("/users/" & kind)
+            If String.Equals(Attr(n, "username"), username, StringComparison.OrdinalIgnoreCase) Then
+                Return n
+            End If
+        Next
+        Return Nothing
+    End Function
+
+    Public Function FullName(ByVal n As XmlNode) As String
+        If n Is Nothing Then
+            Return ""
+        End If
+        Dim nm As String = Attr(n, "name").Trim()
+        Dim ln As String = Attr(n, "lname").Trim()
+        If nm <> "" AndAlso ln <> "" Then
+            Return nm & " " & ln
+        End If
+        If nm <> "" Then
+            Return nm
+        End If
+        If ln <> "" Then
+            Return ln
+        End If
+        Return Attr(n, "username")
+    End Function
+
+    Public Function IsSuperNode(ByVal n As XmlNode) As Boolean
+        Return n IsNot Nothing AndAlso Attr(n, "super") = "1"
     End Function
 
     Public Function ValidateAdmin(ByVal username As String, ByVal password As String, ByVal code As String) As Boolean

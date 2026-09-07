@@ -1,13 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <visits>
-  <total>62</total>
-  <unique>59</unique>
+  <total>131</total>
+  <unique>108</unique>
   <days>
     <day id="2026-08-26" hits="5" unique="5" />
     <day id="2026-08-29" hits="48" unique="45" />
-    <day id="2026-08-31" hits="9" unique="9" en-hits="6" />
+    <day id="2026-08-31" hits="27" unique="23" en-hits="24" />
+    <day id="2026-09-05" hits="5" unique="4" en-hits="5" />
+    <day id="2026-09-06" hits="46" unique="31" en-hits="46" />
   </days>
   <langs>
-    <lang id="en" hits="62" />
+    <lang id="en" hits="131" />
   </langs>
 </visits>

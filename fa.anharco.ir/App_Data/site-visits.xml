@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<visits>
+  <total>28</total>
+  <unique>27</unique>
+  <days>
+    <day id="2026-09-06" hits="28" unique="27" fa-hits="28" />
+  </days>
+  <langs>
+    <lang id="fa" hits="28" />
+  </langs>
+</visits>

@@ -109,27 +109,31 @@ End Class
 Public Class Safe_Admin_frm1
     Inherits W_ISM.Admin_frm1
     Protected Overrides Sub OnLoad(ByVal e As EventArgs)
-        Response.Redirect("PanelUsers.aspx?kind=admin", True)
+        LocalPanelSupport.EnsureAuthSession()
+        Response.Redirect(If(LocalPanelSupport.IsSupervisor(), "PanelUsers.aspx?kind=admin", "empty.aspx"), True)
     End Sub
 End Class
 
 Public Class Safe_Admin_List1
     Inherits W_ISM.Admin_List1
     Protected Overrides Sub OnLoad(ByVal e As EventArgs)
-        Response.Redirect("PanelUsers.aspx?kind=admin", True)
+        LocalPanelSupport.EnsureAuthSession()
+        Response.Redirect(If(LocalPanelSupport.IsSupervisor(), "PanelUsers.aspx?kind=admin", "empty.aspx"), True)
     End Sub
 End Class
 
 Public Class Safe_Person_frm2
     Inherits W_ISM.Person_frm2
     Protected Overrides Sub OnLoad(ByVal e As EventArgs)
-        Response.Redirect("PanelUsers.aspx?kind=person", True)
+        LocalPanelSupport.EnsureAuthSession()
+        Response.Redirect(If(LocalPanelSupport.IsSupervisor(), "PanelUsers.aspx?kind=person", "empty.aspx"), True)
     End Sub
 End Class
 
 Public Class Safe_Person_List2
     Inherits W_ISM.Person_List2
     Protected Overrides Sub OnLoad(ByVal e As EventArgs)
-        Response.Redirect("PanelUsers.aspx?kind=person", True)
+        LocalPanelSupport.EnsureAuthSession()
+        Response.Redirect(If(LocalPanelSupport.IsSupervisor(), "PanelUsers.aspx?kind=person", "empty.aspx"), True)
     End Sub
 End Class

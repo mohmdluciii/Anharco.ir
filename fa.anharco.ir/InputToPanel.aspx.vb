@@ -4,11 +4,9 @@ Option Strict Off
 Partial Class InputToPanelLocal
     Inherits System.Web.UI.Page
 
-    Private Const LocalUser As String = "admin"
-    Private Const LocalPass As String = "1234"
-    Private Const LocalCode As String = "1234"
-    Private Const LocalPersonUser As String = "person"
-    Private Const LocalPersonPass As String = "1234"
+    ' NOTE: no hardcoded credentials here on purpose.
+    ' All logins are validated against panel-users.xml via PanelUserStore
+    ' (passwords are stored as salted hashes).
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         If Request("e") = "1" AndAlso Not IsPostBack Then
@@ -91,11 +89,11 @@ Partial Class InputToPanelLocal
 
         Dim loginOk As Boolean = False
         If IsManagerMode() Then
-            If (uid = LocalUser AndAlso pwd = LocalPass AndAlso code = LocalCode) OrElse PanelUserStore.ValidateAdmin(uid, pwd, code) Then
+            If PanelUserStore.ValidateAdmin(uid, pwd, code) Then
                 loginOk = True
             End If
         Else
-            If (uid = LocalPersonUser AndAlso pwd = LocalPersonPass) OrElse PanelUserStore.ValidatePerson(uid, pwd) Then
+            If PanelUserStore.ValidatePerson(uid, pwd) Then
                 loginOk = True
             End If
         End If

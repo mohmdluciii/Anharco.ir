@@ -5,15 +5,9 @@
     <title>استودیو سایت</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
-    <link href="Graphic/StudioPanel.css?v=avatar1" rel="stylesheet" />
+    <link href="Graphic/StudioPanel.css?v=dashTop3" rel="stylesheet" />
 </head>
 <body class="studioApp">
-<form id="form1" runat="server">
-    <div class="memberPanel_TopBox">
-        <div onclick="location.href='SiteStudio.aspx'" class="memberPanel_Logo" style="background-image:url(<%=Session("LogoPanel")%>);"></div>
-        <div class="memberPanel_Logout"><div class="memberPanel_ContanerLogin"><a href="InputToPanel.aspx?e=1"><i class="fa fa-power-off memberPanel_LogOut_Icon"></i></a></div></div>
-    </div>
-    <%=dockHtml%>
     <div class="studioShell">
         <div class="studioHero">
             <div>
@@ -49,6 +43,5 @@
             <a href="PanelUsers.aspx?kind=person">پرسنل</a>
         </div>
     </div>
-</form>
 </body>
 </html>

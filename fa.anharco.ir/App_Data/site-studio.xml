@@ -13,19 +13,19 @@
   <gallery8_image>FirstPage_PicAbout/MainPagePic8.jpg</gallery8_image>
   <title>وب‌سایت شرکت انهار</title>
   <slider1_name>خطوط لوله نفت و گاز</slider1_name>
-  <slider1_text>احداث و اجرای خطوط انتقال نفت و گاز.</slider1_text>
+  <slider1_text>احداث و اجرای خطوط انتقال نفت و گاز</slider1_text>
   <slider1_button>بیشتر</slider1_button>
   <slider1_link>pipelines.aspx</slider1_link>
   <slider2_name>تأسیسات تقویت فشار گاز</slider2_name>
-  <slider2_text>طراحی و اجرای ایستگاه‌های تقویت فشار گاز.</slider2_text>
+  <slider2_text>طراحی و اجرای ایستگاه‌های تقویت فشار گاز</slider2_text>
   <slider2_button>بیشتر</slider2_button>
   <slider2_link>GasBoosterStation.aspx</slider2_link>
   <slider3_name>ابنیه و ساختمان</slider3_name>
-  <slider3_text>پروژه‌های عمرانی، ساختمان و سازه‌های بتنی.</slider3_text>
+  <slider3_text>پروژه‌های عمرانی، ساختمان و سازه‌های بتنی</slider3_text>
   <slider3_button>بیشتر</slider3_button>
   <slider3_link>building.aspx</slider3_link>
   <slider4_name>تأسیسات و تجهیزات</slider4_name>
-  <slider4_text>تأمین و نصب تأسیسات و تجهیزات صنعتی.</slider4_text>
+  <slider4_text>تأمین و نصب تأسیسات و تجهیزات صنعتی</slider4_text>
   <slider4_button>بیشتر</slider4_button>
   <slider4_link>FacilitiesEquipment.aspx</slider4_link>
   <footer_title>شرکت انهار</footer_title>
@@ -102,4 +102,20 @@
   <hero_MessageCEO_fit>50|50|94</hero_MessageCEO_fit>
   <proj_gas1_title>ایستگاه تقویت فشار گاز هما - شرکت ملی گاز ایران</proj_gas1_title>
   <proj_gas1_title_align>rtl</proj_gas1_title_align>
+  <slider1_name_align>rtl</slider1_name_align>
+  <slider1_text_align>rtl</slider1_text_align>
+  <slider1_button_align>rtl</slider1_button_align>
+  <slider1_image_fit>50|50|100</slider1_image_fit>
+  <slider2_name_align>rtl</slider2_name_align>
+  <slider2_text_align>rtl</slider2_text_align>
+  <slider2_button_align>rtl</slider2_button_align>
+  <slider2_image_fit>50|50|100</slider2_image_fit>
+  <slider3_name_align>rtl</slider3_name_align>
+  <slider3_text_align>rtl</slider3_text_align>
+  <slider3_button_align>rtl</slider3_button_align>
+  <slider3_image_fit>50|50|100</slider3_image_fit>
+  <slider4_name_align>rtl</slider4_name_align>
+  <slider4_text_align>rtl</slider4_text_align>
+  <slider4_button_align>rtl</slider4_button_align>
+  <slider4_image_fit>50|50|100</slider4_image_fit>
 </site>

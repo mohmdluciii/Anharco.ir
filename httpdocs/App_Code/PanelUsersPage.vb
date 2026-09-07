@@ -39,6 +39,10 @@ Public Class PanelUsersPage
             Response.Redirect("InputToPanel.aspx", True)
             Return
         End If
+        If Not LocalPanelSupport.IsSupervisor() Then
+            Response.Redirect("empty.aspx", True)
+            Return
+        End If
         kind = Convert.ToString(Request("kind"))
         If kind <> "person" Then
             kind = "admin"

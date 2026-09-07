@@ -232,6 +232,11 @@ Public Class Safe_Empty
         If Request IsNot Nothing AndAlso Request.Form IsNot Nothing Then
             Dim eventTarget As String = Convert.ToString(Request.Form("__EVENTTARGET"))
             If eventTarget = "ResetVisits" Then
+                If Not LocalPanelSupport.IsSupervisor() Then
+                    Response.Redirect("Empty.aspx", False)
+                    Context.ApplicationInstance.CompleteRequest()
+                    Return
+                End If
                 Dim ok As Boolean = False
                 Dim msg As String = ""
                 Try

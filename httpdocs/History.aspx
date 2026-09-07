@@ -216,7 +216,7 @@
             </div>
             <div class ="MessageCEO_HeaderTextContainer"><h1 class="<%=SiteStudioStore.AlignClass("copy_History_h1")%>"><%=SiteStudioStore.Copy("copy_History_h1", "ANHAR Company History")%></h1> </div>
             <div class ="MessageCEO_topTextContainer">
-                <p class="<%=SiteStudioStore.AlignClass("copy_History_p1")%>"><%=SiteStudioStore.Copy("copy_History_p1", "ANHAR Construction Co. was established in Golpayegan County in 1974 relying on the help of the Great God by four trustees of this city. Since the beginning of its establishment, this company has taken effective steps towards the realization of social responsibility by being present in the field of building educational centers.")%></p>
+                <p class="<%=SiteStudioStore.AlignClass("copy_History_p1")%>"><%=SiteStudioStore.Copy("copy_History_p1", "ANHAR Construction Co. was established in Golpayegan County in 1974 relying on the help of the Great God by four trustees of this city. " & Environment.NewLine & "Since the beginning of its establishment, this company has taken effective steps towards the realization of social responsibility by being present in the field of building educational centers.")%></p>
             </div>
             <div class ="MessageCEO_TopLogoType">
                 <img src="<%=SiteStudioStore.Asset("logotype")%>" alt="ANHAR Company" />

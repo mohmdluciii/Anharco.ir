@@ -7,6 +7,10 @@
             Response.Redirect("InputToPanel.aspx", True)
             Return
         End If
+        If Not LocalPanelSupport.IsSupervisor() Then
+            Response.Redirect("empty.aspx", True)
+            Return
+        End If
         litStatus.Text = DataDir.StatusHtml()
         litMode.Text = DataDir.ModeLabelFa()
     End Sub
@@ -20,10 +24,6 @@
 </head>
 <body class="studioApp">
 <form id="form1" runat="server">
-    <div class="memberPanel_TopBox">
-        <div onclick="location.href='empty.aspx'" class="memberPanel_Logo" style="background-image:url(<%=Session("LogoPanel")%>);"></div>
-        <div class="memberPanel_Logout"><div class="memberPanel_ContanerLogin"><a href="InputToPanel.aspx?e=1"><i class="fa fa-power-off memberPanel_LogOut_Icon"></i></a></div></div>
-    </div>
     <%=StudioNav.DockHtml("", "", "")%>
     <div class="editShell">
         <div class="editWrap">

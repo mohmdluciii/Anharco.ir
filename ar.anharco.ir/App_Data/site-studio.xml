@@ -47,4 +47,9 @@
   <proj_gas1_image>SiteStudio/proj_gas1_image.jpg</proj_gas1_image>
   <proj_gas1_image_fit>50|50|112</proj_gas1_image_fit>
   <hero_MessageCEO_fit>50|50|94</hero_MessageCEO_fit>
-<proj_gas1_title>محطة هوما لتعزيز ضغط الغاز - الشركة الوطنية الإيرانية للغاز</proj_gas1_title></site>
+  <proj_gas1_title>محطة هوما لتعزيز ضغط الغاز - الشركة الوطنية الإيرانية للغاز</proj_gas1_title>
+  <slider1_image_fit>50|50|100</slider1_image_fit>
+  <slider2_image_fit>50|50|100</slider2_image_fit>
+  <slider3_image_fit>50|50|100</slider3_image_fit>
+  <slider4_image_fit>50|50|100</slider4_image_fit>
+</site>

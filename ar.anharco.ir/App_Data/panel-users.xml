@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<users>
+  <admin id="1" username="admin" password="sha256:71bdfd865fe4b3cc2368ec91924b48ebf158108ad4692e913a3570034632bc7b" code="sha256:71bdfd865fe4b3cc2368ec91924b48ebf158108ad4692e913a3570034632bc7b" name="مدیر" lname="سامانه" semat="مدیر سامانه" super="1" />
+  <person id="1" username="person" password="sha256:71bdfd865fe4b3cc2368ec91924b48ebf158108ad4692e913a3570034632bc7b" name="کاربر پرسنل" semat="کارشناس" phone="" email="" fax="" photo="" />
+</users>

@@ -1,11 +1,11 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" Inherits="IndexSafe" %>
+<%@ Page Language="vb" AutoEventWireup="false" Inherits="IndexSafe" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ar" dir="rtl">
 <head runat="server">
     <title><%=Session("site_title")%></title>
-      <link href="graphic/BodyGraphic.css?v=align2" rel="stylesheet" />
+      <link href="graphic/BodyGraphic.css?v=valuesBleed1" rel="stylesheet" />
     <link href="graphic/UiRefresh.css?v=align2" rel="stylesheet" />
     <link href="JS/swiper-bundle.min.css" rel="stylesheet" />
     <link rel="shortcut icon" href="<%=Session("site_favicon")%>" />
@@ -18,7 +18,7 @@
    
     <link rel= "stylesheet" type="text/css" href="scrollMainPage/style.css" media="screen"/>
     <script src="scrollMainPage/js/jquery-1.6.1.min.js"></script>
-    <script src="scrollMainPage/js/scroll_herbs.js?v=langFix2"></script>
+    <script src="scrollMainPage/js/scroll_herbs.js?v=valuesBleed1"></script>
     <link rel="stylesheet" type="text/css" href="slick-1.8.0/slick/slick.css">
   <link rel="stylesheet" type="text/css" href="slick-1.8.0/slick/slick-theme.css">
 </head>
@@ -324,9 +324,9 @@
                 <p>التعريف بالمشاريع المهمة</p>
             </div>
             <div class ="boxTitleTexSmall">
-                <p>تعد مرافق تعزيز ضغط الغاز وشبكة أنابيب النفط والغاز ومشاريع البناء والتشييد وتوريد المرافق والمعدات ومشاريع شبكة أنابيب المياه من أهم أنشطة شركة أنهار.</p>
+                <p>تعد مرافق تعزيز ضغط الغاز<br />وشبكة أنابيب النفط والغاز<br />ومشاريع البناء والتشييد<br />وتوريد المرافق والمعدات ومشاريع شبكة أنابيب المياه<br />من أهم أنشطة شركة أنهار.</p>
             </div>
-            <div class ="boxbuttonsee">
+            <div class ="boxbuttonsee" style="margin-top:10px;">
                 <a href="<%=Session("initProject_Button") %>" class="buttonSee"><span class ="arrowBox"><i class ="fa fa-arrow-right"></i></span><span class="<%=SiteStudioStore.AlignClass("copy_Index_exhibit_btn")%>"><%=SiteStudioStore.Copy("copy_Index_exhibit_btn", "التعرف على المشاريع")%></span></a>
             </div>
             <div class ="picBoxMainPage">

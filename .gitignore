@@ -43,3 +43,9 @@ node_modules/
 
 # Runtime fallback data folder (auto-created when App_Data is not writable)
 **/SiteData/
+
+# Panel auth ticket key (per-install secret, never commit)
+**/panel-ticket.key
+
+# Local upload packages
+/*.zip

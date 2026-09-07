@@ -217,7 +217,7 @@
             </div>
             <div class ="MessageCEO_HeaderTextContainer"><h1 class="<%=SiteStudioStore.AlignClass("copy_MessageCEO_h1")%>"><%=SiteStudioStore.Copy("copy_MessageCEO_h1", "پیام رئیس هیات مدیره")%></h1> </div>
             <div class ="MessageCEO_topTextContainer">
-                <p class="<%=SiteStudioStore.AlignClass("copy_MessageCEO_p1")%>"><%=SiteStudioStore.Copy("copy_MessageCEO_p1", "از حضور و آغاز فعالیتمان نزدیک به پنجاه سال می گذرد، همواره معتقد بوده ایم ایجاد و کسب اعتبار با پایبندی به تعهدات خود با دیگران به دست می آید. موسسان انهار با رویکرد ارتقای سطح سواد و فرهنگ در جامعه موفق به ساخت بیش از یکصد واحد آموزشی و فرهنگی در شهرهای گلپایگان، خوانسار، خمین و روستاهای اطرافشان شدند و خوشحالیم که پس از گذشت سال ها و حضور موفق در دیگر عرصه ها همچنان احداث مجموعه های آموزشی و فرهنگی در مناطق محروم از برنامه های متداول شرکت می باشد.")%></p>
+                <p class="<%=SiteStudioStore.AlignClass("copy_MessageCEO_p1")%>"><%=SiteStudioStore.Copy("copy_MessageCEO_p1", "از حضور و آغاز فعالیتمان نزدیک به پنجاه سال می گذرد، همواره معتقد بوده ایم ایجاد و کسب اعتبار با پایبندی به تعهدات خود با دیگران به دست می آید. " & Environment.NewLine & "موسسان انهار با رویکرد ارتقای سطح سواد و فرهنگ در جامعه موفق به ساخت بیش از یکصد واحد آموزشی و فرهنگی در شهرهای گلپایگان، خوانسار، خمین و روستاهای اطرافشان شدند " & Environment.NewLine & "و خوشحالیم که پس از گذشت سال ها و حضور موفق در دیگر عرصه ها همچنان احداث مجموعه های آموزشی و فرهنگی در مناطق محروم از برنامه های متداول شرکت می باشد.")%></p>
             </div>
             <div class ="MessageCEO_TopLogoType">
                 <img src="<%=SiteStudioStore.Asset("logotype")%>" alt="شرکت انهار" />

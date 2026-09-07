@@ -1,7 +1,10 @@
 ﻿Option Explicit On
 Option Strict Off
 
+Imports System.IO
 Imports System.Reflection
+Imports System.Security.Cryptography
+Imports System.Text
 Imports System.Threading
 Imports System.Web
 Imports System.Web.SessionState
@@ -12,7 +15,128 @@ Public Module LocalPanelSupport
     Public Const LocalPersonFlag As String = "local_person"
     Public Const AuthCookieName As String = "anhar_panel_auth"
 
-    Public Sub BindAdminSession(ByVal uid As String)
+    ' ---- Security ticket settings ------------------------------------------------
+    ' The panel cookie is a signed, non-forgable ticket: role|userName|ticksUtc|hmac.
+    ' It slides: each authenticated request re-issues it with a fresh timestamp.
+    ' After IdleMinutes without any panel request the user must log in again.
+    Private Const TicketKeySetting As String = "PanelTicketKey"
+    Private Const TicketFileRelative As String = "App_Data/panel-ticket.key"
+    Public Const IdleMinutes As Integer = 15
+
+    Private Function TicketKey() As Byte()
+        Dim raw As String = ""
+        Try
+            Dim v As String = System.Configuration.ConfigurationManager.AppSettings(TicketKeySetting)
+            If v IsNot Nothing AndAlso v.Trim() <> "" Then
+                raw = v.Trim()
+            End If
+        Catch
+        End Try
+        If raw = "" Then
+            Try
+                Dim path As String = DataDir.GetDataFile("panel-ticket.key")
+                If Not String.IsNullOrEmpty(path) Then
+                    If File.Exists(path) Then
+                        raw = File.ReadAllText(path).Trim()
+                    End If
+                    If raw = "" Then
+                        Dim rnd(31) As Byte
+                        Dim rng As RandomNumberGenerator = RandomNumberGenerator.Create()
+                        rng.GetBytes(rnd)
+                        raw = Convert.ToBase64String(rnd)
+                        File.WriteAllText(path, raw)
+                    End If
+                End If
+            Catch
+            End Try
+        End If
+        If raw = "" Then
+            ' Last resort only (memory-only mode). Set the PanelTicketKey
+            ' appSetting in Web.config to remove this fallback.
+            raw = "anhar-default-ticket-key-change-me"
+        End If
+        Using sha As SHA256 = SHA256.Create()
+            Return sha.ComputeHash(Encoding.UTF8.GetBytes("anhar-panel-v1|" & raw))
+        End Using
+    End Function
+
+    Private Function Sign(ByVal payload As String) As String
+        Using h As HMACSHA256 = New HMACSHA256(TicketKey())
+            Dim b As Byte() = h.ComputeHash(Encoding.UTF8.GetBytes(payload))
+            Return Convert.ToBase64String(b).Replace("+"c, "-"c).Replace("/"c, "_"c).TrimEnd("="c)
+        End Using
+    End Function
+
+    ''' <summary>Parses the auth cookie. Returns role ("admin"/"person") only if the signature is valid; empty otherwise.</summary>
+    Private Sub ParseTicket(ByVal raw As String, ByRef role As String, ByRef user As String, ByRef ageMinutes As Double)
+        role = ""
+        user = ""
+        ageMinutes = -1
+        If String.IsNullOrEmpty(raw) Then
+            Return
+        End If
+        Dim parts() As String = raw.Split("|"c)
+        If parts.Length <> 4 Then
+            Return
+        End If
+        Dim sig As String = Sign(parts(0) & "|" & parts(1) & "|" & parts(2))
+        If Not String.Equals(sig, parts(3), StringComparison.Ordinal) Then
+            Return
+        End If
+        Dim ticks As Long = 0
+        If Not Long.TryParse(parts(2), ticks) OrElse ticks <= 0 Then
+            Return
+        End If
+        ageMinutes = DateTime.UtcNow.Subtract(New DateTime(ticks, DateTimeKind.Utc)).TotalMinutes
+        role = parts(0).Trim().ToLowerInvariant()
+        If role <> "admin" AndAlso role <> "person" Then
+            role = ""
+            Return
+        End If
+        Try
+            user = HttpUtility.UrlDecode(parts(1))
+        Catch
+            user = ""
+        End Try
+    End Sub
+
+    Private Function BuildTicket(ByVal role As String, ByVal user As String) As String
+        Dim payload As String = role & "|" & HttpUtility.UrlEncode(user) & "|" & DateTime.UtcNow.Ticks.ToString()
+        Return payload & "|" & Sign(payload)
+    End Function
+
+    Public Sub WriteAuthTicket(ByVal role As String, ByVal user As String)
+        Dim ctx As HttpContext = HttpContext.Current
+        If ctx Is Nothing Then
+            Return
+        End If
+        Dim ck As New HttpCookie(AuthCookieName, BuildTicket(role, user))
+        ck.HttpOnly = True
+        Try
+            ck.Secure = ctx.Request.IsSecureConnection
+        Catch
+        End Try
+        ck.Path = "/"
+        ctx.Response.Cookies.Set(ck)
+    End Sub
+
+    ''' <summary>Reads and verifies the signed ticket. role="" means invalid/forged/expired.</summary>
+    Public Sub ReadTicket(ByRef role As String, ByRef user As String, ByRef ageMinutes As Double)
+        role = ""
+        user = ""
+        ageMinutes = -1
+        Dim ctx As HttpContext = HttpContext.Current
+        If ctx Is Nothing OrElse ctx.Request Is Nothing Then
+            Return
+        End If
+        Dim ck As HttpCookie = ctx.Request.Cookies(AuthCookieName)
+        If ck Is Nothing OrElse String.IsNullOrEmpty(ck.Value) Then
+            Return
+        End If
+        ParseTicket(ck.Value.Trim(), role, user, ageMinutes)
+    End Sub
+
+    Public Sub BindAdminSession(ByVal uid As String, Optional ByVal writeTicket As Boolean = True)
         Dim s As HttpSessionState = HttpContext.Current.Session
         s("UID") = uid
         s("id_Admin") = "1"
@@ -27,10 +151,12 @@ Public Module LocalPanelSupport
         s(LocalAdminFlag) = "1"
         s("LogoPanel") = "images/logo.png"
         s("menu_admin") = AdminMenuHtml()
-        WriteAuthCookie("admin")
+        If writeTicket Then
+            WriteAuthTicket("admin", uid)
+        End If
     End Sub
 
-    Public Sub BindPersonSession(ByVal uid As String)
+    Public Sub BindPersonSession(ByVal uid As String, Optional ByVal writeTicket As Boolean = True)
         Dim s As HttpSessionState = HttpContext.Current.Session
         s("UID") = uid
         s("id_Person") = "1"
@@ -41,7 +167,9 @@ Public Module LocalPanelSupport
         s(LocalPersonFlag) = "1"
         s("LogoPanel") = "images/logo.png"
         s("menu_admin_Person") = PersonMenuHtml()
-        WriteAuthCookie("person")
+        If writeTicket Then
+            WriteAuthTicket("person", uid)
+        End If
     End Sub
 
     Public Sub ClearAuth()
@@ -65,6 +193,15 @@ Public Module LocalPanelSupport
         If ctx Is Nothing Then
             Return False
         End If
+        ' Signed ticket is the source of truth (sliding 15-minute idle window).
+        Dim role As String = ""
+        Dim user As String = ""
+        Dim age As Double = -1
+        ReadTicket(role, user, age)
+        If role <> "" Then
+            Return age >= 0 AndAlso age <= IdleMinutes
+        End If
+        ' Legacy session flags fallback (pre-upgrade logins).
         If ctx.Session IsNot Nothing Then
             If Convert.ToString(ctx.Session(LocalAdminFlag)) = "1" Then
                 Return True
@@ -82,8 +219,7 @@ Public Module LocalPanelSupport
                 Return True
             End If
         End If
-        Dim role As String = ReadAuthCookie()
-        Return role = "admin" OrElse role = "person"
+        Return False
     End Function
 
     Public Sub EnsureAuthSession()
@@ -91,37 +227,26 @@ Public Module LocalPanelSupport
         If ctx Is Nothing OrElse ctx.Session Is Nothing Then
             Return
         End If
-        Dim role As String = ReadAuthCookie()
-        If role = "admin" OrElse Convert.ToString(ctx.Session(LocalAdminFlag)) = "1" OrElse Convert.ToString(ctx.Session("id_Admin")) = "1" Then
-            BindAdminSession(If(String.IsNullOrEmpty(Convert.ToString(ctx.Session("UID"))), "admin", Convert.ToString(ctx.Session("UID"))))
-        ElseIf role = "person" OrElse Convert.ToString(ctx.Session(LocalPersonFlag)) = "1" OrElse Convert.ToString(ctx.Session("id_Person")) = "1" Then
-            BindPersonSession(If(String.IsNullOrEmpty(Convert.ToString(ctx.Session("UID"))), "person", Convert.ToString(ctx.Session("UID"))))
-        End If
-    End Sub
-
-    Private Function ReadAuthCookie() As String
-        Dim ctx As HttpContext = HttpContext.Current
-        If ctx Is Nothing OrElse ctx.Request Is Nothing Then
-            Return ""
-        End If
-        Dim ck As HttpCookie = ctx.Request.Cookies(AuthCookieName)
-        If ck Is Nothing OrElse String.IsNullOrEmpty(ck.Value) Then
-            Return ""
-        End If
-        Return ck.Value.Trim().ToLowerInvariant()
-    End Function
-
-    Private Sub WriteAuthCookie(ByVal role As String)
-        Dim ctx As HttpContext = HttpContext.Current
-        If ctx Is Nothing Then
+        Dim role As String = ""
+        Dim user As String = ""
+        Dim age As Double = -1
+        ReadTicket(role, user, age)
+        If role <> "" Then
+            If age >= 0 AndAlso age <= IdleMinutes Then
+                If role = "admin" Then
+                    BindAdminSession(If(String.IsNullOrEmpty(user), "admin", user), False)
+                Else
+                    BindPersonSession(If(String.IsNullOrEmpty(user), "person", user), False)
+                End If
+            End If
             Return
         End If
-        Dim ck As New HttpCookie(AuthCookieName, role)
-        ck.HttpOnly = True
-        ck.Secure = HttpContext.Current.Request.IsSecureConnection
-        ck.Path = "/"
-        ck.Expires = DateTime.Now.AddDays(1)
-        ctx.Response.Cookies.Set(ck)
+        ' Legacy session flags (pre-upgrade).
+        If Convert.ToString(ctx.Session(LocalAdminFlag)) = "1" OrElse Convert.ToString(ctx.Session("id_Admin")) = "1" Then
+            BindAdminSession(If(String.IsNullOrEmpty(Convert.ToString(ctx.Session("UID"))), "admin", Convert.ToString(ctx.Session("UID"))), False)
+        ElseIf Convert.ToString(ctx.Session(LocalPersonFlag)) = "1" OrElse Convert.ToString(ctx.Session("id_Person")) = "1" Then
+            BindPersonSession(If(String.IsNullOrEmpty(Convert.ToString(ctx.Session("UID"))), "person", Convert.ToString(ctx.Session("UID"))), False)
+        End If
     End Sub
 
     Private Function IsZero(ByVal value As Object) As Boolean
@@ -224,7 +349,7 @@ Public Module LocalPanelSupport
         If file.EndsWith("_list.aspx") OrElse file.EndsWith("_frm.aspx") OrElse file.EndsWith("_edit.aspx") OrElse file.EndsWith("_delete.aspx") Then
             Return True
         End If
-        If file = "sitestudio.aspx" OrElse file = "sitestudioedit.aspx" OrElse file = "panelusers.aspx" Then
+        If file = "sitestudio.aspx" OrElse file = "sitestudioedit.aspx" OrElse file = "panelusers.aspx" OrElse file = "datastatus.aspx" Then
             Return True
         End If
         If file.StartsWith("admin_") OrElse file.StartsWith("person_") OrElse file.StartsWith("news_") OrElse file.StartsWith("gallery_") Then
