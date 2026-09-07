@@ -39,6 +39,10 @@ Public Class PanelUsersPage
             Response.Redirect("InputToPanel.aspx", True)
             Return
         End If
+        If Not LocalPanelSupport.IsSupervisor() Then
+            Response.Redirect("empty.aspx", True)
+            Return
+        End If
         kind = Convert.ToString(Request("kind"))
         If kind <> "person" Then
             kind = "admin"
@@ -205,6 +209,10 @@ Public Class PanelUsersPage
             End If
             ext = Path.GetExtension(fuPhoto.FileName).ToLowerInvariant()
             If ext = ".gif" Then
+                bytes = fuPhoto.FileBytes
+            ElseIf ext = ".webp" OrElse ext = ".jpg" OrElse ext = ".jpeg" OrElse ext = ".png" Then
+                ' Modern browsers cannot canvas-encode GIF, so StudioCrop.js sends
+                ' jpg/png/webp directly - accept them instead of failing the save.
                 bytes = fuPhoto.FileBytes
             Else
                 Return ""

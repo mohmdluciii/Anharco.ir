@@ -275,6 +275,17 @@ Public Module LocalPanelSupport
         Return False
     End Function
 
+    Public Function IsSupervisor() As Boolean
+        Dim ctx As HttpContext = HttpContext.Current
+        If ctx Is Nothing OrElse ctx.Session Is Nothing Then
+            Return False
+        End If
+        If Convert.ToString(ctx.Session(LocalPersonFlag)) = "1" Then
+            Return False
+        End If
+        Return Convert.ToString(ctx.Session("super")) = "1"
+    End Function
+
     Public Function AdminMenuHtml() As String
         Return _
             "<li id=""myAccount""><a href=""empty.aspx""><i class=""fa fa-home""></i>داشبورد</a></li>" & _

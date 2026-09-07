@@ -336,27 +336,47 @@ Public Class SiteStudioEditPage
     End Sub
 
     Protected Sub btnSave_Click(ByVal sender As Object, ByVal e As EventArgs)
-        SaveFields()
+        ' Save text fields first; a failure while storing the IMAGE must never
+        ' blank the whole postback with a raw server error - surface it in Persian.
+        Dim saveErr As String = ""
+        Try
+            SaveFields()
+        Catch ex As Exception
+            saveErr = ex.Message
+        End Try
         If part <> "identity" Then
             If (fuFile IsNot Nothing AndAlso fuFile.HasFile) OrElse (hidWebp IsNot Nothing AndAlso Not String.IsNullOrEmpty(hidWebp.Value)) Then
                 Dim key As String = FileKey()
                 If key <> "" Then
                     Dim syncUp As Boolean = (chkSync IsNot Nothing AndAlso chkSync.Checked)
-                    SiteStudioStore.SaveUploadEx(lang, fuFile, hidWebp, key, syncUp)
+                    Try
+                        SiteStudioStore.SaveUploadEx(lang, fuFile, hidWebp, key, syncUp)
+                    Catch ex As Exception
+                        If saveErr = "" Then
+                            saveErr = ex.Message
+                        End If
+                    End Try
                 End If
             End If
         End If
         Dim fitKey As String = FileKey()
         If fitKey <> "" AndAlso hidFit IsNot Nothing Then
-            If chkSync IsNot Nothing AndAlso chkSync.Checked Then
-                SiteStudioStore.SetFitAll(fitKey, hidFit.Value)
-            Else
-                SiteStudioStore.SetFit(lang, fitKey, hidFit.Value)
-            End If
+            Try
+                If chkSync IsNot Nothing AndAlso chkSync.Checked Then
+                    SiteStudioStore.SetFitAll(fitKey, hidFit.Value)
+                Else
+                    SiteStudioStore.SetFit(lang, fitKey, hidFit.Value)
+                End If
+            Catch
+            End Try
         End If
         FillFields()
         LoadFit()
-        lblStatus.Text = "ذخیره شد. لینک و عکس با تیک همگام‌سازی روی هر سه زبان اعمال شده است."
+        If saveErr <> "" Then
+            lblStatus.Text = "ذخیره عکس انجام نشد: " & HttpUtility.HtmlEncode(saveErr) & " — متن‌ها ذخیره شدند."
+        Else
+            lblStatus.Text = "ذخیره شد. لینک و عکس با تیک همگام‌سازی روی هر سه زبان اعمال شده است."
+        End If
     End Sub
 
     Protected Sub btnDelete_Click(ByVal sender As Object, ByVal e As EventArgs)

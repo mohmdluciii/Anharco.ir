@@ -210,6 +210,10 @@ Public Class PanelUsersPage
             ext = Path.GetExtension(fuPhoto.FileName).ToLowerInvariant()
             If ext = ".gif" Then
                 bytes = fuPhoto.FileBytes
+            ElseIf ext = ".webp" OrElse ext = ".jpg" OrElse ext = ".jpeg" OrElse ext = ".png" Then
+                ' Modern browsers cannot canvas-encode GIF, so StudioCrop.js sends
+                ' jpg/png/webp directly - accept them instead of failing the save.
+                bytes = fuPhoto.FileBytes
             Else
                 Return ""
             End If
