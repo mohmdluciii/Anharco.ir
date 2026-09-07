@@ -23,6 +23,14 @@ Public Module LocalPanelSupport
     Private Const TicketFileRelative As String = "App_Data/panel-ticket.key"
     Public Const IdleMinutes As Integer = 15
 
+    ' The single login entry: the panel lives ONLY on the main (English) site.
+    ' Sub-language sites (fa. / ar.) redirect every panel page - including their
+    ' own InputToPanel.aspx - to this address.
+    Public Const MainSiteUrl As String = "http://anharco.ir/InputToPanel.aspx"
+    ' True = this site keeps its own working login (main English site).
+    ' False = login disabled here; after issuing a ticket the user is sent to MainSiteUrl.
+    Public PanelUsesOwnLogin As Boolean = True
+
     Private Function TicketKey() As Byte()
         Dim raw As String = ""
         Try
@@ -164,6 +172,10 @@ Public Module LocalPanelSupport
         s("menu_admin") = AdminMenuHtml()
         If writeTicket Then
             WriteAuthTicket("admin", uid)
+            If Not PanelUsesOwnLogin Then
+                HttpContext.Current.Response.Redirect(MainSiteUrl, True)
+                Return
+            End If
         End If
     End Sub
 
@@ -199,6 +211,10 @@ Public Module LocalPanelSupport
         s("menu_admin_Person") = PersonMenuHtml()
         If writeTicket Then
             WriteAuthTicket("person", uid)
+            If Not PanelUsesOwnLogin Then
+                HttpContext.Current.Response.Redirect(MainSiteUrl, True)
+                Return
+            End If
         End If
     End Sub
 
@@ -479,29 +495,45 @@ Public Module LocalPanelSupport
         End Try
     End Sub
 
+    ''' <summary>
+    ''' DENY-BY-DEFAULT panel detection. Returns True for every .aspx page that is
+    ''' NOT part of the public website. Only the pages a visitor can legitimately
+    ''' open are allowlisted here; everything else is admin/panel surface and gets
+    ''' gated behind the login page by PanelAuthModule.
+    ''' </summary>
     Public Function IsPanelPath(ByVal path As String) As Boolean
         If String.IsNullOrEmpty(path) Then
             Return False
         End If
         Dim file As String = IO.Path.GetFileName(path).ToLowerInvariant()
+        If Not file.EndsWith(".aspx") Then
+            Return False
+        End If
+
+        ' Login entry is panel surface (never public), but it is the one panel page
+        ' that must be reachable anonymously.
         If file.StartsWith("inputtopanel") Then
             Return True
         End If
-        If file = "empty.aspx" OrElse file = "emptypage.aspx" OrElse file.StartsWith("kartable") Then
-            Return True
-        End If
-        If file.StartsWith("workdaily") OrElse file.StartsWith("kartablek") Then
-            Return True
-        End If
-        If file.EndsWith("_list.aspx") OrElse file.EndsWith("_frm.aspx") OrElse file.EndsWith("_edit.aspx") OrElse file.EndsWith("_delete.aspx") Then
-            Return True
-        End If
-        If file = "sitestudio.aspx" OrElse file = "sitestudioedit.aspx" OrElse file = "panelusers.aspx" OrElse file = "datastatus.aspx" Then
-            Return True
-        End If
-        If file.StartsWith("admin_") OrElse file.StartsWith("person_") OrElse file.StartsWith("news_") OrElse file.StartsWith("gallery_") Then
-            Return True
-        End If
-        Return False
+
+        ' ---- Public website allowlist ------------------------------------------
+        Select Case file
+            Case "index.aspx", "default.aspx", _
+                 "aboutus.aspx", "history.aspx", "messageceo.aspx", "leadership.aspx", _
+                 "pillars.aspx", "organizationpolicy.aspx", "certificates.aspx", _
+                 "acknowledgments.aspx", "internationalarena.aspx", _
+                 "building.aspx", "pipelines.aspx", "gasboosterstation.aspx", _
+                 "facilitiesequipment.aspx", "watetransmissionpipelines.aspx", _
+                 "designservices.aspx", "operationsservices.aspx", "buyservices.aspx", _
+                 "employers.aspx", "news.aspx", "article.aspx", "articleshow.aspx", _
+                 "gallery.aspx", "contactus.aspx", "law.aspx", "links.aspx", _
+                 "privacy.aspx", "fielsdownload.aspx", "aparat_viewer.aspx", _
+                 "calender.aspx", "captcha.aspx"
+                Return False
+        End Select
+
+        ' Everything else (dashboard, SiteStudio, *_List/_Frm/_Edit/_Delete, admin_,
+        ' person_, news_, gallery_, kartable*, workdaily*, ...) is panel surface.
+        Return True
     End Function
 End Module
