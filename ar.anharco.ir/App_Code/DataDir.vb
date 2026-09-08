@@ -100,6 +100,18 @@ Public Module DataDir
         Return ok
     End Function
 
+    ''' <summary>Forgets a cached probe result so the next ProbeWritable call
+    ''' re-tests the folder. Called when a real write fails despite a cached
+    ''' "writable" verdict (host permissions changed after app start).</summary>
+    Public Sub InvalidateProbe(ByVal dir As String)
+        If String.IsNullOrEmpty(dir) Then
+            Return
+        End If
+        SyncLock _probeLock
+        _probeCache.Remove(dir.ToLowerInvariant())
+        End SyncLock
+    End Sub
+
     ''' <summary>Resolves the active data directory (cached per app lifetime for successes).</summary>
     Public Function GetDir() As String
         If _mode <> ModeUnresolved Then

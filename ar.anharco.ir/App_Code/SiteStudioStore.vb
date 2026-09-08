@@ -341,6 +341,9 @@ Public Module SiteStudioStore
     ''' <summary>
     ''' Writes image bytes to the writable media folder (SiteStudio or the data
     ''' dir fallback) and returns the stored relative reference.
+    ''' Self-healing: when the chosen folder denies the write at the last moment
+    ''' (host permissions changed after the cached probe), the probe cache is
+    ''' invalidated and the write is retried in the other writable location.
     ''' </summary>
     Public Function SaveImageAnywhere(ByVal lang As String, ByVal fileName As String, ByVal bytes() As Byte) As String
         If bytes Is Nothing OrElse bytes.Length = 0 Then
@@ -350,8 +353,45 @@ Public Module SiteStudioStore
         If Not Directory.Exists(dir) Then
             Directory.CreateDirectory(dir)
         End If
-        File.WriteAllBytes(Path.Combine(dir, fileName), bytes)
-        Return MediaRelPrefix(lang) & fileName
+        Try
+            File.WriteAllBytes(Path.Combine(dir, fileName), bytes)
+            Return MediaRelPrefix(lang) & fileName
+        Catch
+            ' The cached "writable" verdict lied (permissions changed, disk
+            ' quota, ...). Forget it and retry once in the other location.
+            DataDir.InvalidateProbe(dir)
+            Dim alt As String = AltMediaDir(lang, dir)
+            If alt = "" Then
+                Throw
+            End If
+            If Not Directory.Exists(alt) Then
+                Directory.CreateDirectory(alt)
+            End If
+            File.WriteAllBytes(Path.Combine(alt, fileName), bytes)
+            Return MediaRelPrefixForDir(lang, alt) & fileName
+        End Try
+    End Function
+
+    ''' <summary>The other candidate media folder (classic SiteStudio when the
+    ''' fallback is active, or the data-dir media folder when SiteStudio was
+    ''' chosen). Returns "" when there is no alternative.</summary>
+    Private Function AltMediaDir(ByVal lang As String, ByVal failedDir As String) As String
+        Dim root As String = SiteRoot(lang)
+        Dim classic As String = Path.Combine(root, "SiteStudio")
+        If Not String.Equals(failedDir, classic, StringComparison.OrdinalIgnoreCase) Then
+            Return classic
+        End If
+        Return DataDir.MediaDirFor(root)
+    End Function
+
+    ''' <summary>Relative prefix ("SiteStudio/" or "media:") matching the
+    ''' directory the file was actually written to.</summary>
+    Private Function MediaRelPrefixForDir(ByVal lang As String, ByVal dir As String) As String
+        Dim classic As String = Path.Combine(SiteRoot(lang), "SiteStudio")
+        If String.Equals(dir, classic, StringComparison.OrdinalIgnoreCase) Then
+            Return "SiteStudio/"
+        End If
+        Return MediaScheme
     End Function
 
     ''' <summary>
