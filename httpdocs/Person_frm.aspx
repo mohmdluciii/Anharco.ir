@@ -1,5 +1,4 @@
-<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Person_frm.aspx.vb" Inherits="Safe_Person_frm2" %>
-
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Person_frm.aspx.vb" Inherits="Safe_Person_frm2" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -9,7 +8,7 @@
     
    <link href = "https://fonts.googleapis.com/icon?family=Material+Icons" rel = "stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="graphic/design.css" rel="stylesheet" />
-    <link href="Graphic/StudioPanel.css?v=dockUsers1" rel="stylesheet" />
+    <link href="Graphic/StudioPanel.css?v=dashTop3" rel="stylesheet" />
     <script type ="text/javascript" src="jquery.js"></script>
       <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
       <script type="text/javascript" src="Scroll.js"></script>
@@ -180,19 +179,7 @@
     <form id="form2" runat="server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
 </asp:ToolkitScriptManager>
-    <div class="memberPanel_TopBox" id="test">
-        <div onclick="location.href='empty.aspx'" class="memberPanel_Logo" style="background-image :url(<%=Session("LogoPanel")%>);"></div>
-       
-        <div class="memberPanel_Logout" >
-            <div class="memberPanel_ContanerLogin"><a href="InputToPanel.aspx?e=1" ><i class="fa fa-power-off memberPanel_LogOut_Icon"></i></a></div>
-            <%--<div class="memberPanel_ContanerLogin"><iframe src="notification.aspx" style="width:600px;height:95px;" frameborder ="0" scrolling ="no"  ></iframe></div> --%>
-            <%--<%If Session("numberBox") = 0 Then%>
-                <div class="memberPanel_ContanerLogin" ><a href="Member_MessageBox.aspx" style="height:60px;width :60px;"><i class="fa fa-bell-o memberPanel_LogOut_Icon"></i></a> </div>
-            <%Else%>
-                <div class="memberPanel_ContanerLogin" ><a href="Member_MessageBox.aspx"  style="height:60px;width :60px;"><i class="fa fa-bell-o memberPanel_LogOut_Icon"></i></a><div class="boxMeessageAlert"><p><%=Session("numberBox")%></p></div> </div>
-            <%End If%>--%>
-        </div>
-    </div>
+    
     <%=StudioNav.DockHtml("", "", "")%>
     <p class="buttonBar_menu"><a href="#" id="barMobileMenu" style="position:relative;top:0px;right:0px;float:right;width:35px;height:35px;display:block ;background:#6498FE;"><i class ="fa fa-bars" style="font-size :20pt;color:#fff;margin-left:25%;margin-right :25%;margin-top:10%;margin-bottom :10%;"></i></a></p><div class="memberPanel_rightBox">
         <div class="titleForm"><a href="#">درباره ما</a><i class="fa fa-chevron-left arrow"></i><a href="#">مدیران</a><i class="fa fa-chevron-left arrow"></i><a>درج</a></div>

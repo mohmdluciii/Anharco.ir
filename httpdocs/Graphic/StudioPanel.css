@@ -812,3 +812,256 @@ p.buttonBar_menu {
     .studioDash .memberPanel_rightBox,
     .memberPanel_rightBox { margin: 16px 16px 80px !important; }
 }
+
+/* ===================== Dashboard top bar + hero + clock ===================== */
+.dashTopBar {
+    position: sticky;
+    top: 0;
+    z-index: 21000;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0 24px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #0b2d71 0%, #0d3f8f 55%, #0a3a7a 100%);
+    color: #fff;
+    box-shadow: 0 8px 26px rgba(11,45,113,.28);
+    overflow: hidden;
+    direction: rtl;
+}
+.dashTopGlow {
+    position: absolute;
+    top: -70px;
+    left: 12%;
+    width: 260px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,204,10,.16), transparent 70%);
+    pointer-events: none;
+}
+.dashTopBar a { text-decoration: none; }
+.dashBrand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    position: relative;
+    z-index: 1;
+}
+.dashHello { display: flex; flex-direction: column; min-width: 0; }
+.dashHello b {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.dashHello small {
+    font-size: 11px;
+    color: rgba(255,255,255,.72);
+    margin-top: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.dashTopMeta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+}
+.dashRole {
+    background: rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.22);
+    color: #fff;
+    border-radius: 999px;
+    padding: 5px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.dashClockWrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 999px;
+    padding: 5px 14px;
+    color: #ffcc0a;
+    font-size: 13px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    direction: ltr;
+    min-width: 92px;
+    justify-content: center;
+}
+.dashTopBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 6px 13px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background .18s ease, transform .18s ease;
+}
+.dashTopBtn:hover { background: rgba(255,255,255,.22); transform: translateY(-1px); }
+.dashTopBtn i { font-size: 13px; color: #ffcc0a; }
+.dashTopOut {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: rgba(220,53,69,.18);
+    border: 1px solid rgba(220,53,69,.4);
+    color: #ff8a94;
+    font-size: 15px;
+    transition: background .18s ease;
+}
+.dashTopOut:hover { background: rgba(220,53,69,.35); color: #fff; }
+
+/* Hero (dashboard) */
+.studioHero.dashHero {
+    background: linear-gradient(135deg, #0b2d71 0%, #0d3f8f 55%, #123f86 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 28px 32px 26px;
+    align-items: stretch;
+    gap: 22px;
+}
+.studioHero.dashHero::before {
+    content: "";
+    position: absolute;
+    top: -120px;
+    left: -80px;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,204,10,.14), transparent 70%);
+    pointer-events: none;
+}
+.studioHero.dashHero::after {
+    content: "";
+    position: absolute;
+    bottom: -140px;
+    left: 30%;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,.07), transparent 70%);
+    pointer-events: none;
+}
+.dashHeroMain { position: relative; z-index: 1; flex: 1 1 380px; min-width: 0; }
+.dashKicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.2);
+    color: #fff;
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+.dashKickerDot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #ffcc0a;
+    box-shadow: 0 0 0 4px rgba(255,204,10,.22);
+    animation: dashPulse 2s infinite;
+    display: inline-block;
+}
+@keyframes dashPulse {
+    0% { box-shadow: 0 0 0 0 rgba(255,204,10,.35); }
+    70% { box-shadow: 0 0 0 9px rgba(255,204,10,0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,204,10,0); }
+}
+.studioHero.dashHero h1 {
+    font-size: 27px;
+    margin: 0 0 10px;
+    letter-spacing: .01em;
+}
+.dashHeroAccent { color: #ffcc0a; }
+.dashWelcome {
+    font-size: 13.5px !important;
+    line-height: 2 !important;
+    max-width: 560px !important;
+}
+.dashHeroSide {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    flex: 0 1 250px;
+    min-width: 210px;
+}
+.dashClockCard {
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 16px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    backdrop-filter: blur(4px);
+}
+.dashClockCard i { font-size: 15px; color: #ffcc0a; }
+.dashClockTime {
+    font-size: 25px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: .04em;
+    font-variant-numeric: tabular-nums;
+    direction: ltr;
+    line-height: 1.25;
+}
+.dashClockDate {
+    font-size: 11.5px;
+    color: rgba(255,255,255,.82);
+    text-align: center;
+}
+.dashQuick {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.dashQuick a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.2);
+    color: #fff;
+    border-radius: 12px;
+    padding: 9px 14px;
+    font-size: 12.5px;
+    font-weight: 600;
+    transition: background .18s ease, transform .18s ease;
+}
+.dashQuick a:hover { background: rgba(255,255,255,.22); transform: translateX(-3px); }
+.dashQuick a i { color: #ffcc0a; font-size: 14px; width: 16px; text-align: center; }
+
+@media (max-width: 1100px) {
+    .dashTopBar { flex-wrap: wrap; height: auto; padding: 10px 16px; row-gap: 8px; }
+    .dashTopMeta { flex-wrap: wrap; }
+    .dashHello small { display: none; }
+    .studioHero.dashHero { flex-direction: column; }
+    .dashHeroSide { flex: 1 1 100%; }
+}

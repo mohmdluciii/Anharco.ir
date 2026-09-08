@@ -392,7 +392,7 @@ Public Module PanelUserStore
                 sb.Append("<tr>")
                 sb.Append("<td>")
                 If photo <> "" Then
-                    sb.Append("<img src=""").Append(HttpUtility.HtmlAttributeEncode(photo)).Append(""" alt="""" />")
+                    sb.Append("<img src=""").Append(HttpUtility.HtmlAttributeEncode(SiteStudioStore.ResolvePublicUrl(photo, ""))).Append(""" alt="""" />")
                 End If
                 sb.Append("</td>")
                 sb.Append("<td>").Append(HttpUtility.HtmlEncode(Attr(p, "name"))).Append("</td>")

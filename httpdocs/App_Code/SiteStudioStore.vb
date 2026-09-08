@@ -76,6 +76,10 @@ Public Module SiteStudioStore
             Return relativePath
         End If
         Dim lower As String = relativePath.ToLowerInvariant()
+        ' Media stored in the writable data folder is served by ImageStream.ashx - never map it to disk.
+        If lower.StartsWith(MediaScheme) Then
+            Return relativePath
+        End If
         If lower.EndsWith(".gif") OrElse lower.EndsWith(".webp") OrElse lower.EndsWith(".ico") OrElse lower.EndsWith(".svg") Then
             Return relativePath
         End If
@@ -99,19 +103,25 @@ Public Module SiteStudioStore
     End Function
 
     Public Function ResolvePublicUrl(ByVal relativePath As String, ByVal fallback As String) As String
-        Dim ctx As HttpContext = HttpContext.Current
-        If Not String.IsNullOrEmpty(relativePath) Then
-            If ctx Is Nothing Then
-                Return relativePath
-            End If
-            Try
-                Dim full As String = ctx.Server.MapPath("~/" & relativePath.Replace("/", "\"))
-                If File.Exists(full) Then
-                    Return PreferWebpUrl(relativePath)
-                End If
-            Catch
-            End Try
+        If String.IsNullOrEmpty(relativePath) Then
+            Return fallback
         End If
+        ' Media stored in the writable data folder is served by the ImageStream handler.
+        If relativePath.StartsWith(MediaScheme, StringComparison.OrdinalIgnoreCase) Then
+            Dim name As String = relativePath.Substring(MediaScheme.Length)
+            Return "ImageStream.ashx?f=" & HttpUtility.UrlEncode(name)
+        End If
+        Dim ctx As HttpContext = HttpContext.Current
+        If ctx Is Nothing Then
+            Return relativePath
+        End If
+        Try
+            Dim full As String = ctx.Server.MapPath("~/" & relativePath.Replace("/", "\"))
+            If File.Exists(full) Then
+                Return PreferWebpUrl(relativePath)
+            End If
+        Catch
+        End Try
         Return fallback
     End Function
 
@@ -137,12 +147,45 @@ Public Module SiteStudioStore
         Return DataDir.GetDataFileFor(SiteRoot(lang), "site-studio.xml")
     End Function
 
+    Public Const MediaScheme As String = "media:"
+
+    ''' <summary>
+    ''' Writable folder for uploaded images of one language site. Prefers the
+    ''' classic ~/SiteStudio folder; if the host denies writes there (like it
+    ''' can deny App_Data), falls back to the active data dir's media folder.
+    ''' </summary>
     Public Function FilesDir(ByVal lang As String) As String
         Dim dir As String = Path.Combine(SiteRoot(lang), "SiteStudio")
+        If DataDir.ProbeWritable(dir) Then
+            Return dir
+        End If
+        ' Each language site stores its images in its OWN writable location so
+        ' its own ImageStream.ashx can serve them (hosts may deny SiteStudio).
+        Dim fb As String = DataDir.MediaDirFor(SiteRoot(lang))
+        If fb <> "" Then
+            Return fb
+        End If
         If Not Directory.Exists(dir) Then
             Directory.CreateDirectory(dir)
         End If
         Return dir
+    End Function
+
+    ''' <summary>Media folder of the CURRENT site (used by ImageStream.ashx).</summary>
+    Public Function MediaFilesDir() As String
+        Return FilesDir(DetectLang())
+    End Function
+
+    ''' <summary>
+    ''' URL prefix for a stored image: "SiteStudio/" when the classic folder is
+    ''' writable, otherwise the ImageStream scheme "media:".
+    ''' </summary>
+    Public Function MediaRelPrefix(ByVal lang As String) As String
+        Dim dir As String = Path.Combine(SiteRoot(lang), "SiteStudio")
+        If DataDir.ProbeWritable(dir) Then
+            Return "SiteStudio/"
+        End If
+        Return MediaScheme
     End Function
 
     Public Function LoadDoc(ByVal lang As String) As XmlDocument
@@ -238,6 +281,22 @@ Public Module SiteStudioStore
         Return (ext = ".gif" OrElse ext = ".ico" OrElse ext = ".svg")
     End Function
 
+    ''' <summary>
+    ''' Writes image bytes to the writable media folder (SiteStudio or the data
+    ''' dir fallback) and returns the stored relative reference.
+    ''' </summary>
+    Public Function SaveImageAnywhere(ByVal lang As String, ByVal fileName As String, ByVal bytes() As Byte) As String
+        If bytes Is Nothing OrElse bytes.Length = 0 Then
+            Return ""
+        End If
+        Dim dir As String = FilesDir(lang)
+        If Not Directory.Exists(dir) Then
+            Directory.CreateDirectory(dir)
+        End If
+        File.WriteAllBytes(Path.Combine(dir, fileName), bytes)
+        Return MediaRelPrefix(lang) & fileName
+    End Function
+
     Public Function SaveBytes(ByVal lang As String, ByVal key As String, ByVal bytes() As Byte, ByVal ext As String) As String
         If bytes Is Nothing OrElse bytes.Length = 0 Then
             Return ""
@@ -250,9 +309,7 @@ Public Module SiteStudioStore
             ext = "." & ext
         End If
         Dim fileName As String = key & ext
-        Dim full As String = Path.Combine(FilesDir(lang), fileName)
-        File.WriteAllBytes(full, bytes)
-        Dim rel As String = "SiteStudio/" & fileName
+        Dim rel As String = SaveImageAnywhere(lang, fileName, bytes)
         SetValue(lang, key, rel)
         Return rel
     End Function
@@ -978,6 +1035,20 @@ Public Module SiteStudioStore
     Public Function PublicUrl(ByVal lang As String, ByVal rel As String) As String
         If String.IsNullOrEmpty(rel) Then
             Return ""
+        End If
+        ' Media stored in the writable data folder is served by ImageStream.ashx.
+        If rel.StartsWith(MediaScheme, StringComparison.OrdinalIgnoreCase) Then
+            Dim name As String = rel.Substring(MediaScheme.Length)
+            Dim ctx0 As HttpContext = HttpContext.Current
+            Dim cur0 As String = ""
+            Try
+                cur0 = ctx0.Server.MapPath("~/").TrimEnd("\"c)
+            Catch
+            End Try
+            If String.Equals(cur0, SiteRoot(lang), StringComparison.OrdinalIgnoreCase) Then
+                Return "ImageStream.ashx?f=" & HttpUtility.UrlEncode(name)
+            End If
+            Return PublicBase(lang) & "ImageStream.ashx?f=" & HttpUtility.UrlEncode(name)
         End If
         Dim ctx As HttpContext = HttpContext.Current
         Dim current As String = ""

@@ -348,7 +348,7 @@ Public Module LocalPanelSupport
         sb.Append("</span></a>")
         sb.Append("<div class=""dashTopMeta"">")
         sb.Append("<span class=""dashRole"">").Append(HttpUtility.HtmlEncode(RoleLabel())).Append("</span>")
-        sb.Append("<span class=""dashClock"" id=""dashClock""></span>")
+        sb.Append("<span class=""dashClockWrap""><i class=""fa fa-clock-o""></i><span class=""dashClock"" id=""dashClock""></span></span>")
         sb.Append("<a class=""dashTopBtn"" href=""SiteStudio.aspx"" title=""ویرایش سایت""><i class=""fa fa-picture-o""></i><span>متن و عکس</span></a>")
         If IsSupervisor() Then
             sb.Append("<a class=""dashTopBtn"" href=""PanelUsers.aspx?kind=admin"" title=""کاربران""><i class=""fa fa-users""></i><span>کاربران</span></a>")

@@ -286,6 +286,90 @@ Public Module LocalPanelSupport
         Return Convert.ToString(ctx.Session("super")) = "1"
     End Function
 
+    Public Function DisplayName() As String
+        Dim ctx As HttpContext = HttpContext.Current
+        If ctx Is Nothing OrElse ctx.Session Is Nothing Then
+            Return ""
+        End If
+        Dim nm As String = Convert.ToString(ctx.Session("admin_name")).Trim()
+        If nm <> "" Then
+            Return nm
+        End If
+        nm = Convert.ToString(ctx.Session("UID")).Trim()
+        If nm <> "" Then
+            Return nm
+        End If
+        Return "کاربر"
+    End Function
+
+    Public Function RoleLabel() As String
+        If IsSupervisor() Then
+            Return "سوپروایزر"
+        End If
+        Dim ctx As HttpContext = HttpContext.Current
+        If ctx IsNot Nothing AndAlso ctx.Session IsNot Nothing Then
+            If Convert.ToString(ctx.Session(LocalPersonFlag)) = "1" Then
+                Dim semat As String = Convert.ToString(ctx.Session("admin_semat")).Trim()
+                If semat <> "" Then
+                    Return semat
+                End If
+                Return "پرسنل"
+            End If
+            Dim s2 As String = Convert.ToString(ctx.Session("admin_semat")).Trim()
+            If s2 <> "" Then
+                Return s2
+            End If
+        End If
+        Return "ویرایشگر محتوا"
+    End Function
+
+    Public Function GreetingWord() As String
+        Dim h As Integer = DateTime.Now.Hour
+        If h >= 5 AndAlso h < 12 Then
+            Return "صبح بخیر"
+        End If
+        If h >= 12 AndAlso h < 17 Then
+            Return "ظهر بخیر"
+        End If
+        If h >= 17 AndAlso h < 20 Then
+            Return "عصر بخیر"
+        End If
+        Return "شب بخیر"
+    End Function
+
+    Public Function GreetingLine() As String
+        Return GreetingWord() & "، " & DisplayName()
+    End Function
+
+    Public Function WelcomeLine() As String
+        Return "به پنل انهار خوش آمدید، " & DisplayName()
+    End Function
+
+    Public Function TopBarHtml() As String
+        Dim home As String = "empty.aspx"
+        If Convert.ToString(HttpContext.Current.Session(LocalPersonFlag)) = "1" Then
+            home = "KartablePerson.aspx"
+        End If
+        Dim sb As New System.Text.StringBuilder()
+        sb.Append("<header class=""dashTopBar"">")
+        sb.Append("<div class=""dashTopGlow""></div>")
+        sb.Append("<a class=""dashBrand"" href=""").Append(home).Append(""">")
+        sb.Append("<span class=""dashHello"">")
+        sb.Append("<b>").Append(HttpUtility.HtmlEncode(GreetingLine())).Append("</b>")
+        sb.Append("<small>").Append(HttpUtility.HtmlEncode(WelcomeLine())).Append("</small>")
+        sb.Append("</span></a>")
+        sb.Append("<div class=""dashTopMeta"">")
+        sb.Append("<span class=""dashRole"">").Append(HttpUtility.HtmlEncode(RoleLabel())).Append("</span>")
+        sb.Append("<span class=""dashClockWrap""><i class=""fa fa-clock-o""></i><span class=""dashClock"" id=""dashClock""></span></span>")
+        sb.Append("<a class=""dashTopBtn"" href=""SiteStudio.aspx"" title=""ویرایش سایت""><i class=""fa fa-picture-o""></i><span>متن و عکس</span></a>")
+        If IsSupervisor() Then
+            sb.Append("<a class=""dashTopBtn"" href=""PanelUsers.aspx?kind=admin"" title=""کاربران""><i class=""fa fa-users""></i><span>کاربران</span></a>")
+        End If
+        sb.Append("<a class=""dashTopOut"" href=""InputToPanel.aspx?e=1"" title=""خروج""><i class=""fa fa-power-off""></i></a>")
+        sb.Append("</div></header>")
+        Return sb.ToString()
+    End Function
+
     Public Function AdminMenuHtml() As String
         Return _
             "<li id=""myAccount""><a href=""empty.aspx""><i class=""fa fa-home""></i>داشبورد</a></li>" & _

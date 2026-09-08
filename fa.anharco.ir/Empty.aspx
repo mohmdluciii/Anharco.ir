@@ -1,11 +1,11 @@
-<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Empty.aspx.vb" Inherits="Safe_Empty" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Empty.aspx.vb" Inherits="Safe_Empty" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="rtl">
 <head id="Head1" runat="server">
     <title>Anhar Co. - Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="Graphic/StudioPanel.css?v=avatar2" rel="stylesheet" />
+    <link href="Graphic/StudioPanel.css?v=dashTop3" rel="stylesheet" />
     <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript">
@@ -24,20 +24,28 @@
 <body class="studioApp studioDash">
     <form id="form2" runat="server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" />
-    <div class="memberPanel_TopBox" id="test">
-        <div onclick="location.href='empty.aspx'" class="memberPanel_Logo" style="background-image:url(<%=Session("LogoPanel")%>);"></div>
-        <div class="memberPanel_Logout">
-            <div class="memberPanel_ContanerLogin">
-                <a href="InputToPanel.aspx?e=1"><i class="fa fa-power-off memberPanel_LogOut_Icon"></i></a>
-            </div>
-        </div>
-    </div>
+    
     <%=StudioNav.DockHtml("", "", "")%>
     <div class="studioShell">
-        <div class="studioHero">
-            <div>
-                <h1>داشبورد مدیریتی</h1>
-                <p>آمار بازدید، نمودارها و وضعیت کلی سایت</p>
+        <div class="studioHero dashHero">
+            <div class="dashHeroMain">
+                <div class="dashKicker"><span class="dashKickerDot"></span><%=LocalPanelSupport.GreetingLine()%></div>
+                <h1>داشبورد مدیریتی <span class="dashHeroAccent">انهار</span></h1>
+                <p class="dashWelcome"><%=LocalPanelSupport.WelcomeLine()%><br/>از اینجا آمار بازدید سایت را ببینید و متن و عکس همه صفحات را ویرایش کنید.</p>
+            </div>
+            <div class="dashHeroSide">
+                <div class="dashClockCard">
+                    <i class="fa fa-clock-o"></i>
+                    <span class="dashClockTime" id="dashClockBig">--:--:--</span>
+                    <span class="dashClockDate" id="dashClockDate"></span>
+                </div>
+                <div class="dashQuick">
+                    <a href="SiteStudio.aspx"><i class="fa fa-picture-o"></i><span>ویرایش متن و عکس</span></a>
+                    <a href="SiteStudio.aspx?g=home"><i class="fa fa-desktop"></i><span>صفحه اصلی</span></a>
+                    <%If LocalPanelSupport.IsSupervisor() Then%>
+                    <a href="PanelUsers.aspx?kind=admin"><i class="fa fa-users"></i><span>کاربران پنل</span></a>
+                    <%End If%>
+                </div>
             </div>
         </div>
         <div class="formBox">

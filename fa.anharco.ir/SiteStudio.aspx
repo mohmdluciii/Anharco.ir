@@ -5,7 +5,7 @@
     <title>استودیو سایت</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
-    <link href="Graphic/StudioPanel.css?v=avatar1" rel="stylesheet" />
+    <link href="Graphic/StudioPanel.css?v=dashTop3" rel="stylesheet" />
 </head>
 <body class="studioApp">
 <form id="form1" runat="server">

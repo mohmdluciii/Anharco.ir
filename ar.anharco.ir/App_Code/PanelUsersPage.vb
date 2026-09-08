@@ -155,7 +155,7 @@ Public Class PanelUsersPage
         If chkSuper IsNot Nothing Then chkSuper.Checked = (PanelUserStore.NodeAttr(n, "super") = "1")
         Dim photo As String = PanelUserStore.NodeAttr(n, "photo")
         If imgPreview IsNot Nothing AndAlso photo <> "" Then
-            imgPreview.ImageUrl = photo
+            imgPreview.ImageUrl = SiteStudioStore.ResolvePublicUrl(photo, "")
             imgPreview.Visible = True
         End If
     End Sub
@@ -218,12 +218,7 @@ Public Class PanelUsersPage
                 Return ""
             End If
         End If
-        Dim dir As String = Server.MapPath("~/SiteStudio")
-        If Not Directory.Exists(dir) Then
-            Directory.CreateDirectory(dir)
-        End If
         Dim name As String = "person_" & DateTime.Now.ToString("yyyyMMddHHmmss") & ext
-        File.WriteAllBytes(Path.Combine(dir, name), bytes)
-        Return "SiteStudio/" & name
+        Return SiteStudioStore.SaveImageAnywhere(SiteStudioStore.DetectLang(), name, bytes)
     End Function
 End Class

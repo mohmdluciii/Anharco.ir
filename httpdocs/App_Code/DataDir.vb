@@ -175,6 +175,67 @@ Public Module DataDir
     End Function
 
     ''' <summary>
+    ''' Writable folder for uploaded media (site images) of the CURRENT site.
+    ''' Lives inside the active data directory (App_Data or SiteData), so
+    ''' whatever location is writable for XML is writable for images too.
+    ''' Returns "" in memory mode.
+    ''' </summary>
+    Public Function MediaDir() As String
+        Return MediaDirFor(AppRoot())
+    End Function
+
+    ''' <summary>
+    ''' Writable media folder of an arbitrary site root (sibling-language sites).
+    ''' Uses the SAME rule as GetDataFileFor(): writable App_Data first, then
+    ''' SiteData, so every language site stores its own images where it can
+    ''' write - and its own ImageStream.ashx serves them from the same place.
+    ''' </summary>
+    Public Function MediaDirFor(ByVal siteRoot As String) As String
+        If String.IsNullOrEmpty(siteRoot) Then
+            Return ""
+        End If
+        If String.Equals(siteRoot, AppRoot(), StringComparison.OrdinalIgnoreCase) Then
+            Dim d As String = GetDir()
+            If d = "" Then
+                Return ""
+            End If
+            Dim m As String = Path.Combine(d, "media")
+            If Not Directory.Exists(m) Then
+                Try
+                    Directory.CreateDirectory(m)
+                Catch
+                End Try
+            End If
+            Return m
+        End If
+        Dim appData As String = Path.Combine(siteRoot, "App_Data")
+        If ProbeWritable(appData) Then
+            Dim m1 As String = Path.Combine(appData, "media")
+            If Not Directory.Exists(m1) Then
+                Try
+                    Directory.CreateDirectory(m1)
+                Catch
+                End Try
+            End If
+            Return m1
+        End If
+        Dim siteData As String = Path.Combine(siteRoot, FallbackFolderName)
+        If ProbeWritable(siteData) Then
+            EnsureHttpProtection(siteData)
+            MigrateKnownFiles(appData, siteData)
+            Dim m2 As String = Path.Combine(siteData, "media")
+            If Not Directory.Exists(m2) Then
+                Try
+                    Directory.CreateDirectory(m2)
+                Catch
+                End Try
+            End If
+            Return m2
+        End If
+        Return ""
+    End Function
+
+    ''' <summary>
     ''' Picks the active location of a data file under an arbitrary site root
     ''' (sibling-language sites). Uses the SAME rule as GetDir(): writable
     ''' App_Data first, then SiteData, so all apps agree on one location.

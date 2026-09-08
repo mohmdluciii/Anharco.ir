@@ -5,7 +5,7 @@
 <head id="Head1" runat="server">
     <title>Anhar Co. - Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="Graphic/StudioPanel.css?v=dashTop1" rel="stylesheet" />
+    <link href="Graphic/StudioPanel.css?v=dashTop3" rel="stylesheet" />
     <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript">
@@ -27,17 +27,24 @@
     <%=StudioNav.DockHtml("", "", "")%>
     <div class="studioShell">
         <div class="studioHero dashHero">
-            <div>
-                <div class="dashKicker"><%=LocalPanelSupport.GreetingLine()%></div>
-                <h1>داشبورد مدیریتی</h1>
-                <p><%=LocalPanelSupport.WelcomeLine()%>. از اینجا آمار سایت را ببینید و متن و عکس صفحات را ویرایش کنید.</p>
+            <div class="dashHeroMain">
+                <div class="dashKicker"><span class="dashKickerDot"></span><%=LocalPanelSupport.GreetingLine()%></div>
+                <h1>داشبورد مدیریتی <span class="dashHeroAccent">انهار</span></h1>
+                <p class="dashWelcome"><%=LocalPanelSupport.WelcomeLine()%><br/>از اینجا آمار بازدید سایت را ببینید و متن و عکس همه صفحات را ویرایش کنید.</p>
             </div>
-            <div class="dashQuick">
-                <a href="SiteStudio.aspx"><i class="fa fa-picture-o"></i> ویرایش متن و عکس</a>
-                <a href="SiteStudio.aspx?g=home"><i class="fa fa-desktop"></i> صفحه اصلی</a>
-                <%If LocalPanelSupport.IsSupervisor() Then%>
-                <a href="PanelUsers.aspx?kind=admin"><i class="fa fa-users"></i> کاربران پنل</a>
-                <%End If%>
+            <div class="dashHeroSide">
+                <div class="dashClockCard">
+                    <i class="fa fa-clock-o"></i>
+                    <span class="dashClockTime" id="dashClockBig">--:--:--</span>
+                    <span class="dashClockDate" id="dashClockDate"></span>
+                </div>
+                <div class="dashQuick">
+                    <a href="SiteStudio.aspx"><i class="fa fa-picture-o"></i><span>ویرایش متن و عکس</span></a>
+                    <a href="SiteStudio.aspx?g=home"><i class="fa fa-desktop"></i><span>صفحه اصلی</span></a>
+                    <%If LocalPanelSupport.IsSupervisor() Then%>
+                    <a href="PanelUsers.aspx?kind=admin"><i class="fa fa-users"></i><span>کاربران پنل</span></a>
+                    <%End If%>
+                </div>
             </div>
         </div>
         <div class="formBox">

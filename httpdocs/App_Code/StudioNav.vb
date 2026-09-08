@@ -39,6 +39,7 @@ Public Module StudioNav
         sb.Append("</aside>")
         sb.Append("<a class=""studioDockFab"" href=""#studioDock"" title=""بخش ها""><i class=""fa fa-th-large""></i></a>")
         sb.Append("<script type=""text/javascript"" src=""Graphic/PanelAvatar.js?v=av2""></script>")
+        sb.Append("<script type=""text/javascript"" src=""Graphic/PanelClock.js?v=clk2""></script>")
         Return sb.ToString()
     End Function
 
