@@ -901,7 +901,17 @@ Public Class SiteStudioEditPage
             Return
         End If
         imgPreview.Visible = True
-        imgPreview.ImageUrl = SiteStudioStore.PublicUrl(lang, url)
+        ' Managed references (media: / SiteStudio/) must be converted to a
+        ' servable URL, and the preview must be cache-busted so a freshly
+        ' uploaded image is shown immediately instead of the previous one.
+        Dim shown As String = url
+        Dim ul As String = url.ToLowerInvariant()
+        If ul.StartsWith(SiteStudioStore.MediaScheme) OrElse ul.StartsWith("sitestudio/") Then
+            shown = SiteStudioStore.ResolvePublicUrl(url, url)
+        End If
+        shown = SiteStudioStore.PublicUrl(lang, shown)
+        shown = SiteStudioStore.CacheBust(shown)
+        imgPreview.ImageUrl = shown
         lblPreview.Text = url
     End Sub
 End Class

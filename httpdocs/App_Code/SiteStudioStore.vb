@@ -71,6 +71,63 @@ Public Module SiteStudioStore
         Return DataDir.GetDataFile("site-studio.xml")
     End Function
 
+    ''' <summary>
+    ''' Cache-buster for managed images: appending the file's timestamp keeps
+    ''' browsers from serving the previous image after a replacement. Accepts
+    ''' raw managed refs (media:..., SiteStudio/...) and converted handler
+    ''' URLs (ImageStream.ashx?f=...).
+    ''' </summary>
+    Public Function CacheBust(ByVal rel As String) As String
+        If String.IsNullOrEmpty(rel) Then
+            Return rel
+        End If
+        Try
+            ' Already busted (by Overlay or a previous pass) - leave it alone.
+            If rel.IndexOf("?v=") >= 0 OrElse rel.IndexOf("&v=") >= 0 Then
+                Return rel
+            End If
+            Dim lower As String = rel.ToLowerInvariant()
+            Dim name As String = ""
+            Dim sep As String = "?"
+            If lower.StartsWith(MediaScheme) Then
+                name = rel.Substring(MediaScheme.Length)
+            ElseIf lower.StartsWith("sitestudio/") Then
+                name = rel.Substring("SiteStudio/".Length)
+            ElseIf lower.Contains("imagestream.ashx?f=") Then
+                Dim i As Integer = rel.IndexOf("?f=")
+                If i < 0 Then
+                    i = rel.IndexOf("&f=")
+                End If
+                If i >= 0 Then
+                    name = HttpUtility.UrlDecode(rel.Substring(i + 3))
+                    Dim q As Integer = name.IndexOf("?"c)
+                    If q >= 0 Then
+                        name = name.Substring(0, q)
+                    End If
+                    sep = "&"
+                End If
+            Else
+                Return rel
+            End If
+            Dim amp As Integer = name.IndexOf("?"c)
+            If amp >= 0 Then
+                name = name.Substring(0, amp)
+            End If
+            If name = "" OrElse name.IndexOf("/") >= 0 OrElse name.IndexOf("..") >= 0 Then
+                Return rel
+            End If
+            Dim dir As String = FilesDir(DetectLang())
+            If dir <> "" Then
+                Dim full As String = Path.Combine(dir, name)
+                If File.Exists(full) Then
+                    Return rel & sep & "v=" & File.GetLastWriteTimeUtc(full).Ticks.ToString()
+                End If
+            End If
+        Catch
+        End Try
+        Return rel
+    End Function
+
     Public Function PreferWebpUrl(ByVal relativePath As String) As String
         If String.IsNullOrEmpty(relativePath) Then
             Return relativePath
@@ -297,6 +354,40 @@ Public Module SiteStudioStore
         Return MediaRelPrefix(lang) & fileName
     End Function
 
+    ''' <summary>
+    ''' Deletes a previously stored media file of THIS site (best effort) when
+    ''' the given reference points into our own managed folders. Used to keep
+    ''' the media folder clean when an image is replaced or removed.
+    ''' </summary>
+    Public Sub TryDeleteMedia(ByVal lang As String, ByVal rel As String)
+        If String.IsNullOrEmpty(rel) Then
+            Return
+        End If
+        Try
+            Dim lower As String = rel.ToLowerInvariant()
+            Dim name As String = ""
+            If lower.StartsWith(MediaScheme) Then
+                name = rel.Substring(MediaScheme.Length)
+            ElseIf lower.StartsWith("sitestudio/") Then
+                name = rel.Substring("SiteStudio/".Length)
+            Else
+                Return
+            End If
+            If name.IndexOf("/") >= 0 OrElse name.IndexOf("\\") >= 0 OrElse name.IndexOf("..") >= 0 Then
+                Return
+            End If
+            Dim dir As String = FilesDir(lang)
+            If dir = "" Then
+                Return
+            End If
+            Dim full As String = Path.Combine(dir, name)
+            If File.Exists(full) Then
+                File.Delete(full)
+            End If
+        Catch
+        End Try
+    End Sub
+
     Public Function SaveBytes(ByVal lang As String, ByVal key As String, ByVal bytes() As Byte, ByVal ext As String) As String
         If bytes Is Nothing OrElse bytes.Length = 0 Then
             Return ""
@@ -308,8 +399,18 @@ Public Module SiteStudioStore
         If Not ext.StartsWith(".") Then
             ext = "." & ext
         End If
-        Dim fileName As String = key & ext
+        ' Unique file name on every save: replacing an image must never reuse
+        ' the old file name, otherwise browsers/IIS keep showing the cached
+        ' previous image and the change looks like it was never saved.
+        Dim stamp As String = DateTime.Now.ToString("yyyyMMddHHmmss") & "_" & Guid.NewGuid().ToString("N").Substring(0, 6)
+        Dim fileName As String = key & "_" & stamp & ext
+        Dim oldRel As String = GetValue(lang, key)
         Dim rel As String = SaveImageAnywhere(lang, fileName, bytes)
+        If rel <> "" Then
+            ' Remove the previous managed file of this key on THIS site only;
+            ' sibling language sites manage their own copies.
+            TryDeleteMedia(lang, oldRel)
+        End If
         SetValue(lang, key, rel)
         Return rel
     End Function
@@ -397,6 +498,16 @@ Public Module SiteStudioStore
         End If
         If parts.Length > 2 Then
             Double.TryParse(parts(2), NumberStyles.Any, CultureInfo.InvariantCulture, z)
+        End If
+        ' Managed media (media: / SiteStudio) must resolve through the handler
+        ' and carry a cache-buster so replaced images appear immediately.
+        If url IsNot Nothing Then
+            Dim ul As String = url.ToLowerInvariant()
+            If ul.StartsWith(MediaScheme) OrElse ul.StartsWith("sitestudio/") Then
+                url = CacheBust(ResolvePublicUrl(url, url))
+            ElseIf ul.Contains("imagestream.ashx") Then
+                url = CacheBust(url)
+            End If
         End If
         Dim frame As StudioCropFrame = SiteStudioCatalog.CropFrameOf(key)
         Dim sizeCss As String = "cover"
@@ -1100,7 +1211,16 @@ Public Module SiteStudioStore
 
     Private Sub Overlay(ByVal session As HttpSessionState, ByVal key As String, ByVal xmlValue As String, ByVal fallback As String)
         If Not String.IsNullOrEmpty(xmlValue) Then
-            session(key) = PreferWebpUrl(xmlValue)
+            Dim v As String = PreferWebpUrl(xmlValue)
+            ' Managed media references (media: / SiteStudio) must become real
+            ' URLs (ImageStream.ashx / handler of the owning site) before they
+            ' reach any img tag or background-image style - and must carry a
+            ' cache-buster so a replaced image appears immediately.
+            Dim vl As String = v.ToLowerInvariant()
+            If vl.StartsWith(MediaScheme) OrElse vl.StartsWith("sitestudio/") Then
+                v = CacheBust(ResolvePublicUrl(v, v))
+            End If
+            session(key) = v
             Return
         End If
         If String.IsNullOrEmpty(Convert.ToString(session(key))) AndAlso Not String.IsNullOrEmpty(fallback) Then
