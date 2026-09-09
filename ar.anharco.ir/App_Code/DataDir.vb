@@ -269,37 +269,38 @@ Public Module DataDir
         If String.IsNullOrEmpty(siteRoot) Then
             Return list
         End If
+        ' Some hosts (Plesk) allow writing FILES in App_Data but deny creating
+        ' SUBFOLDERS. The data-dir ROOT itself therefore is a candidate too -
+        ' images saved directly next to the XML files need no folder creation.
         If String.Equals(siteRoot, AppRoot(), StringComparison.OrdinalIgnoreCase) Then
             Dim d As String = GetDir()
             If d <> "" Then
-                If Not list.Contains(d & IO.Path.DirectorySeparatorChar & "media") Then
-                    list.Add(d & IO.Path.DirectorySeparatorChar & "media")
-                End If
+                AddDirUnique(list, d)
+                AddDirUnique(list, d & IO.Path.DirectorySeparatorChar & "media")
             End If
         End If
-        Dim m1 As String = Path.Combine(siteRoot, "App_Data") & IO.Path.DirectorySeparatorChar & "media"
-        Dim found As Boolean = False
-        Dim existing As String
-        For Each existing In list
-            If String.Equals(existing, m1, StringComparison.OrdinalIgnoreCase) Then
-                found = True
-            End If
-        Next
-        If Not found Then
-            list.Add(m1)
-        End If
-        Dim m2 As String = Path.Combine(siteRoot, FallbackFolderName) & IO.Path.DirectorySeparatorChar & "media"
-        found = False
-        For Each existing In list
-            If String.Equals(existing, m2, StringComparison.OrdinalIgnoreCase) Then
-                found = True
-            End If
-        Next
-        If Not found Then
-            list.Add(m2)
-        End If
+        Dim appData As String = Path.Combine(siteRoot, "App_Data")
+        AddDirUnique(list, appData)
+        AddDirUnique(list, appData & IO.Path.DirectorySeparatorChar & "media")
+        Dim siteData As String = Path.Combine(siteRoot, FallbackFolderName)
+        AddDirUnique(list, siteData)
+        AddDirUnique(list, siteData & IO.Path.DirectorySeparatorChar & "media")
         Return list
     End Function
+
+    ''' <summary>Adds a directory to the list (case-insensitive dedupe).</summary>
+    Private Sub AddDirUnique(ByVal list As List(Of String), ByVal dir As String)
+        If String.IsNullOrEmpty(dir) Then
+            Return
+        End If
+        Dim item As String
+        For Each item In list
+            If String.Equals(item, dir, StringComparison.OrdinalIgnoreCase) Then
+                Return
+            End If
+        Next
+        list.Add(dir)
+    End Sub
 
     ''' <summary>
     ''' Picks the active location of a data file under an arbitrary site root

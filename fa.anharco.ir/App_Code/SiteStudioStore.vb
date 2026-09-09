@@ -216,9 +216,11 @@ Public Module SiteStudioStore
         End If
         ' Each language site stores its images in its OWN writable location so
         ' its own ImageStream.ashx can serve them (hosts may deny SiteStudio).
-        Dim fb As String = DataDir.MediaDirFor(SiteRoot(lang))
-        If fb <> "" Then
-            Return fb
+        ' The data-dir ROOT comes before its media subfolder: some hosts allow
+        ' writing files but deny creating subfolders (Plesk default).
+        Dim d As String = DataDir.GetDir()
+        If d <> "" Then
+            Return d
         End If
         If Not Directory.Exists(dir) Then
             Directory.CreateDirectory(dir)
