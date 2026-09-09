@@ -480,6 +480,17 @@ Public Module SiteStudioStore
         ' Unique file name on every save: replacing an image must never reuse
         ' the old file name, otherwise browsers/IIS keep showing the cached
         ' previous image and the change looks like it was never saved.
+        ' Auto-shape BEFORE naming: the stored file always matches the design
+        ' frame ratio, so the collage/slider keeps its exact layout - and the
+        ' extension must follow the reshaped content (shaping emits JPEG).
+        bytes = ShapedBytes(key, bytes, ext)
+        If bytes IsNot Nothing AndAlso bytes.Length > 3 Then
+            If bytes(0) = &HFF AndAlso bytes(1) = &HD8 Then
+                ext = ".jpg"
+            ElseIf bytes(0) = &H89 AndAlso bytes(1) = &H50 Then
+                ext = ".png"
+            End If
+        End If
         Dim stamp As String = DateTime.Now.ToString("yyyyMMddHHmmss") & "_" & Guid.NewGuid().ToString("N").Substring(0, 6)
         Dim fileName As String = key & "_" & stamp & ext
         Dim oldRel As String = GetValue(lang, key)
@@ -517,6 +528,15 @@ Public Module SiteStudioStore
             If fu IsNot Nothing AndAlso fu.HasFile AndAlso IsAnimatedKeep(fu.FileName) Then
                 ext = Path.GetExtension(fu.FileName).ToLowerInvariant()
                 bytes = fu.FileBytes
+            ElseIf bytes.Length > 3 Then
+                ' The canvas encoder names its payload .webp, but cover frames
+                ' now send JPEG (server reshapes from the bitmap). Trust the
+                ' actual magic bytes, not the assumed extension.
+                If bytes(0) = &HFF AndAlso bytes(1) = &HD8 Then
+                    ext = ".jpg"
+                ElseIf bytes(0) = &H89 AndAlso bytes(1) = &H50 Then
+                    ext = ".png"
+                End If
             End If
         Else
             If fu Is Nothing OrElse Not fu.HasFile Then
@@ -537,6 +557,31 @@ Public Module SiteStudioStore
             Return SaveBytesAll(key, bytes, ext)
         End If
         Return SaveBytes(lang, key, bytes, ext)
+    End Function
+
+    ''' <summary>
+    ''' Server-side auto-shaping: crop/fit an upload to the slot's design frame
+    ''' ratio so replacing an image can never reflow the collage or show an
+    ''' arbitrary crop band. Animated GIFs, SVGs and undecodable files are
+    ''' stored untouched; if shaping fails the original bytes win.
+    ''' </summary>
+    Public Function ShapedBytes(ByVal key As String, ByVal bytes() As Byte, ByVal ext As String) As Byte()
+        If bytes Is Nothing OrElse bytes.Length = 0 Then
+            Return bytes
+        End If
+        Dim e As String = (ext & "").ToLowerInvariant()
+        If e = ".gif" OrElse e = ".svg" OrElse e = ".ico" Then
+            Return bytes
+        End If
+        Dim frame As StudioCropFrame = SiteStudioCatalog.CropFrameOf(key)
+        If frame Is Nothing OrElse frame.W < 1 OrElse frame.H < 1 Then
+            Return bytes
+        End If
+        Dim shaped() As Byte = ImageShaper.Shape(bytes, frame.W, frame.H, frame.Fit)
+        If shaped Is Nothing Then
+            Return bytes
+        End If
+        Return shaped
     End Function
 
     Public Function FitKey(ByVal key As String) As String

@@ -14,6 +14,14 @@
     function isKeep(name) {
         return /\.(gif|ico|svg)$/i.test(name || "");
     }
+    // "cover" frames (sliders, collage tiles, cards) are re-shaped on the
+    // server from the decoded bitmap, so they must arrive in a format
+    // GDI+ can decode: JPEG. "contain" frames (logos, certificates) keep
+    // webp so transparency survives.
+    function frameWantsJpeg() {
+        var stage = $("cropStage");
+        return !!(stage && stage.getAttribute("data-fit") === "cover");
+    }
     function blobToHidden(blob, hid) {
         if (!blob || !hid) { return; }
         var reader = new FileReader();
@@ -47,7 +55,10 @@
             var mime = "image/webp", quality = 0.82;
             var probe = document.createElement("canvas");
             probe.width = 1; probe.height = 1;
-            if (probe.toDataURL("image/webp").indexOf("image/webp") < 0) {
+            if (frameWantsJpeg()) {
+                // Server reshapes cover frames from the bitmap - send JPEG.
+                mime = "image/jpeg"; quality = 0.9;
+            } else if (probe.toDataURL("image/webp").indexOf("image/webp") < 0) {
                 // Browser cannot encode webp (old Safari) - use jpeg instead.
                 mime = "image/jpeg"; quality = 0.9;
             }
