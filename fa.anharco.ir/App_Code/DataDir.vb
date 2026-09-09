@@ -29,6 +29,7 @@ Public Module DataDir
     Private ReadOnly _lock As New Object()
     Private _mode As Integer = ModeUnresolved
     Private _dir As String = ""
+    Private _resolvedAt As DateTime = DateTime.MinValue
 
     Private ReadOnly _probeLock As New Object()
     Private ReadOnly _probeCache As New Dictionary(Of String, ProbeResult)(StringComparer.OrdinalIgnoreCase)
@@ -112,13 +113,18 @@ Public Module DataDir
         End SyncLock
     End Sub
 
-    ''' <summary>Resolves the active data directory (cached per app lifetime for successes).</summary>
+    ''' <summary>
+    ''' Resolves the active data directory. A Memory verdict is retried every
+    ''' 10 minutes so granting write permission on the host takes effect
+    ''' WITHOUT an application restart.
+    ''' </summary>
     Public Function GetDir() As String
-        If _mode <> ModeUnresolved Then
-            Return _dir
-        End If
         SyncLock _lock
-            If _mode <> ModeUnresolved Then
+            If _mode = ModeMemory Then
+                If DateTime.UtcNow.Subtract(_resolvedAt).TotalMinutes < 10 Then
+                    Return _dir
+                End If
+            ElseIf _mode <> ModeUnresolved Then
                 Return _dir
             End If
             Dim root As String = AppRoot()
@@ -127,6 +133,7 @@ Public Module DataDir
                 If ProbeWritable(appData) Then
                     _mode = ModeAppData
                     _dir = appData
+                    _resolvedAt = DateTime.UtcNow
                     Return _dir
                 End If
                 Dim siteData As String = Path.Combine(root, FallbackFolderName)
@@ -135,11 +142,13 @@ Public Module DataDir
                     MigrateKnownFiles(appData, siteData)
                     _mode = ModeSiteData
                     _dir = siteData
+                    _resolvedAt = DateTime.UtcNow
                     Return _dir
                 End If
             End If
             _mode = ModeMemory
             _dir = ""
+            _resolvedAt = DateTime.UtcNow
             Return ""
         End SyncLock
     End Function
@@ -245,6 +254,51 @@ Public Module DataDir
             Return m2
         End If
         Return ""
+    End Function
+
+    ''' <summary>
+    ''' Ordered candidate media folders of a site root: the resolved data
+    ''' dir's media folder first, then App_Data\media, then SiteData\media.
+    ''' SaveImageAnywhere tries each with a REAL write at save time, so a
+    ''' stale cached verdict can never route an upload into a denied folder.
+    ''' </summary>
+    Public Function MediaCandidatesFor(ByVal siteRoot As String) As List(Of String)
+        ' NOTE: plain New List(Of String) - the comparer overload is not a valid
+        ' constructor in VB and throws InvalidCastException at runtime.
+        Dim list As New List(Of String)
+        If String.IsNullOrEmpty(siteRoot) Then
+            Return list
+        End If
+        If String.Equals(siteRoot, AppRoot(), StringComparison.OrdinalIgnoreCase) Then
+            Dim d As String = GetDir()
+            If d <> "" Then
+                If Not list.Contains(d & IO.Path.DirectorySeparatorChar & "media") Then
+                    list.Add(d & IO.Path.DirectorySeparatorChar & "media")
+                End If
+            End If
+        End If
+        Dim m1 As String = Path.Combine(siteRoot, "App_Data") & IO.Path.DirectorySeparatorChar & "media"
+        Dim found As Boolean = False
+        Dim existing As String
+        For Each existing In list
+            If String.Equals(existing, m1, StringComparison.OrdinalIgnoreCase) Then
+                found = True
+            End If
+        Next
+        If Not found Then
+            list.Add(m1)
+        End If
+        Dim m2 As String = Path.Combine(siteRoot, FallbackFolderName) & IO.Path.DirectorySeparatorChar & "media"
+        found = False
+        For Each existing In list
+            If String.Equals(existing, m2, StringComparison.OrdinalIgnoreCase) Then
+                found = True
+            End If
+        Next
+        If Not found Then
+            list.Add(m2)
+        End If
+        Return list
     End Function
 
     ''' <summary>

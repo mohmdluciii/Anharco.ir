@@ -3,6 +3,7 @@ Option Strict Off
 
 Imports System.Configuration
 Imports System.Globalization
+Imports System.Collections.Generic
 Imports System.IO
 Imports System.Web
 Imports System.Web.SessionState
@@ -116,12 +117,9 @@ Public Module SiteStudioStore
             If name = "" OrElse name.IndexOf("/") >= 0 OrElse name.IndexOf("..") >= 0 Then
                 Return rel
             End If
-            Dim dir As String = FilesDir(DetectLang())
-            If dir <> "" Then
-                Dim full As String = Path.Combine(dir, name)
-                If File.Exists(full) Then
-                    Return rel & sep & "v=" & File.GetLastWriteTimeUtc(full).Ticks.ToString()
-                End If
+            Dim full As String = FindMediaFullPath(DetectLang(), name)
+            If full <> "" Then
+                Return rel & sep & "v=" & File.GetLastWriteTimeUtc(full).Ticks.ToString()
             End If
         Catch
         End Try
@@ -234,6 +232,38 @@ Public Module SiteStudioStore
     End Function
 
     ''' <summary>
+    ''' Locates a managed media file in ANY candidate folder of the site
+    ''' (classic SiteStudio, data-dir media folders). Returns the full path
+    ''' or "" when the file does not exist anywhere.
+    ''' </summary>
+    Public Function FindMediaFullPath(ByVal lang As String, ByVal name As String) As String
+        If String.IsNullOrEmpty(name) OrElse name.IndexOf("/") >= 0 OrElse name.IndexOf("\\") >= 0 OrElse name.IndexOf("..") >= 0 Then
+            Return ""
+        End If
+        Dim root As String = SiteRoot(lang)
+        Dim candidates As New List(Of String)
+        AddCandidate(candidates, Path.Combine(root, "SiteStudio"))
+        Dim dc As List(Of String) = DataDir.MediaCandidatesFor(root)
+        If dc IsNot Nothing Then
+            Dim c As String
+            For Each c In dc
+                AddCandidate(candidates, c)
+            Next
+        End If
+        Dim dir As String
+        For Each dir In candidates
+            Try
+                Dim full As String = Path.Combine(dir, name)
+                If File.Exists(full) Then
+                    Return full
+                End If
+            Catch
+            End Try
+        Next
+        Return ""
+    End Function
+
+    ''' <summary>
     ''' URL prefix for a stored image: "SiteStudio/" when the classic folder is
     ''' writable, otherwise the ImageStream scheme "media:".
     ''' </summary>
@@ -339,50 +369,60 @@ Public Module SiteStudioStore
     End Function
 
     ''' <summary>
-    ''' Writes image bytes to the writable media folder (SiteStudio or the data
-    ''' dir fallback) and returns the stored relative reference.
-    ''' Self-healing: when the chosen folder denies the write at the last moment
-    ''' (host permissions changed after the cached probe), the probe cache is
-    ''' invalidated and the write is retried in the other writable location.
+    ''' Writes image bytes to the first folder that accepts a REAL write at
+    ''' save time. Candidates: classic ~/SiteStudio, then the data-dir media
+    ''' folders (App_Data\media, SiteData\media). Cached probe verdicts are
+    ''' never trusted for the actual save - the host can deny a folder that
+    ''' looked writable minutes ago (the exact failure seen on Anharco.ir).
+    ''' When every folder is denied, a clear Persian error lists what failed.
     ''' </summary>
     Public Function SaveImageAnywhere(ByVal lang As String, ByVal fileName As String, ByVal bytes() As Byte) As String
         If bytes Is Nothing OrElse bytes.Length = 0 Then
             Return ""
         End If
-        Dim dir As String = FilesDir(lang)
-        If Not Directory.Exists(dir) Then
-            Directory.CreateDirectory(dir)
+        Dim root As String = SiteRoot(lang)
+        ' NOTE: List(Of String)(comparer) is ILLEGAL in VB (binds to the IEnumerable
+        ' constructor and throws at runtime) - build the list plainly instead.
+        Dim candidates As New List(Of String)
+        AddCandidate(candidates, Path.Combine(root, "SiteStudio"))
+        Dim dc As List(Of String) = DataDir.MediaCandidatesFor(root)
+        If dc IsNot Nothing Then
+            Dim c As String
+            For Each c In dc
+                AddCandidate(candidates, c)
+            Next
         End If
-        Try
-            File.WriteAllBytes(Path.Combine(dir, fileName), bytes)
-            Return MediaRelPrefix(lang) & fileName
-        Catch
-            ' The cached "writable" verdict lied (permissions changed, disk
-            ' quota, ...). Forget it and retry once in the other location.
-            DataDir.InvalidateProbe(dir)
-            Dim alt As String = AltMediaDir(lang, dir)
-            If alt = "" Then
-                Throw
-            End If
-            If Not Directory.Exists(alt) Then
-                Directory.CreateDirectory(alt)
-            End If
-            File.WriteAllBytes(Path.Combine(alt, fileName), bytes)
-            Return MediaRelPrefixForDir(lang, alt) & fileName
-        End Try
+        Dim errors As New List(Of String)
+        Dim dir As String
+        For Each dir In candidates
+            Try
+                If Not Directory.Exists(dir) Then
+                    Directory.CreateDirectory(dir)
+                End If
+                File.WriteAllBytes(Path.Combine(dir, fileName), bytes)
+                DataDir.InvalidateProbe(dir)
+                Return MediaRelPrefixForDir(lang, dir) & fileName
+            Catch ex As Exception
+                DataDir.InvalidateProbe(dir)
+                errors.Add(dir & " → " & ex.Message)
+            End Try
+        Next
+        Throw New IOException("هیچ پوشه‌ای اجازه ذخیره عکس را نمی‌دهد. دسترسی Write کاربر IIS را از File Manager هاست روی پوشه SiteStudio فعال کنید. تلاش‌شده: " & String.Join(" | ", errors.ToArray()))
     End Function
 
-    ''' <summary>The other candidate media folder (classic SiteStudio when the
-    ''' fallback is active, or the data-dir media folder when SiteStudio was
-    ''' chosen). Returns "" when there is no alternative.</summary>
-    Private Function AltMediaDir(ByVal lang As String, ByVal failedDir As String) As String
-        Dim root As String = SiteRoot(lang)
-        Dim classic As String = Path.Combine(root, "SiteStudio")
-        If Not String.Equals(failedDir, classic, StringComparison.OrdinalIgnoreCase) Then
-            Return classic
+    ''' <summary>Adds a folder to the candidate list (case-insensitive dedupe).</summary>
+    Private Sub AddCandidate(ByVal list As List(Of String), ByVal dir As String)
+        If String.IsNullOrEmpty(dir) Then
+            Return
         End If
-        Return DataDir.MediaDirFor(root)
-    End Function
+        Dim item As String
+        For Each item In list
+            If String.Equals(item, dir, StringComparison.OrdinalIgnoreCase) Then
+                Return
+            End If
+        Next
+        list.Add(dir)
+    End Sub
 
     ''' <summary>Relative prefix ("SiteStudio/" or "media:") matching the
     ''' directory the file was actually written to.</summary>
@@ -416,12 +456,8 @@ Public Module SiteStudioStore
             If name.IndexOf("/") >= 0 OrElse name.IndexOf("\\") >= 0 OrElse name.IndexOf("..") >= 0 Then
                 Return
             End If
-            Dim dir As String = FilesDir(lang)
-            If dir = "" Then
-                Return
-            End If
-            Dim full As String = Path.Combine(dir, name)
-            If File.Exists(full) Then
+            Dim full As String = FindMediaFullPath(lang, name)
+            If full <> "" Then
                 File.Delete(full)
             End If
         Catch

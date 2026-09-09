@@ -37,12 +37,19 @@ Public Class ImageStreamHandler
             Return
         End If
         Dim dir As String = SiteStudioStore.MediaFilesDir()
-        If dir = "" Then
-            ctx.Response.StatusCode = 404
-            Return
+        Dim full As String = ""
+        If dir <> "" Then
+            Dim cand As String = IO.Path.Combine(dir, name)
+            If IO.File.Exists(cand) Then
+                full = cand
+            End If
         End If
-        Dim full As String = IO.Path.Combine(dir, name)
-        If Not IO.File.Exists(full) Then
+        ' Fallback: search every candidate media folder (the file may have been
+        ' written to SiteStudio or another location by an older version).
+        If full = "" Then
+            full = SiteStudioStore.FindMediaFullPath(SiteStudioStore.DetectLang(), name)
+        End If
+        If full = "" Then
             ctx.Response.StatusCode = 404
             Return
         End If
