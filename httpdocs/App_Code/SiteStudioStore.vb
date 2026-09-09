@@ -486,8 +486,12 @@ Public Module SiteStudioStore
         Dim rel As String = SaveImageAnywhere(lang, fileName, bytes)
         If rel <> "" Then
             ' Remove the previous managed file of this key on THIS site only;
-            ' sibling language sites manage their own copies.
-            TryDeleteMedia(lang, oldRel)
+            ' sibling language sites manage their own copies. Best effort - a
+            ' locked old file must never fail an otherwise successful save.
+            Try
+                TryDeleteMedia(lang, oldRel)
+            Catch
+            End Try
         End If
         SetValue(lang, key, rel)
         Return rel

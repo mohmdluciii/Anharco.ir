@@ -30,19 +30,44 @@
         }
         var img = new Image();
         img.onload = function () {
+            var w = img.naturalWidth || img.width || 1600;
+            var h = img.naturalHeight || img.height || 1600;
+            // Guard: huge images are downscaled server-side BEFORE encoding to
+            // webp - otherwise the base64 payload can exceed the request size
+            // limit and IIS answers with a generic server error page.
+            var longSide = Math.max(w, h);
+            var maxLong = 2400;
+            var scale = longSide > maxLong ? (maxLong / longSide) : 1;
             var canvas = document.createElement("canvas");
-            canvas.width = img.naturalWidth || img.width;
-            canvas.height = img.naturalHeight || img.height;
+            canvas.width = Math.max(1, Math.round(w * scale));
+            canvas.height = Math.max(1, Math.round(h * scale));
             var ctx = canvas.getContext("2d");
-            ctx.drawImage(img, 0, 0);
+            try { ctx.drawImage(img, 0, 0, canvas.width, canvas.height); }
+            catch (ex) { ctx.drawImage(img, 0, 0); }
+            var mime = "image/webp", quality = 0.82;
+            var probe = document.createElement("canvas");
+            probe.width = 1; probe.height = 1;
+            if (probe.toDataURL("image/webp").indexOf("image/webp") < 0) {
+                // Browser cannot encode webp (old Safari) - use jpeg instead.
+                mime = "image/jpeg"; quality = 0.9;
+            }
+            var finish = function (blob) {
+                if (blob && blob.size > 14 * 1024 * 1024) {
+                    // Still too big - one more pass at lower quality.
+                    canvas.toBlob(function (b2) {
+                        blobToHidden(b2 || blob, hid);
+                        if (done) { done(img); }
+                    }, mime, 0.6);
+                    return;
+                }
+                blobToHidden(blob, hid);
+                if (done) { done(img); }
+            };
             if (canvas.toBlob) {
-                canvas.toBlob(function (blob) {
-                    blobToHidden(blob, hid);
-                    if (done) { done(img); }
-                }, "image/webp", 0.82);
+                canvas.toBlob(finish, mime, quality);
             } else {
                 try {
-                    hid.value = canvas.toDataURL("image/webp", 0.82);
+                    hid.value = canvas.toDataURL(mime, quality);
                 } catch (ex) { }
                 if (done) { done(img); }
             }
@@ -223,6 +248,14 @@
             fu.onchange = function () {
                 var file = fu.files && fu.files[0];
                 if (!file) { return; }
+                // Reject oversized files client-side so the request never
+                // exceeds the server limit (which yields a generic error).
+                if (file.size > 45 * 1024 * 1024) {
+                    if (hidWebp) { hidWebp.value = ""; }
+                    window.alert("حجم عکس بیش از حد مجاز است (حداکثر ۴۵ مگابایت). لطفاً عکس کوچک‌تری انتخاب کنید.");
+                    try { fu.value = ""; } catch (ex) { }
+                    return;
+                }
                 if (img) {
                     img.src = URL.createObjectURL(file);
                     img.style.display = "block";

@@ -174,6 +174,6 @@ if (window.addEventListener) {
     window.attachEvent("onload", studioInitAlign);
 }
 </script>
-<script type="text/javascript" src="Graphic/StudioCrop.js?v=cropFrame1"></script>
+<script type="text/javascript" src="Graphic/StudioCrop.js?v=cropGuard1"></script>
 </body>
 </html>
