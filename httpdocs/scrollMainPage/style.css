@@ -1,0 +1,130 @@
+
+
+#wrap_out {
+	width:100%;
+	overflow-x:hidden;
+	background-image: linear-gradient(#0B2E72, #054B93);
+}
+#wrap {
+	width: 960px;
+	margin: 0 auto;
+	z-index:1;
+	position:relative;
+}
+header {
+	display:block;
+z-index:2 position:relative;
+}
+header p {
+	display:block;
+	font-size:30px;
+	padding: 70px 60px 0px;
+	
+}
+h1 {
+	text-align:center;
+	font-size:130px;
+	margin-top: 30px;
+	
+}
+h1 em {
+	color: #fff;
+	font-style: normal;
+}
+#separation {
+	margin: 0 auto;
+	width: 592px;
+	z-index:-1;
+	position:relative;
+}
+#separation div {
+	text-align: center;
+	font-size: 72px;
+}
+#separation div:before, #separation div:after {
+	content: "";
+	background:  url('images/arrowsdown.png') no-repeat 10px 10px;
+	width: 99px;
+	height: 76px;
+	display:inline-block;
+}
+#separation em, a em {
+	color: #fff;
+	font-style: normal;
+}
+section {
+	position:relative;
+	margin-top: 120px;
+	display:block
+}
+.element {
+	position:absolute;
+	display:block;
+}
+.element div {
+	font-size:30px;
+	height:40px;
+	line-height:40px;
+}
+.element#coriander {
+	top:0px;
+	left:30px;
+	width: 286px;
+	height: 272px;
+}
+.element#rosemary {
+	top:40px;
+	left: 335px;
+	width: 370px;
+	height: 183px;
+}
+.element#chives {
+	top : 0px;
+	right:30px;
+	width: 197px;
+	height: 514px;
+}
+.element#lemonbalm {
+	left: 30px;
+	top:280px;
+	width:265px;
+	height: 233px;
+}
+.element#basil {
+	right: 255px;
+	top:250px;
+	width:368px;
+	height: 263px;
+	text-align:right;
+}
+.element p {
+	position:absolute;
+	display:block;
+	bottom:0px;
+	left:0;
+	background: #fff;
+	background: rgba(255, 255, 255, .8);
+	padding:20px;
+	color: #000;
+	font-family :Century Gothic ,Centaur ;
+	direction :ltr;
+	visibility:hidden;
+	font-size :10pt;
+	font-weight :600;
+}
+.element#rosemary p {
+	bottom:40px;
+}
+.element:hover p {
+	visibility: visible;
+}
+a:hover em, .element:hover div {
+	color: #fff;
+
+}
+footer {
+	margin-bottom: 10px;
+	text-align:center;
+	font-size: 30px;
+	display:block
+}

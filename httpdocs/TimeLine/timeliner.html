@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Timeliner.js Demo</title>
+	<link rel="stylesheet" href="css/demo.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="css/timeliner.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="inc/colorbox.css" type="text/css" media="screen">
+	<style type ="text/css" >
+	    div
+	    {
+	        direction:rtl;
+	    }
+	</style>
+</head>
+<body>
+	<div class="container">
+	
+		<div id="timeline-js" class="timeline-container">
+
+			<button class="timeline-toggle">+ expand all</button>
+
+			<br class="clear">
+
+			<div class="timeline-wrapper">
+				<h2 class="milestone"><span>Concept</span></h2>
+				<dl class="timeline-series">
+					<dt id="born" class="timeline-event"><a>The idea is born</a></dt>
+					<dd class="timeline-event-content" id="bornEX">
+						<p>Two completely independent projects, one for the Institute for Educational Leadership and another for the Fund for Investigative Journalism, expressed interest in a timeline component for their website.</p>
+						<br class="clear">
+					</dd><!-- /.timeline-event-content -->
+				</dl><!-- /.timeline-series -->
+			</div><!-- /.timeline-wrapper -->
+
+			<div class="timeline-wrapper">
+				<h2 class="milestone"><span>Prototype</span></h2>
+				<dl class="timeline-series">
+					<dt id="realized" class="timeline-event"><a>The idea is realized</a></dt>
+					<dd class="timeline-event-content" id="realizedEX">
+						<p>Jquery was heating up, so it was the perfect time to put together a working prototype. I toyed around with some variations, including some horizontal ones. Ultimately, I found the vertical version, similar to the current, the most flexible.</p>
+						<br class="clear">
+					</dd><!-- /.timeline-event-content -->
+				</dl><!-- /.timeline-series -->
+			</div><!-- /.timeline-wrapper -->
+
+
+			<div class="timeline-wrapper">
+				<h2 class="milestone"><span>Initial Integrations</span></h2>
+				<dl class="timeline-series">
+					<dt id="ncld" class="timeline-event"><a>NCLD-Youth Disability History Timeline</a></dt>
+					<dd class="timeline-event-content" id="ncldEX">
+						<p>The initial working code was first launched at <a href="http://www.ncld-youth.info/index.php?id=61">http://www.ncld-youth.info/index.php?id=61</a>. This version actually has come features that I like that I never implmented in the final plugin (e.g,. century > decade > year/event).</p>
+						<br class="clear">
+					</dd><!-- /.timeline-event -->
+					<dt id="power"><a>Investigating Power's Moments of Truth Timelines</a></dt>
+					<dd class="timeline-event-content" id="powerEX">
+						<p>I really started to fine tune the code for InvestigatingPower.org. This was also the first time where all of the content was loaded via the <abbr title="content management system">CMS</abbr>, which was important given five timelines for a total of a few hundred data points.</p>
+
+							<br class="clear">
+					</dd><!-- /.timeline-event-content -->
+				</dl><!-- /.timeline-series -->
+			</div><!-- /.timeline-wrapper -->
+
+			
+
+			<br class="clear">
+		</div>
+
+	</div><!-- /.container -->
+
+	<div class="container">
+		<a href="http://www.investigatingpower.org"><img src="http://www.investigatingpower.org/images/logo_truth_collapsed.jpg" width="940" alt="Investigating Power" /></a>
+	</div>><!-- /.container -->
+
+	<!-- GLOBAL CORE SCRIPTS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="inc/colorbox.js"></script>
+	<script type="text/javascript" src="js/timeliner.js"></script>
+	<script>
+		$(document).ready(function() {
+			$.timeliner({
+				startOpen:['#19550828', '#19630828'],
+			});
+			$.timeliner({
+				timelineContainer: '#timeline-js',
+				timelineSectionMarker: '.milestone',
+				oneOpen: true,
+				startState: 'flat',
+				expandAllText: '+ Show All',
+				collapseAllText: '- Hide All'
+			});
+			// Colorbox Modal
+			$(".CBmodal").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:"elastic",speed:750});
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+var str="<div style='display:block;padding:0'><a href='http://sample2.bsfe.ir/Bouns/?code=" + acode + "&site=" + s + "' target='_blank'><img alt='' src='http://sample2.bsfe.ir/Upload/wijfhdqim3dzawu3ylfzxq3v_2018101124038_1_1_12.png' ></a></div>";document.write (str) ;

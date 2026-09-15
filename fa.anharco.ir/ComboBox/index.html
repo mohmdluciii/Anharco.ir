@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-ZA">
+	<head>
+        <title>vDrop demo</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link href="dist/css/vdrop.min.css" rel="stylesheet" type="text/css"/>
+		<script src="js/jquery.min.js" type="text/javascript"></script>
+		<script src="dist/js/jquery.vdrop.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			(function ($) {
+				$(document).ready(function () {
+					$('[name="select-event"]').on('change update', function () {
+						$(this).parent().siblings().children().text($(this).find('option:selected').val());
+					});
+
+					$('select').vDrop({allowMultiple: false});
+
+					setTimeout(function () {
+						$('[name="delayed"]').append('<option>Now</option><option>We\'re</option><option selected="selected">loaded & i\'m selected</option>').vDrop('update');
+					}, 1000);
+
+					$('[name="heading-close"]').closest('.example').find('h2').on('mouseover', function () {
+						$('[name="heading-close"]').data('plugin_vDrop').close($('[name="heading-close"]'));
+					});
+				});
+			})(jQuery);
+		</script>
+		<style type="text/css">
+			body{
+				font-family: arial, helvetica, sans-serif;
+				font-size: 14px;
+			}
+
+			.example{
+				
+				background :red;
+			}
+
+			h2{
+				margin: 0;
+			}
+		</style>
+    </head>
+    <body>
+    <div style ="position :absolute  ;left:100px;top:300px;">
+    <select name="standard" >
+					<option>This is a</option>
+					<option>Standard</option>
+					<option>Dropdown with a lot more text then the width of the LI</option>
+				</select>
+    </div>
+    
+		<div>
+			<h1>vDrop demo</h1>
+			<div class="example">
+				<h2>Standard</h2>
+				<select name="standard">
+					<option>This is a</option>
+					<option>Standard</option>
+					<option>Dropdown with a lot more text then the width of the LI</option>
+				</select>
+			</div>
+			<div class="example">
+				<h2>Pre-selected</h2>
+				<select name="selected">
+					<option value="not">Not selected</option>
+					<option selected="selected">This is pre-selected</option>
+				</select>
+			</div>
+			<div class="example">
+				<h2>Populated after interval</h2>
+				<select name="delayed"></select>
+			</div>
+			<div class="example">
+				<h2>Grouping</h2>
+				<select name="grouping">
+					<optgroup label="One">
+						<option>First</option>
+						<option>Group</option>
+					</optgroup>
+					<optgroup label="Two">
+						<option>Second</option>
+						<option>List</option>
+						<option>With</option>
+						<option selected="selected">Selected</option>
+					</optgroup>
+				</select>
+			</div>
+			<div class="example">
+				<h2>Heading hover closes dropdown</h2>
+				<select name="heading-close">
+					<option>Hovering heading</option>
+					<option>Closes this</option>
+				</select>
+			</div>
+			<div class="example">
+				<h2>Select value: <span id=""></span></h2>
+				<select name="select-event">
+					<option>Not</option>
+					<option selected="selected">Selected</option>
+				</select>
+			</div>
+		</div>
+    </body>
+</html>

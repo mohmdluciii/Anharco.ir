@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="setSms">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setSmsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="setSmsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="setSmsSoapIn">
+    <wsdl:part name="parameters" element="tns:setSms" />
+  </wsdl:message>
+  <wsdl:message name="setSmsSoapOut">
+    <wsdl:part name="parameters" element="tns:setSmsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SMSSendSoap">
+    <wsdl:operation name="setSms">
+      <wsdl:input message="tns:setSmsSoapIn" />
+      <wsdl:output message="tns:setSmsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SMSSendSoap" type="tns:SMSSendSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="setSms">
+      <soap:operation soapAction="http://tempuri.org/setSms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SMSSendSoap12" type="tns:SMSSendSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="setSms">
+      <soap12:operation soapAction="http://tempuri.org/setSms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SMSSend">
+    <wsdl:port name="SMSSendSoap" binding="tns:SMSSendSoap">
+      <soap:address location="https://spadclub.ir/SMSSend.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SMSSendSoap12" binding="tns:SMSSendSoap12">
+      <soap12:address location="https://spadclub.ir/SMSSend.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

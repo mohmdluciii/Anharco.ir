@@ -1,0 +1,1 @@
+var str="<div style='display:block;padding:0'><a href='http://localhost:49714/Bouns/?code=" + acode + "&site=" + s + "' target='_blank'><img alt='' src='http://localhost:49714/Upload/qpzsvu3kcvx34o451chp0pqx_201891191941_computer-security.jpg' ></a></div>";document.write (str) ;

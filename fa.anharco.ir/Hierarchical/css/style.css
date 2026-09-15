@@ -1,0 +1,22 @@
+
+@import url('persian-font.css');
+body {
+  font-family: yekan,arial;
+  font-size: 24px;
+  line-height: 1.428571429;
+  color: #333333;
+}
+
+#chart-container {
+  position: relative;
+  display: inline-block;
+  top: 10px;
+  left: 5px;
+  height: 550px;
+  width: calc(100% - 50px);
+  border: 0px dashed #aaa;
+  border-radius: 5px;
+  overflow: auto;
+  text-align: center;
+  margin-bottom :100px;
+}

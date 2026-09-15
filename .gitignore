@@ -1,0 +1,54 @@
+# Compiled DLLs
+**/bin/
+**/obj/
+
+# IIS Express
+.vs/
+applicationhost.config
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# ASP.NET temp files
+App_Data/*.xml.tmp
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Visual Studio
+*.suo
+*.user
+*.cache
+*.pidb
+
+# NuGet
+packages/
+
+# Node
+node_modules/
+
+# Logs
+*.log
+
+# Build artifacts
+**/PrecompiledWeb/
+
+# Runtime fallback data folder (auto-created when App_Data is not writable)
+**/SiteData/
+
+# Panel auth ticket key (per-install secret, never commit)
+**/panel-ticket.key
+
+# Local upload packages
+/*.zip
+
+# Runtime data: never version credentials or visit stats
+# (recreated on the host at runtime via App_Code/DataDir seeding)
+**/App_Data/panel-users.xml
+**/App_Data/site-visits.xml
+/App_Data/

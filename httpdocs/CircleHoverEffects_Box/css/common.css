@@ -1,0 +1,66 @@
+.ch-grid {
+	margin: 20px 0 0 0;
+	padding: 0;
+	list-style: none;
+	float:none ;
+	margin-left :auto ;
+	margin-right:auto ;
+	text-align: center;
+	width: 90%;
+}
+
+.ch-grid:after,
+.ch-item:before {
+	content: '';
+    display: table;
+}
+
+.ch-grid:after {
+	clear: both;
+}
+
+@media screen and (min-width: 1px) and (max-width: 470px) 
+{
+        .ch-grid li 
+{
+    
+    
+	width: 45%;
+	height: 120px;
+	display: inline-block;
+
+	
+}
+}
+
+@media screen and (min-width: 471px) and (max-width: 785px) 
+{
+    .ch-grid li 
+{
+    
+    
+	width: 25%;
+	height: 120px;
+	display: inline-block;
+
+	
+}
+
+}
+
+@media screen and (min-width: 786px) and (max-width: 5000px) 
+{
+    .ch-grid li 
+{
+    
+    
+	width: 18%;
+	height: 120px;
+	display: inline-block;
+
+	
+}
+
+}
+
+
