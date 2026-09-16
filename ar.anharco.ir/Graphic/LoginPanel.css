@@ -275,3 +275,92 @@ body.loginModern .pwdEye {
 body.loginModern .pwdEye:hover {
     background: rgba(100, 152, 253, .14);
 }
+
+/* ---------- login card refinements ---------- */
+
+/* The field column collapsed to zero height because its children float, so
+   the card measured short and the submit button hung past the bottom edge.
+   Making it a flex column lets the card wrap its content again. */
+body.loginModern .logincenterBox .leftBox {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+}
+
+/* A 520px card is wide for a sign-in form; tighten it up. */
+body.loginModern .middleBoxLogin,
+body.Login_Person_Body.loginModern .middleBoxLogin,
+body.Login_Person_Body.Manager_Style.loginModern .middleBoxLogin {
+    max-width: 440px !important;
+}
+body.loginModern .logincenterBox {
+    padding: 30px 30px 26px !important;
+}
+
+/* label / field rhythm */
+body.loginModern .logincenterBox .leftBox .p_caption {
+    margin: 14px 2px 6px !important;
+    font-size: 12.5px !important;
+}
+body.loginModern .logincenterBox .leftBox .p_TextBox {
+    margin: 0 !important;
+}
+
+/* There was no visible focus state at all. */
+body.loginModern .logincenterBox .leftBox .p_TextBox .input_Text:focus,
+body.loginModern .textFont:focus {
+    outline: none !important;
+    border-color: #4da3ff !important;
+    box-shadow: 0 0 0 3px rgba(77, 163, 255, .25) !important;
+    background: #fff !important;
+}
+
+body.loginModern .logincenterBox .rightBox {
+    margin: 0 0 6px !important;
+}
+
+body.loginModern .loginBrand {
+    margin-bottom: 14px !important;
+}
+body.loginModern .loginBrand img,
+body.loginModern .loginBrand .loginLogo {
+    width: 64px !important;
+    height: 64px !important;
+}
+
+body.loginModern .btnLognStyle,
+body.loginModern #btn_go {
+    height: 50px !important;
+    margin-top: 22px !important;
+    font-weight: 700;
+    letter-spacing: .3px;
+}
+body.loginModern .btnLognStyle:active,
+body.loginModern #btn_go:active {
+    transform: translateY(1px);
+}
+
+body.loginModern .pwdEye { color: #5b7fb8 !important; }
+body.loginModern .pwdEye:hover { color: #1a73e8 !important; }
+
+body.loginModern #lblErr { font-size: 11.5px !important; }
+
+.loginFoot { margin-top: 18px !important; }
+
+/* The legacy sheet pushes every row down with position:relative + top:50px
+   and floats them right. Inside the flex column that only produced a dead
+   gap under the mode switch and made the code panel overlap the row above
+   it, so the offsets are neutralised here (relative is kept: the eye button
+   is positioned against these rows). */
+body.loginModern .logincenterBox .leftBox .p_caption,
+body.loginModern .logincenterBox .leftBox .p_TextBox {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    float: none !important;
+}
+
+/* Trailing empty caption left a dead strip under the submit button. */
+body.loginModern .logincenterBox .leftBox .p_caption:empty {
+    display: none !important;
+}

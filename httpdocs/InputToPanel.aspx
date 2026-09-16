@@ -7,7 +7,7 @@
     <title>ورود به پنل</title>
  <script type="text/javascript" src="jquery.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="graphic/design.css" rel="stylesheet" />
-    <link href="Graphic/LoginPanel.css?v=login4" rel="stylesheet" />
+    <link href="Graphic/LoginPanel.css?v=login7" rel="stylesheet" />
     <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
 </head>
 <body class ="Login_Person_Body Manager_Style loginModern">
