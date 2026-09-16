@@ -2126,3 +2126,95 @@ html[dir="rtl"] .certViewerClose { right: auto; left: 16px; }
     .certViewerNext { right: 6px; }
     .certViewerImg { max-height: calc(100vh - 120px); max-width: 92vw; }
 }
+
+/* ============================================================
+   Mobile layout pass (max-width: 785px).
+   Everything here lives inside the media query, so the desktop
+   rendering is byte-for-byte unchanged.
+   ============================================================ */
+@media screen and (max-width: 785px) {
+
+    /* Banner caption. The slider script drops the horizontal half
+       shift, so the box started at the middle and ran off the
+       right edge. Force the centering back. */
+    .topSlideContainer .boxTextSlide1,
+    .topSlideContainer .boxTextSlide2,
+    .topSlideContainer .boxTextSlide3,
+    .topSlideContainer .boxTextSlide4 {
+        width: 88% !important;
+        max-width: 88% !important;
+        min-height: 0 !important;
+        transform: translate(-50%, -50%) !important;
+    }
+    .topSlideContainer .headText {
+        font-size: 19pt !important;
+        line-height: 1.3 !important;
+    }
+    .topSlideContainer .titleText { font-size: 12pt !important; }
+    .topSlideContainer .bottomText { font-size: 11pt !important; }
+
+    /* Activities block. It is a fixed 960px canvas whose cards are
+       absolutely positioned, so on a phone it was cropped and most
+       of the cards never appeared. Lay it out as a normal stack. */
+    #wrap_out #wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    #wrap_out section {
+        margin-top: 20px !important;
+        min-height: 0 !important;
+        height: auto !important;
+        padding: 0 16px 10px !important;
+        box-sizing: border-box !important;
+    }
+    #wrap_out .element {
+        /* the 471px block hides 3 of the 5 cards; stacked they all fit */
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 auto 26px !important;
+        text-align: center !important;
+    }
+    #wrap_out .element img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 62vh !important;
+        object-fit: cover !important;
+        display: block !important;
+    }
+    #wrap_out .element div {
+        height: auto !important;
+        line-height: 1.35 !important;
+        font-size: 15pt !important;
+        margin-bottom: 8px !important;
+    }
+    /* No hover on touch, so the caption has to be visible. */
+    #wrap_out .element p {
+        position: static !important;
+        visibility: visible !important;
+        background: rgba(255, 255, 255, 0.92) !important;
+        padding: 12px 14px !important;
+        margin: 10px 0 0 !important;
+        border-radius: 12px !important;
+        font-size: 10pt !important;
+    }
+    #wrap_out #separation {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    #wrap_out #separation div { font-size: 24px !important; }
+    #wrap_out #separation div:before,
+    #wrap_out #separation div:after {
+        width: 44px !important;
+        height: 34px !important;
+        background-size: contain !important;
+    }
+
+    /* News cards: the inner block was wider than its own slide. */
+    .NewsFirstPage .slider .innerBoxNews,
+    .NewsFirstPage .slider .boxTextContentNews {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}

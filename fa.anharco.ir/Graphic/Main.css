@@ -27054,3 +27054,16 @@ z-index:1000;
 			z-index:1000000000000000000000000000000000000000000000000000000000000000000000000000000;
 			padding-right :10px;
 			}
+/* ============================================================
+   Mobile layout pass (max-width: 785px). Desktop is untouched.
+   ============================================================ */
+@media screen and (max-width: 785px) {
+    /* left:20px combined with width:100% pushed this 20px past
+       the right edge and clipped the phone number. */
+    .menuPhoneBox .phoneBox {
+        left: 0 !important;
+        width: 100% !important;
+        padding-left: 20px !important;
+        box-sizing: border-box !important;
+    }
+}

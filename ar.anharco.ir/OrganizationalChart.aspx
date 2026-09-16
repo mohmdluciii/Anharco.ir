@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
      <title></title>
-    <link href="graphic/Main.css" rel="stylesheet" />
+    <link href="graphic/Main.css?v=mob3" rel="stylesheet" />
     <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
     <meta runat ="server"  name="description" id="description" content="تأسست شركة أنهار للإنشاءات عام 1353هـ وتقوم بتنفيذ مشاريع EPC ومحطات تعزيز ضغط الغاز وخطوط الأنابيب والمباني والهياكل والمرافق والمعدات لمشاريع النفط والغاز والبتروكيماويات وخطوط أنابيب نقل المياه.">
     <meta runat ="server" name="keywords" id="keywords" content="شركة إنشاءات، أنهار، مقاولات EPC، محطات تعزيز ضغط الغاز، خطوط الأنابيب، مقاولات البناء، تنفيذ مرافق ومعدات مشاريع النفط والغاز والبتروكيماويات، إمداد الغاز، صيانة المصافي، استبدال بطانة الخطوط، تخفيض ضغط الغاز CGS، خطوط نقل المياه الأنابيب، البناء البتروكيماوي، مساعد الصيانة، الهيكل الخرساني، المبنى السكني، الخزان، خزان السد، تصميم الخريطة">

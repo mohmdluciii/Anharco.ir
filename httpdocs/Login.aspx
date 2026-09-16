@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title></title>
-     <link href="graphic/Main.css" rel="stylesheet" />
+     <link href="graphic/Main.css?v=mob3" rel="stylesheet" />
     <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
 </head>
 <body>

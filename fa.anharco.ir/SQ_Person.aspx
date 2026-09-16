@@ -10,7 +10,7 @@
     <meta name="keywords" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link href="graphic/Main.css" rel="stylesheet" />
+     <link href="graphic/Main.css?v=mob3" rel="stylesheet" />
   
     <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
    
