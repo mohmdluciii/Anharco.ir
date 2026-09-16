@@ -668,11 +668,14 @@ Public Module SiteStudioStore
         If frame IsNot Nothing AndAlso frame.Fit = "contain" Then
             mode = "contain"
         End If
-        Dim css As String = "object-fit:" & mode & ";object-position:" & x & "% " & y & "%;transform-origin:" & x & "% " & y & "%"
-        If z > 100.5 OrElse z < 99.5 Then
-            css &= ";transform:scale(" & (z / 100.0).ToString("0.###", CultureInfo.InvariantCulture) & ")"
+        ' Uploads are already reshaped to the slot's exact ratio by ImageShaper,
+        ' so the stored pan/zoom must not be re-applied here: there is no overflow
+        ' left to pan, and transform:scale() would push the image outside its grid
+        ' cell, breaking the collage framing and overriding the hover effect.
+        If frame IsNot Nothing Then
+            Return "object-fit:" & mode & ";object-position:50% 50%"
         End If
-        Return css
+        Return "object-fit:" & mode & ";object-position:" & x & "% " & y & "%"
     End Function
 
     Public Function ImgFitStyle(ByVal key As String) As String
