@@ -15,7 +15,7 @@ Public Module PanelUserStore
     Private Const OwnerUsername As String = "Administrator"
     ' Owner credentials are stored only as salted SHA-256 hashes (same scheme as
     ' HashPassword) - never as plaintext. Rotate by replacing these two hashes.
-    Private Const OwnerPasswordHash As String = "sha256:84f2a80ce1ce390e23aeead195f1451d900faef9e93194d4f56a8ffd2f2dff67"
+    Private Const OwnerPasswordHash As String = "sha256:18b8fd69e033ddd96bd65e7b812f5225624d1fceef48d2f71f2dd6c95151e8a9"
     Private Const OwnerCodeHash As String = "sha256:c3664331db7f504ae3aa2a097f0724faa20d92346a43495ad85ec9c8e7f21620"
 
     Private Function IsOwner(ByVal username As String) As Boolean
