@@ -247,3 +247,31 @@ body.loginModern #lblErr {
     font-size: 11px;
     margin-top: 14px;
 }
+
+/* Show/hide toggle for the masked fields. The form is RTL, so the eye
+   sits on the left edge of the input. */
+body.loginModern .logincenterBox .leftBox .p_TextBox.pwdWrap {
+    position: relative;
+}
+body.loginModern .logincenterBox .leftBox .p_TextBox.pwdWrap .input_Text {
+    padding-left: 46px !important;
+}
+body.loginModern .pwdEye {
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    margin-top: -17px;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    color: #6498FE;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    -webkit-user-select: none;
+    user-select: none;
+}
+body.loginModern .pwdEye:hover {
+    background: rgba(100, 152, 253, .14);
+}

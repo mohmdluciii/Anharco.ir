@@ -7,7 +7,7 @@
     <title>ورود به پنل</title>
  <script type="text/javascript" src="jquery.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="graphic/design.css" rel="stylesheet" />
-    <link href="Graphic/LoginPanel.css?v=login3" rel="stylesheet" />
+    <link href="Graphic/LoginPanel.css?v=login4" rel="stylesheet" />
     <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
 </head>
 <body class ="Login_Person_Body Manager_Style loginModern">
@@ -42,13 +42,11 @@
                         <p class ="p_caption">نام کاربری  <asp:Label ID="lblErr" style="color:#a20000;" runat ="server"  ></asp:Label>&nbsp;</p>
                         <p class ="p_TextBox"><asp:TextBox  TabIndex="1" ID="txtUID" runat ="server" AutoComplete="off" class="input_Text" MaxLength ="15" ></asp:TextBox></p>
                         <p class ="p_caption">رمز عبور</p>
-                        <p class ="p_TextBox"><asp:TextBox TabIndex="2" ID="txtPWD" TextMode ="Password" runat ="server" class="input_Text"  MaxLength ="15"></asp:TextBox></p>
+                        <p class ="p_TextBox pwdWrap"><asp:TextBox TabIndex="2" ID="txtPWD" TextMode ="Password" runat ="server" class="input_Text"  MaxLength ="15"></asp:TextBox><span class="pwdEye" onclick="anharTogglePwd('txtPWD', this);" title="نمایش رمز"><i class="fa fa-eye"></i></span></p>
                         <asp:Panel ID="pnlCode" runat="server">
                         <p class ="p_caption">کد ورود</p>
-                        <p class ="p_TextBox"><asp:TextBox  TabIndex="3" ID="txtcode" TextMode ="Password" runat ="server" class="input_Text"  MaxLength ="20"></asp:TextBox></p>
+                        <p class ="p_TextBox pwdWrap"><asp:TextBox  TabIndex="3" ID="txtcode" TextMode ="Password" runat ="server" class="input_Text"  MaxLength ="20"></asp:TextBox><span class="pwdEye" onclick="anharTogglePwd('txtcode', this);" title="نمایش کد"><i class="fa fa-eye"></i></span></p>
                         </asp:Panel>
-                        <p class ="p_caption" style="height:10px;">کد امنیتی</p>
-                        <p class ="p_TextBox"><a href='#' onclick="refrereshSecurityCode();"><i style="font-size:18px;color:#6498FE;" title="فراخوانی دوباره" class='fa fa-refresh'></i></a><iframe src="Captcha.aspx"  id="capCode" style ="height:55px;width:130px" frameborder ="0" scrolling ="no"  ></iframe> <br/><asp:TextBox  TabIndex ="4" autocomplete ="off" class="textFont" Height ="30" style="text-align :center;border-radius:0px;background:#fff;border:1px solid #6498FE;color:#6498FE;"  BackColor="#ffffff"  ID="txtSign" runat ="server" Width ="100" MaxLength="6"   ></asp:TextBox></p>
                         <p class ="p_TextBox"><asp:Button  TabIndex="5" ID="btn_go" runat ="server" Text="ورود" style="margin-top :5px;" class="btnLognStyle" /></p> 
                         <p class ="p_caption" style="font-size :8pt;"></p>
                         
@@ -77,9 +75,17 @@
 </script>
 
 <script type ="text/javascript" >
-    function refrereshSecurityCode() {
-        var f = document.getElementById("capCode");
-        capCode.src = "Captcha.aspx";
+    function anharTogglePwd(id, el) {
+        var f = document.getElementById(id);
+        if (!f) { return; }
+        var i = el.getElementsByTagName("i")[0];
+        if (f.type === "password") {
+            f.type = "text";
+            if (i) { i.className = "fa fa-eye-slash"; }
+        } else {
+            f.type = "password";
+            if (i) { i.className = "fa fa-eye"; }
+        }
     }
     (function(){
         var c = document.getElementById("loginCanvas");
