@@ -2098,8 +2098,8 @@ body.certViewerOpen {
 .certViewerClose,
 .certViewerNav {
     position: absolute;
-    width: 46px;
-    height: 46px;
+    width: 50px;
+    height: 50px;
     border: 0;
     border-radius: 50%;
     background: #0b2d71;
@@ -2227,15 +2227,18 @@ html[dir="rtl"] .certViewerClose { right: auto; left: 16px; }
 .bannerNav {
     position: absolute;
     top: 50%;
-    margin-top: -23px;
+    margin-top: -25px;
     z-index: 30;
-    width: 46px;
-    height: 46px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background: #0B2E72;
+    background: rgba(8, 20, 45, .42);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
     color: #fff;
-    border: 1px solid rgba(255, 255, 255, .18);
-    box-shadow: 0 8px 20px rgba(4, 20, 54, .35);
+    border: 1px solid rgba(255, 255, 255, .55);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2251,7 +2254,8 @@ html[dir="rtl"] .certViewerClose { right: auto; left: 16px; }
 }
 .newsNav:hover,
 .bannerNav:hover {
-    background: #14418f;
+    background: rgba(8, 20, 45, .62);
+    border-color: rgba(255, 255, 255, .85);
 }
 .newsNav:active,
 .bannerNav:active {
