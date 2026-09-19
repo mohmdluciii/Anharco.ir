@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ar" dir="rtl">
 <head runat="server">
     <title><%=Session("site_title")%></title>
-      <link href="graphic/BodyGraphic.css?v=mob3" rel="stylesheet" />
-    <link href="graphic/UiRefresh.css?v=mob3" rel="stylesheet" />
+      <link href="graphic/BodyGraphic.css?v=nav1" rel="stylesheet" />
+    <link href="graphic/UiRefresh.css?v=nav1" rel="stylesheet" />
     <link href="JS/swiper-bundle.min.css" rel="stylesheet" />
     <link rel="shortcut icon" href="<%=Session("site_favicon")%>" />
     <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
@@ -172,6 +172,8 @@
                     <p class="titleText <%=SiteStudioStore.AlignClass("slider4_text")%>"><%=Session("text_TopBanner4")%></p>
                     <p class ="bottomText <%=SiteStudioStore.AlignClass("slider4_button")%>"  ><a href="<%=Session("link_TopBanner4")%>"><i style="margin-right :10px;" class="fa fa-arrow-left"></i>&nbsp;<%=Session("small_TopBanner4")%></a></p>
                 </div>
+                <div class="bannerNav bannerNavLeft" role="button" tabindex="0" aria-label="Previous" onclick="anharSlideStep(-1);"><i class="fa fa-angle-left"></i></div>
+                <div class="bannerNav bannerNavRight" role="button" tabindex="0" aria-label="Next" onclick="anharSlideStep(1);"><i class="fa fa-angle-right"></i></div>
                 <div class ="arowSlideMain">
                     <div class ="arowSlideContainer">
                         <div id="counterObjSlide1" class ="counterBox" onclick="clickSlideTop(1);"></div>
@@ -486,6 +488,18 @@
 
         window.onload = initSlide;
         
+        // counterSlide already points at the NEXT slide, so the one on screen
+        // is counterSlide - 1.
+        function anharSlideStep(dir) {
+            var total = 4;
+            var cur = counterSlide - 1;
+            if (cur < 1) { cur = total; }
+            var target = cur + dir;
+            if (target > total) { target = 1; }
+            if (target < 1) { target = total; }
+            clickSlideTop(target);
+        }
+
         function clickSlideTop(oname){
             if (objectInterval) {
                 window.clearInterval(objectInterval);
@@ -876,7 +890,7 @@
     });
 </script>
 <script src="JS/swiper-bundle.min.js" type="text/javascript"></script>
-<script src="JS/news-slider.js?v=newsRtl1" type="text/javascript"></script>
+<script src="JS/news-slider.js?v=newsNav1" type="text/javascript"></script>
 
 
 <script type="text/javascript">

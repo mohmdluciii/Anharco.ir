@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title></title>
-     <link href="graphic/BodyGraphic.css?v=mob3" rel="stylesheet" />
+     <link href="graphic/BodyGraphic.css?v=nav1" rel="stylesheet" />
     <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
       <%--loading click--%>
    <script type="text/javascript" src="JS/1.6.2/jquery.min.js"></script>

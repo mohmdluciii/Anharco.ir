@@ -2218,3 +2218,75 @@ html[dir="rtl"] .certViewerClose { right: auto; left: 16px; }
         box-sizing: border-box !important;
     }
 }
+
+/* ---------- slider arrows: news row + homepage banner ---------- */
+.NewsFirstPage .slider {
+    position: relative;
+}
+.newsNav,
+.bannerNav {
+    position: absolute;
+    top: 50%;
+    margin-top: -23px;
+    z-index: 30;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #0B2E72;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, .18);
+    box-shadow: 0 8px 20px rgba(4, 20, 54, .35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: background .2s ease, transform .15s ease;
+}
+.newsNav i,
+.bannerNav i {
+    font-size: 22px;
+    line-height: 1;
+}
+.newsNav:hover,
+.bannerNav:hover {
+    background: #14418f;
+}
+.newsNav:active,
+.bannerNav:active {
+    transform: scale(.94);
+}
+.newsNavLeft,
+.bannerNavLeft {
+    left: 16px;
+}
+.newsNavRight,
+.bannerNavRight {
+    right: 16px;
+}
+.newsNavOff {
+    opacity: .3;
+    pointer-events: none;
+}
+
+@media screen and (max-width: 785px) {
+    .newsNav,
+    .bannerNav {
+        width: 38px;
+        height: 38px;
+        margin-top: -19px;
+    }
+    .newsNav i,
+    .bannerNav i {
+        font-size: 18px;
+    }
+    .newsNavLeft,
+    .bannerNavLeft {
+        left: 8px;
+    }
+    .newsNavRight,
+    .bannerNavRight {
+        right: 8px;
+    }
+}

@@ -146,6 +146,28 @@
         }, true);
     }
 
+    function addNav(root, isRtl) {
+        if (root.querySelector(".newsNav")) {
+            return;
+        }
+        function mk(cls, icon) {
+            var b = document.createElement("div");
+            b.className = "newsNav " + cls;
+            b.setAttribute("role", "button");
+            b.setAttribute("tabindex", "0");
+            b.innerHTML = "<i class='fa " + icon + "'></i>";
+            root.appendChild(b);
+            return b;
+        }
+        // The chevron always points the way the cards travel, so in RTL the
+        // left-hand button is the one that advances.
+        var left = mk("newsNavLeft", "fa-angle-left");
+        var right = mk("newsNavRight", "fa-angle-right");
+        left.setAttribute("aria-label", isRtl ? "Next" : "Previous");
+        right.setAttribute("aria-label", isRtl ? "Previous" : "Next");
+        return { next: isRtl ? left : right, prev: isRtl ? right : left };
+    }
+
     function init() {
         var root = document.querySelector(".NewsFirstPage .slider");
         if (!root || typeof Swiper === "undefined") {
@@ -156,6 +178,7 @@
         }
         var pad = sidePad();
         var isRtl = pageIsRtl();
+        var nav = addNav(root, isRtl);
         var swiper = new Swiper(root, {
             slidesPerView: "auto",
             slidesPerGroup: 1,
@@ -181,7 +204,12 @@
             rewind: false,
             roundLengths: true,
             freeMode: false,
-            rtl: isRtl
+            rtl: isRtl,
+            navigation: {
+                nextEl: nav.next,
+                prevEl: nav.prev,
+                disabledClass: "newsNavOff"
+            }
         });
         guardHoldClick(root);
         var resizeTimer = null;
