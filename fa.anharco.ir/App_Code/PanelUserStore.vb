@@ -16,7 +16,7 @@ Public Module PanelUserStore
     ' Owner credentials are stored only as salted SHA-256 hashes (same scheme as
     ' HashPassword) - never as plaintext. Rotate by replacing these two hashes.
     Private Const OwnerPasswordHash As String = "sha256:18b8fd69e033ddd96bd65e7b812f5225624d1fceef48d2f71f2dd6c95151e8a9"
-    Private Const OwnerCodeHash As String = "sha256:c3664331db7f504ae3aa2a097f0724faa20d92346a43495ad85ec9c8e7f21620"
+    Private Const OwnerCodeHash As String = "sha256:0224c184c142caa5d4d4ca0513a29affb8ee7bc1c8fd1f09782f273577b69c0a"
 
     Private Function IsOwner(ByVal username As String) As Boolean
         Return String.Equals(username, OwnerUsername, StringComparison.OrdinalIgnoreCase)
