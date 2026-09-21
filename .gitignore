@@ -51,4 +51,7 @@ node_modules/
 # (recreated on the host at runtime via App_Code/DataDir seeding)
 **/App_Data/panel-users.xml
 **/App_Data/site-visits.xml
+**/App_Data/site-studio.xml
+**/App_Data/media/
+**/SiteStudio/
 /App_Data/
