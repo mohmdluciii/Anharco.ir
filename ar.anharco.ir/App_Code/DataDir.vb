@@ -18,6 +18,9 @@ Imports System.Web
 Public Module DataDir
     Public Const FallbackFolderName As String = "SiteData"
     Private Const ProbeFileName As String = "anhar-write-test.tmp"
+    ' Both probe answers expire: a permission fixed on the host has to be
+    ' picked up, and one that gets revoked must stop reading as writable.
+    Private Const ProbeTtlMinutes As Double = 10
 
     Private ReadOnly KnownDataFiles() As String = {"panel-users.xml", "site-visits.xml", "site-studio.xml"}
 
@@ -68,12 +71,8 @@ Public Module DataDir
         SyncLock _probeLock
             Dim cached As ProbeResult = Nothing
             If _probeCache.TryGetValue(key, cached) Then
-                If cached.Ok Then
-                    Return True
-                End If
-                ' Re-probe failures after 10 minutes so host permission fixes take effect.
-                If now.Subtract(cached.CheckedAt).TotalMinutes < 10 Then
-                    Return False
+                If now.Subtract(cached.CheckedAt).TotalMinutes < ProbeTtlMinutes Then
+                    Return cached.Ok
                 End If
             End If
         End SyncLock

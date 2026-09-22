@@ -529,9 +529,9 @@ Public Module SiteStudioStore
                 ext = Path.GetExtension(fu.FileName).ToLowerInvariant()
                 bytes = fu.FileBytes
             ElseIf bytes.Length > 3 Then
-                ' The canvas encoder names its payload .webp, but cover frames
-                ' now send JPEG (server reshapes from the bitmap). Trust the
-                ' actual magic bytes, not the assumed extension.
+                ' The canvas encoder names its payload .webp; a browser that
+                ' cannot encode webp falls back to JPEG. Trust the actual magic
+                ' bytes, not the assumed extension.
                 If bytes(0) = &HFF AndAlso bytes(1) = &HD8 Then
                     ext = ".jpg"
                 ElseIf bytes(0) = &H89 AndAlso bytes(1) = &H50 Then

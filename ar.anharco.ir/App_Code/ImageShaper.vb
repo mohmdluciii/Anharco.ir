@@ -42,6 +42,14 @@ Public Module ImageShaper
         End Try
     End Function
 
+    Private Function LooksLikeWebp(ByVal bytes() As Byte) As Boolean
+        If bytes Is Nothing OrElse bytes.Length < 12 Then
+            Return False
+        End If
+        Return bytes(0) = &H52 AndAlso bytes(1) = &H49 AndAlso bytes(2) = &H46 AndAlso bytes(3) = &H46 _
+            AndAlso bytes(8) = &H57 AndAlso bytes(9) = &H45 AndAlso bytes(10) = &H42 AndAlso bytes(11) = &H50
+    End Function
+
     Private Function LooksLikeSvg(ByVal bytes() As Byte) As Boolean
         Try
             Dim head As String = System.Text.Encoding.ASCII.GetString(bytes, 0, Math.Min(bytes.Length, 300)).ToLowerInvariant()
@@ -61,6 +69,11 @@ Public Module ImageShaper
             Return Nothing
         End If
         If LooksLikeSvg(bytes) Then
+            Return Nothing
+        End If
+        If LooksLikeWebp(bytes) Then
+            ' The browser already cropped this to the slot ratio, and GDI+ has no
+            ' webp decoder anyway, so the bytes are stored exactly as they arrived.
             Return Nothing
         End If
         If frameW < 1 OrElse frameH < 1 Then

@@ -81,6 +81,6 @@
         </div>
     </div>
 </form>
-<script type="text/javascript" src="Graphic/StudioCrop.js?v=shape1"></script>
+<script type="text/javascript" src="Graphic/StudioCrop.js?v=webp1"></script>
 </body>
 </html>

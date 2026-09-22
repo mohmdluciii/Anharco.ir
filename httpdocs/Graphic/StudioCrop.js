@@ -14,13 +14,18 @@
     function isKeep(name) {
         return /\.(gif|ico|svg)$/i.test(name || "");
     }
-    // "cover" frames (sliders, collage tiles, cards) are re-shaped on the
-    // server from the decoded bitmap, so they must arrive in a format
-    // GDI+ can decode: JPEG. "contain" frames (logos, certificates) keep
-    // webp so transparency survives.
-    function frameWantsJpeg() {
-        var stage = $("cropStage");
-        return !!(stage && stage.getAttribute("data-fit") === "cover");
+    // Every upload is cropped to its slot ratio in the browser and encoded as
+    // webp, so the server can store the bytes untouched. GDI+ cannot decode
+    // webp, which is precisely why the shaping has to happen here.
+    function canWebp() {
+        var probe = document.createElement("canvas");
+        probe.width = 1;
+        probe.height = 1;
+        try {
+            return probe.toDataURL("image/webp").indexOf("image/webp") === 0;
+        } catch (ex) {
+            return false;
+        }
     }
     function blobToHidden(blob, hid) {
         if (!blob || !hid) { return; }
@@ -52,16 +57,9 @@
             var ctx = canvas.getContext("2d");
             try { ctx.drawImage(img, 0, 0, canvas.width, canvas.height); }
             catch (ex) { ctx.drawImage(img, 0, 0); }
-            var mime = "image/webp", quality = 0.82;
-            var probe = document.createElement("canvas");
-            probe.width = 1; probe.height = 1;
-            if (frameWantsJpeg()) {
-                // Server reshapes cover frames from the bitmap - send JPEG.
-                mime = "image/jpeg"; quality = 0.9;
-            } else if (probe.toDataURL("image/webp").indexOf("image/webp") < 0) {
-                // Browser cannot encode webp (old Safari) - use jpeg instead.
-                mime = "image/jpeg"; quality = 0.9;
-            }
+            var useWebp = canWebp();
+            var mime = useWebp ? "image/webp" : "image/jpeg";
+            var quality = useWebp ? 0.86 : 0.9;
             var finish = function (blob) {
                 if (blob && blob.size > 14 * 1024 * 1024) {
                     // Still too big - one more pass at lower quality.
@@ -216,13 +214,19 @@
             applyStage(stage, img, fit);
         };
     }
-    function cropVisible(stage, img, hidWebp) {
-        if (!stage || !img || !img.naturalWidth) { return; }
+    // Draws the picked image into a canvas that already has the slot's exact
+    // aspect ratio, honouring the pan/zoom sliders, and writes it straight into
+    // the hidden field. toDataURL is deliberate: it is synchronous, so this can
+    // run inside the submit handler without the postback racing the encoder.
+    // Contain frames are left unpainted so logo transparency survives.
+    function bakeToHidden(stage, img, hidWebp) {
+        if (!stage || !img || !img.naturalWidth || !hidWebp) { return; }
+        if (!hidWebp.value) { return; }
         var frame = frameOf(stage);
         var cs = getComputedStyle(stage);
         var rw = parseFloat(cs.getPropertyValue("--crop-w")) || stage.clientWidth || 16;
         var rh = parseFloat(cs.getPropertyValue("--crop-h")) || stage.clientHeight || 9;
-        var longSide = 1600;
+        var longSide = 2000;
         var canvas = document.createElement("canvas");
         if (rw >= rh) {
             canvas.width = longSide;
@@ -232,13 +236,21 @@
             canvas.width = Math.max(16, Math.round(longSide * rw / rh));
         }
         var ctx = canvas.getContext("2d");
-        var fit = parseFit((document.getElementById("hidFit") || {}).value);
-        ctx.fillStyle = frame.fit === "contain" ? "#f4f7fb" : "#0b1730";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        drawFitted(ctx, img, canvas.width, canvas.height, fit, frame.fit);
-        if (canvas.toBlob) {
-            canvas.toBlob(function (blob) { blobToHidden(blob, hidWebp); }, "image/webp", 0.86);
+        if (frame.fit !== "contain") {
+            ctx.fillStyle = "#0b1730";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
         }
+        var fit = parseFit((document.getElementById("hidFit") || {}).value);
+        drawFitted(ctx, img, canvas.width, canvas.height, fit, frame.fit);
+        var useWebp = canWebp();
+        try {
+            hidWebp.value = canvas.toDataURL(useWebp ? "image/webp" : "image/jpeg", useWebp ? 0.86 : 0.9);
+        } catch (ex) {
+        }
+    }
+
+    function cropVisible(stage, img, hidWebp) {
+        bakeToHidden(stage, img, hidWebp);
     }
     window.studioMediaInit = function () {
         var fu = $("fuFile") || $("fuPhoto");
@@ -283,6 +295,12 @@
                 cropVisible(stage, img, hidWebp);
                 return false;
             };
+        }
+        var theForm = (fu && fu.form) || document.getElementById("form1");
+        if (theForm && theForm.addEventListener) {
+            theForm.addEventListener("submit", function () {
+                bakeToHidden(stage, img, hidWebp);
+            }, false);
         }
         if (btnReset) {
             btnReset.onclick = function () {
