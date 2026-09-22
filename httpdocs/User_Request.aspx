@@ -6,7 +6,6 @@
 <head id="Head1" runat="server">
     <title>Untitled Page</title>
     
-   <link href = "https://fonts.googleapis.com/icon?family=Material+Icons" rel = "stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="graphic/design.css" rel="stylesheet" />
     <script type ="text/javascript" src="jquery.js"></script>
       <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css" />
