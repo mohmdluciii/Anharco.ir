@@ -114,6 +114,16 @@ Public Module StudioNav
         If key.StartsWith("news") Then
             Return key.Split("_"c)(0)
         End If
+        If key.StartsWith("proj_") Then
+            Dim suffixes() As String = {"_image", "_title", "_employer", "_text"}
+            Dim s As String
+            For Each s In suffixes
+                If key.EndsWith(s) Then
+                    Return key.Substring(0, key.Length - s.Length)
+                End If
+            Next
+            Return key
+        End If
         If key.StartsWith("social_") Then
             Return key.Replace("_icon", "")
         End If
@@ -171,6 +181,13 @@ Public Module StudioNav
         End If
         If part = "footer" Then
             Return "لوگو و متن فوتر"
+        End If
+        If part.StartsWith("proj_") Then
+            Dim j As Integer = part.Length
+            While j > 0 AndAlso Char.IsDigit(part(j - 1))
+                j -= 1
+            End While
+            Return "پروژه " & part.Substring(j)
         End If
         If f IsNot Nothing Then
             Return f.Title

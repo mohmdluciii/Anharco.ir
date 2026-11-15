@@ -111,34 +111,39 @@ Public Module SiteStudioCatalog
         Img("pic_logogz", "about", "لوگوی کارفرما گاز", "images/logogz.png", "Employers.aspx", "")
 
         Hero("hero_GasBoosterStation", "projects", "تقویت فشار گاز - عکس هدر", "images/GasboosterstationAnhar.jpg", "GasBoosterStation.aspx")
-        For i = 1 To 7
+        For i = 1 To 12
             Img("proj_gas" & i & "_image", "projects", "تقویت فشار - پروژه " & i & " - عکس", "Pic_Project/Project_Tghviat_feshar_gaz_homa.jpg", "GasBoosterStation.aspx", "")
             Txt("proj_gas" & i & "_title", "projects", "تقویت فشار - پروژه " & i & " - عنوان", "", "GasBoosterStation.aspx", "")
             Txt("proj_gas" & i & "_employer", "projects", "تقویت فشار - پروژه " & i & " - کارفرما", "", "GasBoosterStation.aspx", "")
+            Txt("proj_gas" & i & "_text", "projects", "تقویت فشار - پروژه " & i & " - متن و توضیحات", "", "GasBoosterStation.aspx", "")
         Next
         Hero("hero_pipelines", "projects", "خطوط لوله - عکس هدر", "images/pipelinesAnhar.jpg", "pipelines.aspx")
-        For i = 1 To 8
+        For i = 1 To 13
             Img("proj_pipe" & i & "_image", "projects", "خطوط لوله - پروژه " & i & " - عکس", "images/pipelinesAnhar.jpg", "pipelines.aspx", "")
             Txt("proj_pipe" & i & "_title", "projects", "خطوط لوله - پروژه " & i & " - عنوان", "", "pipelines.aspx", "")
             Txt("proj_pipe" & i & "_employer", "projects", "خطوط لوله - پروژه " & i & " - کارفرما", "", "pipelines.aspx", "")
+            Txt("proj_pipe" & i & "_text", "projects", "خطوط لوله - پروژه " & i & " - متن و توضیحات", "", "pipelines.aspx", "")
         Next
         Hero("hero_building", "projects", "ابنیه و ساختمان - عکس هدر", "images/buildingAnhar.jpg", "building.aspx")
-        For i = 1 To 7
+        For i = 1 To 12
             Img("proj_build" & i & "_image", "projects", "ابنیه - پروژه " & i & " - عکس", "images/buildingAnhar.jpg", "building.aspx", "")
             Txt("proj_build" & i & "_title", "projects", "ابنیه - پروژه " & i & " - عنوان", "", "building.aspx", "")
             Txt("proj_build" & i & "_employer", "projects", "ابنیه - پروژه " & i & " - کارفرما", "", "building.aspx", "")
+            Txt("proj_build" & i & "_text", "projects", "ابنیه - پروژه " & i & " - متن و توضیحات", "", "building.aspx", "")
         Next
         Hero("hero_FacilitiesEquipment", "projects", "تاسیسات و تجهیزات - عکس هدر", "images/FacilitiesEquipmentAnhar.jpg", "FacilitiesEquipment.aspx")
-        For i = 1 To 4
+        For i = 1 To 9
             Img("proj_fac" & i & "_image", "projects", "تاسیسات - پروژه " & i & " - عکس", "images/FacilitiesEquipmentAnhar.jpg", "FacilitiesEquipment.aspx", "")
             Txt("proj_fac" & i & "_title", "projects", "تاسیسات - پروژه " & i & " - عنوان", "", "FacilitiesEquipment.aspx", "")
             Txt("proj_fac" & i & "_employer", "projects", "تاسیسات - پروژه " & i & " - کارفرما", "", "FacilitiesEquipment.aspx", "")
+            Txt("proj_fac" & i & "_text", "projects", "تاسیسات - پروژه " & i & " - متن و توضیحات", "", "FacilitiesEquipment.aspx", "")
         Next
         Hero("hero_WateTransmissionPipelines", "projects", "خطوط لوله آب - عکس هدر", "images/WaterTransmissionPipelines.jpg", "WateTransmissionPipelines.aspx")
-        For i = 1 To 3
+        For i = 1 To 8
             Img("proj_water" & i & "_image", "projects", "خطوط آب - پروژه " & i & " - عکس", "images/WaterTransmissionPipelines.jpg", "WateTransmissionPipelines.aspx", "")
             Txt("proj_water" & i & "_title", "projects", "خطوط آب - پروژه " & i & " - عنوان", "", "WateTransmissionPipelines.aspx", "")
             Txt("proj_water" & i & "_employer", "projects", "خطوط آب - پروژه " & i & " - کارفرما", "", "WateTransmissionPipelines.aspx", "")
+            Txt("proj_water" & i & "_text", "projects", "خطوط آب - پروژه " & i & " - متن و توضیحات", "", "WateTransmissionPipelines.aspx", "")
         Next
 
         Hero("hero_DesignServices", "services", "خدمات طراحی - عکس هدر", "images/Services-Design-Anhar.jpg", "DesignServices.aspx")
@@ -486,6 +491,9 @@ Public Module SiteStudioCatalog
         End If
         If key.StartsWith("pic_") Then
             Return CropBox("cover", 16, 9, "rect", "img", "عکس داخلی صفحه — افقی ۱۶:۹")
+        End If
+        If key.StartsWith("proj_") AndAlso key.IndexOf("image") >= 0 Then
+            Return CropBox("cover", 16, 9, "rect", "img", "عکس پروژه — افقی ۱۶:۹")
         End If
         Return CropBox("cover", 16, 9, "rect", "img", "قاب سایت — افقی ۱۶:۹")
     End Function

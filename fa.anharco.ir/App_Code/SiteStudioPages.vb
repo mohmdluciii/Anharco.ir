@@ -178,6 +178,9 @@ Public Class SiteStudioPage
         If key.StartsWith("news") Then
             Return key.Split("_"c)(0)
         End If
+        If key.StartsWith("proj_") Then
+            Return ProjPartOf(key)
+        End If
         If key.StartsWith("social_") Then
             Return key.Replace("_icon", "")
         End If
@@ -185,6 +188,38 @@ Public Class SiteStudioPage
             Return "footer"
         End If
         Return key
+    End Function
+
+    ''' <summary>
+    ''' "proj_gas1_image" / "proj_gas1_title" / "proj_gas1_employer" / "proj_gas1_text"
+    ''' all collapse to the compound part "proj_gas1" so one project is one edit card.
+    ''' </summary>
+    Private Function ProjPartOf(ByVal key As String) As String
+        Dim suffixes() As String = {"_image", "_title", "_employer", "_text"}
+        Dim s As String
+        For Each s In suffixes
+            If key.EndsWith(s) Then
+                Return key.Substring(0, key.Length - s.Length)
+            End If
+        Next
+        Return key
+    End Function
+
+    Private Function ProjCategoryTitle(ByVal pageFile As String) As String
+        If pageFile = "GasBoosterStation.aspx" Then Return "تقویت فشار گاز"
+        If pageFile = "pipelines.aspx" Then Return "خطوط لوله"
+        If pageFile = "building.aspx" Then Return "ابنیه و ساختمان"
+        If pageFile = "FacilitiesEquipment.aspx" Then Return "تاسیسات و تجهیزات"
+        If pageFile = "WateTransmissionPipelines.aspx" Then Return "خطوط انتقال آب"
+        Return "پروژه"
+    End Function
+
+    Private Function ProjNumFromPart(ByVal part As String) As String
+        Dim j As Integer = part.Length
+        While j > 0 AndAlso Char.IsDigit(part(j - 1))
+            j -= 1
+        End While
+        Return part.Substring(j)
     End Function
 
     Private Function ImageKeyFor(ByVal part As String, ByVal f As StudioField) As String
@@ -248,6 +283,9 @@ Public Class SiteStudioPage
         End If
         If part = "footer" Then
             Return "لوگو و متن فوتر"
+        End If
+        If part.StartsWith("proj_") Then
+            Return ProjCategoryTitle(f.PageFile) & " - پروژه " & ProjNumFromPart(part)
         End If
         Return f.Title
     End Function
@@ -536,6 +574,22 @@ Public Class SiteStudioEditPage
                 txt4.CssClass = "ltrInput"
             End If
             rowFile.GroupingText = "عکس خبر"
+        ElseIf part.StartsWith("proj_") Then
+            Dim cat As String = ProjCatFromPart(part)
+            Dim n As String = ProjNumFromPart(part)
+            lblHead.Text = ProjCatLabel(cat) & " - پروژه " & n
+            lblHint.Text = "اگر عنوان را خالی بگذارید و ذخیره کنید، این پروژه دوباره از سایت مخفی می شود. برای افزودن پروژه جدید، یکی از اسلات های خالی را همین جا پر کنید."
+            row1.Visible = True
+            lbl1.Text = "عنوان / نام پروژه"
+            row2.Visible = True
+            lbl2.Text = "کارفرما"
+            row3.Visible = True
+            lbl3.Text = "متن و توضیحات پروژه"
+            If txt3 IsNot Nothing Then
+                txt3.TextMode = TextBoxMode.MultiLine
+                txt3.Rows = 5
+            End If
+            rowFile.GroupingText = "عکس پروژه"
         Else
             Dim f As StudioField = SiteStudioCatalog.Find(part)
             If f Is Nothing Then
@@ -644,6 +698,25 @@ Public Class SiteStudioEditPage
             ApplyAlign(txt1, hidAlign1, "news" & n & "_title")
             ApplyAlign(txt2, hidAlign2, "news" & n & "_date")
             ApplyAlign(txt3, hidAlign3, "news" & n & "_text")
+        ElseIf part.StartsWith("proj_") Then
+            Dim cat As String = ProjCatFromPart(part)
+            Dim n As Integer = CInt(ProjNumFromPart(part))
+            txt1.Text = ValOr(lang, part & "_title")
+            If txt1.Text = "" Then
+                txt1.Text = LocalProjectFallback.DefaultTitle(cat, n, lang)
+            End If
+            txt2.Text = ValOr(lang, part & "_employer")
+            If txt2.Text = "" Then
+                txt2.Text = LocalProjectFallback.DefaultEmployer(cat, n, lang)
+            End If
+            txt3.Text = ValOr(lang, part & "_text")
+            If txt3.Text = "" Then
+                txt3.Text = LocalProjectFallback.DefaultText(cat, n, lang)
+            End If
+            ApplyAlign(txt1, hidAlign1, part & "_title")
+            ApplyAlign(txt2, hidAlign2, part & "_employer")
+            ApplyAlign(txt3, hidAlign3, part & "_text")
+            ShowPreview(SiteStudioStore.PreviewUrl(lang, part & "_image", LocalProjectFallback.DefaultImage(cat, n)))
         Else
             Dim f As StudioField = SiteStudioCatalog.Find(part)
             If f Is Nothing Then
@@ -716,6 +789,13 @@ Public Class SiteStudioEditPage
             SaveAlign(hidAlign2, "news" & n & "_date")
             SaveAlign(hidAlign3, "news" & n & "_text")
             Put(sync, "news" & n & "_link", txt4.Text)
+        ElseIf part.StartsWith("proj_") Then
+            SaveAndTranslate(part & "_title", txt1.Text)
+            SaveAndTranslate(part & "_employer", txt2.Text)
+            SaveAndTranslate(part & "_text", txt3.Text)
+            SaveAlign(hidAlign1, part & "_title")
+            SaveAlign(hidAlign2, part & "_employer")
+            SaveAlign(hidAlign3, part & "_text")
         Else
             Dim f As StudioField = SiteStudioCatalog.Find(part)
             If f Is Nothing Then
@@ -860,6 +940,9 @@ Public Class SiteStudioEditPage
         If part.StartsWith("news") Then
             Return part & "_image"
         End If
+        If part.StartsWith("proj_") Then
+            Return part & "_image"
+        End If
         If part.StartsWith("social_") Then
             Return part & "_icon"
         End If
@@ -868,6 +951,34 @@ Public Class SiteStudioEditPage
             Return f.Key
         End If
         Return ""
+    End Function
+
+    ' "proj_gas1" -> "gas" ; "proj_water3" -> "water"
+    Private Function ProjCatFromPart(ByVal part As String) As String
+        Dim rest As String = part.Substring(5) ' strip "proj_"
+        Dim j As Integer = rest.Length
+        While j > 0 AndAlso Char.IsDigit(rest(j - 1))
+            j -= 1
+        End While
+        Return rest.Substring(0, j)
+    End Function
+
+    ' "proj_gas1" -> "1" ; "proj_water12" -> "12"
+    Private Function ProjNumFromPart(ByVal part As String) As String
+        Dim j As Integer = part.Length
+        While j > 0 AndAlso Char.IsDigit(part(j - 1))
+            j -= 1
+        End While
+        Return part.Substring(j)
+    End Function
+
+    Private Function ProjCatLabel(ByVal cat As String) As String
+        If cat = "gas" Then Return "تقویت فشار گاز"
+        If cat = "pipe" Then Return "خطوط لوله"
+        If cat = "build" Then Return "ابنیه و ساختمان"
+        If cat = "fac" Then Return "تاسیسات و تجهیزات"
+        If cat = "water" Then Return "خطوط انتقال آب"
+        Return "پروژه"
     End Function
 
     Private Sub LoadFit()

@@ -30,11 +30,15 @@ Public Module StudioNav
             Dim onGroup As Boolean = (fileName = "sitestudio.aspx" AndAlso groupId = g(0))
             sb.Append(DockLink(href, g(1), onGroup, IconOf(g(0))))
         Next
-        sb.Append("<div class=""studioDockHead"">کاربران پنل</div>")
-        sb.Append(DockLink("PanelUsers.aspx?kind=admin", "مدیر سامانه", fileName.StartsWith("admin_") OrElse (fileName = "panelusers.aspx" AndAlso Convert.ToString(HttpContext.Current.Request("kind")) <> "person"), "fa-user-circle"))
-        sb.Append(DockLink("PanelUsers.aspx?kind=person", "پرسنل", fileName.StartsWith("person_") OrElse (fileName = "panelusers.aspx" AndAlso Convert.ToString(HttpContext.Current.Request("kind")) = "person"), "fa-users"))
+        If LocalPanelSupport.IsSupervisor() Then
+            sb.Append("<div class=""studioDockHead"">کاربران پنل</div>")
+            sb.Append(DockLink("PanelUsers.aspx?kind=admin", "مدیر سامانه", fileName.StartsWith("admin_") OrElse (fileName = "panelusers.aspx" AndAlso Convert.ToString(HttpContext.Current.Request("kind")) <> "person"), "fa-user-circle"))
+            sb.Append(DockLink("PanelUsers.aspx?kind=person", "پرسنل", fileName.StartsWith("person_") OrElse (fileName = "panelusers.aspx" AndAlso Convert.ToString(HttpContext.Current.Request("kind")) = "person"), "fa-users"))
+            sb.Append(DockLink("DataStatus.aspx", "وضعیت ذخیره", fileName = "datastatus.aspx", "fa-database"))
+        End If
         sb.Append("</aside>")
         sb.Append("<a class=""studioDockFab"" href=""#studioDock"" title=""بخش ها""><i class=""fa fa-th-large""></i></a>")
+        sb.Append("<script type=""text/javascript"" src=""Graphic/PanelAvatar.js?v=av2""></script>")
         sb.Append("<script type=""text/javascript"" src=""Graphic/PanelClock.js?v=clk2""></script>")
         Return sb.ToString()
     End Function
@@ -110,6 +114,16 @@ Public Module StudioNav
         If key.StartsWith("news") Then
             Return key.Split("_"c)(0)
         End If
+        If key.StartsWith("proj_") Then
+            Dim suffixes() As String = {"_image", "_title", "_employer", "_text"}
+            Dim s As String
+            For Each s In suffixes
+                If key.EndsWith(s) Then
+                    Return key.Substring(0, key.Length - s.Length)
+                End If
+            Next
+            Return key
+        End If
         If key.StartsWith("social_") Then
             Return key.Replace("_icon", "")
         End If
@@ -167,6 +181,13 @@ Public Module StudioNav
         End If
         If part = "footer" Then
             Return "لوگو و متن فوتر"
+        End If
+        If part.StartsWith("proj_") Then
+            Dim j As Integer = part.Length
+            While j > 0 AndAlso Char.IsDigit(part(j - 1))
+                j -= 1
+            End While
+            Return "پروژه " & part.Substring(j)
         End If
         If f IsNot Nothing Then
             Return f.Title
